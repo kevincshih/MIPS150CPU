@@ -22,6 +22,6 @@ module UATransmit(
 
   //--|Solution|----------------------------------------------------------------
 
-  reg [9:0] DataOut = {1'b0, DataIn, 1'b1}
+  reg [9:0] DataOut = {1'b0 DataIn 1'b1}
 
 endmodule
