@@ -1,0 +1,209 @@
+Release 14.1 Map P.15xf (lin64)
+Xilinx Mapping Report File for Design 'FPGA_TOP_ML505'
+
+Design Information
+------------------
+Command Line   : map -w -logic_opt off -ol high -t 1 -register_duplication off
+-global_opt off -mt off -cm area -ir off -pr off -lc off -power off -p
+xc5vlx110t-ff1136-1 -o FPGA_TOP_ML505_map.ncd FPGA_TOP_ML505.ngd
+FPGA_TOP_ML505.pcf 
+Target Device  : xc5vlx110t
+Target Package : ff1136
+Target Speed   : -1
+Mapper Version : virtex5 -- $Revision: 1.55 $
+Mapped Date    : Wed Sep 12 17:09:32 2012
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    0
+Slice Logic Utilization:
+  Number of Slice Registers:                    84 out of  69,120    1%
+    Number used as Flip Flops:                  84
+  Number of Slice LUTs:                        174 out of  69,120    1%
+    Number used as logic:                      169 out of  69,120    1%
+      Number using O6 output only:             168
+      Number using O5 output only:               1
+    Number used as Memory:                       2 out of  17,920    1%
+      Number used as Shift Register:             2
+        Number using O6 output only:             2
+    Number used as exclusive route-thru:         3
+  Number of route-thrus:                         3
+    Number using O5 and O6:                      3
+
+Slice Logic Distribution:
+  Number of occupied Slices:                    59 out of  17,280    1%
+  Number of LUT Flip Flop pairs used:          185
+    Number with an unused Flip Flop:           101 out of     185   54%
+    Number with an unused LUT:                  11 out of     185    5%
+    Number of fully used LUT-FF pairs:          73 out of     185   39%
+    Number of unique control sets:               4
+    Number of slice register sites lost
+      to control set restrictions:              10 out of  69,120    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+  OVERMAPPING of BRAM resources should be ignored if the design is
+  over-mapped for a non-BRAM resource or if placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        31 out of     640    4%
+    Number of LOCed IOBs:                       31 out of      31  100%
+
+Specific Feature Utilization:
+  Number of BUFG/BUFGCTRLs:                      1 out of      32    3%
+    Number used as BUFGs:                        1
+
+Average Fanout of Non-Clock Nets:                4.68
+
+Peak Memory Usage:  1032 MB
+Total REAL time to MAP completion:  1 mins 4 secs 
+Total CPU time to MAP completion:   56 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network GPIO_DIP<7>_IBUF has no load.
+INFO:LIT:395 - The above info message is repeated 11 more times for the
+   following (max. 5 shown):
+   GPIO_DIP<6>_IBUF,
+   GPIO_DIP<5>_IBUF,
+   GPIO_DIP<4>_IBUF,
+   GPIO_DIP<3>_IBUF,
+   GPIO_DIP<2>_IBUF
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 0.950 Volts. (default - Range: 0.950 to
+   1.050 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   2 block(s) optimized away
+
+Section 5 - Removed Logic
+-------------------------
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CLK_33MHZ_FPGA                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| FPGA_CPU_RESET_B                   | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| FPGA_ROTARY_INCA                   | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| FPGA_ROTARY_INCB                   | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| FPGA_ROTARY_PUSH                   | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_COMPLED<0>                    | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPLED<1>                    | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPLED<2>                    | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPLED<3>                    | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPLED<4>                    | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPSW<0>                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_COMPSW<1>                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_COMPSW<2>                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_COMPSW<3>                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_COMPSW<4>                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_DIP<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<4>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<5>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<6>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<7>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_LED<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

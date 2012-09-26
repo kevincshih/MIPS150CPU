@@ -1,0 +1,5 @@
+1) "done" wire was set to ~ram_zero instead of ram_zero. This prevented wr_en and addr_sel from changing, which was revealed on chipscope. Also I used the wrong function (SLL) on the accumulator, and chipscope indicated that alu_op was 8 (SLL) instead of 0 (ADDU).
+
+2)Chipscope took more time and effort because I had to program the FPGA before I could test my code.
+
+3)Chipscope could catch timing errors which are overlooked by simulation. So it would be more appropriate to use Chipscope when timing is important, otherwise Modelsim is fine.

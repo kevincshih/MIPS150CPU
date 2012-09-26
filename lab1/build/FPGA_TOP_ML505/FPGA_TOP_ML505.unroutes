@@ -1,0 +1,24 @@
+Release 14.1 - par P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Wed Sep 12 17:11:40 2012
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 12 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   GPIO_COMPSW<1>_IBUF
+   GPIO_COMPSW<2>_IBUF
+   GPIO_COMPSW<3>_IBUF
+   GPIO_COMPSW<4>_IBUF
+   GPIO_DIP<0>_IBUF
+   GPIO_DIP<1>_IBUF
+   GPIO_DIP<2>_IBUF
+   GPIO_DIP<3>_IBUF
+   GPIO_DIP<4>_IBUF
+   GPIO_DIP<5>_IBUF
+   GPIO_DIP<6>_IBUF
+   GPIO_DIP<7>_IBUF
+
+

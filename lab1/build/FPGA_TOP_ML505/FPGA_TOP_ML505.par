@@ -1,0 +1,150 @@
+Release 14.1 par P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+p380-12.EECS.Berkeley.EDU::  Wed Sep 12 17:10:44 2012
+
+par -w -ol high -mt off FPGA_TOP_ML505_map.ncd FPGA_TOP_ML505.ncd
+FPGA_TOP_ML505.pcf 
+
+
+Constraints file: FPGA_TOP_ML505.pcf.
+Loading device for application Rf_Device from file '5vlx110t.nph' in environment /opt/Xilinx/14.1/ISE_DS/ISE/.
+   "FPGA_TOP_ML505" is an NCD, version 3.2, device xc5vlx110t, package ff1136, speed -1
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 0.950 Volts. (default - Range: 0.950 to 1.050 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.73 2012-04-23".
+
+
+
+Device Utilization Summary:
+
+   Number of BUFGs                           1 out of 32      3%
+   Number of External IOBs                  31 out of 640     4%
+      Number of LOCed IOBs                  31 out of 31    100%
+
+   Number of Slices                         59 out of 17280   1%
+   Number of Slice Registers                84 out of 69120   1%
+      Number used as Flip Flops             84
+      Number used as Latches                 0
+      Number used as LatchThrus              0
+
+   Number of Slice LUTS                    174 out of 69120   1%
+   Number of Slice LUT-Flip Flop pairs     185 out of 69120   1%
+
+
+Overall effort level (-ol):   High 
+Router effort level (-rl):    High 
+
+Starting initial Timing Analysis.  REAL time: 24 secs 
+Finished initial Timing Analysis.  REAL time: 24 secs 
+
+WARNING:Par:288 - The signal GPIO_COMPSW<4>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<1>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<2>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<3>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<4>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<5>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<6>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_DIP<7>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_COMPSW<1>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_COMPSW<2>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal GPIO_COMPSW<3>_IBUF has no load.  PAR will not attempt to route this signal.
+Starting Router
+
+
+Phase  1  : 1032 unrouted;      REAL time: 28 secs 
+
+Phase  2  : 987 unrouted;      REAL time: 29 secs 
+
+Phase  3  : 420 unrouted;      REAL time: 30 secs 
+
+Phase  4  : 420 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 42 secs 
+
+Updating file: FPGA_TOP_ML505.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+
+Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+
+Phase 10  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 44 secs 
+Total REAL time to Router completion: 44 secs 
+Total CPU time to Router completion: 42 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|               Clock | BUFGCTRL_X0Y0| No   |   28 |  0.472     |  2.018      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 0 (Setup: 0, Hold: 0, Component Switching Limit: 0)
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+  TS_USER_CLK = PERIOD TIMEGRP "CLK_33MHZ_F | SETUP       |    24.889ns|     5.411ns|       0|           0
+  PGA" 30.3 ns HIGH 50%                     | HOLD        |     0.472ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 12 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 55 secs 
+Total CPU time to PAR completion: 53 secs 
+
+Peak Memory Usage:  825 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+Timing: Completed - No errors found.
+
+Number of error messages: 0
+Number of warning messages: 14
+Number of info messages: 0
+
+Writing design to file FPGA_TOP_ML505.ncd
+
+
+
+PAR done!

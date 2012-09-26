@@ -1,0 +1,577 @@
+Release 14.1 Map P.15xf (lin64)
+Xilinx Mapping Report File for Design 'ml505top'
+
+Design Information
+------------------
+Command Line   : map -w -logic_opt off -ol high -t 1 -register_duplication off
+-global_opt off -mt off -cm area -ir off -pr off -lc off -power off -p
+xc5vlx110t-ff1136-1 -o ml505top_map.ncd ml505top.ngd ml505top.pcf 
+Target Device  : xc5vlx110t
+Target Package : ff1136
+Target Speed   : -1
+Mapper Version : virtex5 -- $Revision: 1.55 $
+Mapped Date    : Tue Sep 25 17:09:43 2012
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   20
+Slice Logic Utilization:
+  Number of Slice Registers:                   527 out of  69,120    1%
+    Number used as Flip Flops:                 525
+    Number used as Latches:                      2
+  Number of Slice LUTs:                        872 out of  69,120    1%
+    Number used as logic:                      684 out of  69,120    1%
+      Number using O6 output only:             596
+      Number using O5 output only:              55
+      Number using O5 and O6:                   33
+    Number used as Memory:                     158 out of  17,920    1%
+      Number used as Shift Register:           158
+        Number using O6 output only:           157
+        Number using O5 output only:             1
+    Number used as exclusive route-thru:        30
+  Number of route-thrus:                        85
+    Number using O6 output only:                84
+    Number using O5 and O6:                      1
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   444 out of  17,280    2%
+  Number of LUT Flip Flop pairs used:        1,084
+    Number with an unused Flip Flop:           557 out of   1,084   51%
+    Number with an unused LUT:                 212 out of   1,084   19%
+    Number of fully used LUT-FF pairs:         315 out of   1,084   29%
+    Number of unique control sets:              58
+    Number of slice register sites lost
+      to control set restrictions:             131 out of  69,120    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+  OVERMAPPING of BRAM resources should be ignored if the design is
+  over-mapped for a non-BRAM resource or if placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        17 out of     640    2%
+    Number of LOCed IOBs:                       17 out of      17  100%
+
+Specific Feature Utilization:
+  Number of BlockRAM/FIFO:                       5 out of     148    3%
+    Number using BlockRAM only:                  5
+    Total primitives used:
+      Number of 36k BlockRAM used:               5
+    Total Memory used (KB):                    180 out of   5,328    3%
+  Number of BUFG/BUFGCTRLs:                      2 out of      32    6%
+    Number used as BUFGs:                        2
+  Number of BSCANs:                              1 out of       4   25%
+
+  Number of RPM macros:            6
+Average Fanout of Non-Clock Nets:                3.72
+
+Peak Memory Usage:  1051 MB
+Total REAL time to MAP completion:  2 mins 32 secs 
+Total CPU time to MAP completion:   2 mins 30 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/blk_mem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init
+   .ram/SP.SINGLE_PRIM36.SP
+   of frag REGCLKAU connected to power/ground net
+   datapath/blk_mem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init
+   .ram/SP.SINGLE_PRIM36.SP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/blk_mem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init
+   .ram/SP.SINGLE_PRIM36.SP
+   of frag REGCLKAL connected to power/ground net
+   datapath/blk_mem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init
+   .ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[0].u
+   _ramb36/U_RAMB36_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[1].u
+   _ramb36/U_RAMB36_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[2].u
+   _ramb36/U_RAMB36_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36
+   of frag REGCLKAL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBU connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36
+   of frag REGCLKBL connected to power/ground net
+   datapath/ila/U0/I_YES_D.U_ILA/U_CAPSTOR/I_CASE1.I_YES_TB.U_TRACE_BUFFER/U_RAM
+   /I_V5.U_CS_BRAM_CASCADE_V5/I_DEPTH_LTEQ_32K.U_SBRAM_0/I_B36KGT0.G_RAMB36[3].u
+   _ramb36/U_RAMB36_REGCLKBL_tiesig
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   datapath/chipscope_control<13> is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   controller/reg_addr_sel_or0000 is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network datapath/chipscope_control<10> has no load.
+INFO:LIT:395 - The above info message is repeated 23 more times for the
+   following (max. 5 shown):
+   datapath/chipscope_control<11>,
+   datapath/chipscope_control<15>,
+   datapath/chipscope_control<16>,
+   datapath/chipscope_control<17>,
+   datapath/chipscope_control<18>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 0.950 Volts. (default - Range: 0.950 to
+   1.050 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  48 block(s) removed
+ 150 block(s) optimized away
+  32 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[10].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[11].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[12].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[13].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[14].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[1].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[2].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[3].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[4].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[5].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[6].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[7].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[8].U_LUT"
+(ROM) removed.
+Loadless block "datapath/icon/U0/U_ICON/U_CMD/U_CORE_ID_SEL/I4.FI[9].U_LUT"
+(ROM) removed.
+Loadless block "datapath/ila/U0/I_YES_D.U_ILA/U_STAT/U_DSR" (ROM) removed.
+The signal "datapath/chipscope_control<10>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<11>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<15>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<16>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<17>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<18>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<19>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<21>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<22>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<23>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<24>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<25>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<26>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<27>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<28>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<29>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<30>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<31>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<32>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<33>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<34>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<35>" is sourceless and has been removed.
+The signal "datapath/chipscope_control<7>" is sourceless and has been removed.
+The signal
+"datapath/ila/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match
+/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0
+.U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[3]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[3].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[3].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[6]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[6].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[6].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[7]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[7].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[7].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[11]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[11].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[11].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[12]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[12].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[12].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[13]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[13].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[13].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[14]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[14].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[14].U_LCE"
+(ROM) removed.
+The signal "datapath/icon/U0/U_ICON/iCOMMAND_SEL[15]" is sourceless and has been
+removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[15].U_HCE"
+(ROM) removed.
+ Sourceless block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[15].U_LCE"
+(ROM) removed.
+Unused block "datapath/blk_mem/GND" (ZERO) removed.
+Unused block "datapath/blk_mem/VCC" (ONE) removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[11].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[12].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[13].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[14].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[15].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[3].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[6].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[7].U_LUT" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[1].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[2].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[4].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[5].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[8].U_HCE" (ROM)
+removed.
+Unused block "datapath/icon/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_HCE" (ROM)
+removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+VCC 		XST_VCC
+GND 		datapath/blk_mem/BU2/XST_GND
+VCC 		datapath/blk_mem/BU2/XST_VCC
+GND 		datapath/icon/XST_GND
+VCC 		datapath/icon/XST_VCC
+GND
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAN
+D.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLI
+CE.U_GAND_SRL_SLICE/XST_GND
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAN
+D.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SLI
+CE.U_GAND_SRL_SLICE/XST_VCC
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAN
+D.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/XST_VCC
+GND
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SL
+ICE.U_GAND_SRL_SLICE/XST_GND
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SL
+ICE.U_GAND_SRL_SLICE/XST_VCC
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/XST_VCC
+GND
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SL
+ICE.U_GAND_SRL_SLICE/XST_GND
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/I_PARTIAL_SL
+ICE.U_GAND_SRL_SLICE/XST_VCC
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GA
+ND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/XST_VCC
+LUT4 		datapath/ila/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[10].I_STAT.U_STAT
+   optimized to 0
+LUT4 		datapath/ila/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[6].I_STAT.U_STAT
+   optimized to 0
+LUT4 		datapath/ila/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[7].I_STAT.U_STAT
+   optimized to 0
+GND
+		datapath/ila/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_matc
+h/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE
+0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_matc
+h/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE
+0.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
+VCC
+		datapath/ila/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_matc
+h/I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE
+0.U_GAND_SRL_SET/XST_VCC
+GND 		datapath/ila/XST_GND
+VCC 		datapath/ila/XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CLK_33MHZ_FPGA                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_COMPLED_C                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| GPIO_COMPSW_C                      | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| GPIO_DIP<0>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<1>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<2>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<3>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<4>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_DIP<5>                        | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_LED<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LED<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_SCNT_CMP/I_CS_GAND.
+U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/U_SCNT_CMP/I_CS
+_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET_MSET
+datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_HCMP/I_CS_GAND
+.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/U_WCNT_HCMP/I_
+CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET_MSET
+datapath/ila/U0/I_YES_D.U_ILA/U_G2.U_CAPCTRL/U_CAP_ADDRGEN/U_WCNT_LCMP/I_CS_GAND
+.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET/U_WCNT_LCMP/I_
+CS_GAND.U_CS_GAND_SRL/I_V5.U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U_GAND_SRL_SET_MSET
+datapath/ila/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/
+I_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.
+U_GAND_SRL_SET/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I
+_CS_GANDX.U_CS_GANDX_SRL/I_V5.U_CS_GANDX_SRL_V5/U_CS_GAND_SRL_V5/I_USE_RPM_NE0.U
+_GAND_SRL_SET_MSET
+datapath/ila/U0_I_YES_D.U_ILA/U_G2.U_CAPCTRL_I_SRLT_NE_1.U_NS0_MSET
+datapath/ila/U0_I_YES_D.U_ILA/U_G2.U_CAPCTRL_I_SRLT_NE_1.U_NS1_MSET
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

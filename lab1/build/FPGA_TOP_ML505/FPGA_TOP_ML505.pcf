@@ -1,0 +1,116 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Wed Sep 12 17:10:34 2012
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "GPIO_COMPSW<4>" LOCATE = SITE "AJ7" LEVEL 1;
+COMP "FPGA_CPU_RESET_B" LOCATE = SITE "E9" LEVEL 1;
+COMP "GPIO_LED<0>" LOCATE = SITE "H18" LEVEL 1;
+COMP "GPIO_LED<1>" LOCATE = SITE "L18" LEVEL 1;
+COMP "GPIO_LED<2>" LOCATE = SITE "G15" LEVEL 1;
+COMP "GPIO_DIP<0>" LOCATE = SITE "U25" LEVEL 1;
+COMP "GPIO_LED<3>" LOCATE = SITE "AD26" LEVEL 1;
+COMP "GPIO_DIP<1>" LOCATE = SITE "AG27" LEVEL 1;
+COMP "GPIO_LED<4>" LOCATE = SITE "G16" LEVEL 1;
+COMP "GPIO_DIP<2>" LOCATE = SITE "AF25" LEVEL 1;
+COMP "GPIO_LED<5>" LOCATE = SITE "AD25" LEVEL 1;
+COMP "GPIO_DIP<3>" LOCATE = SITE "AF26" LEVEL 1;
+COMP "GPIO_LED<6>" LOCATE = SITE "AD24" LEVEL 1;
+COMP "GPIO_DIP<4>" LOCATE = SITE "AE27" LEVEL 1;
+COMP "GPIO_LED<7>" LOCATE = SITE "AE24" LEVEL 1;
+COMP "FPGA_ROTARY_INCA" LOCATE = SITE "AH30" LEVEL 1;
+COMP "GPIO_DIP<5>" LOCATE = SITE "AE26" LEVEL 1;
+COMP "GPIO_COMPLED<0>" LOCATE = SITE "E8" LEVEL 1;
+COMP "FPGA_ROTARY_INCB" LOCATE = SITE "AG30" LEVEL 1;
+COMP "GPIO_DIP<6>" LOCATE = SITE "AC25" LEVEL 1;
+COMP "GPIO_COMPLED<1>" LOCATE = SITE "AG23" LEVEL 1;
+COMP "GPIO_DIP<7>" LOCATE = SITE "AC24" LEVEL 1;
+COMP "GPIO_COMPLED<2>" LOCATE = SITE "AF13" LEVEL 1;
+COMP "GPIO_COMPLED<3>" LOCATE = SITE "AG12" LEVEL 1;
+COMP "GPIO_COMPLED<4>" LOCATE = SITE "AF23" LEVEL 1;
+COMP "FPGA_ROTARY_PUSH" LOCATE = SITE "AH29" LEVEL 1;
+COMP "CLK_33MHZ_FPGA" LOCATE = SITE "AH17" LEVEL 1;
+COMP "GPIO_COMPSW<0>" LOCATE = SITE "AJ6" LEVEL 1;
+COMP "GPIO_COMPSW<1>" LOCATE = SITE "AK7" LEVEL 1;
+COMP "GPIO_COMPSW<2>" LOCATE = SITE "U8" LEVEL 1;
+COMP "GPIO_COMPSW<3>" LOCATE = SITE "V8" LEVEL 1;
+TIMEGRP CLK_33MHZ_FPGA = BEL "lockResetParse/BP[0].ED.ED/Register/Out_2" BEL
+        "lockResetParse/BP[0].ED.ED/Register/Out_1" BEL
+        "lockResetParse/BP[0].ED.ED/Register/Out_0" BEL
+        "lockEnterParse/BP[0].ED.ED/Register/Out_2" BEL
+        "lockEnterParse/BP[0].ED.ED/Register/Out_1" BEL
+        "lockEnterParse/BP[0].ED.ED/Register/Out_0" BEL
+        "systemResetParse/BP[0].ED.ED/Register/Out_2" BEL
+        "systemResetParse/BP[0].ED.ED/Register/Out_1" BEL
+        "systemResetParse/BP[0].ED.ED/Register/Out_0" BEL "clock_buf" BEL
+        "lab2Lock/CurrentState_FSM_FFd3" BEL "lab2Lock/CurrentState_FSM_FFd1"
+        BEL "lab2Lock/CurrentState_FSM_FFd2" BEL
+        "lab2Lock/CurrentState_FSM_FFd4" BEL "lab2Lock/CurrentState_FSM_FFd5"
+        BEL "rotaryEncoder/previousB_2" BEL "rotaryEncoder/previousA_2" BEL
+        "lab2Counter/r_1" BEL "lab2Counter/r_0" BEL "lab2Counter/c_3" BEL
+        "lab2Counter/c_2" BEL "lab2Counter/c_1" BEL "lab2Counter/c_0" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_0" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_1" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_2" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_3" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_4" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_5" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_6" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_7" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_8" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_9" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_10" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_11" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_12" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_13" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_14" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_15" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_16" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_17" BEL
+        "systemResetParse/BP[0].D/CntReg/Out_18" BEL
+        "systemResetParse/BP[0].D/OutReg/Out_0" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_0" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_1" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_2" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_3" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_4" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_5" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_6" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_7" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_8" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_9" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_10" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_11" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_12" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_13" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_14" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_15" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_16" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_17" BEL
+        "lockEnterParse/BP[0].D/CntReg/Out_18" BEL
+        "lockEnterParse/BP[0].D/OutReg/Out_0" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_0" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_1" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_2" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_3" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_4" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_5" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_6" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_7" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_8" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_9" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_10" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_11" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_12" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_13" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_14" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_15" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_16" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_17" BEL
+        "lockResetParse/BP[0].D/CntReg/Out_18" BEL
+        "lockResetParse/BP[0].D/OutReg/Out_0" BEL
+        "rotaryEncoder/Mshreg_previousB_1" BEL "rotaryEncoder/previousB_1" BEL
+        "rotaryEncoder/Mshreg_previousA_1" BEL "rotaryEncoder/previousA_1";
+TS_USER_CLK = PERIOD TIMEGRP "CLK_33MHZ_FPGA" 30.3 ns HIGH 50%;
+SCHEMATIC END;
+

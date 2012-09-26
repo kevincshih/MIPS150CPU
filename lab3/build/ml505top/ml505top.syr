@@ -1,0 +1,622 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ml505top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ml505top"
+Output Format                      : NGC
+Target Device                      : xc5vlx110t-1-ff1136
+
+---- Source Options
+Top Module Name                    : ml505top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../src/blk_ram/blk_mem_gen_v4_3.v" in library work
+Compiling verilog file "../../src/Debouncer.v" in library work
+Module <blk_mem_gen_v4_3> compiled
+Compiling verilog file "../../src/Lab3Control.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Module <Debouncer> compiled
+Compiling verilog file "../../src/Lab3Datapath.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Module <Lab3Control> compiled
+Compiling verilog file "../../src/ml505top.v" in library work
+Module <Lab3Datapath> compiled
+Compiling verilog file "../../src/ALU.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Module <ml505top> compiled
+Compiling verilog file "../../src/ALUdec.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Module <ALU> compiled
+Compiling verilog file "../../src/chipscope/chipscope_icon.v" in library work
+Module <ALUdec> compiled
+Compiling verilog file "../../src/chipscope/chipscope_ila.v" in library work
+Module <chipscope_icon> compiled
+Module <chipscope_ila> compiled
+No errors in compilation
+Analysis of file <"ml505top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ml505top> in library <work>.
+
+Analyzing hierarchy for module <Debouncer> in library <work>.
+
+Analyzing hierarchy for module <Lab3Datapath> in library <work>.
+
+Analyzing hierarchy for module <Lab3Control> in library <work> with parameters.
+	STATE_0 = "00"
+	STATE_1 = "01"
+	STATE_2 = "10"
+
+Analyzing hierarchy for module <ALU> in library <work>.
+
+Analyzing hierarchy for module <ALUdec> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ml505top>.
+Module <ml505top> is correct for synthesis.
+ 
+Analyzing module <Debouncer> in library <work>.
+Module <Debouncer> is correct for synthesis.
+ 
+Analyzing module <Lab3Datapath> in library <work>.
+WARNING:Xst:2211 - "../../src/blk_ram/blk_mem_gen_v4_3.v" line 32: Instantiating black box module <blk_mem_gen_v4_3>.
+WARNING:Xst:2211 - "../../src/chipscope/chipscope_icon.v" line 64: Instantiating black box module <chipscope_icon>.
+WARNING:Xst:2211 - "../../src/chipscope/chipscope_ila.v" line 68: Instantiating black box module <chipscope_ila>.
+Module <Lab3Datapath> is correct for synthesis.
+ 
+    Set user-defined property "SYN_NOPRUNE =  1" for instance <icon> in unit <Lab3Datapath>.
+    Set user-defined property "SYN_NOPRUNE =  1" for instance <ila> in unit <Lab3Datapath>.
+    Set property "SYN_NOPRUNE = 1" for instance <icon> in unit <Lab3Datapath>.
+    Set property "SYN_NOPRUNE = 1" for instance <ila> in unit <Lab3Datapath>.
+Analyzing module <ALU> in library <work>.
+Module <ALU> is correct for synthesis.
+ 
+Analyzing module <Lab3Control> in library <work>.
+	STATE_0 = 2'b00
+	STATE_1 = 2'b01
+	STATE_2 = 2'b10
+Module <Lab3Control> is correct for synthesis.
+ 
+Analyzing module <ALUdec> in library <work>.
+Module <ALUdec> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Debouncer>.
+    Related source file is "../../src/Debouncer.v".
+    Found 22-bit up counter for signal <count>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <Debouncer> synthesized.
+
+
+Synthesizing Unit <ALU>.
+    Related source file is "../../src/ALU.v".
+    Found 32-bit addsub for signal <Out$addsub0000>.
+    Found 32-bit comparator less for signal <Out$cmp_lt0000> created at line 27.
+    Found 32-bit comparator less for signal <Out$cmp_lt0001> created at line 28.
+    Found 32-bit shifter logical left for signal <Out$shift0003> created at line 32.
+    Found 32-bit shifter logical right for signal <Out$shift0004> created at line 33.
+    Found 32-bit shifter arithmetic right for signal <Out$shift0005> created at line 34.
+    Found 32-bit xor2 for signal <Out$xor0000> created at line 31.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   3 Combinational logic shifter(s).
+Unit <ALU> synthesized.
+
+
+Synthesizing Unit <ALUdec>.
+    Related source file is "../../src/ALUdec.v".
+Unit <ALUdec> synthesized.
+
+
+Synthesizing Unit <Lab3Datapath>.
+    Related source file is "../../src/Lab3Datapath.v".
+WARNING:Xst:1780 - Signal <ram_zero_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 32-bit register for signal <accum_reg>.
+    Found 10-bit adder for signal <old_addr_1$addsub0000> created at line 57.
+    Found 10-bit register for signal <reg_addr>.
+    Summary:
+	inferred  42 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Lab3Datapath> synthesized.
+
+
+Synthesizing Unit <Lab3Control>.
+    Related source file is "../../src/Lab3Control.v".
+    Found finite state machine <FSM_0> for signal <CurrentState>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 1                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <reg_addr_sel>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <Lab3Control> synthesized.
+
+
+Synthesizing Unit <ml505top>.
+    Related source file is "../../src/ml505top.v".
+WARNING:Xst:646 - Signal <accum_result<31:8>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <ml505top> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 10-bit adder                                          : 1
+ 32-bit addsub                                         : 1
+# Counters                                             : 1
+ 22-bit up counter                                     : 1
+# Registers                                            : 2
+ 10-bit register                                       : 1
+ 32-bit register                                       : 1
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 2
+ 32-bit comparator less                                : 2
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <controller/CurrentState/FSM> on signal <CurrentState[1:3]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 001
+ 01    | 010
+ 10    | 100
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 2
+ 10-bit adder                                          : 1
+ 32-bit addsub                                         : 1
+# Counters                                             : 1
+ 22-bit up counter                                     : 1
+# Registers                                            : 42
+ Flip-Flops                                            : 42
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 2
+ 32-bit comparator less                                : 2
+# Logic shifters                                       : 3
+ 32-bit shifter arithmetic right                       : 1
+ 32-bit shifter logical left                           : 1
+ 32-bit shifter logical right                          : 1
+# Xors                                                 : 1
+ 32-bit xor2                                           : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2170 - Unit ALU : the following signal(s) form a combinatorial loop: Out_shift0002<31>.
+
+Optimizing unit <ml505top> ...
+
+Optimizing unit <ALU> ...
+
+Optimizing unit <Lab3Datapath> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ml505top, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 66
+ Flip-Flops                                            : 66
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ml505top.ngr
+Top Level Output File Name         : ml505top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 17
+
+Cell Usage :
+# BELS                             : 738
+#      GND                         : 1
+#      INV                         : 2
+#      LUT1                        : 21
+#      LUT2                        : 19
+#      LUT3                        : 25
+#      LUT4                        : 103
+#      LUT5                        : 63
+#      LUT6                        : 341
+#      MUXCY                       : 84
+#      MUXF7                       : 24
+#      VCC                         : 1
+#      XORCY                       : 54
+# FlipFlops/Latches                : 67
+#      FDR                         : 33
+#      FDRE                        : 32
+#      FDS                         : 1
+#      LD                          : 1
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 17
+#      IBUF                        : 7
+#      IBUFG                       : 1
+#      OBUF                        : 9
+# Others                           : 3
+#      blk_mem_gen_v4_3            : 1
+#      chipscope_icon              : 1
+#      chipscope_ila               : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              67  out of  69120     0%  
+ Number of Slice LUTs:                  574  out of  69120     0%  
+    Number used as Logic:               574  out of  69120     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    575
+   Number with an unused Flip Flop:     508  out of    575    88%  
+   Number with an unused LUT:             1  out of    575     0%  
+   Number of fully used LUT-FF pairs:    66  out of    575    11%  
+   Number of unique control sets:         4
+
+IO Utilization: 
+ Number of IOs:                          17
+ Number of bonded IOBs:                  17  out of    640     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------------------------------------+---------------------------------+-------+
+Clock Signal                                                     | Clock buffer(FF name)           | Load  |
+-----------------------------------------------------------------+---------------------------------+-------+
+CLK_33MHZ_FPGA                                                   | IBUFG+BUFG                      | 66    |
+controller/reg_addr_sel_or0000(controller/reg_addr_sel_or00001:O)| NONE(*)(controller/reg_addr_sel)| 1     |
+-----------------------------------------------------------------+---------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 4.159ns (Maximum Frequency: 240.442MHz)
+   Minimum input arrival time before clock: 6.134ns
+   Maximum output required time after clock: 4.495ns
+   Maximum combinational path delay: 6.470ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_33MHZ_FPGA'
+  Clock period: 4.159ns (frequency: 240.442MHz)
+  Total number of paths / destination ports: 3919 / 110
+-------------------------------------------------------------------------
+Delay:               4.159ns (Levels of Logic = 5)
+  Source:            datapath/accum_reg_20 (FF)
+  Destination:       datapath/accum_reg_15 (FF)
+  Source Clock:      CLK_33MHZ_FPGA rising
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: datapath/accum_reg_20 to datapath/accum_reg_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            15   0.471   0.866  datapath/accum_reg_20 (datapath/accum_reg_20)
+     LUT6:I2->O            5   0.094   0.811  datapath/DUT2/Sh191 (datapath/DUT2/Sh19)
+     LUT6:I2->O            2   0.094   0.485  datapath/DUT2/Sh2391 (datapath/DUT2/Sh239)
+     LUT6:I5->O            1   0.094   0.576  datapath/DUT2/Out<15>152 (datapath/DUT2/Out<15>152)
+     LUT6:I4->O            1   0.094   0.480  datapath/DUT2/Out<15>167 (datapath/DUT2/Out<15>167)
+     LUT3:I2->O            1   0.094   0.000  datapath/DUT2/Out<15>284 (datapath/alu_out<15>)
+     FDRE:D                   -0.018          datapath/accum_reg_15
+    ----------------------------------------
+    Total                      4.159ns (0.941ns logic, 3.218ns route)
+                                       (22.6% logic, 77.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 33908 / 65
+-------------------------------------------------------------------------
+Offset:              6.134ns (Levels of Logic = 7)
+  Source:            GPIO_DIP<0> (PAD)
+  Destination:       datapath/accum_reg_22 (FF)
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: GPIO_DIP<0> to datapath/accum_reg_22
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.818   1.085  GPIO_DIP_0_IBUF (GPIO_DIP_0_IBUF)
+     LUT6:I0->O          141   0.094   1.120  controller/DUT1/ALUop<0>1 (alu_op<0>)
+     LUT5:I0->O           52   0.094   1.200  datapath/DUT2/Out<0>310 (datapath/DUT2/N50)
+     LUT6:I0->O            1   0.094   0.000  datapath/DUT2/Out<22>53_SW0_F (N146)
+     MUXF7:I0->O           1   0.251   0.480  datapath/DUT2/Out<22>53_SW0 (N122)
+     LUT6:I5->O            1   0.094   0.710  datapath/DUT2/Out<22>111 (datapath/DUT2/Out<22>111)
+     LUT6:I3->O            1   0.094   0.000  datapath/DUT2/Out<22>319 (datapath/alu_out<22>)
+     FDRE:D                   -0.018          datapath/accum_reg_22
+    ----------------------------------------
+    Total                      6.134ns (1.539ns logic, 4.595ns route)
+                                       (25.1% logic, 74.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 3275 / 94
+-------------------------------------------------------------------------
+Offset:              4.495ns (Levels of Logic = 5)
+  Source:            datapath/accum_reg_20 (FF)
+  Destination:       datapath/ila:DATA<26> (PAD)
+  Source Clock:      CLK_33MHZ_FPGA rising
+
+  Data Path: datapath/accum_reg_20 to datapath/ila:DATA<26>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q            15   0.471   0.866  datapath/accum_reg_20 (datapath/accum_reg_20)
+     LUT6:I2->O            5   0.094   0.811  datapath/DUT2/Sh191 (datapath/DUT2/Sh19)
+     LUT6:I2->O            2   0.094   0.485  datapath/DUT2/Sh2391 (datapath/DUT2/Sh239)
+     LUT6:I5->O            1   0.094   0.576  datapath/DUT2/Out<15>152 (datapath/DUT2/Out<15>152)
+     LUT6:I4->O            1   0.094   0.480  datapath/DUT2/Out<15>167 (datapath/DUT2/Out<15>167)
+     LUT3:I2->O            1   0.094   0.336  datapath/DUT2/Out<15>284 (datapath/alu_out<15>)
+    chipscope_ila:DATA<26>        0.000          datapath/ila
+    ----------------------------------------
+    Total                      4.495ns (0.941ns logic, 3.554ns route)
+                                       (20.9% logic, 79.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'controller/reg_addr_sel_or0000'
+  Total number of paths / destination ports: 22 / 22
+-------------------------------------------------------------------------
+Offset:              2.822ns (Levels of Logic = 2)
+  Source:            controller/reg_addr_sel (LATCH)
+  Destination:       datapath/ila:DATA<113> (PAD)
+  Source Clock:      controller/reg_addr_sel_or0000 falling
+
+  Data Path: controller/reg_addr_sel to datapath/ila:DATA<113>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              50   0.736   1.104  controller/reg_addr_sel (controller/reg_addr_sel)
+     LUT5:I0->O            2   0.094   0.794  datapath/_old_addr_1<2>1 (datapath/addr<2>)
+     LUT5:I1->O            0   0.094   0.000  datapath/ram_addr<2>1 (datapath/ram_addr<2>)
+    blk_mem_gen_v4_3:addra<2>        0.000          datapath/blk_mem
+    ----------------------------------------
+    Total                      2.822ns (0.924ns logic, 1.898ns route)
+                                       (32.7% logic, 67.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 33952 / 89
+-------------------------------------------------------------------------
+Delay:               6.470ns (Levels of Logic = 7)
+  Source:            GPIO_DIP<0> (PAD)
+  Destination:       datapath/ila:DATA<33> (PAD)
+
+  Data Path: GPIO_DIP<0> to datapath/ila:DATA<33>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             4   0.818   1.085  GPIO_DIP_0_IBUF (GPIO_DIP_0_IBUF)
+     LUT6:I0->O          141   0.094   1.120  controller/DUT1/ALUop<0>1 (alu_op<0>)
+     LUT5:I0->O           52   0.094   1.200  datapath/DUT2/Out<0>310 (datapath/DUT2/N50)
+     LUT6:I0->O            1   0.094   0.000  datapath/DUT2/Out<22>53_SW0_F (N146)
+     MUXF7:I0->O           1   0.251   0.480  datapath/DUT2/Out<22>53_SW0 (N122)
+     LUT6:I5->O            1   0.094   0.710  datapath/DUT2/Out<22>111 (datapath/DUT2/Out<22>111)
+     LUT6:I3->O            1   0.094   0.336  datapath/DUT2/Out<22>319 (datapath/alu_out<22>)
+    chipscope_ila:DATA<33>        0.000          datapath/ila
+    ----------------------------------------
+    Total                      6.470ns (1.539ns logic, 4.931ns route)
+                                       (23.8% logic, 76.2% route)
+
+=========================================================================
+WARNING:Xst:616 - Invalid property "SYN_NOPRUNE 1": Did not attach to datapath/ila.
+WARNING:Xst:616 - Invalid property "SYN_NOPRUNE 1": Did not attach to datapath/icon.
+
+
+Total REAL time to Xst completion: 61.00 secs
+Total CPU time to Xst completion: 59.53 secs
+ 
+--> 
+
+
+Total memory usage is 680096 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   10 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

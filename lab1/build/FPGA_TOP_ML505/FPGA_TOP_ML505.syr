@@ -1,0 +1,736 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "FPGA_TOP_ML505.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "FPGA_TOP_ML505"
+Output Format                      : NGC
+Target Device                      : xc5vlx110t-1-ff1136
+
+---- Source Options
+Top Module Name                    : FPGA_TOP_ML505
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../src/ButtonParse.v" in library work
+Compiling verilog file "../../src/Const.v" in library work
+Compiling verilog file "../../src/Debouncer.v" in library work
+Compiling verilog include file "../../src/Const.v"
+Module <ButtonParse> compiled
+Compiling verilog file "../../src/EdgeDetect.v" in library work
+Module <Debouncer> compiled
+Compiling verilog file "../../src/FPGA_TOP_ML505.v" in library work
+Module <EdgeDetect> compiled
+Compiling verilog file "../../src/Lab2Counter.v" in library work
+Module <FPGA_TOP_ML505> compiled
+Compiling verilog file "../../src/Lab2Lock.v" in library work
+Module <Lab2Counter> compiled
+Compiling verilog file "../../src/PulseExpander.v" in library work
+Compiling verilog include file "../../src/Const.v"
+Module <Lab2Lock> compiled
+Compiling verilog file "../../src/Register.v" in library work
+Module <PulseExpander> compiled
+Compiling verilog file "../../src/RotaryEncoder.v" in library work
+Module <Register> compiled
+Module <RotaryEncoder> compiled
+No errors in compilation
+Analysis of file <"FPGA_TOP_ML505.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <FPGA_TOP_ML505> in library <work> with parameters.
+	ClockFreq = "00000001111101111000101001000000"
+
+Analyzing hierarchy for module <ButtonParse> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	Continuous = "00000000000000000000000000000000"
+	DebSimWidth = "00000000000000000000000000000100"
+	DebWidth = "00000000000000000000000000010011"
+	EdgeOutWidth = "00000000000000000000000000000001"
+	EdgeType = "00000000000000000000000000000000"
+	EdgeUpWidth = "00000000000000000000000000000010"
+	EdgeWidth = "00000000000000000000000000000011"
+	EnableEdge = "00000000000000000000000000000000"
+	Related = "00000000000000000000000000000001"
+	Width = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <RotaryEncoder> in library <work>.
+
+Analyzing hierarchy for module <Lab2Counter> in library <work>.
+
+Analyzing hierarchy for module <Lab2Lock> in library <work> with parameters.
+	BAD_1 = "011"
+	BAD_2 = "100"
+	DIGIT_1 = "0010"
+	DIGIT_2 = "0011"
+	LOCKED = "000"
+	OK_1 = "001"
+	OK_2 = "010"
+	STATE_5 = "101"
+	STATE_6 = "110"
+	STATE_7 = "111"
+
+Analyzing hierarchy for module <Debouncer> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	Continuous = "00000000000000000000000000000000"
+	SimWidth = "00000000000000000000000000000100"
+	Width = "00000000000000000000000000010011"
+	XWidth = "00000000000000000000000000010011"
+
+Analyzing hierarchy for module <EdgeDetect> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	Type = "00000000000000000000000000000000"
+	UpWidth = "00000000000000000000000000000010"
+	Width = "00000000000000000000000000000011"
+
+Analyzing hierarchy for module <Register> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	AsyncSet = "00000000000000000000000000000000"
+	Initial = "00000000000000000000000000000000"
+	ResetValue = "0000000000000000000"
+	SetValue = "1111111111111111111"
+	Width = "00000000000000000000000000010011"
+
+Analyzing hierarchy for module <Register> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	AsyncSet = "00000000000000000000000000000000"
+	Initial = "X"
+	ResetValue = "0"
+	SetValue = "1"
+	Width = "00000000000000000000000000000001"
+
+Analyzing hierarchy for module <Register> in library <work> with parameters.
+	AsyncReset = "00000000000000000000000000000000"
+	AsyncSet = "00000000000000000000000000000000"
+	Initial = "XXX"
+	ResetValue = "000"
+	SetValue = "111"
+	Width = "00000000000000000000000000000011"
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <FPGA_TOP_ML505>.
+	ClockFreq = 32'sb00000001111101111000101001000000
+Module <FPGA_TOP_ML505> is correct for synthesis.
+ 
+Analyzing module <ButtonParse> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	Continuous = 32'sb00000000000000000000000000000000
+	DebSimWidth = 32'sb00000000000000000000000000000100
+	DebWidth = 32'sb00000000000000000000000000010011
+	EdgeOutWidth = 32'sb00000000000000000000000000000001
+	EdgeType = 32'sb00000000000000000000000000000000
+	EdgeUpWidth = 32'sb00000000000000000000000000000010
+	EdgeWidth = 32'sb00000000000000000000000000000011
+	EnableEdge = 32'sb00000000000000000000000000000000
+	Related = 32'sb00000000000000000000000000000001
+	Width = 32'sb00000000000000000000000000000001
+Module <ButtonParse> is correct for synthesis.
+ 
+Analyzing module <Debouncer> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	Continuous = 32'sb00000000000000000000000000000000
+	SimWidth = 32'sb00000000000000000000000000000100
+	Width = 32'sb00000000000000000000000000010011
+	XWidth = 32'sb00000000000000000000000000010011
+Module <Debouncer> is correct for synthesis.
+ 
+Analyzing module <Register.1> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	AsyncSet = 32'sb00000000000000000000000000000000
+	Initial = 32'sb00000000000000000000000000000000
+	ResetValue = 19'b0000000000000000000
+	SetValue = 19'b1111111111111111111
+	Width = 32'sb00000000000000000000000000010011
+Module <Register.1> is correct for synthesis.
+ 
+Analyzing module <Register.2> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	AsyncSet = 32'sb00000000000000000000000000000000
+	Initial = 1'bX
+	ResetValue = 1'b0
+	SetValue = 1'b1
+	Width = 32'sb00000000000000000000000000000001
+Module <Register.2> is correct for synthesis.
+ 
+Analyzing module <EdgeDetect> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	Type = 32'sb00000000000000000000000000000000
+	UpWidth = 32'sb00000000000000000000000000000010
+	Width = 32'sb00000000000000000000000000000011
+Module <EdgeDetect> is correct for synthesis.
+ 
+Analyzing module <Register.3> in library <work>.
+	AsyncReset = 32'sb00000000000000000000000000000000
+	AsyncSet = 32'sb00000000000000000000000000000000
+	Initial = 3'bXXX
+	ResetValue = 3'b000
+	SetValue = 3'b111
+	Width = 32'sb00000000000000000000000000000011
+Module <Register.3> is correct for synthesis.
+ 
+Analyzing module <RotaryEncoder> in library <work>.
+Module <RotaryEncoder> is correct for synthesis.
+ 
+Analyzing module <Lab2Counter> in library <work>.
+"../../src/Lab2Counter.v" line 130: $display : Counter Reset
+WARNING:Xst:905 - "../../src/Lab2Counter.v" line 140: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <c>, <r>
+Module <Lab2Counter> is correct for synthesis.
+ 
+Analyzing module <Lab2Lock> in library <work>.
+WARNING:Xst:863 - "../../src/Lab2Lock.v" line 95: Name conflict (<digit> and <Digit>, renaming digit as digit_rnm0).
+WARNING:Xst:863 - "../../src/Lab2Lock.v" line 94: Name conflict (<enter> and <Enter>, renaming enter as enter_rnm0).
+	BAD_1 = 3'b011
+	BAD_2 = 3'b100
+	DIGIT_1 = 4'b0010
+	DIGIT_2 = 4'b0011
+	LOCKED = 3'b000
+	OK_1 = 3'b001
+	OK_2 = 3'b010
+	STATE_5 = 3'b101
+	STATE_6 = 3'b110
+	STATE_7 = 3'b111
+"../../src/Lab2Lock.v" line 145: $display : Lock Reset
+"../../src/Lab2Lock.v" line 152: $display : Entering Digit
+Module <Lab2Lock> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <RotaryEncoder>.
+    Related source file is "../../src/RotaryEncoder.v".
+    Found 1-bit xor3 for signal <click>.
+    Found 1-bit xor2 for signal <clockwise>.
+    Found 3-bit register for signal <previousA>.
+    Found 3-bit register for signal <previousB>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+	inferred   1 Xor(s).
+Unit <RotaryEncoder> synthesized.
+
+
+Synthesizing Unit <Lab2Counter>.
+    Related source file is "../../src/Lab2Counter.v".
+    Found 4-bit register for signal <c>.
+    Found 6-bit adder for signal <old_s_2$add0000> created at line 141.
+    Found 2-bit register for signal <r>.
+    Found 6-bit addsub for signal <s$share0000>.
+    Summary:
+	inferred   6 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+Unit <Lab2Counter> synthesized.
+
+
+Synthesizing Unit <Lab2Lock>.
+    Related source file is "../../src/Lab2Lock.v".
+INFO:Xst:1799 - State 101 is never reached in FSM <CurrentState>.
+INFO:Xst:1799 - State 110 is never reached in FSM <CurrentState>.
+INFO:Xst:1799 - State 111 is never reached in FSM <CurrentState>.
+    Found finite state machine <FSM_0> for signal <CurrentState>.
+    -----------------------------------------------------------------------
+    | States             | 5                                              |
+    | Transitions        | 7                                              |
+    | Inputs             | 2                                              |
+    | Outputs            | 5                                              |
+    | Clock              | Clock                     (rising_edge)        |
+    | Clock enable       | enter_rnm0                (positive)           |
+    | Reset              | Reset                     (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 000                                            |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Summary:
+	inferred   1 Finite State Machine(s).
+Unit <Lab2Lock> synthesized.
+
+
+Synthesizing Unit <Register_1>.
+    Related source file is "../../src/Register.v".
+    Found 19-bit register for signal <Out>.
+    Summary:
+	inferred  19 D-type flip-flop(s).
+Unit <Register_1> synthesized.
+
+
+Synthesizing Unit <Register_2>.
+    Related source file is "../../src/Register.v".
+    Found 1-bit register for signal <Out<0>>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <Register_2> synthesized.
+
+
+Synthesizing Unit <Register_3>.
+    Related source file is "../../src/Register.v".
+    Found 3-bit register for signal <Out>.
+    Summary:
+	inferred   3 D-type flip-flop(s).
+Unit <Register_3> synthesized.
+
+
+Synthesizing Unit <Debouncer>.
+    Related source file is "../../src/Debouncer.v".
+    Found 19-bit addsub for signal <NextCount$share0000>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <Debouncer> synthesized.
+
+
+Synthesizing Unit <EdgeDetect>.
+    Related source file is "../../src/EdgeDetect.v".
+Unit <EdgeDetect> synthesized.
+
+
+Synthesizing Unit <ButtonParse>.
+    Related source file is "../../src/ButtonParse.v".
+WARNING:Xst:646 - Signal <Half<0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <ButtonParse> synthesized.
+
+
+Synthesizing Unit <FPGA_TOP_ML505>.
+    Related source file is "../../src/FPGA_TOP_ML505.v".
+WARNING:Xst:647 - Input <GPIO_DIP> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <GPIO_COMPSW<4:1>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1780 - Signal <DebugState> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <FPGA_TOP_ML505> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 5
+ 19-bit addsub                                         : 3
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Registers                                            : 13
+ 1-bit register                                        : 3
+ 19-bit register                                       : 3
+ 2-bit register                                        : 1
+ 3-bit register                                        : 5
+ 4-bit register                                        : 1
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 1-bit xor3                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <lab2Lock/CurrentState/FSM> on signal <CurrentState[1:5]> with one-hot encoding.
+-------------------
+ State | Encoding
+-------------------
+ 000   | 00001
+ 001   | 00010
+ 011   | 00100
+ 010   | 01000
+ 100   | 10000
+ 101   | unreached
+ 110   | unreached
+ 111   | unreached
+-------------------
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 5
+ 19-bit addsub                                         : 3
+ 6-bit adder                                           : 1
+ 6-bit addsub                                          : 1
+# Registers                                            : 81
+ Flip-Flops                                            : 81
+# Xors                                                 : 2
+ 1-bit xor2                                            : 1
+ 1-bit xor3                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <FPGA_TOP_ML505> ...
+
+Optimizing unit <RotaryEncoder> ...
+
+Optimizing unit <Lab2Counter> ...
+
+Optimizing unit <Register_1> ...
+
+Optimizing unit <Debouncer> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block FPGA_TOP_ML505, actual ratio is 0.
+
+Final Macro Processing ...
+
+Processing Unit <FPGA_TOP_ML505> :
+	Found 2-bit shift register for signal <rotaryEncoder/previousB_1>.
+	Found 2-bit shift register for signal <rotaryEncoder/previousA_1>.
+Unit <FPGA_TOP_ML505> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 82
+ Flip-Flops                                            : 82
+# Shift Registers                                      : 2
+ 2-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : FPGA_TOP_ML505.ngr
+Top Level Output File Name         : FPGA_TOP_ML505
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 31
+
+Cell Usage :
+# BELS                             : 283
+#      GND                         : 1
+#      LUT2                        : 6
+#      LUT3                        : 5
+#      LUT4                        : 4
+#      LUT5                        : 75
+#      LUT6                        : 79
+#      MUXCY                       : 54
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 57
+# FlipFlops/Latches                : 84
+#      FD                          : 2
+#      FDE                         : 2
+#      FDR                         : 6
+#      FDRE                        : 73
+#      FDSE                        : 1
+# Shift Registers                  : 2
+#      SRLC16E                     : 2
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 19
+#      IBUF                        : 5
+#      IBUFG                       : 1
+#      OBUF                        : 13
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              84  out of  69120     0%  
+ Number of Slice LUTs:                  171  out of  69120     0%  
+    Number used as Logic:               169  out of  69120     0%  
+    Number used as Memory:                2  out of  17920     0%  
+       Number used as SRL:                2
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    177
+   Number with an unused Flip Flop:      93  out of    177    52%  
+   Number with an unused LUT:             6  out of    177     3%  
+   Number of fully used LUT-FF pairs:    78  out of    177    44%  
+   Number of unique control sets:         5
+
+IO Utilization: 
+ Number of IOs:                          31
+ Number of bonded IOBs:                  19  out of    640     2%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK_33MHZ_FPGA                     | IBUFG+BUFG             | 86    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 4.211ns (Maximum Frequency: 237.473MHz)
+   Minimum input arrival time before clock: 3.855ns
+   Maximum output required time after clock: 4.342ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_33MHZ_FPGA'
+  Clock period: 4.211ns (frequency: 237.473MHz)
+  Total number of paths / destination ports: 15496 / 99
+-------------------------------------------------------------------------
+Delay:               4.211ns (Levels of Logic = 22)
+  Source:            systemResetParse/BP[0].D/CntReg/Out_14 (FF)
+  Destination:       systemResetParse/BP[0].D/CntReg/Out_18 (FF)
+  Source Clock:      CLK_33MHZ_FPGA rising
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: systemResetParse/BP[0].D/CntReg/Out_14 to systemResetParse/BP[0].D/CntReg/Out_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             4   0.471   0.989  systemResetParse/BP[0].D/CntReg/Out_14 (systemResetParse/BP[0].D/CntReg/Out_14)
+     LUT5:I0->O           21   0.094   0.818  systemResetParse/BP[0].D/NextCount_and00008 (systemResetParse/BP[0].D/NextCount_and00008)
+     LUT6:I3->O            1   0.094   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>)
+     MUXCY:S->O            1   0.372   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<0> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<0>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<1> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<2> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<4> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<4>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<5> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<6> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<8> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<9> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<10> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<12> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<13> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<13>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<14> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<14>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<16> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<16>)
+     MUXCY:CI->O           0   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<17> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<17>)
+     XORCY:CI->O           1   0.357   0.480  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_xor<18> (systemResetParse/BP[0].D/NextCount_share0000<18>)
+     LUT5:I4->O            1   0.094   0.000  systemResetParse/BP[0].D/NextCount<18>1 (systemResetParse/BP[0].D/NextCount<18>)
+     FDRE:D                   -0.018          systemResetParse/BP[0].D/CntReg/Out_18
+    ----------------------------------------
+    Total                      4.211ns (1.924ns logic, 2.287ns route)
+                                       (45.7% logic, 54.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 686 / 59
+-------------------------------------------------------------------------
+Offset:              3.855ns (Levels of Logic = 22)
+  Source:            FPGA_CPU_RESET_B (PAD)
+  Destination:       systemResetParse/BP[0].D/CntReg/Out_18 (FF)
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: FPGA_CPU_RESET_B to systemResetParse/BP[0].D/CntReg/Out_18
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            39   0.818   1.198  FPGA_CPU_RESET_B_IBUF (FPGA_CPU_RESET_B_IBUF)
+     LUT6:I0->O            1   0.094   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>)
+     MUXCY:S->O            1   0.372   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<0> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<0>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<1> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<2> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<4> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<4>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<5> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<6> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<8> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<9> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<10> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<12> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<13> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<13>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<14> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<14>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>)
+     MUXCY:CI->O           1   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<16> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<16>)
+     MUXCY:CI->O           0   0.026   0.000  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<17> (systemResetParse/BP[0].D/Maddsub_NextCount_share0000_cy<17>)
+     XORCY:CI->O           1   0.357   0.480  systemResetParse/BP[0].D/Maddsub_NextCount_share0000_xor<18> (systemResetParse/BP[0].D/NextCount_share0000<18>)
+     LUT5:I4->O            1   0.094   0.000  systemResetParse/BP[0].D/NextCount<18>1 (systemResetParse/BP[0].D/NextCount<18>)
+     FDRE:D                   -0.018          systemResetParse/BP[0].D/CntReg/Out_18
+    ----------------------------------------
+    Total                      3.855ns (2.177ns logic, 1.678ns route)
+                                       (56.5% logic, 43.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 18 / 12
+-------------------------------------------------------------------------
+Offset:              4.342ns (Levels of Logic = 2)
+  Source:            lab2Lock/CurrentState_FSM_FFd4 (FF)
+  Destination:       GPIO_COMPLED<0> (PAD)
+  Source Clock:      CLK_33MHZ_FPGA rising
+
+  Data Path: lab2Lock/CurrentState_FSM_FFd4 to GPIO_COMPLED<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             4   0.471   0.989  lab2Lock/CurrentState_FSM_FFd4 (lab2Lock/CurrentState_FSM_FFd4)
+     LUT5:I0->O            1   0.094   0.336  GPIO_COMPLED_or00001 (GPIO_COMPLED_0_OBUF)
+     OBUF:I->O                 2.452          GPIO_COMPLED_0_OBUF (GPIO_COMPLED<0>)
+    ----------------------------------------
+    Total                      4.342ns (3.017ns logic, 1.325ns route)
+                                       (69.5% logic, 30.5% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 30.00 secs
+Total CPU time to Xst completion: 27.78 secs
+ 
+--> 
+
+
+Total memory usage is 649916 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    4 (   0 filtered)
+

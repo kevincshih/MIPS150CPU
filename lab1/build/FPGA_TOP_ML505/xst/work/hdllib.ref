@@ -1,0 +1,9 @@
+MO Register NULL ../../src/Register.v vlg09/_register.bin 1347494926
+MO ButtonParse NULL ../../src/ButtonParse.v vlg53/_button_parse.bin 1347494926
+MO PulseExpander NULL ../../src/PulseExpander.v vlg40/_pulse_expander.bin 1347494926
+MO Lab2Counter NULL ../../src/Lab2Counter.v vlg0D/_lab2_counter.bin 1347494926
+MO Lab2Lock NULL ../../src/Lab2Lock.v vlg6E/_lab2_lock.bin 1347494926
+MO EdgeDetect NULL ../../src/EdgeDetect.v vlg52/_edge_detect.bin 1347494926
+MO RotaryEncoder NULL ../../src/RotaryEncoder.v vlg1D/_rotary_encoder.bin 1347494926
+MO FPGA_TOP_ML505 NULL ../../src/FPGA_TOP_ML505.v vlg2A/_f_p_g_a___t_o_p___m_l505.bin 1347494926
+MO Debouncer NULL ../../src/Debouncer.v vlg63/_debouncer.bin 1347494926

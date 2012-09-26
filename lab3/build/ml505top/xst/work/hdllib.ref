@@ -1,0 +1,9 @@
+MO chipscope_icon NULL ../../src/chipscope/chipscope_icon.v vlg52/chipscope__icon.bin 1348618095
+MO ml505top NULL ../../src/ml505top.v vlg6E/ml505top.bin 1348618095
+MO Lab3Control NULL ../../src/Lab3Control.v vlg0B/_lab3_control.bin 1348618095
+MO chipscope_ila NULL ../../src/chipscope/chipscope_ila.v vlg33/chipscope__ila.bin 1348618095
+MO blk_mem_gen_v4_3 NULL ../../src/blk_ram/blk_mem_gen_v4_3.v vlg0F/blk__mem__gen__v4__3.bin 1348618095
+MO ALUdec NULL ../../src/ALUdec.v vlg22/_a_l_udec.bin 1348618095
+MO Lab3Datapath NULL ../../src/Lab3Datapath.v vlg79/_lab3_datapath.bin 1348618095
+MO ALU NULL ../../src/ALU.v vlg2A/_a_l_u.bin 1348618095
+MO Debouncer NULL ../../src/Debouncer.v vlg63/_debouncer.bin 1348618095
