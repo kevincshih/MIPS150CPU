@@ -8,3 +8,7 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # OpenFile results/Testbench.wlf 
+add wave -position insertpoint  \
+Testbench:/Testbench/uart1/uatransmit/DataIn
+add wave -position insertpoint  \
+Testbench:/Testbench/uart1/uatransmit/SOut

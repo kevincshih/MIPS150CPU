@@ -8,7 +8,6 @@ WORK__UATransmit = $(LIB_WORK)/@u@a@transmit/_primary.dat
 WORK__UART = $(LIB_WORK)/@u@a@r@t/_primary.dat
 WORK__UAReceive = $(LIB_WORK)/@u@a@receive/_primary.dat
 WORK__Testbench = $(LIB_WORK)/@testbench/_primary.dat
-WORK__ShiftReg = $(LIB_WORK)/@shift@reg/_primary.dat
 WORK__Register = $(LIB_WORK)/@register/_primary.dat
 WORK__IORegister = $(LIB_WORK)/@i@o@register/_primary.dat
 WORK__glbl = $(LIB_WORK)/glbl/_primary.dat
@@ -17,8 +16,6 @@ WORK__EdgeDetect = $(LIB_WORK)/@edge@detect/_primary.dat
 WORK__EchoTestbench = $(LIB_WORK)/@echo@testbench/_primary.dat
 WORK__Debouncer = $(LIB_WORK)/@debouncer/_primary.dat
 WORK__ButtonParse = $(LIB_WORK)/@button@parse/_primary.dat
-WORK__ALUdec = $(LIB_WORK)/@a@l@udec/_primary.dat
-WORK__ALU = $(LIB_WORK)/@a@l@u/_primary.dat
 VCOM = vcom
 VLOG = vlog
 VOPT = vopt
@@ -28,7 +25,6 @@ whole_library :     $(WORK__UATransmit) \
     $(WORK__UART) \
     $(WORK__UAReceive) \
     $(WORK__Testbench) \
-    $(WORK__ShiftReg) \
     $(WORK__Register) \
     $(WORK__IORegister) \
     $(WORK__glbl) \
@@ -36,16 +32,12 @@ whole_library :     $(WORK__UATransmit) \
     $(WORK__EdgeDetect) \
     $(WORK__EchoTestbench) \
     $(WORK__Debouncer) \
-    $(WORK__ButtonParse) \
-    $(WORK__ALUdec) \
-    $(WORK__ALU)
+    $(WORK__ButtonParse)
 
 $(WORK__glbl) : /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
 	$(VLOG) +acc -source -nocovercells -L \
 		 mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
 
-$(WORK__ALU) \
-$(WORK__ALUdec) \
 $(WORK__ButtonParse) \
 $(WORK__Debouncer) \
 $(WORK__EchoTestbench) \
@@ -53,23 +45,20 @@ $(WORK__EdgeDetect) \
 $(WORK__FPGA_TOP_ML505) \
 $(WORK__IORegister) \
 $(WORK__Register) \
-$(WORK__ShiftReg) \
 $(WORK__Testbench) \
 $(WORK__UAReceive) \
 $(WORK__UART) \
 $(WORK__UATransmit) : ../../src/UATransmit.v ../../src/util.vh ../../src/UART.v \
 		 ../../src/UAReceive.v ../../src/Testbench.v \
-		 ../../src/ShiftReg.v ../../src/Framework/Register.v \
-		 ../../src/Framework/IORegister.v ../../src/FPGA_TOP_ML505.v \
-		 ../../src/Framework/EdgeDetect.v ../../src/EchoTestbench.v \
-		 ../../src/Framework/Debouncer.v ../../src/Framework/ButtonParse.v \
-		 ../../src/ALUdec.v ../../src/ALU.v
+		 ../../src/Framework/Register.v ../../src/Framework/IORegister.v \
+		 ../../src/FPGA_TOP_ML505.v ../../src/Framework/EdgeDetect.v \
+		 ../../src/EchoTestbench.v ../../src/Framework/Debouncer.v \
+		 ../../src/Framework/ButtonParse.v
 	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/Framework \
 		 -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF ../../src/UATransmit.v \
 		 ../../src/UART.v ../../src/UAReceive.v ../../src/Testbench.v \
-		 ../../src/ShiftReg.v ../../src/Framework/Register.v \
-		 ../../src/Framework/IORegister.v ../../src/FPGA_TOP_ML505.v \
-		 ../../src/Framework/EdgeDetect.v ../../src/EchoTestbench.v \
-		 ../../src/Framework/Debouncer.v ../../src/Framework/ButtonParse.v \
-		 ../../src/ALUdec.v ../../src/ALU.v
+		 ../../src/Framework/Register.v ../../src/Framework/IORegister.v \
+		 ../../src/FPGA_TOP_ML505.v ../../src/Framework/EdgeDetect.v \
+		 ../../src/EchoTestbench.v ../../src/Framework/Debouncer.v \
+		 ../../src/Framework/ButtonParse.v
 

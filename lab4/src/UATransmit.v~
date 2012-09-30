@@ -22,74 +22,43 @@ module UATransmit(
 
   //--|Solution|----------------------------------------------------------------
 
-  localparam STATE_0 = 2'b00,
-	     STATE_1 = 2'b01,
-	     STATE_2 = 2'b10;
-  
-  wire [9:0] data;
-  reg Start, Transmitting, Ready;
-  reg [1:0] CurrentState, NextState;
+  wire                            SymbolEdge;
+  wire                            Start;
+  wire                            TXRunning;
+
   reg     [3:0]                   BitCounter;
   reg     [ClockCounterWidth-1:0] ClockCounter;
-  reg load;
-  
-  ShiftReg shift(.clk(SymbolEdge),
-		 .si(1'b0),
-		 .sload(load),
-		 .d(data),
-		 .so(SOut));
-  
-  assign data = {1'b0, DataIn, 1'b1};
-  assign  SymbolEdge   = (ClockCounter == SymbolEdgeTime - 1);
-  assign DataInReady = Ready;
+  reg 				  Temp;
 
+  assign DataInReady = ~TXRunning;
+  assign Start = DataInValid && DataInReady;
+  assign  SymbolEdge   = (ClockCounter == SymbolEdgeTime - 1);
+  assign TXRunning = ~(BitCounter == 0);
+  assign SOut = Temp;
+
+  // Counts cycles until a single symbol is done
   always @ (posedge Clock) begin
-    ClockCounter <= (!DataInValid || Reset || SymbolEdge)
-    ? 0 : ClockCounter + 1;
+    ClockCounter <= (Start || Reset || SymbolEdge) ? 0 : ClockCounter + 1;
   end
 
+  // Counts down from 10 bits for every character
   always @ (posedge Clock) begin
     if (Reset) begin
       BitCounter <= 0;
     end else if (Start) begin
       BitCounter <= 10;
-    end else if (SymbolEdge) begin
+    end else if (SymbolEdge && TXRunning) begin
       BitCounter <= BitCounter - 1;
     end
   end
 
-  always @(posedge Clock) begin
-	if(Reset) CurrentState <= STATE_0;
-	else CurrentState <= NextState;
+  always @ (posedge Clock) begin
+    if (TXRunning) begin
+	if(BitCounter == 10) Temp <= 1'b0;
+	else if (BitCounter == 1) Temp <= 1'b1;
+	else Temp <= DataIn[BitCounter - 2];
 	end
+    else Temp = 1'b1;
+  end
 
-  always @(*) begin
-  	NextState = CurrentState;
-  case(NextState)
-  	STATE_0:begin
-	Start = 1'b0;
-	Transmitting = 1'b0;
-	load = 1'b0;
-	DataInReady = 1'b0;
-	NextState = DataInValid ? STATE_0 : STATE_1;
-	end
-	STATE_1:begin
-	Start = 1'b1;
-	Transmitting = 1'b0;		
-	load = 1'b1;
-	Ready = 1'b0;
-	NextState = STATE_2;
-	end
-	STATE_2:begin
-	Start = 1'b0;
-	Transmitting = 1'b1;
-	load = 1'b0;	
-	Ready = 1'b1;
-	NextState = (BitCounter == 0) ? STATE_2 : STATE_0;
-	end
-	default:begin
-	NextState = STATE_0;	
-	end
-	endcase
-	end
 endmodule

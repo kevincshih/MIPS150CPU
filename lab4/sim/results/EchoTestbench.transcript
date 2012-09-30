@@ -27,7 +27,6 @@ start EchoTestbench
 # Loading work.UART(fast)
 # Loading work.IORegister(fast)
 # Loading work.UATransmit(fast)
-# Loading work.ShiftReg(fast)
 # Loading work.UAReceive(fast)
 add wave EchoTestbench/*
 add wave EchoTestbench/uart/*
@@ -38,5 +37,4 @@ add wave EchoTestbench/top/uart/*
 add wave EchoTestbench/top/uart/uareceive/*
 add wave EchoTestbench/top/uart/uatransmit/*
 run 10ms
-# 
-# <EOF> 
+# Got  33
