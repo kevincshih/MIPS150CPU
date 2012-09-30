@@ -1,0 +1,328 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/cc/cs150/fa12/class/cs150-cw/Downloads/lab4/sim/build
+T_opt
+VdhzL`=DN:Zz9OCJk12NPz0
+04 4 4 work glbl fast 0
+04 13 4 work EchoTestbench fast 0
+=1-00123f70f65d-50688be3-a310f-31be
+o-quiet -auto_acc_if_foreign -work work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip
+n@_opt
+OL;O;10.1b_2;51
+vALU
+I`cl_XGzA0@N_OEa^ZlMgb3
+VX8IY7zXg<dYkZD0;`U4SX0
+Z1 d/home/cc/cs150/fa12/class/cs150-cw/Downloads/lab4/sim/build
+w1348193396
+8../../src/ALU.v
+F../../src/ALU.v
+L0 15
+Z2 OL;L;10.1b_2;51
+r1
+31
+Z3 !s102 -nocovercells
+Z4 o+acc -source -nocovercells -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z5 !s92 +acc -source -nocovercells +incdir+../../src+incdir+../../src/Framework -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@a@l@u
+!s100 Y53YMX[G4SB^R9_YmbGJS0
+!s108 1349028832.021610
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALU.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/ALU.v|
+!i10b 1
+!s85 0
+vALUdec
+IH5^87Q`Pf]LJgeXo0D<<l3
+VIH5nfG^GEgOhTIZfcG>4D2
+R1
+w1348191878
+8../../src/ALUdec.v
+F../../src/ALUdec.v
+L0 12
+R2
+r1
+31
+R3
+R4
+R5
+n@a@l@udec
+!s100 bo:UeegGIjLTR<NZk6mfX2
+!s108 1349028832.137729
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALUdec.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/ALUdec.v|
+!i10b 1
+!s85 0
+vButtonParse
+!s100 7UO6nPZVEj?B^2^OUHo8R1
+IIi0f:=SC@ROd1e=gNCAS90
+VPMIXnaoATmlKTSCOS>C8;3
+R1
+Z6 w1298259958
+8../../src/Framework/ButtonParse.v
+F../../src/Framework/ButtonParse.v
+L0 86
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Framework/ButtonParse.v|
+R3
+R4
+R5
+n@button@parse
+!s108 1349028831.097604
+!s107 ../../src/Framework/ButtonParse.v|
+!i10b 1
+!s85 0
+vDebouncer
+!s100 aad?C91zBE^T2b>8R8S3n2
+I=DM]8NI:jG3nPG4o@0T`30
+Ve13LdFjC5e@FO:7Jo1Tz32
+R1
+R6
+8../../src/Framework/Debouncer.v
+F../../src/Framework/Debouncer.v
+L0 62
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Framework/Debouncer.v|
+R3
+R4
+R5
+n@debouncer
+!s108 1349028831.262524
+!s107 ../../src/Framework/Const.v|../../src/Framework/Debouncer.v|
+!i10b 1
+!s85 0
+vEchoTestbench
+!s100 gOMo1e:eZD4Sb?SbbThFR3
+IT51e8LEiD33ZFV;6Sf7TT0
+Vh[PR]dO6OF>bg>c7n4IJ<3
+R1
+R6
+8../../src/EchoTestbench.v
+F../../src/EchoTestbench.v
+L0 3
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/EchoTestbench.v|
+R3
+R4
+R5
+n@echo@testbench
+!s108 1349028830.920612
+!s107 ../../src/EchoTestbench.v|
+!i10b 1
+!s85 0
+vEdgeDetect
+!s100 ED9_<64^dCEMAaOm^zcdH2
+I18NPJPWJ`a6CX12?8;o6L0
+V3Rg=J6;50VdfdXmQP1>SM0
+R1
+R6
+8../../src/Framework/EdgeDetect.v
+F../../src/Framework/EdgeDetect.v
+L0 56
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Framework/EdgeDetect.v|
+R3
+R4
+R5
+n@edge@detect
+!s108 1349028831.355731
+!s107 ../../src/Framework/EdgeDetect.v|
+!i10b 1
+!s85 0
+vFPGA_TOP_ML505
+!s100 MW`5ANJTLBBZJS4lMXdOG3
+I9EUWC9O_DULOU:zz72DI03
+VLBmFS;gOGkDT[aNk@C<cb3
+R1
+R6
+8../../src/FPGA_TOP_ML505.v
+F../../src/FPGA_TOP_ML505.v
+L0 1
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/FPGA_TOP_ML505.v|
+R3
+R4
+R5
+n@f@p@g@a_@t@o@p_@m@l505
+!s108 1349028831.007842
+!s107 ../../src/FPGA_TOP_ML505.v|
+!i10b 1
+!s85 0
+vglbl
+!s100 7J1niELK7Y2aOLFBHZ9413
+Ie=ZS6Q:jeXZ[e[Y1P@?F90
+VM[9mS]S:KA1i4VeCMX35[3
+R1
+w1335236620
+8/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+F/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+L0 5
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+R3
+R4
+!s108 1349028830.829720
+!s107 /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+!i10b 1
+!s85 0
+vIORegister
+!s100 G[9i88gPA=?EY8lnYjP>@0
+IW5No5?SmJ86]L3oRGYY]K3
+VmdKZJi4:`9kHkF1aJ1QVe1
+R1
+R6
+8../../src/Framework/IORegister.v
+F../../src/Framework/IORegister.v
+L0 46
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Framework/IORegister.v|
+R3
+R4
+R5
+n@i@o@register
+!s108 1349028831.445047
+!s107 ../../src/Framework/IORegister.v|
+!i10b 1
+!s85 0
+vRegister
+!s100 ]8coI>S@UA`Of`i?1^McL1
+Ie_WXf_^K8f>Mei50gBB4T0
+VB[Xo3YILJ:?gZCQTmgZlH0
+R1
+R6
+8../../src/Framework/Register.v
+F../../src/Framework/Register.v
+L0 46
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Framework/Register.v|
+R3
+R4
+R5
+n@register
+!s108 1349028831.540766
+!s107 ../../src/Framework/Register.v|
+!i10b 1
+!s85 0
+vShiftReg
+In<D?8gKd9UIRTJ_BQ]?SL1
+VA798T0TMziiNQU]NLhDoE0
+R1
+w1349025690
+8../../src/ShiftReg.v
+F../../src/ShiftReg.v
+L0 1
+R2
+r1
+31
+R3
+R4
+R5
+n@shift@reg
+!i10b 1
+!s100 5;9202VzK7D[d]Ya4g0aH3
+!s85 0
+!s108 1349028832.246228
+!s107 ../../src/ShiftReg.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/ShiftReg.v|
+vTestbench
+!s100 CAa9_l`D3hkSXPRIk76A@1
+I=1UfE3??f63WnIHS0QV:l3
+VGdUiEZgaMiVEi@bgHJeE13
+R1
+w1329522380
+8../../src/Testbench.v
+F../../src/Testbench.v
+L0 3
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/Testbench.v|
+R3
+R4
+R5
+n@testbench
+!s108 1349028831.635394
+!s107 ../../src/Testbench.v|
+!i10b 1
+!s85 0
+vUAReceive
+!s100 5GUnIW?GdeO1SP[`=_^;=2
+IJZ6[RXN8WR7@UQ64KY=b<2
+Vcd5LDA?@W6Qc:IlSBhKfI1
+R1
+R6
+8../../src/UAReceive.v
+F../../src/UAReceive.v
+Z7 F../../src/util.vh
+L0 1
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/UAReceive.v|
+R3
+R4
+R5
+n@u@a@receive
+!s108 1349028831.727918
+!s107 ../../src/util.vh|../../src/UAReceive.v|
+!i10b 1
+!s85 0
+vUART
+!s100 X7_bZj5Q`6o<g3J8>fSDb0
+IJ^<zDPQjjB[MXbeSRVdUR1
+V8XWL[18HVmFo^hL9A:>iJ0
+R1
+R6
+8../../src/UART.v
+F../../src/UART.v
+L0 1
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/UART.v|
+R3
+R4
+R5
+n@u@a@r@t
+!s108 1349028831.823782
+!s107 ../../src/UART.v|
+!i10b 1
+!s85 0
+vUATransmit
+!s100 QkRJU2FeNo5AHGM7TiOHG2
+I7;d]^;bASmd3=D_Iia3gE1
+VIDBmOoK5diMgHEPHe0V2e1
+R1
+w1349028792
+8../../src/UATransmit.v
+F../../src/UATransmit.v
+R7
+L0 1
+R2
+r1
+31
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/Framework|../../src/UATransmit.v|
+R3
+R4
+R5
+n@u@a@transmit
+!s108 1349028831.925331
+!s107 ../../src/util.vh|../../src/UATransmit.v|
+!i10b 1
+!s85 0

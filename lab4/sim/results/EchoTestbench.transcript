@@ -1,0 +1,42 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start EchoTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.EchoTestbench(fast)
+# Loading work.FPGA_TOP_ML505(fast)
+# Loading work.ButtonParse(fast)
+# Loading work.Debouncer(fast)
+# Loading work.Register(fast)
+# Loading work.Register(fast__1)
+# Loading work.EdgeDetect(fast)
+# Loading work.Register(fast__2)
+# Loading work.UART(fast)
+# Loading work.IORegister(fast)
+# Loading work.UATransmit(fast)
+# Loading work.ShiftReg(fast)
+# Loading work.UAReceive(fast)
+add wave EchoTestbench/*
+add wave EchoTestbench/uart/*
+add wave EchoTestbench/uart/uatransmit/*
+add wave EchoTestbench/uart/uareceive/*
+add wave EchoTestbench/top/*
+add wave EchoTestbench/top/uart/*
+add wave EchoTestbench/top/uart/uareceive/*
+add wave EchoTestbench/top/uart/uatransmit/*
+run 10ms
+# 
+# <EOF> 
