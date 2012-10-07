@@ -1,0 +1,61 @@
+//! **************************************************************************
+// Written by: Map P.15xf on Tue Oct 02 17:12:50 2012
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "GPIO_SW_C" LOCATE = SITE "AJ6" LEVEL 1;
+COMP "USER_CLK" LOCATE = SITE "AH15" LEVEL 1;
+COMP "FPGA_SERIAL_RX" LOCATE = SITE "AG15" LEVEL 1;
+COMP "FPGA_SERIAL_TX" LOCATE = SITE "AG20" LEVEL 1;
+TIMEGRP USER_CLK = BEL "has_char" BEL "char_0" BEL "char_1" BEL "char_2" BEL
+        "char_3" BEL "char_4" BEL "char_5" BEL "char_6" BEL "char_7" BEL
+        "uart/txreg/Out_0" BEL "uart/rxreg/Out_0" BEL
+        "resetParse/BP[0].ED.ED/Register/Out_2" BEL
+        "resetParse/BP[0].ED.ED/Register/Out_1" BEL
+        "resetParse/BP[0].ED.ED/Register/Out_0" BEL "clockBuf" BEL
+        "uart/uatransmit/Temp" BEL "uart/uareceive/RXShift_7" BEL
+        "uart/uareceive/RXShift_6" BEL "uart/uareceive/RXShift_5" BEL
+        "uart/uareceive/RXShift_4" BEL "uart/uareceive/RXShift_3" BEL
+        "uart/uareceive/RXShift_2" BEL "uart/uareceive/RXShift_1" BEL
+        "resetParse/BP[0].D/OutReg/Out_0" BEL
+        "resetParse/BP[0].D/CntReg/Out_0" BEL
+        "resetParse/BP[0].D/CntReg/Out_1" BEL
+        "resetParse/BP[0].D/CntReg/Out_2" BEL
+        "resetParse/BP[0].D/CntReg/Out_3" BEL
+        "resetParse/BP[0].D/CntReg/Out_4" BEL
+        "resetParse/BP[0].D/CntReg/Out_5" BEL
+        "resetParse/BP[0].D/CntReg/Out_6" BEL
+        "resetParse/BP[0].D/CntReg/Out_7" BEL
+        "resetParse/BP[0].D/CntReg/Out_8" BEL
+        "resetParse/BP[0].D/CntReg/Out_9" BEL
+        "resetParse/BP[0].D/CntReg/Out_10" BEL
+        "resetParse/BP[0].D/CntReg/Out_11" BEL
+        "resetParse/BP[0].D/CntReg/Out_12" BEL
+        "resetParse/BP[0].D/CntReg/Out_13" BEL
+        "resetParse/BP[0].D/CntReg/Out_14" BEL
+        "resetParse/BP[0].D/CntReg/Out_15" BEL
+        "resetParse/BP[0].D/CntReg/Out_16" BEL
+        "resetParse/BP[0].D/CntReg/Out_17" BEL
+        "resetParse/BP[0].D/CntReg/Out_18" BEL
+        "resetParse/BP[0].D/CntReg/Out_19" BEL "uart/uareceive/HasByte" BEL
+        "uart/uatransmit/ClockCounter_0" BEL "uart/uareceive/ClockCounter_0"
+        BEL "uart/uatransmit/ClockCounter_1" BEL
+        "uart/uareceive/ClockCounter_1" BEL "uart/uatransmit/ClockCounter_2"
+        BEL "uart/uareceive/ClockCounter_2" BEL
+        "uart/uatransmit/ClockCounter_3" BEL "uart/uareceive/ClockCounter_3"
+        BEL "uart/uatransmit/ClockCounter_4" BEL
+        "uart/uareceive/ClockCounter_4" BEL "uart/uatransmit/ClockCounter_5"
+        BEL "uart/uareceive/ClockCounter_5" BEL
+        "uart/uatransmit/ClockCounter_6" BEL "uart/uareceive/ClockCounter_6"
+        BEL "uart/uatransmit/ClockCounter_7" BEL
+        "uart/uareceive/ClockCounter_7" BEL "uart/uatransmit/ClockCounter_8"
+        BEL "uart/uareceive/ClockCounter_8" BEL
+        "uart/uatransmit/ClockCounter_9" BEL "uart/uareceive/ClockCounter_9"
+        BEL "uart/uatransmit/BitCounter_2" BEL "uart/uatransmit/BitCounter_0"
+        BEL "uart/uareceive/BitCounter_2" BEL "uart/uareceive/BitCounter_0"
+        BEL "uart/uatransmit/BitCounter_1" BEL "uart/uatransmit/BitCounter_3"
+        BEL "uart/uareceive/BitCounter_1" BEL "uart/uareceive/BitCounter_3"
+        BEL "uart/uareceive/Mshreg_RXShift_8" BEL "uart/uareceive/RXShift_8";
+TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+SCHEMATIC END;
+

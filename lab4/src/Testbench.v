@@ -34,7 +34,12 @@ module Testbench();
     DataInValid = 1'b1;
     #(Cycle);
     DataInValid = 1'b0;
-
+    while (DataInReady == 1'b0) begin #(Cycle); end
+    DataIn = 8'h42;    
+    DataInValid = 1'b1;
+    #(Cycle);
+    DataInValid = 1'b0;
+    
     // Wait until it comes out the other side
     while (!DataOutValid) #(Cycle);
     if (DataOut !== 8'h21) begin
@@ -57,7 +62,6 @@ module Testbench();
       $display("Simulation Failed: UART did not clear Valid bit after Ready");
       $finish();
     end
-
     $display("Test Successful, got output %d", 8'h21);
     $finish();
   end

@@ -1,0 +1,1685 @@
+--------------------------------------------------------------------------------
+Release 14.1 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -v 3 -s 1 -n 10 -fastpaths
+-xml FPGA_TOP_ML505.twx FPGA_TOP_ML505.ncd -o FPGA_TOP_ML505.twr
+FPGA_TOP_ML505.pcf
+
+Design file:              FPGA_TOP_ML505.ncd
+Physical constraint file: FPGA_TOP_ML505.pcf
+Device,package,speed:     xc5vlx110t,ff1136,-1 (PRODUCTION 1.73 2012-04-23, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 6709 paths analyzed, 530 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   4.417ns.
+--------------------------------------------------------------------------------
+
+Paths for end point uart/uareceive/BitCounter_3 (SLICE_X43Y65.DX), 8 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.583ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_1 (FF)
+  Destination:          uart/uareceive/BitCounter_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.319ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_1 to uart/uareceive/BitCounter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.BQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_1
+    SLICE_X58Y65.D2      net (fanout=2)        0.654   resetParse/BP[0].ED.ED/Register/Out<1>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.586   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.319ns (1.224ns logic, 3.095ns route)
+                                                       (28.3% logic, 71.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.708ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_2 (FF)
+  Destination:          uart/uareceive/BitCounter_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.194ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_2 to uart/uareceive/BitCounter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.CQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_2
+    SLICE_X58Y65.D4      net (fanout=1)        0.529   resetParse/BP[0].ED.ED/Register/Out<2>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.586   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      4.194ns (1.224ns logic, 2.970ns route)
+                                                       (29.2% logic, 70.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.917ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_0 (FF)
+  Destination:          uart/uareceive/BitCounter_3 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.985ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_0 to uart/uareceive/BitCounter_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.AQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_0
+    SLICE_X58Y65.D6      net (fanout=2)        0.320   resetParse/BP[0].ED.ED/Register/Out<0>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.586   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_3
+    -------------------------------------------------  ---------------------------
+    Total                                      3.985ns (1.224ns logic, 2.761ns route)
+                                                       (30.7% logic, 69.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/uareceive/BitCounter_1 (SLICE_X43Y65.DX), 8 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.589ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_1 (FF)
+  Destination:          uart/uareceive/BitCounter_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.313ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_1 to uart/uareceive/BitCounter_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.BQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_1
+    SLICE_X58Y65.D2      net (fanout=2)        0.654   resetParse/BP[0].ED.ED/Register/Out<1>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.580   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.313ns (1.218ns logic, 3.095ns route)
+                                                       (28.2% logic, 71.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.714ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_2 (FF)
+  Destination:          uart/uareceive/BitCounter_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.188ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_2 to uart/uareceive/BitCounter_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.CQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_2
+    SLICE_X58Y65.D4      net (fanout=1)        0.529   resetParse/BP[0].ED.ED/Register/Out<2>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.580   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_1
+    -------------------------------------------------  ---------------------------
+    Total                                      4.188ns (1.218ns logic, 2.970ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.923ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_0 (FF)
+  Destination:          uart/uareceive/BitCounter_1 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.979ns (Levels of Logic = 2)
+  Clock Path Skew:      -0.063ns (1.182 - 1.245)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].ED.ED/Register/Out_0 to uart/uareceive/BitCounter_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.AQ      Tcko                  0.450   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_0
+    SLICE_X58Y65.D6      net (fanout=2)        0.320   resetParse/BP[0].ED.ED/Register/Out<0>
+    SLICE_X58Y65.D       Tilo                  0.094   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Out1
+    SLICE_X44Y65.A3      net (fanout=31)       1.999   Reset
+    SLICE_X44Y65.A       Tilo                  0.094   uart/uareceive/BitCounter_cst
+                                                       uart/uareceive/BitCounter_cst1
+    SLICE_X43Y65.DX      net (fanout=1)        0.442   uart/uareceive/BitCounter_cst
+    SLICE_X43Y65.CLK     Tsrck                 0.580   uart/uareceive/BitCounter<3>
+                                                       uart/uareceive/BitCounter_1
+    -------------------------------------------------  ---------------------------
+    Total                                      3.979ns (1.218ns logic, 2.761ns route)
+                                                       (30.6% logic, 69.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_19 (SLICE_X88Y51.CIN), 370 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.700ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.262ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.A1      net (fanout=4)        0.889   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.262ns (1.638ns logic, 2.624ns route)
+                                                       (38.4% logic, 61.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.826ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.139ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_18 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    SLICE_X89Y50.A2      net (fanout=4)        0.766   resetParse/BP[0].D/CntReg/Out<18>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.139ns (1.638ns logic, 2.501ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.951ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.014ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_19 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.DQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    SLICE_X87Y49.A1      net (fanout=6)        1.020   resetParse/BP[0].D/CntReg/Out<19>
+    SLICE_X87Y49.A       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount_and000055_SW1
+    SLICE_X89Y49.A4      net (fanout=17)       0.559   N16
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.014ns (1.638ns logic, 2.376ns route)
+                                                       (40.8% logic, 59.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_17 (SLICE_X88Y51.CIN), 370 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.757ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.205ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.A1      net (fanout=4)        0.889   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.111   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      4.205ns (1.581ns logic, 2.624ns route)
+                                                       (37.6% logic, 62.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.883ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.082ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_18 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    SLICE_X89Y50.A2      net (fanout=4)        0.766   resetParse/BP[0].D/CntReg/Out<18>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.111   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      4.082ns (1.581ns logic, 2.501ns route)
+                                                       (38.7% logic, 61.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.008ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.957ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_19 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.DQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    SLICE_X87Y49.A1      net (fanout=6)        1.020   resetParse/BP[0].D/CntReg/Out<19>
+    SLICE_X87Y49.A       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount_and000055_SW1
+    SLICE_X89Y49.A4      net (fanout=17)       0.559   N16
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.111   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      3.957ns (1.581ns logic, 2.376ns route)
+                                                       (40.0% logic, 60.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_16 (SLICE_X88Y51.CE), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.758ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_16 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.204ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.B1      net (fanout=4)        0.887   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_16
+    -------------------------------------------------  ---------------------------
+    Total                                      4.204ns (0.979ns logic, 3.225ns route)
+                                                       (23.3% logic, 76.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.018ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_5 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_16 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.938ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.009ns (0.120 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_5 to resetParse/BP[0].D/CntReg/Out_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y48.BQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/CntReg/Out_5
+    SLICE_X89Y50.B3      net (fanout=4)        0.621   resetParse/BP[0].D/CntReg/Out<5>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_16
+    -------------------------------------------------  ---------------------------
+    Total                                      3.938ns (0.979ns logic, 2.959ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_14 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_16 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.930ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_14 to resetParse/BP[0].D/CntReg/Out_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_14
+    SLICE_X89Y50.B2      net (fanout=4)        0.613   resetParse/BP[0].D/CntReg/Out<14>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_16
+    -------------------------------------------------  ---------------------------
+    Total                                      3.930ns (0.979ns logic, 2.951ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_17 (SLICE_X88Y51.CE), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.758ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.204ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.B1      net (fanout=4)        0.887   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      4.204ns (0.979ns logic, 3.225ns route)
+                                                       (23.3% logic, 76.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.018ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_5 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.938ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.009ns (0.120 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_5 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y48.BQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/CntReg/Out_5
+    SLICE_X89Y50.B3      net (fanout=4)        0.621   resetParse/BP[0].D/CntReg/Out<5>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      3.938ns (0.979ns logic, 2.959ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_14 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_17 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.930ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_14 to resetParse/BP[0].D/CntReg/Out_17
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_14
+    SLICE_X89Y50.B2      net (fanout=4)        0.613   resetParse/BP[0].D/CntReg/Out<14>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_17
+    -------------------------------------------------  ---------------------------
+    Total                                      3.930ns (0.979ns logic, 2.951ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_18 (SLICE_X88Y51.CE), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.758ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.204ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.B1      net (fanout=4)        0.887   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.204ns (0.979ns logic, 3.225ns route)
+                                                       (23.3% logic, 76.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.018ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_5 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.938ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.009ns (0.120 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_5 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y48.BQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/CntReg/Out_5
+    SLICE_X89Y50.B3      net (fanout=4)        0.621   resetParse/BP[0].D/CntReg/Out<5>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      3.938ns (0.979ns logic, 2.959ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_14 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.930ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_14 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_14
+    SLICE_X89Y50.B2      net (fanout=4)        0.613   resetParse/BP[0].D/CntReg/Out<14>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      3.930ns (0.979ns logic, 2.951ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_19 (SLICE_X88Y51.CE), 40 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.758ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.204ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.B1      net (fanout=4)        0.887   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      4.204ns (0.979ns logic, 3.225ns route)
+                                                       (23.3% logic, 76.7% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.018ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_5 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.938ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.009ns (0.120 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_5 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y48.BQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/CntReg/Out_5
+    SLICE_X89Y50.B3      net (fanout=4)        0.621   resetParse/BP[0].D/CntReg/Out<5>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      3.938ns (0.979ns logic, 2.959ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.032ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_14 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.930ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_14 to resetParse/BP[0].D/CntReg/Out_19
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_14
+    SLICE_X89Y50.B2      net (fanout=4)        0.613   resetParse/BP[0].D/CntReg/Out<14>
+    SLICE_X89Y50.B       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A1      net (fanout=1)        1.041   resetParse/BP[0].D/NextCount_or000040
+    SLICE_X86Y49.A       Tilo                  0.094   resetParse/BP[0].D/OutReg/Out<0>
+                                                       resetParse/BP[0].D/NextCount_or000055
+    SLICE_X87Y49.C1      net (fanout=2)        0.711   resetParse/BP[0].D/NextCount_or0000
+    SLICE_X87Y49.C       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount<0>11
+    SLICE_X88Y51.CE      net (fanout=5)        0.586   resetParse/BP[0].D/N01
+    SLICE_X88Y51.CLK     Tceck                 0.226   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    -------------------------------------------------  ---------------------------
+    Total                                      3.930ns (0.979ns logic, 2.951ns route)
+                                                       (24.9% logic, 75.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_18 (SLICE_X88Y51.CIN), 370 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.773ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.189ns (Levels of Logic = 7)
+  Clock Path Skew:      -0.003ns (0.120 - 0.123)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.A1      net (fanout=4)        0.889   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.095   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.189ns (1.565ns logic, 2.624ns route)
+                                                       (37.4% logic, 62.6% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.899ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.066ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_18 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    SLICE_X89Y50.A2      net (fanout=4)        0.766   resetParse/BP[0].D/CntReg/Out<18>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.095   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.066ns (1.565ns logic, 2.501ns route)
+                                                       (38.5% logic, 61.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.024ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.941ns (Levels of Logic = 7)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_19 to resetParse/BP[0].D/CntReg/Out_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.DQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    SLICE_X87Y49.A1      net (fanout=6)        1.020   resetParse/BP[0].D/CntReg/Out<19>
+    SLICE_X87Y49.A       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount_and000055_SW1
+    SLICE_X89Y49.A4      net (fanout=17)       0.559   N16
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+    SLICE_X88Y51.CLK     Tcinck                0.095   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_xor<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    -------------------------------------------------  ---------------------------
+    Total                                      3.941ns (1.565ns logic, 2.376ns route)
+                                                       (39.7% logic, 60.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].D/CntReg/Out_15 (SLICE_X88Y50.CIN), 282 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     5.807ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_12 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_15 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.158ns (Levels of Logic = 6)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_12 to resetParse/BP[0].D/CntReg/Out_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y50.AQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/CntReg/Out_12
+    SLICE_X89Y50.A1      net (fanout=4)        0.889   resetParse/BP[0].D/CntReg/Out<12>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+                                                       resetParse/BP[0].D/CntReg/Out_15
+    -------------------------------------------------  ---------------------------
+    Total                                      4.158ns (1.534ns logic, 2.624ns route)
+                                                       (36.9% logic, 63.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.915ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_18 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_15 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.035ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.015ns (0.114 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_18 to resetParse/BP[0].D/CntReg/Out_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.CQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_18
+    SLICE_X89Y50.A2      net (fanout=4)        0.766   resetParse/BP[0].D/CntReg/Out<18>
+    SLICE_X89Y50.A       Tilo                  0.094   N32
+                                                       resetParse/BP[0].D/NextCount_and000055_SW0
+    SLICE_X89Y49.A1      net (fanout=21)       0.938   N14
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+                                                       resetParse/BP[0].D/CntReg/Out_15
+    -------------------------------------------------  ---------------------------
+    Total                                      4.035ns (1.534ns logic, 2.501ns route)
+                                                       (38.0% logic, 62.0% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     6.040ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               resetParse/BP[0].D/CntReg/Out_19 (FF)
+  Destination:          resetParse/BP[0].D/CntReg/Out_15 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      3.910ns (Levels of Logic = 6)
+  Clock Path Skew:      -0.015ns (0.114 - 0.129)
+  Source Clock:         Clock rising at 0.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: resetParse/BP[0].D/CntReg/Out_19 to resetParse/BP[0].D/CntReg/Out_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X88Y51.DQ      Tcko                  0.471   resetParse/BP[0].D/CntReg/Out<19>
+                                                       resetParse/BP[0].D/CntReg/Out_19
+    SLICE_X87Y49.A1      net (fanout=6)        1.020   resetParse/BP[0].D/CntReg/Out<19>
+    SLICE_X87Y49.A       Tilo                  0.094   resetParse/BP[0].D/N01
+                                                       resetParse/BP[0].D/NextCount_and000055_SW1
+    SLICE_X89Y49.A4      net (fanout=17)       0.559   N16
+    SLICE_X89Y49.A       Tilo                  0.094   N98
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.A2      net (fanout=1)        0.787   resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>
+    SLICE_X88Y47.COUT    Topcya                0.499   resetParse/BP[0].D/CntReg/Out<3>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_lut<0>_rt
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<3>
+    SLICE_X88Y48.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<7>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.CIN     net (fanout=1)        0.000   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<7>
+    SLICE_X88Y49.COUT    Tbyp                  0.104   resetParse/BP[0].D/CntReg/Out<11>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CIN     net (fanout=1)        0.010   resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<11>
+    SLICE_X88Y50.CLK     Tcinck                0.168   resetParse/BP[0].D/CntReg/Out<15>
+                                                       resetParse/BP[0].D/Maddsub_NextCount_share0000_cy<15>
+                                                       resetParse/BP[0].D/CntReg/Out_15
+    -------------------------------------------------  ---------------------------
+    Total                                      3.910ns (1.534ns logic, 2.376ns route)
+                                                       (39.2% logic, 60.8% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point char_5 (SLICE_X46Y66.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.433ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_6 (FF)
+  Destination:          char_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.495ns (Levels of Logic = 0)
+  Clock Path Skew:      0.062ns (0.545 - 0.483)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_6 to char_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y66.BQ      Tcko                  0.414   uart/uareceive/RXShift<7>
+                                                       uart/uareceive/RXShift_6
+    SLICE_X46Y66.BX      net (fanout=2)        0.312   uart/uareceive/RXShift<6>
+    SLICE_X46Y66.CLK     Tckdi       (-Th)     0.231   char<7>
+                                                       char_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.495ns (0.183ns logic, 0.312ns route)
+                                                       (37.0% logic, 63.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char_4 (SLICE_X46Y66.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.448ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_5 (FF)
+  Destination:          char_4 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.510ns (Levels of Logic = 0)
+  Clock Path Skew:      0.062ns (0.545 - 0.483)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_5 to char_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y66.AQ      Tcko                  0.414   uart/uareceive/RXShift<7>
+                                                       uart/uareceive/RXShift_5
+    SLICE_X46Y66.AX      net (fanout=2)        0.325   uart/uareceive/RXShift<5>
+    SLICE_X46Y66.CLK     Tckdi       (-Th)     0.229   char<7>
+                                                       char_4
+    -------------------------------------------------  ---------------------------
+    Total                                      0.510ns (0.185ns logic, 0.325ns route)
+                                                       (36.3% logic, 63.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/uareceive/RXShift_5 (SLICE_X45Y66.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.476ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_6 (FF)
+  Destination:          uart/uareceive/RXShift_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.476ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_6 to uart/uareceive/RXShift_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y66.BQ      Tcko                  0.414   uart/uareceive/RXShift<7>
+                                                       uart/uareceive/RXShift_6
+    SLICE_X45Y66.AX      net (fanout=2)        0.291   uart/uareceive/RXShift<6>
+    SLICE_X45Y66.CLK     Tckdi       (-Th)     0.229   uart/uareceive/RXShift<7>
+                                                       uart/uareceive/RXShift_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.476ns (0.185ns logic, 0.291ns route)
+                                                       (38.9% logic, 61.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char_0 (SLICE_X47Y67.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.483ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_1 (FF)
+  Destination:          char_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.468ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.015ns (0.136 - 0.151)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_1 to char_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.AQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_1
+    SLICE_X47Y67.AX      net (fanout=1)        0.283   uart/uareceive/RXShift<1>
+    SLICE_X47Y67.CLK     Tckdi       (-Th)     0.229   char<3>
+                                                       char_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.468ns (0.185ns logic, 0.283ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char_1 (SLICE_X47Y67.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.485ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_2 (FF)
+  Destination:          char_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.470ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.015ns (0.136 - 0.151)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_2 to char_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.BQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_2
+    SLICE_X47Y67.BX      net (fanout=2)        0.287   uart/uareceive/RXShift<2>
+    SLICE_X47Y67.CLK     Tckdi       (-Th)     0.231   char<3>
+                                                       char_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.470ns (0.183ns logic, 0.287ns route)
+                                                       (38.9% logic, 61.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/uareceive/RXShift_3 (SLICE_X46Y67.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.490ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_4 (FF)
+  Destination:          uart/uareceive/RXShift_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.490ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_4 to uart/uareceive/RXShift_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.DQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_4
+    SLICE_X46Y67.CX      net (fanout=2)        0.294   uart/uareceive/RXShift<4>
+    SLICE_X46Y67.CLK     Tckdi       (-Th)     0.218   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.490ns (0.196ns logic, 0.294ns route)
+                                                       (40.0% logic, 60.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point resetParse/BP[0].ED.ED/Register/Out_1 (SLICE_X58Y65.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.493ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               resetParse/BP[0].ED.ED/Register/Out_0 (FF)
+  Destination:          resetParse/BP[0].ED.ED/Register/Out_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.493ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: resetParse/BP[0].ED.ED/Register/Out_0 to resetParse/BP[0].ED.ED/Register/Out_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X58Y65.AQ      Tcko                  0.414   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_0
+    SLICE_X58Y65.BX      net (fanout=2)        0.310   resetParse/BP[0].ED.ED/Register/Out<0>
+    SLICE_X58Y65.CLK     Tckdi       (-Th)     0.231   resetParse/BP[0].ED.ED/Register/Out<2>
+                                                       resetParse/BP[0].ED.ED/Register/Out_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.493ns (0.183ns logic, 0.310ns route)
+                                                       (37.1% logic, 62.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char_2 (SLICE_X47Y67.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_3 (FF)
+  Destination:          char_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.482ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.015ns (0.136 - 0.151)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_3 to char_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.CQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_3
+    SLICE_X47Y67.CX      net (fanout=2)        0.286   uart/uareceive/RXShift<3>
+    SLICE_X47Y67.CLK     Tckdi       (-Th)     0.218   char<3>
+                                                       char_2
+    -------------------------------------------------  ---------------------------
+    Total                                      0.482ns (0.196ns logic, 0.286ns route)
+                                                       (40.7% logic, 59.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point char_3 (SLICE_X47Y67.DX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_4 (FF)
+  Destination:          char_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.482ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.015ns (0.136 - 0.151)
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_4 to char_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.DQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_4
+    SLICE_X47Y67.DX      net (fanout=2)        0.287   uart/uareceive/RXShift<4>
+    SLICE_X47Y67.CLK     Tckdi       (-Th)     0.219   char<3>
+                                                       char_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.482ns (0.195ns logic, 0.287ns route)
+                                                       (40.5% logic, 59.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point uart/uareceive/RXShift_1 (SLICE_X46Y67.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.501ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               uart/uareceive/RXShift_2 (FF)
+  Destination:          uart/uareceive/RXShift_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.501ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         Clock rising at 10.000ns
+  Destination Clock:    Clock rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: uart/uareceive/RXShift_2 to uart/uareceive/RXShift_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y67.BQ      Tcko                  0.414   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_2
+    SLICE_X46Y67.AX      net (fanout=2)        0.316   uart/uareceive/RXShift<2>
+    SLICE_X46Y67.CLK     Tckdi       (-Th)     0.229   uart/uareceive/RXShift<4>
+                                                       uart/uareceive/RXShift_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.501ns (0.185ns logic, 0.316ns route)
+                                                       (36.9% logic, 63.1% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 8.300ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 0.850ns (Twpl)
+  Physical resource: uart/uareceive/RXShift<8>/CLK
+  Logical resource: uart/uareceive/Mshreg_RXShift_8/CLK
+  Location pin: SLICE_X44Y66.CLK
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 8.300ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 0.850ns (Twph)
+  Physical resource: uart/uareceive/RXShift<8>/CLK
+  Logical resource: uart/uareceive/Mshreg_RXShift_8/CLK
+  Location pin: SLICE_X44Y66.CLK
+  Clock network: Clock
+--------------------------------------------------------------------------------
+Slack: 8.334ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.666ns (600.240MHz) (Tbgper_I)
+  Physical resource: clockBuf/I0
+  Logical resource: clockBuf/I0
+  Location pin: BUFGCTRL_X0Y0.I0
+  Clock network: USER_CLK_IBUFG
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock USER_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+USER_CLK       |    4.417|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 6709 paths, 0 nets, and 573 connections
+
+Design statistics:
+   Minimum period:   4.417ns{1}   (Maximum frequency: 226.398MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Tue Oct  2 17:15:10 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 604 MB
+
+
+

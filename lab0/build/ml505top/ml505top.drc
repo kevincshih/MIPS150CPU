@@ -1,0 +1,8 @@
+Release 14.1 Drc P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Wed Aug 29 19:17:01 2012
+
+drc -z ml505top.ncd ml505top.pcf
+
+DRC detected 0 errors and 0 warnings.

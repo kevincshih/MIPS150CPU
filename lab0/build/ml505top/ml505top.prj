@@ -1,0 +1,5 @@
+verilog work "../../src/Adder.v"
+verilog work "../../src/BehavioralAdder.v"
+verilog work "../../src/FA.v"
+verilog work "../../src/ml505top.v"
+verilog work "../../src/Mux2_1.v"

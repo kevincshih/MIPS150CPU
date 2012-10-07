@@ -25,4 +25,4 @@ add wave Testbench/uart2/*
 add wave Testbench/uart2/uareceive/*
 add wave Testbench/uart2/uatransmit/*
 run 10ms
-# Test Successful, got output  33
+# Simulation Failed: UART TX idle signal was not high

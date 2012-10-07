@@ -1,0 +1,486 @@
+Release 14.1 - xst P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
+ 
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "ml505top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "ml505top"
+Output Format                      : NGC
+Target Device                      : xc5vlx110t-1-ff1136
+
+---- Source Options
+Top Module Name                    : ml505top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Off
+Reduce Control Sets                : Off
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../../src/Adder.v" in library work
+Compiling verilog file "../../src/BehavioralAdder.v" in library work
+Module <Adder> compiled
+Compiling verilog file "../../src/FA.v" in library work
+Module <BehavioralAdder> compiled
+Compiling verilog file "../../src/ml505top.v" in library work
+Module <FA> compiled
+Compiling verilog file "../../src/Mux2_1.v" in library work
+Module <ml505top> compiled
+Module <Mux2_1> compiled
+No errors in compilation
+Analysis of file <"ml505top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <ml505top> in library <work> with parameters.
+	CWidth = "00000000000000000000000000010000"
+	Width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <Mux2_1> in library <work>.
+
+Analyzing hierarchy for module <FA> in library <work>.
+
+Analyzing hierarchy for module <Adder> in library <work> with parameters.
+	Width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <BehavioralAdder> in library <work> with parameters.
+	Width = "00000000000000000000000000001000"
+
+Analyzing hierarchy for module <FA> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <ml505top>.
+	CWidth = 32'sb00000000000000000000000000010000
+	Width = 32'sb00000000000000000000000000001000
+Module <ml505top> is correct for synthesis.
+ 
+Analyzing module <Mux2_1> in library <work>.
+Module <Mux2_1> is correct for synthesis.
+ 
+Analyzing module <FA> in library <work>.
+Module <FA> is correct for synthesis.
+ 
+Analyzing module <Adder> in library <work>.
+	Width = 32'sb00000000000000000000000000001000
+Module <Adder> is correct for synthesis.
+ 
+Analyzing module <BehavioralAdder> in library <work>.
+	Width = 32'sb00000000000000000000000000001000
+Module <BehavioralAdder> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <Mux2_1>.
+    Related source file is "../../src/Mux2_1.v".
+Unit <Mux2_1> synthesized.
+
+
+Synthesizing Unit <FA>.
+    Related source file is "../../src/FA.v".
+    Found 1-bit xor2 for signal <Sum>.
+    Found 1-bit xor2 for signal <axorb>.
+Unit <FA> synthesized.
+
+
+Synthesizing Unit <BehavioralAdder>.
+    Related source file is "../../src/BehavioralAdder.v".
+    Found 8-bit adder carry out for signal <AUX_1$addsub0000>.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <BehavioralAdder> synthesized.
+
+
+Synthesizing Unit <Adder>.
+    Related source file is "../../src/Adder.v".
+Unit <Adder> synthesized.
+
+
+Synthesizing Unit <ml505top>.
+    Related source file is "../../src/ml505top.v".
+    Found 16-bit up counter for signal <Count>.
+    Found 8-bit comparator equal for signal <GPIO_LED_4$cmp_eq0000> created at line 95.
+    Found 1-bit xor2 for signal <GPIO_LED_4$xor0000> created at line 95.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 Comparator(s).
+Unit <ml505top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit adder carry out                                 : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Comparators                                          : 1
+ 8-bit comparator equal                                : 1
+# Xors                                                 : 19
+ 1-bit xor2                                            : 19
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 8-bit adder carry out                                 : 1
+# Counters                                             : 1
+ 16-bit up counter                                     : 1
+# Comparators                                          : 1
+ 8-bit comparator equal                                : 1
+# Xors                                                 : 19
+ 1-bit xor2                                            : 19
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <ml505top> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block ml505top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 16
+ Flip-Flops                                            : 16
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : ml505top.ngr
+Top Level Output File Name         : ml505top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 22
+
+Cell Usage :
+# BELS                             : 134
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 15
+#      LUT2                        : 11
+#      LUT3                        : 20
+#      LUT4                        : 4
+#      LUT5                        : 5
+#      LUT6                        : 28
+#      MUXCY                       : 23
+#      MUXF7                       : 1
+#      VCC                         : 1
+#      XORCY                       : 24
+# FlipFlops/Latches                : 16
+#      FDR                         : 16
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 22
+#      IBUF                        : 13
+#      IBUFG                       : 1
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              16  out of  69120     0%  
+ Number of Slice LUTs:                   84  out of  69120     0%  
+    Number used as Logic:                84  out of  69120     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     84
+   Number with an unused Flip Flop:      68  out of     84    80%  
+   Number with an unused LUT:             0  out of     84     0%  
+   Number of fully used LUT-FF pairs:    16  out of     84    19%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                          22
+ Number of bonded IOBs:                  22  out of    640     3%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK_33MHZ_FPGA                     | IBUFG+BUFG             | 16    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 4.646ns (Maximum Frequency: 215.239MHz)
+   Minimum input arrival time before clock: 2.876ns
+   Maximum output required time after clock: 6.860ns
+   Maximum combinational path delay: 4.415ns
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK_33MHZ_FPGA'
+  Clock period: 4.646ns (frequency: 215.239MHz)
+  Total number of paths / destination ports: 3921 / 16
+-------------------------------------------------------------------------
+Delay:               4.646ns (Levels of Logic = 6)
+  Source:            Count_10 (FF)
+  Destination:       Count_0 (FF)
+  Source Clock:      CLK_33MHZ_FPGA rising
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: Count_10 to Count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              7   0.471   1.102  Count_10 (Count_10)
+     LUT6:I0->O            4   0.094   0.496  CUT/ADD[2].f/Cout1 (CUT/Carry<3>)
+     LUT3:I2->O            1   0.094   0.480  CUT/ADD[3].f/Mxor_Sum_Result1 (CUTResult<3>)
+     LUT6:I5->O            1   0.094   0.480  GPIO_LED_4_and0000134_SW0 (N01)
+     LUT6:I5->O            3   0.094   0.491  GPIO_LED_4_and0000134 (GPIO_LED_4_and0000134)
+     LUT6:I5->O           16   0.094   0.562  GPIO_LED_4_and0000176 (GPIO_LED_4_OBUF)
+     LUT3:I2->O            1   0.094   0.000  Count_0_rstpot1 (Count_0_rstpot)
+     FDR:D                    -0.018          Count_0
+    ----------------------------------------
+    Total                      4.646ns (1.035ns logic, 3.611ns route)
+                                       (22.3% logic, 77.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 80 / 16
+-------------------------------------------------------------------------
+Offset:              2.876ns (Levels of Logic = 2)
+  Source:            GPIO_COMPSW<2> (PAD)
+  Destination:       Count_0 (FF)
+  Destination Clock: CLK_33MHZ_FPGA rising
+
+  Data Path: GPIO_COMPSW<2> to Count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.818   0.973  GPIO_COMPSW_2_IBUF (GPIO_COMPSW_2_IBUF)
+     LUT5:I0->O           16   0.094   0.418  Reset1 (Reset)
+     FDR:R                     0.573          Count_0
+    ----------------------------------------
+    Total                      2.876ns (1.485ns logic, 1.391ns route)
+                                       (51.6% logic, 48.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK_33MHZ_FPGA'
+  Total number of paths / destination ports: 864 / 4
+-------------------------------------------------------------------------
+Offset:              6.860ns (Levels of Logic = 6)
+  Source:            Count_10 (FF)
+  Destination:       GPIO_LED<4> (PAD)
+  Source Clock:      CLK_33MHZ_FPGA rising
+
+  Data Path: Count_10 to GPIO_LED<4>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              7   0.471   1.102  Count_10 (Count_10)
+     LUT6:I0->O            4   0.094   0.496  CUT/ADD[2].f/Cout1 (CUT/Carry<3>)
+     LUT3:I2->O            1   0.094   0.480  CUT/ADD[3].f/Mxor_Sum_Result1 (CUTResult<3>)
+     LUT6:I5->O            1   0.094   0.480  GPIO_LED_4_and0000134_SW0 (N01)
+     LUT6:I5->O            3   0.094   0.491  GPIO_LED_4_and0000134 (GPIO_LED_4_and0000134)
+     LUT6:I5->O           16   0.094   0.418  GPIO_LED_4_and0000176 (GPIO_LED_4_OBUF)
+     OBUF:I->O                 2.452          GPIO_LED_4_OBUF (GPIO_LED<4>)
+    ----------------------------------------
+    Total                      6.860ns (3.393ns logic, 3.467ns route)
+                                       (49.5% logic, 50.5% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 11 / 4
+-------------------------------------------------------------------------
+Delay:               4.415ns (Levels of Logic = 3)
+  Source:            GPIO_DIP<6> (PAD)
+  Destination:       GPIO_LED<3> (PAD)
+
+  Data Path: GPIO_DIP<6> to GPIO_LED<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             2   0.818   0.715  GPIO_DIP_6_IBUF (GPIO_DIP_6_IBUF)
+     LUT3:I0->O            1   0.094   0.336  gpio_fa/Cout1 (GPIO_LED_3_OBUF)
+     OBUF:I->O                 2.452          GPIO_LED_3_OBUF (GPIO_LED<3>)
+    ----------------------------------------
+    Total                      4.415ns (3.364ns logic, 1.051ns route)
+                                       (76.2% logic, 23.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 24.00 secs
+Total CPU time to Xst completion: 23.84 secs
+ 
+--> 
+
+
+Total memory usage is 672780 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

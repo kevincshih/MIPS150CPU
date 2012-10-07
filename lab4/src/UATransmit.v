@@ -29,12 +29,13 @@ module UATransmit(
   reg     [3:0]                   BitCounter;
   reg     [ClockCounterWidth-1:0] ClockCounter;
   reg 				  Temp;
+  reg     [7:0]			  DataReg;
 
   assign DataInReady = ~TXRunning;
   assign Start = DataInValid && DataInReady;
   assign  SymbolEdge   = (ClockCounter == SymbolEdgeTime - 1);
   assign TXRunning = ~(BitCounter == 0);
-  assign SOut = Temp;
+  assign SOut = (BitCounter == 0) ? 1'b1 : Temp;
 
   // Counts cycles until a single symbol is done
   always @ (posedge Clock) begin
@@ -47,6 +48,7 @@ module UATransmit(
       BitCounter <= 0;
     end else if (Start) begin
       BitCounter <= 10;
+      DataReg <= DataIn;
     end else if (SymbolEdge && TXRunning) begin
       BitCounter <= BitCounter - 1;
     end
@@ -56,9 +58,8 @@ module UATransmit(
     if (TXRunning) begin
 	if(BitCounter == 10) Temp <= 1'b0;
 	else if (BitCounter == 1) Temp <= 1'b1;
-	else Temp <= DataIn[9 - BitCounter];
+	else Temp <= DataReg[9 - BitCounter];
 	end
-    else Temp = 1'b1;
   end
 
 endmodule
