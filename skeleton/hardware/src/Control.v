@@ -13,7 +13,17 @@ module Control(
   //--|Parameters|--------------------------------------------------------------
 
   //--|Solution|----------------------------------------------------------------
+  
+  reg RegWriteReg, RegDstReg, AluSrcReg, BranchReg, MemWriteReg, MemtoRegReg;
 
+  assign RegWrite = RegWriteReg;
+  assign RegDst = RegDstReg;
+  assign AluSrc = AluSrcReg;
+  assign Branch = BranchReg;
+  assign MemWrite = MemWriteReg;
+  assign MemtoReg = MemtoRegReg;
+
+  
   ALUdec DUT(.funct(funct),
         .opcode(op),
         .ALUop(ALUop));
@@ -29,12 +39,12 @@ module Control(
 	.RDsel(RDsel));
 
   always @ (*) begin
-	RegWrite = (op == `RTYPE)||(op == `LW);
-	RegDst = (op == `RTYPE);
-	AluSrc = (op == `LW) || (op == `SW);
-	Branch = (op == `BEQ);
-	MemWrite = (op == `SW);
-	MemtoReg = 1'b0;
+	RegWriteReg = (op == `RTYPE)||(op == `LW);
+	RegDstReg = (op == `RTYPE);
+	AluSrcReg = (op == `LW) || (op == `SW);
+	BranchReg = (op == `BEQ);
+	MemWriteReg = (op == `SW);
+	MemtoRegReg = 1'b0;
   end
 
 endmodule
