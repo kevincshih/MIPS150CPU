@@ -11,7 +11,7 @@
 
 module ALUdec(
   input [5:0] funct, opcode,
-  output [3:0] ALUop
+  output reg [3:0] ALUop
 );
 
 always @ (*) begin

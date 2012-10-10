@@ -1,0 +1,3 @@
+MO IORegister NULL ../../src/IORegister.v vlg45/_i_o_register.bin 1349830768
+MO EchoTestbench NULL ../../src/EchoTestbench.v vlg0B/_echo_testbench.bin 1349830768
+MO MIPS150 NULL ../../src/MIPS150.v vlg2B/_m_i_p_s150.bin 1349830768

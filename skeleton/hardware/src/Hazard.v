@@ -1,7 +1,7 @@
 module Hazard(
   input   Clock,
-  input   Reset,
-  );
+  input   Reset
+);
 
   //--|Parameters|--------------------------------------------------------------
 

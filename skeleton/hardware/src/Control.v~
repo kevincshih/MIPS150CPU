@@ -3,7 +3,7 @@ module Control(
   input [5:0] op, funct,
   input [4:0] branch,
   output RegWrite, RegDst, AluSrc, Branch, MemWrite, MemtoReg,
-  output [3:0] ALUOp,
+  output [3:0] ALUop,
   output [3:0] ByteSel,
   output WEIM, WEDM, REUART, WEUART, UARTsel, RDsel
 );
@@ -13,8 +13,6 @@ module Control(
   //--|Parameters|--------------------------------------------------------------
 
   //--|Solution|----------------------------------------------------------------
-
-  wire [31:0] addr;
 
   ALUdec DUT(.funct(funct),
         .opcode(op),
@@ -31,11 +29,11 @@ module Control(
 	.RDsel(RDsel));
 
   always @ (*) begin
-	RegWrite = (op == `RTYPE)||(op == `lw);
+	RegWrite = (op == `RTYPE)||(op == `LW);
 	RegDst = (op == `RTYPE);
-	AluSrc = (op == `lw) || (op == `sw);
-	Branch = (op == `beq);
-	MemWrite = (op == `sw);
+	AluSrc = (op == `LW) || (op == `SW);
+	Branch = (op == `BEQ);
+	MemWrite = (op == `SW);
 	MemtoReg = 1'b0;
   end
 

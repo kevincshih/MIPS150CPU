@@ -2,7 +2,7 @@
 `define OPCODE
 
 // Opcode
-`define BEQ 	6'b000100
+`define BEQ 	6'000100
 `define RTYPE   6'b000000
 // Load/store
 `define LB      6'b100000
