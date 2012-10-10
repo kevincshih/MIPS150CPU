@@ -1,6 +1,4 @@
 module AddrDec(
-  input   Clock,
-  input   Reset,
   input MemWrite,
   input [31:0] Address,
   output [3:0] ByteSel,
