@@ -17,28 +17,30 @@ module ALU(
     input [3:0] ALUop,
     output [31:0] Out
 );
-
+   reg [31:0] 	  O;
+   
 always @(*) begin
 
-case(ALUop)
+   case(ALUop)
+     
+     `ALU_ADDU: O = A + B;
+     `ALU_SUBU: O = A - B;
+     `ALU_SLT:  O = $signed(A) < $signed(B);
+     `ALU_SLTU: O = A < B;
+     `ALU_AND:  O = A & B;
+     `ALU_OR:   O = A | B;
+     `ALU_XOR:  O = A ^ B;
+     `ALU_SLL:  O = B << A;
+     `ALU_SRL:  O = B >> A;
+     `ALU_SRA:  O = $signed(B) >>> $signed(A);
+     `ALU_SLA: O = $signed(B) << $signed(A);
+     `ALU_NOR:  O = ~A & ~B;
+     `ALU_LUI: O = {B[15:0], 16'b0}; 
 
- `ALU_ADDU: Out = A + B;
- `ALU_SUBU: Out = A - B;
- `ALU_SLT:  Out = $signed(A) < $signed(B);
- `ALU_SLTU: Out = A < B;
- `ALU_AND:  Out = A & B;
- `ALU_OR:   Out = A | B;
- `ALU_XOR:  Out = A ^ B;
- `ALU_SLL:  Out = B << A;
- `ALU_SRL:  Out = B >> A;
- `ALU_SRA:  Out = $signed(B) >>> $signed(A);
- `ALU_SLA: Out = $signed(B) << $signed(A);
- `ALU_NOR:  Out = ~A & ~B;
- `ALU_LUI: Out = {B[15:0], 16'b0}; 
- default:  Out = 32'b0;
-
-endcase
-
+     default:  O = 32'b0;
+     
+   endcase
 end
-
+   assign Out = O;
+   
 endmodule
