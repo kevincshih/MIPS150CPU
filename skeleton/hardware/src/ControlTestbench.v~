@@ -14,38 +14,44 @@ module ControlTestBench();
   initial Clock = 0; 
   always #(Halfcycle) Clock = ~Clock;
 
-  // Register and wires to test the RegFile
-  reg [4:0] ra1;
-  reg [4:0] ra2;
-  reg [4:0] wa;
-  reg we;
-  reg [31:0] wd;
-  wire [31:0] rd1;
-  wire [31:0] rd2;
+  // Register and wires
+  reg[31:0] addr;
+  reg[5:0] op, funct;
+  reg branch;
+  wire RegWrite, RegDst, Branch, MemWrite, MemtoReg;
+  wire [1:0] AluSelA, AluSelB,
+  wire [3:0] ALUop;
+  wire [3:0] ByteSel;
+  wire WEIM, WEDM, REUART, WEUART, UARTsel, RDsel;
 
-  RegFile DUT(.clk(Clock),
-              .we(we),
-              .ra1(ra1),
-              .ra2(ra2),
-              .wa(wa),
-              .wd(wd),
-              .rd1(rd1),
-              .rd2(rd2));
-  
+  Control DUT(.Address(addr),
+	.op(op),
+	.funct(funct),
+  	.branch(branch),
+  	.RegWrite(RegWrite),
+	.RegDst(RegDst),
+	.AluSelA(AluSelA),
+	.AluSelB(AluSelB),
+	.Branch(Branch),
+	.MemWrite(MemWrite),
+	.MemtoReg(MemtoReg),
+  	.ALUop(ALUop),
+  	.ByteSel(ByteSel),
+ 	.WEIM(WEIM),
+	.WEDM(WEDM),
+	.REUART(REUART),
+	.WEUART(WEUART),
+	.UARTsel(UARTsel),
+	.RDsel(RDsel));
 
   // Testing logic:
   initial begin
     #1;
-    // Verify that writing to reg 0 is a nop
-    
-    // Verify that data written to any other register is returned the same
-    // cycle
-    
-    // Verify that the we pin prevents data from being written
 
-    // Verify the reads are asynchronous
-   
+	
+
     $display("All tests passed!");
     $finish();
+
   end
 endmodule

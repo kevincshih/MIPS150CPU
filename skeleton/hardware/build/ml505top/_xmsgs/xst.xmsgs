@@ -5,10 +5,10 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">../../src/RegFile.v</arg>&quot; line <arg fmt="%d" index="2">30</arg> <arg fmt="%s" index="3">unexpected token: &apos;:&apos;</arg>
+<msg type="error" file="HDLCompilers" num="26" delta="new" >&quot;<arg fmt="%s" index="1">../../src/RegFile.v</arg>&quot; line <arg fmt="%d" index="2">30</arg> <arg fmt="%s" index="3">unexpected token: &apos;:&apos;</arg>
 </msg>
 
-<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">../../src/RegFile.v</arg>&quot; line <arg fmt="%d" index="2">68</arg> <arg fmt="%s" index="3">expecting &apos;endmodule&apos;, found &apos;case&apos;</arg>
+<msg type="error" file="HDLCompilers" num="26" delta="new" >&quot;<arg fmt="%s" index="1">../../src/RegFile.v</arg>&quot; line <arg fmt="%d" index="2">68</arg> <arg fmt="%s" index="3">expecting &apos;endmodule&apos;, found &apos;case&apos;</arg>
 </msg>
 
 </messages>

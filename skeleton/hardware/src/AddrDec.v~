@@ -32,6 +32,7 @@ module AddrDec(
 	if (addr == 4'b1000) begin
 		REUART = 1'b1;
 	  	WEUART = 1'b0;
+	end
 	if (Address == 32'h8000000) begin
 	  	UARTsel = 2'b00; //DataInReady
 	  	RDsel = 2'b00; //ReadFromUART

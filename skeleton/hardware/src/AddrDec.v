@@ -1,7 +1,6 @@
 module AddrDec(
   input MemWrite,
   input [31:0] Address,
-  output [3:0] ByteSel,
   output WEIM, WEDM, REUART, WEUART, UARTsel, RDsel);
 
   //--|Parameters|--------------------------------------------------------------
