@@ -12,7 +12,7 @@ Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> 
 
@@ -117,10 +117,8 @@ Compiling verilog file "../../src/MIPS150.v" in library work
 Module <IORegister> compiled
 Compiling verilog file "../../src/RegFile.v" in library work
 Module <MIPS150> compiled
-ERROR:HDLCompilers:26 - "../../src/RegFile.v" line 30 unexpected token: ':'
-Module <RegFile> compiled
-ERROR:HDLCompilers:26 - "../../src/RegFile.v" line 68 expecting 'endmodule', found 'case'
 Compiling verilog file "../../src/RegFileTestbench.v" in library work
+Module <RegFile> compiled
 Compiling verilog file "../../src/UART.v" in library work
 Module <RegFileTestbench> compiled
 Compiling verilog file "../../src/UAReceive.v" in library work
@@ -149,12 +147,18 @@ Module <Hazard> compiled
 Compiling verilog file "../../src/UATransmit.v" in library work
 Module <ALUdec> compiled
 Compiling verilog include file "../../src/util.vh"
+Compiling verilog file "../../src/Datapath.v" in library work
 Module <UATransmit> compiled
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 17 unexpected token: '+'
+Module <Datapath> compiled
+ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 20 expecting 'endmodule', found 'EOF'
 Analysis of file <"ml505top.prj"> failed.
 --> 
 
 
-Total memory usage is 615104 kilobytes
+Total memory usage is 615408 kilobytes
 
 Number of errors   :    2 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

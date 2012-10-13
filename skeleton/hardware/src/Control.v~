@@ -1,6 +1,6 @@
 module Control(
   input [31:0] Address,
-  input [5:0] op, funct,
+  input [31:0] OldAddress,
   input branch,
   output RegWrite, RegDst, AluSrc, Branch, MemWrite, MemtoReg,
   output [1:0] AluSelA, AluSelB,
@@ -19,7 +19,26 @@ module Control(
 
   reg [1:0] AluSelAReg, AluSelBReg;
   reg [3:0] ByteSelReg;
-
+  reg [5:0] op, funct, oldop, oldfunct;
+  reg [4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
+  reg [15:0] imm, oldimm;
+  reg [25:0] target, oldtarget;
+  assign op = Address[31:26];
+  assign funct = Address[5:0];
+  assign rs = Address[4:0];
+  assign rt = Address[4:0];
+  assign rd = Address[4:0];
+  assign shamt = Address[4:0];
+  assign oldrs = OldAddress[4:0];
+  assign oldrt = OldAddress[4:0];
+  assign oldrd = OldAddress[4:0];
+  assign oldshamt = OldAddress[4:0];
+  assign imm = Address[15:0];
+  assign oldimm = OldAddress[15:0];
+  assign target = Address[25:0];
+  assign oldtarget = OldAddress[25:0];
+  assign oldop = OldAddress[31:26];
+  assign oldfunct = OldAddress[5:0];
   assign RegWrite = RegWriteReg;
   assign RegDst = RegDstReg;
   assign AluSelA = AluSelAReg;
@@ -45,7 +64,6 @@ module Control(
   always @ (*) begin
 	RegWriteReg = (op == `RTYPE)||(op == `LW);
 	RegDstReg = (op == `RTYPE);
-	AluSrcReg = (op == `LW) || (op == `SW);
 	BranchReg = (op == `BEQ && branch);
 	MemWriteReg = (op == `SW);
 	MemtoRegReg = 1'b0;
@@ -55,6 +73,23 @@ module Control(
 	`SW: ByteSelReg = 4'b1111;
 	default: ByteSelReg = 4'b0000;
 	endcase
+  end
+
+  always @ (*) begin
+
+  if (op == `RTYPE) begin
+	AluSelAReg = 2'b01;
+	AluSelBReg = 2'b01;
+	if (funct == `JALR)	
+	end
+	else if (op == `ITYPE) begin
+	AluSelAReg = 2'b01;
+	AluSelBReg = 2'b11;
+	end
+	else if(op == `JAL) begin
+	AluSelAReg = 2'b00;
+	AluSelBReg = 2'b00; 
+	end
   end
 
 endmodule
