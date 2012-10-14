@@ -20,12 +20,12 @@ module RegFile(input clk,
                input  [31:0] wd,
                output [31:0] rd1, rd2);
 
-   reg[31:0] r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
+   (* ram_style = "distributed" *) reg[31:0] r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
 	     r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27,
 	     r28, r29, r30, r31;
 
-   reg [31:0] r0 = 32'd0;
-   reg [31:0] rd_1, rd_2;
+   (* ram_style = "distributed" *) reg [31:0] r0 = 32'd0;
+   (* ram_style = "distributed" *) reg [31:0] rd_1, rd_2;
    
    always @(posedge clk) begin
       if (we) begin
