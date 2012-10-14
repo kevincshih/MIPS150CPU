@@ -4,7 +4,7 @@ module Control(
     input branch,
 
     output RegWrite, RegDst,
-    output [1:0] PCsel,
+    output[1:0]PCsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
     output WEIM, WEDM, REUART, WEUART, UARTsel, RDsel
@@ -90,22 +90,22 @@ ALUdec DUT(.funct(funct),
     .opcode(op),
     .ALUop(ALUop));
 
+//WriteBack Logic
 
 always @( * ) begin
-    RegWriteReg = (op == `RTYPE) || (op == `LW);
-    RegDstReg = (op == `RTYPE);
-    if (branch) begin
-    PCselReg = 2'b11;
+    if (op == `RTYPE) begin
+    RegDstReg = 2'b01;
     end
-    else if ((op == `JAL) || (op == 'J)) begin
-    PCselReg = 2'b10;
+    else if (((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU))) begin
+    RegDstReg = 2'b00;
     end
-    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
-    PCselReg = 2'b01;
+    else if (funct == `JAL) begin
+    RegDstReg = 2'b10;
     end
     else begin
-    PCselReg = 2'b00;
+    RegDstReg = 2'b11;
     end
+    RegWriteReg = (op == `RTYPE) || ((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU));
     MemWriteReg = (op == `SW) || (op == `SH) || (op == `SB);
     case(op)
         `SB: ByteSelReg = 4'b0001;
@@ -114,6 +114,8 @@ always @( * ) begin
         default: ByteSelReg = 4'b0000;
     endcase
 end
+
+//Memory Mapped I/O
 
 always @( * ) begin
     if (MemWrite) begin
@@ -153,6 +155,23 @@ always @( * ) begin
             REUART = 1'b0;
             WEUART = 1'b0;
         end
+    end
+end
+
+//Branch/Jump Logic
+
+always @( * ) begin
+    if (branch) begin
+        PCselReg = 2'b11;
+    end
+    else if ((op == `JAL) || (op == 'J)) begin
+        PCselReg = 2'b10;
+    end
+    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
+        PCselReg = 2'b01;
+    end
+    else begin
+        PCselReg = 2'b00;
     end
 end
 
