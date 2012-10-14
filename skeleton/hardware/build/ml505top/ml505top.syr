@@ -11,7 +11,7 @@ Total CPU time to Xst completion: 0.14 secs
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
+Total REAL time to Xst completion: 1.00 secs
 Total CPU time to Xst completion: 0.15 secs
  
 --> 
@@ -110,9 +110,30 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
+Compiling verilog file "../../src/ALU.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Compiling verilog file "../../src/ALUdec.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Module <ALU> compiled
+Compiling verilog file "../../src/Control.v" in library work
+Module <ALUdec> compiled
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+Compiling verilog file "../../src/ControlTestbench.v" in library work
+Module <Control> compiled
+Compiling verilog file "../../src/Datapath.v" in library work
+Module <ControlTestBench> compiled
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
+ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 17 unexpected token: '+'
 Compiling verilog file "../../src/EchoTestbench.v" in library work
+Module <Datapath> compiled
+ERROR:HDLCompilers:26 - "../../src/EchoTestbench.v" line 3 expecting 'endmodule', found 'module'
+Compiling verilog file "../../src/Hazard.v" in library work
 Compiling verilog file "../../src/IORegister.v" in library work
-Module <EchoTestbench> compiled
+Module <Hazard> compiled
 Compiling verilog file "../../src/MIPS150.v" in library work
 Module <IORegister> compiled
 Compiling verilog file "../../src/RegFile.v" in library work
@@ -124,41 +145,17 @@ Module <RegFileTestbench> compiled
 Compiling verilog file "../../src/UAReceive.v" in library work
 Module <UART> compiled
 Compiling verilog include file "../../src/util.vh"
-Compiling verilog file "../../src/ml505top.v" in library work
-Module <UAReceive> compiled
-Compiling verilog file "../../src/AddrDec.v" in library work
-Module <ml505top> compiled
-Compiling verilog file "../../src/ALU.v" in library work
-Compiling verilog include file "../../src/Opcode.vh"
-Compiling verilog include file "../../src/ALUop.vh"
-Module <AddrDec> compiled
-Compiling verilog file "../../src/ControlTestbench.v" in library work
-Module <ALU> compiled
-Compiling verilog file "../../src/Control.v" in library work
-Module <ControlTestBench> compiled
-Compiling verilog include file "../../src/Opcode.vh"
-Compiling verilog include file "../../src/ALUop.vh"
-Compiling verilog file "../../src/Hazard.v" in library work
-Module <Control> compiled
-Compiling verilog file "../../src/ALUdec.v" in library work
-Compiling verilog include file "../../src/Opcode.vh"
-Compiling verilog include file "../../src/ALUop.vh"
-Module <Hazard> compiled
 Compiling verilog file "../../src/UATransmit.v" in library work
-Module <ALUdec> compiled
+Module <UAReceive> compiled
 Compiling verilog include file "../../src/util.vh"
-Compiling verilog file "../../src/Datapath.v" in library work
+Compiling verilog file "../../src/ml505top.v" in library work
 Module <UATransmit> compiled
-Compiling verilog include file "../../src/Opcode.vh"
-Compiling verilog include file "../../src/ALUop.vh"
-ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 17 unexpected token: '+'
-Module <Datapath> compiled
-ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 20 expecting 'endmodule', found 'EOF'
+Module <ml505top> compiled
 Analysis of file <"ml505top.prj"> failed.
 --> 
 
 
-Total memory usage is 615408 kilobytes
+Total memory usage is 615272 kilobytes
 
 Number of errors   :    2 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

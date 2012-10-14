@@ -162,16 +162,16 @@ end
 
 always @( * ) begin
     if (branch) begin
-        PCselReg = 2'b11;
-    end
-    else if ((op == `JAL) || (op == 'J)) begin
-        PCselReg = 2'b10;
-    end
-    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
         PCselReg = 2'b01;
     end
-    else begin
+    else if ((op == `JAL) || (op == `J)) begin
+        PCselReg = 2'b11;
+    end
+    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
         PCselReg = 2'b00;
+    end
+    else begin
+        PCselReg = 2'b10;
     end
 end
 
