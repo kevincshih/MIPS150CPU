@@ -3,11 +3,10 @@ module Control(
     input[31:0]OldAddress,
     input branch,
 
-    output RegWrite, RegDst,
-    output[1:0]PCsel,
+    output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
-    output WEIM, WEDM, REUART, WEUART, UARTsel, RDsel
+    output WEIM, WEDM, REUART, WEUART, RegWrite
     );
 `include "Opcode.vh"
     `include "ALUop.vh"
@@ -18,8 +17,8 @@ module Control(
   //start PC at 4
   //--|Solution|----------------------------------------------------------------
 
-reg RegWriteReg, RegDstReg, MemWriteReg;
-reg[1:0] AluSelAReg, AluSelBReg, PCselReg;
+reg MemWriteReg;
+   reg [1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg, UARTselreg, RDselreg;
 
@@ -120,40 +119,40 @@ end
 always @( * ) begin
     if (MemWrite) begin
         if ( ~addr[3] && addr[0]) begin
-            WEDM = 1'b1;
+            WEDMreg = 1'b1;
         end
         if ( ~addr[3] && addr[1]) begin
-            WEIM = 1'b1;
+            WEIMreg = 1'b1;
         end
         if (Address == 32'h80000008) begin
-            WEUART = 1'b1;
-            REUART = 1'b0;
+            WEUARTreg = 1'b1;
+            REUARTreg = 1'b0;
         end
     end
     else begin
-        WEDM = 1'b0;
-        WEIM = 1'b0;
-        REUART = 1'b0;
-        WEUART = 1'b0;
+        WEDMreg = 1'b0;
+        WEIMreg = 1'b0;
+        REUARTreg = 1'b0;
+        WEUARTreg = 1'b0;
         if (addr == 4'b1000) begin
-            REUART = 1'b1;
-            WEUART = 1'b0;
+            REUARTreg = 1'b1;
+            WEUARTreg = 1'b0;
         end
         if (Address == 32'h8000000) begin
-            UARTsel = 2'b00; //DataInReady
-            RDsel = 2'b00; //ReadFromUART
+            UARTselreg = 2'b00; //DataInReady
+            RDselreg = 2'b00; //ReadFromUART
         end
         else if (Address == 32'h80000004) begin
-            UARTsel = 2'b01; //DataOutValid
-            RDsel = 2'b00; //ReadFromUART
+            UARTselreg = 2'b01; //DataOutValid
+            RDselreg = 2'b00; //ReadFromUART
         end
         else if (Address == 32'h8000000c) begin
-            UARTsel = 2'b10; //DataOut
-            RDsel = 2'b00; //ReadFromUART
+            UARTselreg = 2'b10; //DataOut
+            RDselreg = 2'b00; //ReadFromUART
         end
         else begin
-            REUART = 1'b0;
-            WEUART = 1'b0;
+            REUARTreg = 1'b0;
+            WEUARTreg = 1'b0;
         end
     end
 end

@@ -1,8 +1,8 @@
 module Datapath(
 		input [3:0] ALUop, ByteSel,
-		input WEIM, WEDM, REUART, WEUART, UARTsel, RDsel,
-		Stall, CLK, DataOutValid, DataInReady, reset,
-		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst,
+		input WEIM, WEDM, REUART, WEUART,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite,
+		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		output Branch_compare,
 		output [31:0] Address, PrevAddr,
@@ -64,10 +64,11 @@ module Datapath(
 	     .JAR(rd1),
 	     .EN(not_stall),
 	     .CLK(CLK),
+	     .RST(reset),
 	     .PC_IF(PC_IF));
 
    RegFile the_regfile(.clk(CLK),
-		       .we(not_stall),
+		       .we(RegWrite),
 		       .ra1(rs),
 		       .ra2(rt),
 		       .wa(A3_RA_DW),
@@ -121,38 +122,38 @@ module Datapath(
 
    always @(*) begin
       case(ALU_Sel_A)
-	xx: ALU_SrcA_Reg = rd1; // normal r-type
-	xx: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
-	xx: ALU_SrcA_Reg = ALU_OutMW; // fwd A
+	2'b00: ALU_SrcA_Reg = rd1; // normal r-type
+	2'b01: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
+	2'b10: ALU_SrcA_Reg = ALU_OutMW; // fwd A
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
       
       case(ALU_Sel_B)
-	xx: ALU_SrcB_Reg = rd2; // normal r-type
-	xx: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
-	xx: ALU_SrcB_Reg = ALU_OutMW; // fwd B
-	xx: ALU_SrcB_Reg = Imm_Extended; // imm for i-type
+	2'b01: ALU_SrcB_Reg = rd2; // normal r-type
+	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
+	2'b10: ALU_SrcB_Reg = ALU_OutMW; // fwd B
+	2'b11: ALU_SrcB_Reg = Imm_Extended; // imm for i-type
 	default: ALU_SrcB_Reg = rd2;
       endcase // case (ALU_Sel_B)
       
       case(RegDst)
-	xx: A3_Reg = rt;
-	xx: A3_Reg = rd;
-	xx: A3_Reg = 5'd32; // set $ra for JAL
+	2'b00: A3_Reg = rt;
+	2'b01: A3_Reg = rd;
+	2'b10 A3_Reg = 5'd32; // set $ra for JAL
 	default: A3_Reg = rt;
       endcase // case (RegDst)
 
       case(UARTSel_Reg)
-	xx: UART_Data_Reg = {31'd0, DataInReady};
-	xx: UART_Data_Reg = {31'd0, DataOutValid};
-	xx: UART_Data_Reg = {24'd0, DataOut};
+	2'b01: UART_Data_Reg = {31'd0, DataInReady};
+	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
+	2'b00: UART_Data_Reg = {24'd0, DataOut};
 	default: {24'd0, DataOut};
       endcase // case (UARTSel)
 
       case (RDsel_Reg)
-	xx: WriteData_Reg = UART_Data;
-	xx: WriteData_Reg = ALU_OutMW;
-	xx: WriteData_Reg = DMEM_dout;
+	2'b00: WriteData_Reg = UART_Data;
+	2'b01: WriteData_Reg = ALU_OutMW;
+	2'b10: WriteData_Reg = DMEM_dout;
 	default: RDsel_Reg = DMEM_dout;
       endcase // case (RDsel)
 

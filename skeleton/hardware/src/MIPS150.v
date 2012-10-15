@@ -6,9 +6,9 @@ module MIPS150(
 );
 
    // Control wires
-   wire    WEIM, WEDM, REUART, WEUART, UARTsel, RDsel,
-	   MemtoReg, DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare;
-   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst;
+   wire    WEIM, WEDM, REUART, WEUART,
+	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, stall;
+   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, UARTsel, RDsel,
    wire [3:0] ALUop, ByteSel;
 
    // Data wires
@@ -19,7 +19,10 @@ module MIPS150(
 			  .Address(Address), // begin inputs
 			  .OldAddress(PrevAddr),
 			  .branch(Branch_compare), // end inputs
-			  .AluSelA(ALU_Sel_A), //begin outputs
+			  .RegWrite(RegWrite),// begin outputs
+			  .RegDst(RegDst),
+			  .PCSel(PC_Sel),
+			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),
 			  .ALUop(ALUop),
 			  .ByteSel(ByteSel),
@@ -36,6 +39,7 @@ module MIPS150(
 			 .ALU_Sel_A(ALU_Sel_A),
 			 .ALU_Sel_B(ALU_Sel_B),
 			 .RegDst(RegDst),
+			 .RegWrite(RegWrite),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
 			 .Address(Address), //output
