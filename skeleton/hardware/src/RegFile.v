@@ -14,8 +14,7 @@
 //  Author: Andy Hu & Kevin Shih
 //-----------------------------------------------------------------------------
 
-module RegFile(input clk,
-               input we,
+module RegFile(input clk, re,
                input  [4:0] ra1, ra2, wa,
                input  [31:0] wd,
                output [31:0] rd1, rd2);
@@ -125,7 +124,7 @@ module RegFile(input clk,
 	5'd16: rd_2 = r16;
 	5'd17: rd_2 = r17;
 	5'd18: rd_2 = r18;
-	5'd19: rd_2 = 195;
+	5'd19: rd_2 = r19;
 	5'd20: rd_2 = r20;
 	5'd21: rd_2 = r21;
 	5'd22: rd_2 = r22;

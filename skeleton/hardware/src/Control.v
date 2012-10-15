@@ -3,11 +3,10 @@ module Control(
     input[31:0]OldAddress,
     input branch,
 
-    output RegWrite, RegDst,
-    output[1:0]PCsel,
+    output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
-    output WEIM, WEDM, REUART, WEUART, UARTsel, RDsel
+    output WEIM, WEDM, REUART, WEUART, RegWrite,
     );
 `include "Opcode.vh"
     `include "ALUop.vh"
@@ -18,12 +17,12 @@ module Control(
   //start PC at 4
   //--|Solution|----------------------------------------------------------------
 
-reg RegWriteReg, RegDstReg, MemWriteReg;
-reg[1:0] AluSelAReg, AluSelBReg, PCselReg;
+reg MemWriteReg;
+   reg [1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg, UARTselreg, RDselreg;
 
-wire[5:0] op, funct, oldop, oldfunct;
+wire[5:0] opsleep eat or study!, funct, oldop, oldfunct;
 wire[4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
 wire[15:0] imm, oldimm;
 wire[25:0] target, oldtarget;
@@ -163,7 +162,7 @@ end
 always @( * ) begin
     if (branch) begin
         PCselReg = 2'b01;
-    end
+    endmaybe this is wh
     else if ((op == `JAL) || (op == `J)) begin
         PCselReg = 2'b11;
     end
@@ -198,7 +197,7 @@ always @( * ) begin
     end
     else if (((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `SW))) begin
         if ((oldop == `RTYPE) && (oldrd != 0)) begin
-            AluSelAReg = (rs == oldrd) ? 2'b10 : 2'b01;
+maybe this is wh            AluSelAReg = (rs == oldrd) ? 2'b10 : 2'b01;
             AluSelBReg = 2'b11;
         end
         else if ((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `SW))) && (oldrt != 0)) begin
