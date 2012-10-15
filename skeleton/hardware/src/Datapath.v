@@ -50,6 +50,7 @@ module Datapath(
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked;
    reg [4:0]   A3_Reg, RegDst_Reg;
+   reg [1:0]   PC_SelReg;
    
    ALU the_ALU(.A(ALU_SrcA),
 	       .B(ALU_SrcB),
@@ -60,7 +61,7 @@ module Datapath(
    PC the_PC(.PC_Branch(PC_Branch),
 	     .PC_4(PC_4),
 	     .PC_JAL(PC_JAL),
-	     .PC_Sel(PC_Sel),
+	     .PC_Sel(PC_SelReg),
 	     .JR(rd1),
 	     .EN(not_stall),
 	     .CLK(CLK),
@@ -118,6 +119,8 @@ module Datapath(
 	 
 	 PrevInstruction_Reg <= IMEM_Dout_IF_RA;
 	 ALU_OutMW_Reg <= ALU_OutMW;
+
+	 PC_SelReg <= PC_Sel;
 	 
       end // if (not_stall)
    end // always @ (posedge CLK)
@@ -213,18 +216,19 @@ module Datapath(
    assign rt = IMEM_Dout_IF_RA[20:16];
    assign rd = IMEM_Dout_IF_RA[15:11];
    assign Imm = IMEM_Dout_IF_RA[15:0];
-   assign PC_High_Bits = PC_IF_RA[11:8];
    assign funct = IMEM_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
 
+   assign PC_High_bits = PC_IF_RA[31:28];
    assign JAL_Target = IMEM_Dout_IF_RA[25:0];
-   assign PC_JAL = {PC_High_Bits, JAL_Target, 2'b00};
+   assign PC_JAL = {PC_High_bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4;
 
+   
    assign addra = ALU_OutMW[13:2];
    assign JR = rd1;
    

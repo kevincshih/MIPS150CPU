@@ -198,10 +198,10 @@ always @( * ) begin
         PCselReg = 2'b11;
     end
     else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
-        PCselReg = 2'b00;
+        PCselReg = 2'b10;
     end
     else begin
-        PCselReg = 2'b10;
+        PCselReg = 2'b00;
     end
 end
 
