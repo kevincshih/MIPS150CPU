@@ -14,7 +14,7 @@
 //  Author: Andy Hu & Kevin Shih
 //-----------------------------------------------------------------------------
 
-module RegFile(input clk, re,
+module RegFile(input clk, we,
                input  [4:0] ra1, ra2, wa,
                input  [31:0] wd,
                output [31:0] rd1, rd2);

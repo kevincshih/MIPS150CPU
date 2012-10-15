@@ -7,7 +7,7 @@ module Datapath(
 		output Branch_compare,
 		output [31:0] Address, PrevAddr,
 		output DataOutReady, DataInValid,
-		output [7:0] DataIn,
+		output [7:0] DataIn
 		);
 
 
@@ -44,7 +44,7 @@ module Datapath(
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
    reg 	       WEDM_RA_DW;
-   reg 	       REUART_Reg, WEUART_Reg, UARTsel_Reg,RDsel_Reg;
+   reg 	       REUART_Reg, WEUART_Reg, UARTsel_Reg, RDsel_Reg;
    reg [31:0]  PrevAddr_Reg, ALU_OutMW_Reg;
 
    //mux registers
@@ -94,7 +94,7 @@ module Datapath(
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
 				       .opcode(opcode),
-				       .rt(rt)
+				       .rt(rt),
 				       .take_branch(Branch_compare));
    
    
@@ -106,7 +106,7 @@ module Datapath(
 
 	 //Second Pipeline Registers
 	 A3_RA_DW <= A3_Reg;
-	 WDEM_RA_DW <= WDEM;
+	 WEDM_RA_DW <= WEDM;
 
 	 REUART_Reg <= REUART;
 	 WEUART_Reg <= WEUART;
@@ -118,7 +118,7 @@ module Datapath(
 	 
       end // if (not_stall)
    end // always @ (posedge CLK)
-   
+    
 
    always @(*) begin
       case(ALU_Sel_A)
@@ -130,7 +130,7 @@ module Datapath(
       
       case(ALU_Sel_B)
 	2'b01: ALU_SrcB_Reg = rd2; // normal r-type
-	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
+ 	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
 	2'b10: ALU_SrcB_Reg = ALU_OutMW; // fwd B
 	2'b11: ALU_SrcB_Reg = Imm_Extended; // imm for i-type
 	default: ALU_SrcB_Reg = rd2;
@@ -139,15 +139,15 @@ module Datapath(
       case(RegDst)
 	2'b00: A3_Reg = rt;
 	2'b01: A3_Reg = rd;
-	2'b10 A3_Reg = 5'd32; // set $ra for JAL
+	2'b10: A3_Reg = 5'd32; // set $ra for JAL
 	default: A3_Reg = rt;
       endcase // case (RegDst)
 
-      case(UARTSel_Reg)
+      case(UARTsel_Reg)
 	2'b01: UART_Data_Reg = {31'd0, DataInReady};
 	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
 	2'b00: UART_Data_Reg = {24'd0, DataOut};
-	default: {24'd0, DataOut};
+	default: UART_Data_Reg = {24'd0, DataOut};
       endcase // case (UARTSel)
 
       case (RDsel_Reg)
@@ -201,7 +201,7 @@ module Datapath(
    
    //Wires in IFetch/IMEM (first stage)
    assign PC_4 = PC_IF + 4;
-   assign addrb = PC_IF[2:13];
+   assign addrb = PC_IF[13:2];
 
    //Wires in RegFile and ALU (second stage)
    assign Address = IMEM_Dout_IF_RA; // output
