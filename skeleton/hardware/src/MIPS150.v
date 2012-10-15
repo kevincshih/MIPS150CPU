@@ -13,11 +13,12 @@ module MIPS150(
 
    // Data wires
    wire [7:0] DataOut, DataIn;
-   wire [31:0] Address, PrevAddr;
+   wire [31:0] Instruction, PrevInstruction, Address;
    
    Control the_controller(
-			  .Address(Address), // begin inputs
-			  .OldAddress(PrevAddr),
+			  .Address(Address),
+			  .Instruction(Instruction), // begin inputs
+			  .OldInstruction(PrevInstruction),
 			  .branch(Branch_compare), // end inputs
 			  .RegWrite(RegWrite),// begin outputs
 			  .RegDst(RegDst),
@@ -42,8 +43,9 @@ module MIPS150(
 			 .RegWrite(RegWrite),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
-			 .Address(Address), //output
-			 .PrevAddr(PrevAddr), //output
+			 .Instruction(Instruction), //output
+			 .PrevInstruction(PrevInstruction), //output
+			 .Address(Address), // output
 			 .DataOutReady(DataOutReady), //output
 			 .DataInValid(DataInValid), //output
 			 .DataIn(DataIn)); //output

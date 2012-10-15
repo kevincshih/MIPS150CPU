@@ -5,7 +5,7 @@ module Datapath(
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		output Branch_compare,
-		output [31:0] Address, PrevAddr,
+		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
 		output [7:0] DataIn
 		);
@@ -45,7 +45,7 @@ module Datapath(
    reg [4:0]   A3_RA_DW;
    reg 	       WEDM_RA_DW;
    reg 	       REUART_Reg, WEUART_Reg, UARTsel_Reg, RDsel_Reg;
-   reg [31:0]  PrevAddr_Reg, ALU_OutMW_Reg;
+   reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg;
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked;
@@ -65,6 +65,7 @@ module Datapath(
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
+	     .flush(Branch_compare),
 	     .PC_IF(PC_IF));
 
    RegFile the_regfile(.clk(CLK),
@@ -113,7 +114,7 @@ module Datapath(
 	 UARTsel_Reg <= UARTsel;
 	 RDsel_Reg <= RDsel;
 	 
-	 PrevAddr_Reg <= IMEM_Dout_IF_RA;
+	 PrevInstruction_Reg <= IMEM_Dout_IF_RA;
 	 ALU_OutMW_Reg <= ALU_OutMW;
 	 
       end // if (not_stall)
@@ -204,7 +205,7 @@ module Datapath(
    assign addrb = PC_IF[13:2];
 
    //Wires in RegFile and ALU (second stage)
-   assign Address = IMEM_Dout_IF_RA; // output
+   assign Instruction = IMEM_Dout_IF_RA; // output
    assign opcode = IMEM_Dout_IF_RA[31:26];
    assign rs = IMEM_Dout_IF_RA[25:21];
    assign rt = IMEM_Dout_IF_RA[20:16];
@@ -213,6 +214,7 @@ module Datapath(
    assign PC_High_Bits = PC_IF_RA[11:8];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
+   assign Address = ALU_OutMW; // output to control
 
    assign PC_JAL = {PC_High_Bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
@@ -220,17 +222,16 @@ module Datapath(
    assign PC_Branch = Imm_Shifted + PC_4;
 
    assign addra = ALU_OutMW[13:2];
-   
 
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;
    assign DataOutReady = REUART_Reg; // output
    assign DataInValid = WEUART_Reg; // output
-   assign PrevAddr = PrevAddr_Reg; // output
+   assign PrevInstruction = PrevInstruction_Reg; // output
    assign DataIn = rd2[7:0]; // output
    assign WriteData = WriteData_Reg;
    assign UART_Data = UART_Data_Reg;
-   assign prev_opcode = PrevAddr_Reg[31:26];
+   assign prev_opcode = PrevInstruction_Reg[31:26];
    assign DMEM_dout = douta_masked;
    assign offset = ALU_OutMW_Reg[1:0];
    
