@@ -47,12 +47,12 @@ module RegFileTestbench();
      wa = 5'b00000;
      ra1 = 5'b00000;
      ra2 = 5'b00000;
-     #1;
+     #Cycle;
      if (rd1 !== 32'd0) begin
 	$display("Writing to reg 0 is not a nop");
 	$display("rd1 is: %b", rd1);
      end
-     #1;
+     #Cycle;
      
     // Verify that data written to any other register is returned the same
     // cycle
@@ -61,7 +61,7 @@ module RegFileTestbench();
      for (i=1; i < loops; i = i + 1)
        begin
 	  wa = i;
-	  #1;
+	  #Cycle;
 	  ra1 = i;
 	  if (rd1 != 32'hDEADBEEF)
 	    begin
@@ -70,11 +70,13 @@ module RegFileTestbench();
        end
     
     // Verify that the we pin prevents data from being written
-     #1;
+     #Cycle;
      we = 0;
      wa = 5'd1;
      wd = 32'hFEEDFEED;
      ra1 = 5'd1;
+     #Cycle;
+     
      if (rd1 !== 32'hDEADBEEF)
        $display("Write Enable singal did not disable writing: r1 = %b", rd1);
      
@@ -87,7 +89,6 @@ module RegFileTestbench();
      if (rd1 !== 32'hDEADBEEF)
        $display("read was not asynchronous");
      
-   
     $display("All tests passed!");
     $finish();
   end

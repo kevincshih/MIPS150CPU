@@ -22,9 +22,13 @@ module EchoTestbench();
     // Instantiate your CPU here and connect the FPGA_SERIAL_TX wires
     // to the UART we use for testing
 
+   MIPS150 the_cpu(.clk(Clock),
+	     .rst(Reset),
+	     .stall(),
+	     .FPGA_SERIAL_RX(FPGA_SERIAL_RX),
+	     .FPGA_SERIAL_TX(FPGA_SERIAL_TX));
 
-
-    UART          #( .ClockFreq(       ClockFreq))
+   UART          #( .ClockFreq(       ClockFreq))
                   uart( .Clock(           Clock),
                         .Reset(           Reset),
                         .DataIn(          DataIn),
