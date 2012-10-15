@@ -1,6 +1,7 @@
 module Control(
+    input[31:0]Instruction,
+    input[31:0]OldInstruction,
     input[31:0]Address,
-    input[31:0]OldAddress,
     input branch,
 
     output[1:0]PCsel, RegDst, UARTsel, RDsel,
@@ -17,8 +18,8 @@ module Control(
   //start PC at 4
   //--|Solution|----------------------------------------------------------------
 
-reg MemWriteReg;
-   reg [1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg;
+reg MemWriteReg, MemReadReg;
+reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg, UARTselreg, RDselreg;
 
@@ -36,19 +37,19 @@ wire[3:0] addr;
 
   //Rtype
 
-assign op = Address[31:26];
-assign rs = Address[25:21];
-assign rt = Address[20:16];
-assign rd = Address[15:11];
-assign shamt = Address[10:6];
-assign funct = Address[5:0];
+assign op = Instruction[31:26];
+assign rs = Instruction[25:21];
+assign rt = Instruction[20:16];
+assign rd = Instruction[15:11];
+assign shamt = Instruction[10:6];
+assign funct = Instruction[5:0];
 
-assign oldop = OldAddress[31:26];
-assign oldrs = OldAddress[25:21];
-assign oldrt = OldAddress[20:16];
-assign oldrd = OldAddress[15:11];
-assign oldshamt = OldAddress[10:6];
-assign oldfunct = OldAddress[5:0];
+assign oldop = OldInstruction[31:26];
+assign oldrs = OldInstruction[25:21];
+assign oldrt = OldInstruction[20:16];
+assign oldrd = OldInstruction[15:11];
+assign oldshamt = OldInstruction[10:6];
+assign oldfunct = OldInstruction[5:0];
 
   //Itype
 
@@ -56,16 +57,16 @@ assign oldfunct = OldAddress[5:0];
   //dest = rt
   //immediate = imm
 
-assign imm = Address[15:0];
-assign oldimm = OldAddress[15:0];
+assign imm = Instruction[15:0];
+assign oldimm = OldInstruction[15:0];
 
   //Jump/PCsel
 
   //src1 = rs
   //src2 = rt
 
-assign target = Address[25:0];
-assign oldtarget = OldAddress[25:0];
+assign target = Instruction[25:0];
+assign oldtarget = OldInstruction[25:0];
 assign PCsel = PCselReg;
 
   //Read/Write
@@ -93,19 +94,20 @@ ALUdec DUT(.funct(funct),
 
 always @( * ) begin
     if (op == `RTYPE) begin
-    RegDstReg = 2'b01;
+        RegDstReg = 2'b01;
     end
     else if (((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU))) begin
-    RegDstReg = 2'b00;
+        RegDstReg = 2'b00;
     end
     else if (funct == `JAL) begin
-    RegDstReg = 2'b10;
+        RegDstReg = 2'b10;
     end
     else begin
-    RegDstReg = 2'b11;
+        RegDstReg = 2'b11;
     end
     RegWriteReg = (op == `RTYPE) || ((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU));
     MemWriteReg = (op == `SW) || (op == `SH) || (op == `SB);
+    MemReadReg = (op == `LW) || (op == `LH) || (op == `LB) || (op == `LHU) || (op == `LBU);
     case(op)
         `SB: ByteSelReg = 4'b0001;
         `SH: ByteSelReg = 4'b0011;
@@ -114,52 +116,66 @@ always @( * ) begin
     endcase
 end
 
-//Memory Mapped I/O
+//Instruction Memory
 
 always @( * ) begin
-    if (MemWrite) begin
-        if ( ~addr[3] && addr[0]) begin
-            WEDMreg = 1'b1;
-        end
-        if ( ~addr[3] && addr[1]) begin
-            WEIMreg = 1'b1;
-        end
-        if (Address == 32'h80000008) begin
-            WEUARTreg = 1'b1;
-            REUARTreg = 1'b0;
-        end
+    if (MemWrite && ~addr[3] && addr[1]) begin
+        WEIMreg = 1'b1;
     end
     else begin
-        WEDMreg = 1'b0;
         WEIMreg = 1'b0;
+    end
+end
+
+
+//Data Memory
+always @( * ) begin
+    if (MemWrite && ~addr[3] && addr[0]) begin
+            WEDMreg = 1'b1;
+        end
+    else if (MemRead && ~addr[3] && addr[0]) begin
+        WEDMreg = 1'b0;
+        end
+    else
+        WEDMreg = 1'b0;
+end
+
+
+
+//UART I/O
+
+always @( * ) begin
+    if (MemRead && (Address == 32'h8000000)) begin
+        WEUARTreg = 1'b0;
+        REUARTreg = 1'b1;
+        UARTselreg = 2'b00; //DataInReady
+        RDselreg = 2'b00; //ReadFromUART
+    end
+    else if (Address == 32'h80000004) begin
+        WEUARTreg = 1'b0;
+        REUARTreg = 1'b1;
+        UARTselreg = 2'b01; //DataOutValid
+        RDselreg = 2'b00; //ReadFromUART
+    end
+    else if (MemWrite && (Address == 32'h80000008)) begin
+        WEUARTreg = 1'b1;
+        REUARTreg = 1'b0;
+    end
+    else if (Address == 32'h8000000c) begin
+        WEUARTreg = 1'b0;
+        REUARTreg = 1'b1;
+        UARTselreg = 2'b10; //DataOut
+        RDselreg = 2'b00; //ReadFromUART
+    end
+    else begin
         REUARTreg = 1'b0;
         WEUARTreg = 1'b0;
-        if (addr == 4'b1000) begin
-            REUARTreg = 1'b1;
-            WEUARTreg = 1'b0;
-        end
-        if (Address == 32'h8000000) begin
-            UARTselreg = 2'b00; //DataInReady
-            RDselreg = 2'b00; //ReadFromUART
-        end
-        else if (Address == 32'h80000004) begin
-            UARTselreg = 2'b01; //DataOutValid
-            RDselreg = 2'b00; //ReadFromUART
-        end
-        else if (Address == 32'h8000000c) begin
-            UARTselreg = 2'b10; //DataOut
-            RDselreg = 2'b00; //ReadFromUART
-        end
-        else begin
-            REUARTreg = 1'b0;
-            WEUARTreg = 1'b0;
-        end
     end
 end
 
 //Branch/Jump Logic
 
-always @( * ) begin
+    always @( * ) begin
     if (branch) begin
         PCselReg = 2'b01;
     end
