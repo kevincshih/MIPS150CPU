@@ -75,8 +75,7 @@ assign RegDst = RegDstReg;
 assign MemWrite = MemWriteReg;
 assign MemRead = MemReadReg;
 assign WEIM = WEIMreg;
-assign WEDM = WE
-DMreg;
+assign WEDM = WEDMreg;
 assign REUART = REUARTreg;
 assign WEUART = WEUARTreg;
 
@@ -85,8 +84,7 @@ assign AluSelA = AluSelAReg;
 assign AluSelB = AluSelBReg;
 assign ByteSel = ByteSelReg;
 assign UARTsel = UARTselreg;
-assign RDsel = R
-Dselreg;
+assign RDsel = RDselreg;
 
 ALUdec DUT(.funct(funct),
     .opcode(op),

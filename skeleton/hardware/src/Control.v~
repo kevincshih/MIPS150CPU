@@ -75,7 +75,8 @@ assign RegDst = RegDstReg;
 assign MemWrite = MemWriteReg;
 assign MemRead = MemReadReg;
 assign WEIM = WEIMreg;
-assign WEDM = WEDMreg;
+assign WEDM = WE
+DMreg;
 assign REUART = REUARTreg;
 assign WEUART = WEUARTreg;
 
