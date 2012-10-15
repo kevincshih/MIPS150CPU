@@ -69,6 +69,7 @@ initial begin
 	Instruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
     OldInstruction = nop;
     Address = nop;
+    branch = 1'b0;
 	#1;
 	if (RDsel != 2'b01) begin
 	$display("FAIL: Incorrect result for RDSel expected: %h, got: %h:", 2'b01, RDsel);
@@ -82,6 +83,7 @@ initial begin
 	Instruction = {`LW,s0,s0,imm};
     OldInstruction = nop;
     Address = imem;
+branch = 1'b0;
 	#1;
 	if (WEIM != 1'b0) begin
 	$display("FAIL: Incorrect result for WEIM expected: %h, got: %h:", 1'b0, WEIM);
@@ -90,6 +92,7 @@ initial begin
 	Instruction = {`SW,s0,s0,imm};
     OldInstruction = nop;
     Address = imem;
+branch = 1'b0;
 	#1;
 	if (WEIM != 1'b1) begin
 	$display("FAIL: Incorrect result for WEIM expected: %h, got: %h:", 1'b1, WEIM);
@@ -101,6 +104,7 @@ initial begin
 	Instruction = {`LW,s0,s0,imm};
     OldInstruction = nop;
     Address = dmem;
+branch = 1'b0;
 	#1;
 	if (WEDM != 1'b0) begin
 	$display("FAIL: Incorrect result for WEDM expected: %h, got: %h:", 1'b0, WEDM);
@@ -112,6 +116,7 @@ initial begin
 	Instruction = {`SW,s0,s0,imm};
     OldInstruction = nop;
     Address = dmem;
+branch = 1'b0;
 	#1;
 	if (WEDM != 1'b1) begin
 	$display("FAIL: Incorrect result for WEDM expected: %h, got: %h:", 1'b1, WEDM);
@@ -123,6 +128,7 @@ initial begin
 	Instruction = {`LW,s0,s0,imm};
     OldInstruction = nop;
     Address = io + 32'h0000000c;
+branch = 1'b0;
 	#1;
 	if (REUART != 1'b1) begin
 	$display("FAIL: Incorrect result for REUART expected: %h, got: %h:", 1'b1, REUART);
@@ -147,8 +153,9 @@ initial begin
 	//Branch/Jump Logic
 	$display("Branch/Jump Test");
 	Instruction = {`RTYPE,s0,zero,s0,zero,`JALR};
-    OldInstruction = nop;
-    Address = nop;
+    	OldInstruction = nop;
+    	Address = nop;
+	branch = 1'b0;
 	#1;
 	if (PCsel != 2'b00) begin
 	$display("FAIL: Incorrect result for PCSel expected: %h, got: %h:", 2'b00, PCsel);
@@ -163,12 +170,28 @@ initial begin
 	$display("FAIL: Incorrect result for RegDst expected: %h, got: %h:", 2'b01, RegDst);
 	end
 	#1;
-	
+	Instruction = {`BEQ,zero,zero,imm};
+    	OldInstruction = nop;
+    	Address = nop;
+	branch = 1'b1;
+	#1;
+	if (PCsel != 2'b01) begin
+	$display("FAIL: Incorrect result for PCSel expected: %h, got: %h:", 2'b01, PCsel);
+	end
+	if (AluSelA != 2'b01) begin
+	$display("FAIL: Incorrect result for ALUSelA expected: %h, got: %h:", 2'b01, AluSelA);
+	end
+	if (AluSelB != 2'b01) begin
+	$display("FAIL: Incorrect result for ALUSelB expected: %h, got: %h:", 2'b01, AluSelB);
+	end
+	#1;
+
 	//ALU Forwarding Logic
 	$display("ALU Forwarding Test");
 	Instruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    OldInstruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    Address = nop;
+    	OldInstruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
+    	Address = nop;
+	branch = 1'b0;
 	#1;
 	if (AluSelA != 2'b10) begin
 	$display("FAIL: Incorrect result for ALUSelA expected: %h, got: %h:", 2'b10, AluSelA);

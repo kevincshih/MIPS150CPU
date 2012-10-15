@@ -5,28 +5,8 @@ Reading /opt/modeltech/tcl/vsim/pref.tcl
 proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
 start EchoTestbench
 # vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
-# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
-# //
-# //  Copyright 1991-2012 Mentor Graphics Corporation
-# //  All Rights Reserved.
-# //
-# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
-# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
-# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
-# //
-# Loading work.glbl(fast)
-# Loading work.EchoTestbench(fast)
-# Loading work.UART(fast)
-# Loading work.IORegister(fast)
-# Loading work.UATransmit(fast)
-# Loading work.UAReceive(fast)
-file copy -force ../../../software/echo/echo.mif imem_blk_ram.mif
-# error copying "../../../software/echo/echo.mif": no such file or directory
-file copy -force ../../../software/echo/echo.mif dmem_blk_ram.mif
-# error copying "../../../software/echo/echo.mif": no such file or directory
-add wave EchoTestbench/*
-add wave EchoTestbench/CPU/*
-# (vish-4014) No objects found matching 'EchoTestbench/CPU/*'.
-run 10000us
-# 
-# <EOF> 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: ../../src/Datapath.v(86): Module 'imem_blk_ram' is not defined.
+# ** Error: ../../src/Datapath.v(93): Module 'dmem_blk_ram' is not defined.
+# Optimization failed
+# Error loading design

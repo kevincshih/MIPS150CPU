@@ -75,7 +75,8 @@ assign RegDst = RegDstReg;
 assign MemWrite = MemWriteReg;
 assign MemRead = MemReadReg;
 assign WEIM = WEIMreg;
-assign WEDM = WEDMreg;
+assign WEDM = WE
+DMreg;
 assign REUART = REUARTreg;
 assign WEUART = WEUARTreg;
 
@@ -84,7 +85,8 @@ assign AluSelA = AluSelAReg;
 assign AluSelB = AluSelBReg;
 assign ByteSel = ByteSelReg;
 assign UARTsel = UARTselreg;
-assign RDsel = RDselreg;
+assign RDsel = R
+Dselreg;
 
 ALUdec DUT(.funct(funct),
     .opcode(op),
@@ -176,7 +178,7 @@ end
 
 //Branch/Jump Logic
 
-    always @( * ) begin
+always @( * ) begin
     if (branch) begin
         PCselReg = 2'b01;
     end
@@ -198,7 +200,7 @@ always @( * ) begin
         AluSelAReg = 2'b00;
         AluSelBReg = 2'b00;
     end
-    else if (op == `RTYPE) begin
+    else if ((op >= `RTYPE) && (op <= `BGTZ)) begin
         if ((oldop == `RTYPE) && (oldrd != 0)) begin
             AluSelAReg = (rs == oldrd) ? 2'b10 : 2'b01;
             AluSelBReg = (rt == oldrd) ? 2'b10 : 2'b01;
