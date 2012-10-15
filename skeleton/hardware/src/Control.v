@@ -2,7 +2,7 @@ module Control(
     input[31:0]Instruction,
     input[31:0]OldInstruction,
     input[31:0]Address,
-    input branch,
+    input branch, reset,
     output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
@@ -66,25 +66,25 @@ assign oldimm = OldInstruction[15:0];
 
 assign target = Instruction[25:0];
 assign oldtarget = OldInstruction[25:0];
-assign PCsel = PCselReg;
+assign PCsel = (reset) ? 0 : PCselReg;
 
   //Read/Write
 assign addr = Address[31:28];
-assign RegWrite = RegWriteReg;
-assign RegDst = RegDstReg;
-assign MemWrite = MemWriteReg;
-assign MemRead = MemReadReg;
-assign WEIM = WEIMreg;
-assign WEDM = WEDMreg;
-assign REUART = REUARTreg;
-assign WEUART = WEUARTreg;
+assign RegWrite = (reset) ? 0 : RegWriteReg;
+assign RegDst = (reset) ? 0 : RegDstReg;
+assign MemWrite = (reset) ? 0 : MemWriteReg;
+assign MemRead = (reset) ? 0 : MemReadReg;
+assign WEIM = (reset) ? 0 : WEIMreg;
+assign WEDM = (reset) ? 0 : WEDMreg;
+assign REUART = (reset) ? 0 : REUARTreg;
+assign WEUART = (reset) ? 0 : WEUARTreg;
 
   //Muxes
-assign AluSelA = AluSelAReg;
-assign AluSelB = AluSelBReg;
-assign ByteSel = ByteSelReg;
-assign UARTsel = UARTselreg;
-assign RDsel = RDselreg;
+assign AluSelA = (reset) ? 0 : AluSelAReg;
+assign AluSelB = (reset) ? 0 : AluSelBReg;
+assign ByteSel = (reset) ? 0 : ByteSelReg;
+assign UARTsel = (reset) ? 0 : UARTselreg;
+assign RDsel = (reset) ? 0 : RDselreg;
 
 ALUdec DUT(.funct(funct),
     .opcode(op),
