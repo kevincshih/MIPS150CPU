@@ -132,6 +132,50 @@ initial begin
     checkOutput(5);
     #1;
     
+    Address = {`RTYPE,s0,zero,s1,zero,`JALR};
+    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADD};
+    
+    REFout = 0;
+    #1;
+    checkOutput(4);
+    #1;
+    
+    REFout = 0;
+    #1;
+    checkOutput(5);
+    #1;
+   
+    REFout = 1;
+    #1;
+    checkOutput(2);
+    #1;
+      
+    REFout = 0;
+    #1;
+    checkOutput(3);
+    #1;
+    
+    Address = {`LW,s0,s0,16'b0};
+    OldAddress = {zero};
+    
+    REFout = 2;
+    #1;
+    checkOutput(13);
+    #1;
+    
+    Address = 32'h80000008;
+    OldAddress = {zero};
+    
+    REFout = 1;
+    #1;
+    checkOutput(11);
+    #1;
+    
+    REFout = 0;
+    #1;
+    checkOutput(10);
+    #1;
+    
     $display("All tests passed!");
     $finish();
 
