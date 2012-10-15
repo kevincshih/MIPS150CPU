@@ -22,6 +22,7 @@ module MIPS150(
 			  .branch(Branch_compare), // end inputs
 			  .RegWrite(RegWrite),// begin outputs
 			  .RegDst(RegDst),
+			  .reset(rst),
 			  .PCsel(PC_Sel),
 			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),

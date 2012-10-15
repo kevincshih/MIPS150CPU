@@ -6,7 +6,42 @@ proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secu
 start EchoTestbench
 # vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
 # ** Note: (vsim-3812) Design is being optimized...
-# ** Error: ../../src/Datapath.v(87): Module 'imem_blk_ram' is not defined.
-# ** Error: ../../src/Datapath.v(94): Module 'dmem_blk_ram' is not defined.
-# Optimization failed
-# Error loading design
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.EchoTestbench(fast)
+# Loading work.MIPS150(fast)
+# Loading work.Control(fast)
+# Loading work.ALUdec(fast)
+# Loading work.Datapath(fast)
+# Loading work.ALU(fast)
+# Loading work.PC(fast)
+# Loading work.RegFile(fast)
+# Loading work.imem_blk_ram(fast)
+# Loading work.dmem_blk_ram(fast)
+# Loading work.Branch_module(fast)
+# Loading work.UART(fast)
+# Loading work.IORegister(fast)
+# Loading work.UATransmit(fast)
+# Loading work.UAReceive(fast)
+add wave EchoTestbench/*
+add wave EchoTestbench/CPU/*
+add wave EchoTestbench/CPU/the_datapath/the_imem/*
+add wave EchoTestbench/CPU/the_datapath/the_regfile/*
+add wave EchoTestbench/CPU/the_datapath/the_PC/*
+run 1000us
+#  Block Memory Generator CORE Generator module loading initial data...
+# ** Warning: (vsim-3534) [FOFIR] - Failed to open file "imem_blk_ram.mif" for reading.
+# No such file or directory. (errno = ENOENT)    : /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/XilinxCoreLib/BLK_MEM_GEN_V4_3.v(1248)
+#    Time: 0 ps  Iteration: 0  Instance: /EchoTestbench/CPU/the_datapath/the_imem/inst/blk_mem_gen_v4_3_inst
+#  1465331350153982224147483919471631895098880318487563908736446485812192110490749824196221914140689441300495217927942945130827289426003030588447311599813025587                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+#                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        140136957103756208399544629497078573414
+# ** Note: $finish    : /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/XilinxCoreLib/BLK_MEM_GEN_V4_3.v(1253)
+#    Time: 0 ps  Iteration: 0  Instance: /EchoTestbench/CPU/the_datapath/the_imem/inst/blk_mem_gen_v4_3_inst
