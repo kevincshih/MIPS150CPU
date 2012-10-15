@@ -73,6 +73,7 @@ assign addr = Address[31:28];
 assign RegWrite = RegWriteReg;
 assign RegDst = RegDstReg;
 assign MemWrite = MemWriteReg;
+assign MemRead = MemReadReg;
 assign WEIM = WEIMreg;
 assign WEDM = WEDMreg;
 assign REUART = REUARTreg;
@@ -132,7 +133,7 @@ always @( * ) begin
     if (MemWrite && ~addr[3] && addr[0]) begin
             WEDMreg = 1'b1;
         end
-    else if (MemReadReg && ~addr[3] && addr[0]) begin
+    else if (MemRead && ~addr[3] && addr[0]) begin
         WEDMreg = 1'b0;
         end
     else
@@ -144,7 +145,7 @@ end
 //UART I/O
 
 always @( * ) begin
-    if (MemReadReg && (Address == 32'h8000000)) begin
+    if (MemRead && (Address == 32'h8000000)) begin
         WEUARTreg = 1'b0;
         REUARTreg = 1'b1;
         UARTselreg = 2'b00; //DataInReady
