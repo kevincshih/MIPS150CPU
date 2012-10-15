@@ -61,7 +61,7 @@ module Datapath(
 	     .PC_4(PC_4),
 	     .PC_JAL(PC_JAL),
 	     .PC_Sel(PC_Sel),
-	     .JAR(rd1),
+	     .JR(rd1),
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
@@ -155,7 +155,7 @@ module Datapath(
 	2'b00: WriteData_Reg = UART_Data;
 	2'b01: WriteData_Reg = ALU_OutMW;
 	2'b10: WriteData_Reg = DMEM_dout;
-	default: RDsel_Reg = DMEM_dout;
+	default: WriteData_Reg = DMEM_dout;
       endcase // case (RDsel)
 
       case(prev_opcode)

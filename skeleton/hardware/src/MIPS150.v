@@ -22,7 +22,7 @@ module MIPS150(
 			  .branch(Branch_compare), // end inputs
 			  .RegWrite(RegWrite),// begin outputs
 			  .RegDst(RegDst),
-			  .PCSel(PC_Sel),
+			  .PCsel(PC_Sel),
 			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),
 			  .ALUop(ALUop),
@@ -36,7 +36,7 @@ module MIPS150(
 			 .WEIM(WEIM), .WEDM(WEDM), .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),
-			 .PC_Sel(PC_Sel), //PC_Sel from controller needs to be implemented
+			 .PC_Sel(PC_Sel), //PC_Sel 
 			 .ALU_Sel_A(ALU_Sel_A),
 			 .ALU_Sel_B(ALU_Sel_B),
 			 .RegDst(RegDst),

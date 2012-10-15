@@ -61,13 +61,11 @@ module RegFile(input clk, we,
 	   5'd29: r29 <= wd;
 	   5'd30: r30 <= wd;
 	   5'd31: r31 <= wd;
-	   default: r0 <= 32'd0;
 	 endcase
       end // if (we)
    end // always @ (posedge clk)
 
    always @(*) begin
-      
       case(ra1)
 	5'd0: rd_1 = r0;
 	5'd1: rd_1 = r1;
@@ -88,7 +86,7 @@ module RegFile(input clk, we,
 	5'd16: rd_1 = r16;
 	5'd17: rd_1 = r17;
 	5'd18: rd_1 = r18;
-	5'd19: rd_1 = 195;
+	5'd19: rd_1 = r19;
 	5'd20: rd_1 = r20;
 	5'd21: rd_1 = r21;
 	5'd22: rd_1 = r22;
@@ -101,7 +99,6 @@ module RegFile(input clk, we,
 	5'd29: rd_1 = r29;
 	5'd30: rd_1 = r30;
 	5'd31: rd_1 = r31;
-	default: rd_1 = r0;
       endcase // case (ra1)
       
       case(ra2)
@@ -137,7 +134,6 @@ module RegFile(input clk, we,
 	5'd29: rd_2 = r29;
 	5'd30: rd_2 = r30;
 	5'd31: rd_2 = r31;
-	default: rd_2 = r0;
       endcase // case (ra2)
    end // always @ (*)
 
