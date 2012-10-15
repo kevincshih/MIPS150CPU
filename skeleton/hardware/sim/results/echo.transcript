@@ -1,0 +1,12 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start EchoTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Error: ../../src/Datapath.v(86): Module 'imem_blk_ram' is not defined.
+# ** Error: ../../src/Datapath.v(93): Module 'dmem_blk_ram' is not defined.
+# Optimization failed
+# Error loading design

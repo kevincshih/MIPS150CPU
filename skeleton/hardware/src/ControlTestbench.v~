@@ -184,7 +184,6 @@ branch = 1'b0;
 	if (AluSelB != 2'b01) begin
 	$display("FAIL: Incorrect result for ALUSelB expected: %h, got: %h:", 2'b01, AluSelB);
 	end
-	#1;
 
 	//ALU Forwarding Logic
 	$display("ALU Forwarding Test");
