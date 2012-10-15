@@ -57,6 +57,7 @@ reg[31:0] DUTout;
 
 task checkOutput;
 input[3:0]test;
+begin
 case(test)
     1: DUTout = RegWrite;
     2: DUTout = RegDst;
@@ -81,6 +82,7 @@ end
 else begin
     $display("PASS: new: %h, old: %h", Address, OldAddress);
 end
+end
 endtask
 
 reg[4:0] zero = 5'b00000;
@@ -91,7 +93,7 @@ reg[4:0] s3 = 5'b10011;
 reg[31:0] nop = 32'b0;
   // Testing logic:
 initial begin
-    Address = {`RTYPE,s0,s0,s0,zero,`ADD};
+    Address = {`RTYPE,s0,s0,s0,zero,`ADDU};
     OldAddress = nop;
     
     REFout = 1;
@@ -119,8 +121,8 @@ initial begin
     checkOutput(5);
     #1;
     
-    Address = {`RTYPE,s0,s0,s0,zero,`ADD};
-    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADD};
+    Address = {`RTYPE,s0,s0,s0,zero,`ADDU};
+    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADDU};
     
     REFout = 2;
     #1;
@@ -133,7 +135,7 @@ initial begin
     #1;
     
     Address = {`RTYPE,s0,zero,s1,zero,`JALR};
-    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADD};
+    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADDU};
     
     REFout = 0;
     #1;

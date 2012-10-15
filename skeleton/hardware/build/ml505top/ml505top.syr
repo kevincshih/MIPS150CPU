@@ -5,13 +5,13 @@ Parameter TMPDIR set to xst/tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.14 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.15 secs
  
 --> 
@@ -122,24 +122,28 @@ Module <ALUdec> compiled
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
 Compiling verilog file "../../src/ControlTestbench.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
 Module <Control> compiled
 Compiling verilog file "../../src/Datapath.v" in library work
 Module <ControlTestBench> compiled
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
-ERROR:HDLCompilers:26 - "../../src/Datapath.v" line 17 unexpected token: '+'
-Compiling verilog file "../../src/EchoTestbench.v" in library work
+Compiling verilog file "../../src/MIPS150.v" in library work
 Module <Datapath> compiled
-ERROR:HDLCompilers:26 - "../../src/EchoTestbench.v" line 3 expecting 'endmodule', found 'module'
+Compiling verilog file "../../src/EchoTestbench.v" in library work
+Module <MIPS150> compiled
 Compiling verilog file "../../src/Hazard.v" in library work
+Module <EchoTestbench> compiled
 Compiling verilog file "../../src/IORegister.v" in library work
 Module <Hazard> compiled
-Compiling verilog file "../../src/MIPS150.v" in library work
-Module <IORegister> compiled
 Compiling verilog file "../../src/RegFile.v" in library work
-Module <MIPS150> compiled
-Compiling verilog file "../../src/RegFileTestbench.v" in library work
+Module <IORegister> compiled
+Compiling verilog file "../../src/branch_module.v" in library work
 Module <RegFile> compiled
+WARNING:HDLCompilers:21 - "../../src/branch_module.v" line 14 Zero width on based number ignored
+Compiling verilog file "../../src/RegFileTestbench.v" in library work
+Module <Branch_module> compiled
 Compiling verilog file "../../src/UART.v" in library work
 Module <RegFileTestbench> compiled
 Compiling verilog file "../../src/UAReceive.v" in library work
@@ -150,14 +154,24 @@ Module <UAReceive> compiled
 Compiling verilog include file "../../src/util.vh"
 Compiling verilog file "../../src/ml505top.v" in library work
 Module <UATransmit> compiled
+Compiling verilog file "../../src/pc.v" in library work
 Module <ml505top> compiled
-Analysis of file <"ml505top.prj"> failed.
+Module <PC> compiled
+No errors in compilation
+Analysis of file <"ml505top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+ERROR:HDLCompilers:87 - "../../src/Datapath.v" line 80 Could not find module/primitive 'imem_blk_ram'
+ERROR:HDLCompilers:87 - "../../src/Datapath.v" line 88 Could not find module/primitive 'dmem_blk_ram'
 --> 
 
 
-Total memory usage is 615272 kilobytes
+Total memory usage is 628256 kilobytes
 
 Number of errors   :    2 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
