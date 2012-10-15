@@ -18,9 +18,9 @@ module Control(
   //--|Solution|----------------------------------------------------------------
 
 reg MemWriteReg, MemReadReg;
-reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg;
+reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg, RDselreg, UARTselreg;
 reg[3:0] ByteSelReg;
-reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg, UARTselreg, RDselreg;
+reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg;
 
 wire[5:0] op, funct, oldop, oldfunct;
 wire[4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
@@ -135,6 +135,7 @@ always @( * ) begin
         end
     else if (MemRead && ~addr[3] && addr[0]) begin
         WEDMreg = 1'b0;
+		RDselreg = 2'b10;
         end
     else
         WEDMreg = 1'b0;
@@ -147,24 +148,24 @@ end
 always @( * ) begin
     if (MemRead && (Address == 32'h8000000)) begin
         WEUARTreg = 1'b0;
-        REUARTreg = 1'b1;
-        UARTselreg = 2'b00; //DataInReady
+        REUARTreg = 1'b0;
+        UARTselreg = 2'b01; //DataInReady
         RDselreg = 2'b00; //ReadFromUART
     end
-    else if (Address == 32'h80000004) begin
+    else if (MemRead && (Address == 32'h80000004)) begin
         WEUARTreg = 1'b0;
-        REUARTreg = 1'b1;
-        UARTselreg = 2'b01; //DataOutValid
+        REUARTreg = 1'b0;
+        UARTselreg = 2'b10; //DataOutValid
         RDselreg = 2'b00; //ReadFromUART
     end
     else if (MemWrite && (Address == 32'h80000008)) begin
         WEUARTreg = 1'b1;
         REUARTreg = 1'b0;
     end
-    else if (Address == 32'h8000000c) begin
+    else if (MemRead && (Address == 32'h8000000c)) begin
         WEUARTreg = 1'b0;
         REUARTreg = 1'b1;
-        UARTselreg = 2'b10; //DataOut
+        UARTselreg = 2'b00; //DataOut
         RDselreg = 2'b00; //ReadFromUART
     end
     else begin

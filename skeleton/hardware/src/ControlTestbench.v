@@ -4,7 +4,7 @@
     `include "Opcode.vh"
     `include "ALUop.vh"
 
-    module ControlTestBench();
+module ControlTestbench();
 
 parameter Halfcycle = 5; //half period is 5ns
 
@@ -17,8 +17,9 @@ initial Clock = 0;
 always #(Halfcycle)Clock = ~Clock;
 
   // Register and wires
+reg[31:0] Instruction;
+reg[31:0] OldInstruction;
 reg[31:0] Address;
-reg[31:0] OldAddress;
 reg branch;
 
 wire RegWrite;
@@ -28,10 +29,10 @@ wire[3:0] ALUop, ByteSel;
 wire[1:0] UARTsel, RDsel;
 wire WEIM, WEDM, REUART, WEUART;
 
-Control DUT(.Address(Address),
-    .OldAddress(OldAddress),
+Control DUT(.Instruction(Instruction),
+    .OldInstruction(OldInstruction),
+	.Address(Address),
     .branch(branch),
-
     .RegWrite(RegWrite),
     .RegDst(RegDst),
     .PCsel(PCsel),
@@ -48,136 +49,134 @@ Control DUT(.Address(Address),
 
 reg[31:0] REFout;
 reg[31:0] DUTout;
-//reg out1;
-//reg [1:0] out2,out3;
-//reg [1:0] out4, out5;
-//reg [3:0] out6, out7;
-//reg [1:0] out8, out9;
-//reg out10, out11, out12, out13;
-
-task checkOutput;
-input[3:0]test;
-begin
-case(test)
-    1: DUTout = RegWrite;
-    2: DUTout = RegDst;
-    3: DUTout = PCsel;
-    4: DUTout = AluSelA;
-    5: DUTout = AluSelB;
-    6: DUTout = ALUop;
-    7: DUTout = ByteSel;
-    8: DUTout = WEIM;
-    9: DUTout = WEDM;
-    10: DUTout = REUART;
-    11: DUTout = WEUART;
-    12: DUTout = UARTsel;
-    13: DUTout = RDsel;
-    default: DUTout = REFout;
-endcase
-if (REFout !== DUTout) begin
-    $display("FAIL: Incorrect result for RegWrite new: %h, old: %h:", Address, OldAddress);
-    $display("\t DUTout: 0x%h, REFout: 0x%h", RegWrite, REFout);
-    $finish();
-end
-else begin
-    $display("PASS: new: %h, old: %h", Address, OldAddress);
-end
-end
-endtask
 
 reg[4:0] zero = 5'b00000;
 reg[4:0] s0 = 5'b10000;
 reg[4:0] s1 = 5'b10001;
 reg[4:0] s2 = 5'b10010;
 reg[4:0] s3 = 5'b10011;
+reg[15:0] imm = 16'b0;
 reg[31:0] nop = 32'b0;
-  // Testing logic:
+reg[31:0] imem = {4'b0010, 28'b0};
+reg[31:0] dmem = {4'b0001, 28'b0};
+reg[31:0] io = {4'b1000, 28'b0};
+// Testing logic:
+  
 initial begin
-    Address = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    OldAddress = nop;
-    
-    REFout = 1;
-    #1;
-    checkOutput(1);
-    #1;
-    
-    REFout = 1;
-    #1;
-    checkOutput(2);
-    #1;
-    
-    REFout = 1;
-    #1;
-    checkOutput(3);
-    #1;
-    
-    REFout = 1;
-    #1;
-    checkOutput(4);
-    #1;
-    
-    REFout = 1;
-    #1;
-    checkOutput(5);
-    #1;
-    
-    Address = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    
-    REFout = 2;
-    #1;
-    checkOutput(4);
-    #1;
-    
-    REFout = 2;
-    #1;
-    checkOutput(5);
-    #1;
-    
-    Address = {`RTYPE,s0,zero,s1,zero,`JALR};
-    OldAddress = {`RTYPE,s0,s0,s0,zero,`ADDU};
-    
-    REFout = 0;
-    #1;
-    checkOutput(4);
-    #1;
-    
-    REFout = 0;
-    #1;
-    checkOutput(5);
-    #1;
-   
-    REFout = 1;
-    #1;
-    checkOutput(2);
-    #1;
-      
-    REFout = 0;
-    #1;
-    checkOutput(3);
-    #1;
-    
-    Address = {`LW,s0,s0,16'b0};
-    OldAddress = {zero};
-    
-    REFout = 2;
-    #1;
-    checkOutput(13);
-    #1;
-    
-    Address = 32'h80000008;
-    OldAddress = {zero};
-    
-    REFout = 1;
-    #1;
-    checkOutput(11);
-    #1;
-    
-    REFout = 0;
-    #1;
-    checkOutput(10);
-    #1;
-    
+	
+	//WriteBack Logic
+	$display("Write Back Logic Test");
+	Instruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
+    OldInstruction = nop;
+    Address = nop;
+	#1;
+	if (RDsel != 2'b01) begin
+	$display("FAIL: Incorrect result for RDSel expected: %h, got: %h:", 2'b01, RDsel);
+	end
+	if (RegDst != 2'b01) begin
+	$display("FAIL: Incorrect result for RegDst expected: %h, got: %h:", 2'b01, RegDst);
+	end
+	#1;
+	//Instruction Memory
+	$display("Instruction Memory Test");
+	Instruction = {`LW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = imem;
+	#1;
+	if (WEIM != 1'b0) begin
+	$display("FAIL: Incorrect result for WEIM expected: %h, got: %h:", 1'b0, WEIM);
+	end
+	#1;
+	Instruction = {`SW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = imem;
+	#1;
+	if (WEIM != 1'b1) begin
+	$display("FAIL: Incorrect result for WEIM expected: %h, got: %h:", 1'b1, WEIM);
+	end
+	#1;
+	
+	//Data Memory
+	$display("Data Memory Test");
+	Instruction = {`LW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = dmem;
+	#1;
+	if (WEDM != 1'b0) begin
+	$display("FAIL: Incorrect result for WEDM expected: %h, got: %h:", 1'b0, WEDM);
+	end
+	if (RDsel != 2'b10) begin
+	$display("FAIL: Incorrect result for RDsel expected: %h, got: %h:", 2'b10, RDsel);
+	end
+	#1;
+	Instruction = {`SW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = dmem;
+	#1;
+	if (WEDM != 1'b1) begin
+	$display("FAIL: Incorrect result for WEDM expected: %h, got: %h:", 1'b1, WEDM);
+	end
+	#1;
+	
+	//UART I/O
+	$display("UART I/O Test");
+	Instruction = {`LW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = io + 32'h0000000c;
+	#1;
+	if (REUART != 1'b1) begin
+	$display("FAIL: Incorrect result for REUART expected: %h, got: %h:", 1'b1, REUART);
+	end
+	if (UARTsel != 2'b00) begin
+	$display("FAIL: Incorrect result for UARTsel expected: %h, got: %h:", 2'b00, UARTsel);
+	end
+	if (RDsel != 2'b00) begin
+	$display("FAIL: Incorrect result for RDsel expected: %h, got: %h:", 2'b00, RDsel);
+	end	
+	#1;
+	
+	Instruction = {`SW,s0,s0,imm};
+    OldInstruction = nop;
+    Address = io + 32'h8;
+	#1;
+	if (WEUART != 1'b1) begin
+	$display("FAIL: Incorrect result for WEUART expected: %h, got: %h:", 1'b1, WEUART);
+	end
+	#1;
+	
+	//Branch/Jump Logic
+	$display("Branch/Jump Test");
+	Instruction = {`RTYPE,s0,zero,s0,zero,`JALR};
+    OldInstruction = nop;
+    Address = nop;
+	#1;
+	if (PCsel != 2'b00) begin
+	$display("FAIL: Incorrect result for PCSel expected: %h, got: %h:", 2'b00, PCsel);
+	end
+	if (AluSelA != 2'b00) begin
+	$display("FAIL: Incorrect result for ALUSelA expected: %h, got: %h:", 2'b00, AluSelA);
+	end
+	if (AluSelB != 2'b00) begin
+	$display("FAIL: Incorrect result for ALUSelB expected: %h, got: %h:", 2'b00, AluSelB);
+	end
+	if (RegDst != 2'b01) begin
+	$display("FAIL: Incorrect result for RegDst expected: %h, got: %h:", 2'b01, RegDst);
+	end
+	#1;
+	
+	//ALU Forwarding Logic
+	$display("ALU Forwarding Test");
+	Instruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
+    OldInstruction = {`RTYPE,s0,s0,s0,zero,`ADDU};
+    Address = nop;
+	#1;
+	if (AluSelA != 2'b10) begin
+	$display("FAIL: Incorrect result for ALUSelA expected: %h, got: %h:", 2'b10, AluSelA);
+	end
+	if (AluSelB != 2'b10) begin
+	$display("FAIL: Incorrect result for ALUSelB expected: %h, got: %h:", 2'b10, AluSelB);
+	end
+	#1;
     $display("All tests passed!");
     $finish();
 
