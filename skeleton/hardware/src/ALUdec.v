@@ -14,42 +14,48 @@ module ALUdec(
   output [3:0] ALUop
 );
 
+   reg [3:0]   ALUopreg;
+   
 always @ (*) begin
 
 if (opcode == `RTYPE) begin
 
 	case(funct)
-	`SLL:    ALUop = `ALU_SLL;
- 	`SRL:    ALUop = `ALU_SRL;
- 	`SRA:    ALUop = `ALU_SRA;
- 	`SLLV:   ALUop = `ALU_SLL;
- 	`SRLV:   ALUop = `ALU_SRL;
- 	`SRAV:   ALUop = `ALU_SRA;
- 	`ADDU:   ALUop = `ALU_ADDU;
- 	`SUBU:   ALUop = `ALU_SUBU;
- 	`AND:    ALUop = `ALU_AND;
- 	`OR:     ALUop = `ALU_OR;
- 	`XOR:    ALUop = `ALU_XOR;
- 	`NOR:    ALUop = `ALU_NOR;
- 	`SLT:    ALUop = `ALU_SLT;
- 	`SLTU:   ALUop = `ALU_SLTU;
-	default: ALUop = `ALU_XXX;
+	`SLL:    ALUopreg = `ALU_SLL;
+ 	`SRL:    ALUopreg = `ALU_SRL;
+ 	`SRA:    ALUopreg = `ALU_SRA;
+ 	`SLLV:   ALUopreg = `ALU_SLL;
+ 	`SRLV:   ALUopreg = `ALU_SRL;
+ 	`SRAV:   ALUopreg = `ALU_SRA;
+ 	`ADDU:   ALUopreg = `ALU_ADDU;
+ 	`SUBU:   ALUopreg = `ALU_SUBU;
+ 	`AND:    ALUopreg = `ALU_AND;
+ 	`OR:     ALUopreg = `ALU_OR;
+ 	`XOR:    ALUopreg = `ALU_XOR;
+ 	`NOR:    ALUopreg = `ALU_NOR;
+ 	`SLT:    ALUopreg = `ALU_SLT;
+ 	`SLTU:   ALUopreg = `ALU_SLTU;
+	default: ALUopreg = `ALU_XXX;
 	endcase
 
 end
 
 else begin
         case(opcode)
-	`LUI: ALUop = `ALU_LUI;
-	`ORI: ALUop = `ALU_OR;
-	`ANDI: ALUop = `ALU_AND;
-	`ADDIU: ALUop = `ALU_ADDU;
-	`XORI: ALUop = `ALU_XOR;
-	`SLTIU: ALUop = `ALU_SLTU;
-	`SLTI: ALUop = `ALU_SLT;
-        default: ALUop = `ALU_ADDU;
+	`LUI: ALUopreg = `ALU_LUI;
+	`ORI: ALUopreg = `ALU_OR;
+	`ANDI: ALUopreg = `ALU_AND;
+	`ADDIU: ALUopreg = `ALU_ADDU;
+	`XORI: ALUopreg = `ALU_XOR;
+	`SLTIU: ALUopreg = `ALU_SLTU;
+	`SLTI: ALUopreg = `ALU_SLT;
+        default: ALUopreg = `ALU_ADDU;
 	endcase
 
-end
-end
+end // else: !if(opcode == `RTYPE)
+   
+end // always @ (*)
+
+   assign ALUop = ALUopreg;
+   
 endmodule

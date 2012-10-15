@@ -7,8 +7,8 @@ module MIPS150(
 
    // Control wires
    wire    WEIM, WEDM, REUART, WEUART,
-	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, stall;
-   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, UARTsel, RDsel,
+	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite;
+   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel;
    wire [3:0] ALUop, ByteSel;
 
    // Data wires
