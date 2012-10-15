@@ -36,11 +36,10 @@ module RegFileTestbench();
   
 
    integer    i;
-   localparam loops = 31;
+   localparam loops = 32;
    
   // Testing logic:
   initial begin
-    #1;
     // Verify that writing to reg 0 is a nop
      we = 1;
      wd = 32'hFFFFFFFF;
@@ -63,6 +62,7 @@ module RegFileTestbench();
 	  wa = i;
 	  #Cycle;
 	  ra1 = i;
+	  #Cycle;	  
 	  if (rd1 != 32'hDEADBEEF)
 	    begin
 	       $display("Writing to register %b resulted in %b", i, rd1);
@@ -77,17 +77,22 @@ module RegFileTestbench();
      ra1 = 5'd1;
      #Cycle;
      
-     if (rd1 !== 32'hDEADBEEF)
+     if (rd1 != 32'hDEADBEEF)
        $display("Write Enable singal did not disable writing: r1 = %b", rd1);
      
     // Verify the reads are asynchronous
 
      ra1 = 5'd0;
-     if (rd1 !== 32'd0)
-       $display("we have a big problem)");
+     #Cycle;
+     if (rd1 != 32'd0) $display("we have a big problem)");
      ra1 = 5'd1;
-     if (rd1 !== 32'hDEADBEEF)
+     #Halfcycle
+     if (rd1 != 32'hDEADBEEF)
        $display("read was not asynchronous");
+
+     ra2 = 5'd2;#Halfcycle
+     if (rd2 != 32'hDEADBEEF) $display ("rd2 messed up again");
+     
      
     $display("All tests passed!");
     $finish();

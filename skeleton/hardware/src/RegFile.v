@@ -19,53 +19,50 @@ module RegFile(input clk, we,
                input  [31:0] wd,
                output [31:0] rd1, rd2);
 
-   (* ram_style = "distributed" *) reg[31:0] r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14,
-	     r15, r16, r17, r18, r19, r20, r21, r22, r23, r24, r25, r26, r27,
-	     r28, r29, r30, r31;
+   (* ram_style = "distributed" *) reg [31:0] the_registers[0:31];
 
-   (* ram_style = "distributed" *) reg [31:0] r0 = 32'd0;
-   (* ram_style = "distributed" *) reg [31:0] rd_1, rd_2;
-   
+   always @(*) the_registers[0] = 32'd0;
+      
    always @(posedge clk) begin
       if (we) begin
 	 case(wa)
-	   5'd0: r0 <= 32'd0;
-	   5'd1: r1 <= wd;
-	   5'd2: r2 <= wd;
-	   5'd3: r3 <= wd;
-	   5'd4: r4 <= wd;
-	   5'd5: r5 <= wd;
-	   5'd6: r6 <= wd;
-	   5'd7: r7 <= wd;
-           5'd8: r8 <= wd;
-           5'd9: r9 <= wd;
-           5'd10: r10 <= wd;
-           5'd11: r11 <= wd;
-           5'd12: r12 <= wd;
-           5'd13: r13 <= wd;
-           5'd14: r14 <= wd;
-           5'd15: r15 <= wd;
-           5'd16: r16 <= wd;
-           5'd17: r17 <= wd;
-           5'd18: r18 <= wd;
-           5'd19: r19 <= wd;
-           5'd20: r20 <= wd;
-           5'd21: r21 <= wd;
-	   5'd22: r22 <= wd;
-	   5'd23: r23 <= wd;
-	   5'd24: r24 <= wd;
-	   5'd25: r25 <= wd;
-	   5'd26: r26 <= wd;
-	   5'd27: r27 <= wd;
-	   5'd28: r28 <= wd;
-	   5'd29: r29 <= wd;
-	   5'd30: r30 <= wd;
-	   5'd31: r31 <= wd;
+	   5'd0: ;
+	   5'd1: the_registers[1] <= wd;
+	   5'd2: the_registers[2] <= wd;
+	   5'd3: the_registers[3] <= wd;
+	   5'd4: the_registers[4] <= wd;
+	   5'd5: the_registers[5] <= wd;
+	   5'd6: the_registers[6] <= wd;
+	   5'd7: the_registers[7] <= wd;
+           5'd8: the_registers[8] <= wd;
+           5'd9: the_registers[9] <= wd;
+           5'd10: the_registers[10] <= wd;
+           5'd11: the_registers[11] <= wd;
+           5'd12: the_registers[12] <= wd;
+           5'd13: the_registers[13] <= wd;
+           5'd14: the_registers[14] <= wd;
+           5'd15: the_registers[15] <= wd;
+           5'd16: the_registers[16] <= wd;
+           5'd17: the_registers[17] <= wd;
+           5'd18: the_registers[18] <= wd;
+           5'd19: the_registers[19] <= wd;
+           5'd20: the_registers[20] <= wd;
+           5'd21: the_registers[21] <= wd;
+	   5'd22: the_registers[22] <= wd;
+	   5'd23: the_registers[23] <= wd;
+	   5'd24: the_registers[24] <= wd;
+	   5'd25: the_registers[25] <= wd;
+	   5'd26: the_registers[26] <= wd;
+	   5'd27: the_registers[27] <= wd;
+	   5'd28: the_registers[28] <= wd;
+	   5'd29: the_registers[29] <= wd;
+	   5'd30: the_registers[30] <= wd;
+	   5'd31: the_registers[31] <= wd;
 	 endcase
       end // if (we)
    end // always @ (posedge clk)
 
-   always @(*) begin
+  /* always @(*) begin
       case(ra1)
 	5'd0: rd_1 = r0;
 	5'd1: rd_1 = r1;
@@ -136,9 +133,10 @@ module RegFile(input clk, we,
 	5'd31: rd_2 = r31;
       endcase // case (ra2)
    end // always @ (*)
-
-   assign rd1 = rd_1;
-   assign rd2 = rd_2;
+*/
+   assign rd1 = the_registers[ra1];
+   assign rd2 = the_registers[ra2];
+   
    
       
 	   
