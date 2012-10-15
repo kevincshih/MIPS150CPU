@@ -27,7 +27,7 @@ module Datapath(
    //wires for RegFile & ALU stage
    wire [3:0]  PC_High_bits;
    wire [4:0]  rs, rt, rd, A3;
-   wire [5:0]  prev_opcode, opcode;
+   wire [5:0]  prev_opcode, opcode, funct;
    wire [15:0] Imm;
    wire [25:0] JAL_Target; 
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
@@ -95,6 +95,7 @@ module Datapath(
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
 				       .opcode(opcode),
+				       .funct(funct),
 				       .rt(rt),
 				       .take_branch(Branch_compare));
    
@@ -212,6 +213,7 @@ module Datapath(
    assign rd = IMEM_Dout_IF_RA[15:11];
    assign Imm = IMEM_Dout_IF_RA[15:0];
    assign PC_High_Bits = PC_IF_RA[11:8];
+   assign funct = IMEM_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control

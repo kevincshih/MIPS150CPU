@@ -1,5 +1,5 @@
 module Branch_module(input [31:0] ALUSrcA, ALUSrcB,
-		     input [5:0] opcode,
+		     input [5:0] opcode, funct,
 		     input [4:0] rt,
 		     output take_branch);
 
@@ -12,6 +12,7 @@ module Branch_module(input [31:0] ALUSrcA, ALUSrcB,
 	6'b00110: branch_reg = $signed(ALUSrcA) <= 0;
 	6'b00111: branch_reg = $signed(ALUSrcA) > 0;
 	6'b00001: branch_reg = (rt==0'b00000)? ($signed(ALUSrcA)<0): ($signed(ALUSrcA) >=0);
+	6'b000000: branch_reg = (funct == 6'b0010000 || funct == 6'b001001)? 1:0;
 	default: branch_reg = 0;
       endcase // case (opcode)
    end
