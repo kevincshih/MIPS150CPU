@@ -1,0 +1,403 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150Project/skeleton/hardware/sim/build
+T_opt1
+V6HRV89hX<G^aW]>]e]MPQ0
+Z1 04 4 4 work glbl fast 0
+04 13 4 work EchoTestbench fast 0
+=1-00123f70d083-507bac5a-eeb50-46c6
+Z2 o-quiet -auto_acc_if_foreign -work work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip
+n@_opt1
+Z3 OL;O;10.1b_2;51
+Z4 d/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150Project/skeleton/hardware/sim/build
+T_opt2
+V>kK_jH1YUJjl7n@nNhcBi3
+R1
+04 16 4 work RegFileTestbench fast 0
+=1-00123f70d083-507bac61-21230-46ea
+R2
+n@_opt2
+R3
+vALU
+IGE[^Qg<_?ghS[o?=LDV3=1
+VX8IY7zXg<dYkZD0;`U4SX0
+R4
+Z5 w1350253929
+8../../src/ALU.v
+F../../src/ALU.v
+L0 15
+Z6 OL;L;10.1b_2;51
+r1
+31
+Z7 !s108 1350282326.774019
+Z8 !s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/util.vh|../../src/ALU.v|../../src/ALUdec.v|../../src/branch_module.v|../../src/Control.v|../../src/ControlTestbench.v|../../src/Datapath.v|../../src/EchoTestbench.v|../../src/Hazard.v|../../src/IORegister.v|../../src/MIPS150.v|../../src/ml505top.v|../../src/pc.v|../../src/RegFile.v|../../src/RegFileTestbench.v|../../src/UAReceive.v|../../src/UART.v|../../src/UATransmit.v|
+Z9 !s90 +acc|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_cg|-L|mtiAvm|-L|mtiOvm|-L|mtiUvm|-L|mtiUPF|../../src/UATransmit.v|../../src/UART.v|../../src/UAReceive.v|../../src/RegFileTestbench.v|../../src/RegFile.v|../../src/pc.v|../../src/ml505top.v|../../src/MIPS150.v|../../src/IORegister.v|../../src/Hazard.v|../../src/EchoTestbench.v|../../src/Datapath.v|../../src/ControlTestbench.v|../../src/Control.v|../../src/branch_module.v|../../src/ALUdec.v|../../src/ALU.v|
+Z10 !s102 -nocovercells
+Z11 o+acc -source -nocovercells -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+Z12 !s92 +acc -source -nocovercells +incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_cg -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@a@l@u
+!s100 73[nQHG[=N:bX:Jk]FUCn1
+!i10b 1
+!s85 0
+vALUdec
+ICGfnW<ZWT8ldHc`mo[QS13
+VIH5nfG^GEgOhTIZfcG>4D2
+R4
+Z13 w1350276163
+8../../src/ALUdec.v
+F../../src/ALUdec.v
+L0 12
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@a@l@udec
+!s100 jLa=3Af[LzKJ_^<MUjnfk2
+!i10b 1
+!s85 0
+vBranch_module
+IR:YX`?jFQJI[@h0Ld1>_<3
+Vfb]kUj3X1VdWc5[=e9?4m1
+R4
+R13
+8../../src/branch_module.v
+F../../src/branch_module.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@branch_module
+!s100 16Ge0=k?[B:^7niRP=V:70
+!i10b 1
+!s85 0
+vControl
+IEX]Ug;=XUQm4Dz`_mgn2o0
+V?C[?U`egLZ3QIb76eV2[^1
+R4
+w1350281325
+8../../src/Control.v
+F../../src/Control.v
+Z14 F../../src/Opcode.vh
+Z15 F../../src/ALUop.vh
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@control
+!s100 3WN[g?XjCl_amUGE4OWQ]0
+!i10b 1
+!s85 0
+vControlTestbench
+I@Y6cTK=AfN4Q[Q6LC952e3
+VPE804GnFI@UdeKOEich8G0
+R4
+w1350282323
+8../../src/ControlTestbench.v
+F../../src/ControlTestbench.v
+L0 7
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@control@testbench
+!i10b 1
+!s100 Pc]gFoRj<Nj][5m?XejN33
+!s85 0
+vDatapath
+I8EYj?8ChQhfLZDabalo9m1
+VjaU<K=:[de1c`zzW[c[[:0
+R4
+R13
+8../../src/Datapath.v
+F../../src/Datapath.v
+R14
+R15
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@datapath
+!s100 ]BR7Elz;jF4QIKznOdb2>2
+!i10b 1
+!s85 0
+vEchoTestbench
+IMN5Y0f8:3414i^2:O`:@;3
+V_oNQKGfnJ]UnjkBAL`Q4I3
+R4
+R5
+8../../src/EchoTestbench.v
+F../../src/EchoTestbench.v
+L0 3
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@echo@testbench
+!s100 alKXDeEHLNH]IcZ@:CnmZ2
+!i10b 1
+!s85 0
+vglbl
+Ie=ZS6Q:jeXZ[e[Y1P@?F90
+VM[9mS]S:KA1i4VeCMX35[3
+R4
+w1335236620
+8/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+F/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+L0 5
+R6
+r1
+31
+R11
+R10
+!s100 7J1niELK7Y2aOLFBHZ9413
+!s108 1350278927.476597
+!s107 /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+!s90 +acc|-vopt|-source|-nocovercells|/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+!i10b 1
+!s85 0
+vHazard
+IonKA8EZ9OOJ[4Wke]65I60
+V8G;RUN_>8OW`iZFY1aH?k0
+R4
+R5
+8../../src/Hazard.v
+F../../src/Hazard.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@hazard
+!s100 GC76=0hggc21h][GJCl4H1
+!i10b 1
+!s85 0
+vIORegister
+I0BnK7ZVVLA:d31ae<N@U=2
+VmdKZJi4:`9kHkF1aJ1QVe1
+R4
+R5
+8../../src/IORegister.v
+F../../src/IORegister.v
+L0 46
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@i@o@register
+!s100 ;1d=YooFEezSleg]P0bVk0
+!i10b 1
+!s85 0
+vMIPS150
+IBG6h1668FTN_]GAUhENiW0
+Vo=;cJ4nlC9M><17IAZDEl2
+R4
+R13
+8../../src/MIPS150.v
+F../../src/MIPS150.v
+L0 2
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@m@i@p@s150
+!s100 L22Mbc^VBB8H4:Z:ejcgE0
+!i10b 1
+!s85 0
+vml505top
+Ic_i3M9JTcUJ=h>STjn<RU3
+V8@X2gF:bji;EK^2[G`z880
+R4
+R5
+8../../src/ml505top.v
+F../../src/ml505top.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+!s100 mVME18g;GIRbH3ib<L0H^2
+!i10b 1
+!s85 0
+vPC
+IOR5ozj=XUiGninUjo?P7j2
+VlaB8FI00@n^1`n7niBY2z2
+R4
+R13
+8../../src/pc.v
+F../../src/pc.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@p@c
+!s100 4LlHTfE;B0IA`baJdf]VS3
+!i10b 1
+!s85 0
+vRegFile
+Ib]Ta?]]zX^Uj_6@KfAQFP0
+V=>z1IXjiW:^O:N7<e^M>z0
+R4
+R13
+8../../src/RegFile.v
+F../../src/RegFile.v
+L0 17
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@reg@file
+!s100 zi2AD@gaGEgfzM@:PG54;1
+!i10b 1
+!s85 0
+vRegFileTestbench
+Ia3QER<hGD4FC@YLZY[lg22
+Vd12^USB?i8kki<nN?:mW^0
+R4
+R5
+8../../src/RegFileTestbench.v
+F../../src/RegFileTestbench.v
+L0 5
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@reg@file@testbench
+!s100 mkMUV6g`<CLIG5zH7l4WI3
+!i10b 1
+!s85 0
+vUAReceive
+IW`Bi]3V?CNRj`;=7aFS:K2
+Vcd5LDA?@W6Qc:IlSBhKfI1
+R4
+R5
+8../../src/UAReceive.v
+F../../src/UAReceive.v
+Z16 F../../src/util.vh
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@u@a@receive
+!s100 5GUnIW?GdeO1SP[`=_^;=2
+!i10b 1
+!s85 0
+vUART
+I[aJ71Q:f:][L=_Yn25F:50
+VQalXem9`m0k5ieLza2^S73
+R4
+R5
+8../../src/UART.v
+F../../src/UART.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@u@a@r@t
+!s100 L_IL>oScGhK1aK;2Mc__B1
+!i10b 1
+!s85 0
+vUATransmit
+I8n@N7jHPnjgZ6jPJF=GPZ0
+VIDBmOoK5diMgHEPHe0V2e1
+R4
+R5
+8../../src/UATransmit.v
+F../../src/UATransmit.v
+R16
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+R10
+R11
+R12
+n@u@a@transmit
+!s100 4eJnF;@bj5^9cz8gKG=h[2
+!i10b 1
+!s85 0

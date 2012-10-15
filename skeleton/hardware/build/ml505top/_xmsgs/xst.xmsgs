@@ -5,13 +5,13 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompilers" num="21" delta="new" ><arg fmt="%s" index="1">&quot;../../src/branch_module.v&quot; line 14 </arg>Zero width on based number ignored
+<msg type="warning" file="HDLCompilers" num="21" delta="old" ><arg fmt="%s" index="1">&quot;../../src/branch_module.v&quot; line 14 </arg>Zero width on based number ignored
 </msg>
 
-<msg type="error" file="HDLCompilers" num="87" delta="new" ><arg fmt="%s" index="1">&quot;../../src/Datapath.v&quot; line 80 </arg>Could not find module/primitive &apos;<arg fmt="%s" index="2">imem_blk_ram</arg>&apos;
+<msg type="error" file="HDLCompilers" num="87" delta="old" ><arg fmt="%s" index="1">&quot;../../src/Datapath.v&quot; line 80 </arg>Could not find module/primitive &apos;<arg fmt="%s" index="2">imem_blk_ram</arg>&apos;
 </msg>
 
-<msg type="error" file="HDLCompilers" num="87" delta="new" ><arg fmt="%s" index="1">&quot;../../src/Datapath.v&quot; line 88 </arg>Could not find module/primitive &apos;<arg fmt="%s" index="2">dmem_blk_ram</arg>&apos;
+<msg type="error" file="HDLCompilers" num="87" delta="old" ><arg fmt="%s" index="1">&quot;../../src/Datapath.v&quot; line 88 </arg>Could not find module/primitive &apos;<arg fmt="%s" index="2">dmem_blk_ram</arg>&apos;
 </msg>
 
 </messages>

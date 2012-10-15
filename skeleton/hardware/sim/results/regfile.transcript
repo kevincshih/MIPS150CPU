@@ -1,0 +1,28 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start RegFileTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl RegFileTestbench 
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.RegFileTestbench(fast)
+# Loading work.RegFile(fast)
+add wave RegFileTestbench/*
+add wave RegFileTestbench/DUT/*
+run 1000us
+# Writing to register 00000000000000000000000000000001 resulted in 00000000000000000000000000000000
+# Writing to register 00000000000000000000000000010100 resulted in 00000000000000000000000011000011
+# Write Enable singal did not disable writing: r1 = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+# we have a big problem)
+# read was not asynchronous
+# All tests passed!
