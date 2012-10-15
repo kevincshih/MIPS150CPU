@@ -20,13 +20,12 @@ module RegFile(input clk, we,
                output [31:0] rd1, rd2);
 
    (* ram_style = "distributed" *) reg [31:0] the_registers[0:31];
-
-   always @(*) the_registers[0] = 32'd0;
       
    always @(posedge clk) begin
+      the_registers[0] <= 32'd0;
       if (we) begin
 	 case(wa)
-	   5'd0: ;
+	   5'd0: the_registers[0] <= 32'd0;
 	   5'd1: the_registers[1] <= wd;
 	   5'd2: the_registers[2] <= wd;
 	   5'd3: the_registers[3] <= wd;

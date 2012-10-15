@@ -128,19 +128,19 @@ always @( * ) begin
 end
 
 
-//Data Memory
+/*//Data Memory
 always @( * ) begin
     if (MemWrite && ~addr[3] && addr[0]) begin
-            WEDMreg = 1'b1;
+       WEDMreg = 1'b1;
         end
     else if (MemRead && ~addr[3] && addr[0]) begin
         WEDMreg = 1'b0;
-		RDselreg = 2'b10;
+	RDselreg = 2'b10;
         end
     else
         WEDMreg = 1'b0;
 end
-
+*/
 
 
 //UART I/O
@@ -172,6 +172,20 @@ always @( * ) begin
         REUARTreg = 1'b0;
         WEUARTreg = 1'b0;
     end
+
+   //Data Memory
+
+   if (MemWrite && ~addr[3] && addr[0]) begin
+      WEDMreg = 1'b1;
+   end
+   else if (MemRead && ~addr[3] && addr[0]) begin
+      WEDMreg = 1'b0;
+      RDselreg = 2'b10;
+   end
+   else
+     WEDMreg = 1'b0;
+
+   
 end
 
 //Branch/Jump Logic

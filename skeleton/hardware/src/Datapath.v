@@ -78,6 +78,7 @@ module Datapath(
 		       .rd2(rd2));
 
    imem_blk_ram the_imem(.clka(CLK),
+			 .clkb(CLK),
 			 .ena(not_stall),
 			 .wea(ByteSel),
 			 .addra(addra),
@@ -91,7 +92,7 @@ module Datapath(
 			 .addra(addra),
 			 .dina(rd2),
 			 .douta(douta));
-
+   
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
 				       .opcode(opcode),
@@ -218,13 +219,15 @@ module Datapath(
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
 
+   assign JAL_Target = IMEM_Dout_IF_RA[25:0];
    assign PC_JAL = {PC_High_Bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4;
 
    assign addra = ALU_OutMW[13:2];
-
+   assign JR = rd1;
+   
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;
    assign DataOutReady = REUART_Reg; // output

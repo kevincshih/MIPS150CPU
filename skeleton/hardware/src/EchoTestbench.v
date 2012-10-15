@@ -11,6 +11,8 @@ module EchoTestbench();
     wire  [7:0] DataOut;
     wire        DataOutValid;
     reg         DataOutReady;
+   reg 		stall = 0;
+   
 
     parameter HalfCycle = 5;
     parameter Cycle = 2*HalfCycle;
@@ -22,9 +24,9 @@ module EchoTestbench();
     // Instantiate your CPU here and connect the FPGA_SERIAL_TX wires
     // to the UART we use for testing
 
-   MIPS150 the_cpu(.clk(Clock),
+   MIPS150 CPU(.clk(Clock),
 	     .rst(Reset),
-	     .stall(),
+	       .stall(stall),
 	     .FPGA_SERIAL_RX(FPGA_SERIAL_RX),
 	     .FPGA_SERIAL_TX(FPGA_SERIAL_TX));
 
@@ -63,7 +65,8 @@ module EchoTestbench();
       $display("Got %d", DataOut);
 
       // Add more test cases!
-
+       $display("skipped the got something line");
+       
 
 
       $finish();

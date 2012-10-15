@@ -20,7 +20,7 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
       end
 
       if (RST) the_pc <= 32'd4;
-
+	 
       if (flushing) flush_count <= flush_count - 1;
       else flush_count <= 2'd3;
       
@@ -29,7 +29,11 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
    always @(*) begin
       if (flush) flushing = 1;
       if (flush_count == 0) flushing = 0;
+
+      if (RST) flushing = 0;
+      
    end      
+
    assign PC_IF = the_pc;
 
 endmodule // PC
