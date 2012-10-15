@@ -3,13 +3,12 @@ module Control(
     input[31:0]OldInstruction,
     input[31:0]Address,
     input branch,
-
     output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
     output WEIM, WEDM, REUART, WEUART, RegWrite
     );
-`include "Opcode.vh"
+    `include "Opcode.vh"
     `include "ALUop.vh"
 
   //--|Parameters|--------------------------------------------------------------
