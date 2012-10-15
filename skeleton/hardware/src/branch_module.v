@@ -9,7 +9,7 @@ module Branch_module(input [31:0] ALUSrcA, ALUSrcB,
       case(opcode)
 	6'b00100: branch_reg = (ALUSrcA == ALUSrcB);
 	6'b00101: branch_reg = ~(ALUSrcA == ALUSrcB);
-	6'b00110: branch_reg = $signed(ALUSrcA) =< 0;
+	6'b00110: branch_reg = $signed(ALUSrcA) <= 0;
 	6'b00111: branch_reg = $signed(ALUSrcA) > 0;
 	6'b00001: branch_reg = (rt==0'b00000)? ($signed(ALUSrcA)<0): ($signed(ALUSrcA) >=0);
 	default: branch_reg = 0;
