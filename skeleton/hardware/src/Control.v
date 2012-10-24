@@ -95,12 +95,18 @@ ALUdec DUT(.funct(funct),
 always @( * ) begin
     if (op == `RTYPE) begin
         RegDstReg = 2'b01;
+		RDselreg = 2'b01;
     end
-    else if (((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU))) begin
+    else if ((op >= `ADDIU) && (op <= `LUI)) begin
         RegDstReg = 2'b00;
+		RDselreg = 2'b01;
     end
+	else if ((op >= `LB) && (op <= `LHU)) begin
+		RegDstReg = 2'b00;
+	end
     else if (funct == `JAL) begin
         RegDstReg = 2'b10;
+		RDselreg = 2'b01;
     end
     else begin
         RegDstReg = 2'b11;

@@ -158,8 +158,8 @@ branch = 1'b0;
     	Address = nop;
 	branch = 1'b0;
 	#1;
-	if (PCsel != 2'b00) begin
-	$display("FAIL: Incorrect result for PCSel expected: %h, got: %h:", 2'b00, PCsel);
+	if (PCsel != 2'b10) begin
+	$display("FAIL: Incorrect result for PCSel expected: %h, got: %h:", 2'b10, PCsel);
 	end
 	if (AluSelA != 2'b00) begin
 	$display("FAIL: Incorrect result for ALUSelA expected: %h, got: %h:", 2'b00, AluSelA);
