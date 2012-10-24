@@ -111,7 +111,7 @@ always @( * ) begin
     else begin
         RegDstReg = 2'b11;
     end
-    RegWriteReg = (op == `RTYPE) || ((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU));
+    RegWriteReg = ((op == `RTYPE) && (funct != `JR)) || ((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `LHU)) || (op == `JAL);
     MemWriteReg = (op == `SW) || (op == `SH) || (op == `SB);
     MemReadReg = (op == `LW) || (op == `LH) || (op == `LB) || (op == `LHU) || (op == `LBU);
     case(op)
