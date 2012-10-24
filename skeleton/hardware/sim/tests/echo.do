@@ -6,5 +6,9 @@ add wave EchoTestbench/CPU/*
 add wave EchoTestbench/CPU/the_datapath/*
 add wave EchoTestbench/CPU/the_datapath/the_imem/*
 add wave EchoTestbench/CPU/the_datapath/the_regfile/*
+add wave EchoTestbench/CPU/the_datapath/the_regfile/the_registers/*
 add wave EchoTestbench/CPU/the_datapath/the_PC/*
+add wave EchoTestbench/uart/*
+add wave EchoTestbench/uart/uareceive/*
+add wave EchoTestbench/uart/uatransmit/*
 run 1000us

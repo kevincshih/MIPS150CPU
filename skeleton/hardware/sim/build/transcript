@@ -1,6 +1,6 @@
 proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
-start EchoTestbench
-# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
+start RegFileTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl RegFileTestbench 
 # ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
 # //
@@ -12,36 +12,9 @@ start EchoTestbench
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # Loading work.glbl(fast)
-# Loading work.EchoTestbench(fast)
-# Loading work.MIPS150(fast)
-# Loading work.Control(fast)
-# Loading work.ALUdec(fast)
-# Loading work.Datapath(fast)
-# Loading work.ALU(fast)
-# Loading work.PC(fast)
+# Loading work.RegFileTestbench(fast)
 # Loading work.RegFile(fast)
-# Loading work.imem_blk_ram(fast)
-# Loading work.dmem_blk_ram(fast)
-# Loading work.Branch_module(fast)
-# Loading work.UART(fast)
-# Loading work.IORegister(fast)
-# Loading work.UATransmit(fast)
-# Loading work.UAReceive(fast)
-file copy -force ../../../software/echo/echo.mif imem_blk_ram.mif
-file copy -force ../../../software/echo/echo.mif dmem_blk_ram.mif
-add wave EchoTestbench/*
-add wave EchoTestbench/CPU/*
-add wave EchoTestbench/CPU/the_datapath/*
-add wave EchoTestbench/CPU/the_datapath/the_imem/*
-add wave EchoTestbench/CPU/the_datapath/the_regfile/*
-add wave EchoTestbench/CPU/the_datapath/the_PC/*
+add wave RegFileTestbench/*
+add wave RegFileTestbench/DUT/*
 run 1000us
-#  Block Memory Generator CORE Generator module loading initial data...
-#  Block Memory Generator data initialization complete.
-# Block Memory Generator CORE Generator module EchoTestbench.CPU.the_datapath.the_imem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-#  Block Memory Generator CORE Generator module loading initial data...
-#  Block Memory Generator data initialization complete.
-# Block Memory Generator CORE Generator module EchoTestbench.CPU.the_datapath.the_dmem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# ** Error: (vsim-3601) Iteration limit reached at time 1345 ns.
-# 
-# <EOF> 
+# All tests passed!
