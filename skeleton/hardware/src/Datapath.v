@@ -45,7 +45,8 @@ module Datapath(
    reg [4:0]   A3_RA_DW;
    reg 	       WEDM_RA_DW;
    reg 	       REUART_Reg, WEUART_Reg, UARTsel_Reg, RDsel_Reg;
-   reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg;
+   reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
+   reg [25:0]  JAL_Target_Reg;
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked;
@@ -62,7 +63,7 @@ module Datapath(
 	     .PC_4(PC_4),
 	     .PC_JAL(PC_JAL),
 	     .PC_Sel(PC_SelReg),
-	     .JR(rd1),
+	     .JR(JR),
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
@@ -121,6 +122,9 @@ module Datapath(
 	 ALU_OutMW_Reg <= ALU_OutMW;
 
 	 PC_SelReg <= PC_Sel;
+
+	 rd1_Reg <= rd1;
+	 JAL_Target_Reg <= IMEM_Dout_IF_RA[25:0];
 	 
       end // if (not_stall)
    end // always @ (posedge CLK)
@@ -128,8 +132,8 @@ module Datapath(
 
    always @(*) begin
       case(ALU_Sel_A)
-	2'b00: ALU_SrcA_Reg = rd1; // normal r-type
-	2'b01: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
+	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
+	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW; // fwd A
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
@@ -145,7 +149,7 @@ module Datapath(
       case(RegDst)
 	2'b00: A3_Reg = rt;
 	2'b01: A3_Reg = rd;
-	2'b10: A3_Reg = 5'd32; // set $ra for JAL
+	2'b10: A3_Reg = 5'd31; // set $ra for JAL
 	default: A3_Reg = rt;
       endcase // case (RegDst)
 
@@ -158,7 +162,7 @@ module Datapath(
 
       case (RDsel_Reg)
 	2'b00: WriteData_Reg = UART_Data;
-	2'b01: WriteData_Reg = ALU_OutMW;
+	2'b01: WriteData_Reg = ALU_OutMW_Reg;
 	2'b10: WriteData_Reg = DMEM_dout;
 	default: WriteData_Reg = DMEM_dout;
       endcase // case (RDsel)
@@ -222,7 +226,7 @@ module Datapath(
    assign Address = ALU_OutMW; // output to control
 
    assign PC_High_bits = PC_IF_RA[31:28];
-   assign JAL_Target = IMEM_Dout_IF_RA[25:0];
+   assign JAL_Target = JAL_Target_Reg;
    assign PC_JAL = {PC_High_bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
@@ -230,7 +234,7 @@ module Datapath(
 
    
    assign addra = ALU_OutMW[13:2];
-   assign JR = rd1;
+   assign JR = rd1_Reg;
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;
