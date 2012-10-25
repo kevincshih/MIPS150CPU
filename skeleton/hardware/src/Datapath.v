@@ -53,6 +53,9 @@ module Datapath(
    reg [4:0]   A3_Reg, RegDst_Reg;
    reg [1:0]   PC_SelReg;
    
+   //reset register
+   reg resetReg;
+   
    ALU the_ALU(.A(ALU_SrcA),
 	       .B(ALU_SrcB),
 	       .ALUop(ALUop),
@@ -104,14 +107,14 @@ module Datapath(
    
    
    always @(posedge CLK) begin
-      if (not_stall) begin
+     resetReg <= reset;
+	 
+	 if (not_stall) begin
 	 //First Pipeline Registers
-	 IMEM_Dout_IF_RA <= IMEM_Dout_IF;
 	 PC_IF_RA <= PC_IF;
 
 	 //Second Pipeline Registers
 	 A3_RA_DW <= A3_Reg;
-	 WEDM_RA_DW <= WEDM;
 
 	 REUART_Reg <= REUART;
 	 WEUART_Reg <= WEUART;
@@ -120,28 +123,32 @@ module Datapath(
 	 
 	 PrevInstruction_Reg <= IMEM_Dout_IF_RA;
 	 ALU_OutMW_Reg <= ALU_OutMW;
-
-	 PC_SelReg <= PC_Sel;
-
-	 rd1_Reg <= rd1;
-	 JAL_Target_Reg <= IMEM_Dout_IF_RA[25:0];
 	 
       end // if (not_stall)
    end // always @ (posedge CLK)
     
+	always @(*) begin
+	IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
+	PC_SelReg = PC_Sel;
+	rd1_Reg = rd1;
+	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
+	WEDM_RA_DW = WEDM;
+
+	end
+	
 
    always @(*) begin
       case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
-	2'b10: ALU_SrcA_Reg = ALU_OutMW; // fwd A
+	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
       
       case(ALU_Sel_B)
 	2'b01: ALU_SrcB_Reg = rd2; // normal r-type
  	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
-	2'b10: ALU_SrcB_Reg = ALU_OutMW; // fwd B
+	2'b10: ALU_SrcB_Reg = ALU_OutMW_Reg; // fwd B
 	2'b11: ALU_SrcB_Reg = Imm_Extended; // imm for i-type
 	default: ALU_SrcB_Reg = rd2;
       endcase // case (ALU_Sel_B)
