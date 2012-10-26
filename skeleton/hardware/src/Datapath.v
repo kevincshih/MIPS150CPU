@@ -36,15 +36,18 @@ module Datapath(
    wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta;
    wire [11:0] addra;
    wire [1:0]  offset;
+   wire        RegWrite_WB;
+  
 
    //First Pipeline Register
-   reg [31:0]  PC_IF_RA;
+   reg [31:0]  PC_IF_RA, PC_4_Reg;
    reg [31:0]  IMEM_Dout_IF_RA;
 
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
-   reg 	       WEDM_RA_DW;
-   reg 	       REUART_Reg, WEUART_Reg, UARTsel_Reg, RDsel_Reg;
+   reg [1:0]   RDsel_Reg, UARTsel_Reg;
+   reg 	       WEDM_RA_DW, RegWrite_Reg;
+   reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
 
@@ -74,7 +77,7 @@ module Datapath(
 	     .PC_IF(PC_IF));
 
    RegFile the_regfile(.clk(CLK),
-		       .we(RegWrite),
+		       .we(RegWrite_WB),
 		       .ra1(rs),
 		       .ra2(rt),
 		       .wa(A3_RA_DW),
@@ -111,24 +114,27 @@ module Datapath(
 	 
 	 if (not_stall) begin
 	 //First Pipeline Registers
-	 PC_IF_RA <= PC_IF;
+	    PC_IF_RA <= PC_IF;
 
 	 //Second Pipeline Registers
-	 A3_RA_DW <= A3_Reg;
-
-	 REUART_Reg <= REUART;
-	 WEUART_Reg <= WEUART;
-	 UARTsel_Reg <= UARTsel;
-	 RDsel_Reg <= RDsel;
+	    A3_RA_DW <= A3_Reg;
+	    
+	    REUART_Reg <= REUART;
+	    WEUART_Reg <= WEUART;
+	    UARTsel_Reg <= UARTsel;
+	    RDsel_Reg <= RDsel;
+	    RegWrite_Reg <= RegWrite;
+	    
+	    PC_4_Reg <= PC_4;
+	    
+	    PrevInstruction_Reg <= IMEM_Dout_IF_RA;
+	    ALU_OutMW_Reg <= ALU_OutMW;
 	 
-	 PrevInstruction_Reg <= IMEM_Dout_IF_RA;
-	 ALU_OutMW_Reg <= ALU_OutMW;
-	 
-      end // if (not_stall)
+	 end // if (not_stall)
    end // always @ (posedge CLK)
     
-	always @(*) begin
-	IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
+   always @(*) begin
+      IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
 	PC_SelReg = PC_Sel;
 	rd1_Reg = rd1;
 	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
@@ -176,10 +182,10 @@ module Datapath(
 
       case(prev_opcode)
 	6'b100000: case(offset) // LB
-		     2'b00: douta_masked = $signed(douta[31:24]);
-		     2'b01: douta_masked = $signed(douta[23:16]);
-		     2'b10: douta_masked = $signed(douta[15:8]);
-		     2'b11: douta_masked = $signed(douta[7:0]);
+		     2'b00: douta_masked = $signed(douta[7:0]);
+		     2'b01: douta_masked = $signed(douta[15:8]);
+		     2'b10: douta_masked = $signed(douta[23:16]);
+		     2'b11: douta_masked = $signed(douta[31:24]);
 		   endcase // case (offset)
 
 	6'b100001: case(offset) // LH
@@ -231,13 +237,14 @@ module Datapath(
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
+   assign RegWrite_WB = RegWrite_Reg;
 
    assign PC_High_bits = PC_IF_RA[31:28];
    assign JAL_Target = JAL_Target_Reg;
    assign PC_JAL = {PC_High_bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
-   assign PC_Branch = Imm_Shifted + PC_4;
+   assign PC_Branch = Imm_Shifted + PC_4_Reg;
 
    
    assign addra = ALU_OutMW[13:2];
@@ -253,7 +260,7 @@ module Datapath(
    assign UART_Data = UART_Data_Reg;
    assign prev_opcode = PrevInstruction_Reg[31:26];
    assign DMEM_dout = douta_masked;
-   assign offset = ALU_OutMW_Reg[1:0];
+   assign offset = ALU_OutMW[1:0];
    
 endmodule // Datapath
 

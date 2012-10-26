@@ -1,10 +1,10 @@
 module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
 	  input [1:0] PC_Sel,
 	  input EN, CLK, RST, flush,
-	  output[31:0] PC_IF
+	  output[31:0] PC_IF, PC_IMEM
 	  );
 
-   reg [31:0] 	the_pc;
+   reg [31:0] 	the_pc, the_instant_pc;
    reg [1:0] 	flush_count = 2'd3;
    reg 		flushing;
    
@@ -31,10 +31,20 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
       if (flush_count == 0) flushing = 0;
 
       if (RST) flushing = 0;
+
+      case(PC_Sel)
+	2'b00: the_instant_pc = PC_4;
+	2'b01: the_instant_pc = PC_Branch;
+	2'b10: the_instant_pc = JR;
+	2'b11: the_instant_pc = PC_JAL;
+	default: the_pc = PC_4;
+      endcase // case (PC_Sel)
+      
       
    end      
 
    assign PC_IF = the_pc;
+   assign PC_IMEM = (RST)? 0: the_instant_pc;
 
 endmodule // PC
 
