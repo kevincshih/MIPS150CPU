@@ -7,14 +7,21 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# OpenFile results/control.wlf 
+# OpenFile results/echo.wlf 
 add wave -position insertpoint  \
-control:/ControlTestbench/branch
+echo:/EchoTestbench/Clock \
+echo:/EchoTestbench/Reset
 add wave -position insertpoint  \
-control:/ControlTestbench/AluSelA
+echo:/EchoTestbench/CPU/DataOutValid \
+echo:/EchoTestbench/CPU/DataOutReady \
+echo:/EchoTestbench/CPU/DataOut
 add wave -position insertpoint  \
-control:/ControlTestbench/AluSelB
+echo:/EchoTestbench/CPU/REUART
 add wave -position insertpoint  \
-control:/ControlTestbench/s2
+echo:/EchoTestbench/CPU/the_datapath/the_regfile/we \
+echo:/EchoTestbench/CPU/the_datapath/the_regfile/wa \
+echo:/EchoTestbench/CPU/the_datapath/the_regfile/wd
 add wave -position insertpoint  \
-control:/ControlTestbench/PCsel
+echo:/EchoTestbench/CPU/the_datapath/IMEM_Dout_IF
+add wave -position insertpoint  \
+echo:/EchoTestbench/CPU/the_datapath/PC_IF_RA

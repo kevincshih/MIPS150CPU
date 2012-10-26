@@ -82,7 +82,7 @@ $(WORK__UATransmit) : ../../src/UATransmit.v ../../src/util.vh ../../src/UART.v 
 		 ../../src/ControlTestbench.v ../../src/Control.v \
 		 ../../src/branch_module.v ../../src/ALUdec.v \
 		 ../../src/ALU.v
-	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_cg+incdir+../../src/imem_blk_ram/tmp/_xmsgs+incdir+../../src/imem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb \
+	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs \
 		 -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF ../../src/UATransmit.v \
 		 ../../src/UART.v ../../src/UAReceive.v ../../src/RegFileTestbench.v \
 		 ../../src/RegFile.v ../../src/pc.v ../../src/ml505top.v \

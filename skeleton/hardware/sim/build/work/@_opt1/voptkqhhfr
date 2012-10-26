@@ -1,0 +1,443 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/sim/build
+T_opt
+V:NbaDOg^MVk^S2d`I0?=L0
+Z1 04 4 4 work glbl fast 0
+04 16 4 work ControlTestbench fast 0
+=1-00123f70d083-5088a6fb-8a178-ca5
+Z2 o-quiet -auto_acc_if_foreign -work work -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip
+n@_opt
+Z3 OL;O;10.1b_2;51
+Z4 d/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/sim/build
+T_opt1
+VdO7cz<6o^Uo1S3QbIjhBd1
+R1
+04 13 4 work EchoTestbench fast 0
+=1-00123f70d083-5088a700-adbfc-cf0
+R2
+n@_opt1
+R3
+vALU
+I9QiCc`BI`edOkLbL96N2`0
+VX8IY7zXg<dYkZD0;`U4SX0
+R4
+Z5 w1351109808
+8../../src/ALU.v
+F../../src/ALU.v
+L0 15
+Z6 OL;L;10.1b_2;51
+r1
+31
+Z7 !s102 -nocovercells
+Z8 o+acc -source -nocovercells -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+n@a@l@u
+Z9 !s92 +acc -source -nocovercells +incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 SgSUFRl3MN`]KioR1Q69Q0
+!s108 1351132918.216350
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALU.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/ALU.v|
+!i10b 1
+!s85 0
+vALUdec
+In8emVk8e5N5KdS7;nNV2M1
+VIH5nfG^GEgOhTIZfcG>4D2
+R4
+R5
+8../../src/ALUdec.v
+F../../src/ALUdec.v
+L0 12
+R6
+r1
+31
+R7
+R8
+R9
+n@a@l@udec
+!s100 `cDD5PJTVQJ9R^VO`>=TV3
+!s108 1351132918.325414
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ALUdec.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/ALUdec.v|
+!i10b 1
+!s85 0
+vBranch_module
+IP1=jd9LFI7d:?f[Z`1W452
+VB=7]9EL48cUeM<;NNzLMY2
+R4
+R5
+8../../src/branch_module.v
+F../../src/branch_module.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@branch_module
+!s100 PGn6IbfB4J]eS3a9H=J<01
+!s108 1351132919.455631
+!s107 ../../src/branch_module.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/branch_module.v|
+!i10b 1
+!s85 0
+vControl
+I]T?F1RN>c`DJ8L>Ol2Hal3
+V1:<iRgY7b;o0hN6nWWS3R0
+R4
+w1351110463
+8../../src/Control.v
+F../../src/Control.v
+Z10 F../../src/Opcode.vh
+Z11 F../../src/ALUop.vh
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@control
+!s100 Z1EBnPLi[jNamZ7O?>@PH2
+!s108 1351132918.399929
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/Control.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/Control.v|
+!i10b 1
+!s85 0
+vControlTestbench
+I5]QfUMRY8Md8JWKO7Iz1S3
+VPE804GnFI@UdeKOEich8G0
+R4
+R5
+8../../src/ControlTestbench.v
+F../../src/ControlTestbench.v
+L0 7
+R6
+r1
+31
+R7
+R8
+R9
+n@control@testbench
+!s100 G<dTTDD9N7BCnf3A6JZS[2
+!s108 1351132918.487443
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/ControlTestbench.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/ControlTestbench.v|
+!i10b 1
+!s85 0
+vDatapath
+IfD<T[WA]mPS37_8eU7HNB2
+VjaU<K=:[de1c`zzW[c[[:0
+R4
+w1351132839
+8../../src/Datapath.v
+F../../src/Datapath.v
+R10
+R11
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@datapath
+!s100 Ka<1[7Wb41<RK=Kk1EOT20
+!s108 1351132918.600714
+!s107 ../../src/ALUop.vh|../../src/Opcode.vh|../../src/Datapath.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/Datapath.v|
+!i10b 1
+!s85 0
+vdmem_blk_ram
+I=GJ<U1oTic5S28GUR2_mH3
+V[SnlI1a[Y[ZU65Vb?2TDS0
+R4
+w1351109989
+8../../src/dmem_blk_ram/dmem_blk_ram.v
+F../../src/dmem_blk_ram/dmem_blk_ram.v
+L0 63
+R6
+r1
+31
+R7
+R8
+R9
+!s100 7gnNV>N>[3=Gn]kc3;<];3
+!s108 1351132919.528226
+!s107 ../../src/dmem_blk_ram/dmem_blk_ram.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/dmem_blk_ram/dmem_blk_ram.v|
+!i10b 1
+!s85 0
+vEchoTestbench
+IekCAcc[aIY[_h2NeG4<K92
+V_oNQKGfnJ]UnjkBAL`Q4I3
+R4
+R5
+8../../src/EchoTestbench.v
+F../../src/EchoTestbench.v
+L0 3
+R6
+r1
+31
+R7
+R8
+R9
+n@echo@testbench
+!s100 fM7Y29`6HY5?V:O4e@K1f0
+!s108 1351132918.681257
+!s107 ../../src/EchoTestbench.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/EchoTestbench.v|
+!i10b 1
+!s85 0
+vglbl
+Ie=ZS6Q:jeXZ[e[Y1P@?F90
+VM[9mS]S:KA1i4VeCMX35[3
+R4
+w1335236620
+8/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+F/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
+L0 5
+R6
+r1
+31
+R8
+R7
+!s100 7J1niELK7Y2aOLFBHZ9413
+!s108 1351132917.782292
+!s107 /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+!s90 +acc|-vopt|-source|-nocovercells|/opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v|
+!i10b 1
+!s85 0
+vHazard
+IJ6:QBNSWNfb>O<fVT7lOz0
+V8G;RUN_>8OW`iZFY1aH?k0
+R4
+R5
+8../../src/Hazard.v
+F../../src/Hazard.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@hazard
+!s100 R16lF>jRo9=;;daBYz?LA2
+!s108 1351132918.783754
+!s107 ../../src/Hazard.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/Hazard.v|
+!i10b 1
+!s85 0
+vimem_blk_ram
+I6AiJ0`fI?9N]<m>kBb=nY3
+V3T^U`fTC^eXBJEjlIGAlb1
+R4
+R5
+8../../src/imem_blk_ram/imem_blk_ram.v
+F../../src/imem_blk_ram/imem_blk_ram.v
+L0 63
+R6
+r1
+31
+R7
+R8
+R9
+!s100 SiUDGg0<=_c2Onc]VI4iU2
+!s108 1351132919.616652
+!s107 ../../src/imem_blk_ram/imem_blk_ram.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/imem_blk_ram/imem_blk_ram.v|
+!i10b 1
+!s85 0
+vIORegister
+I4khn5zVk;2=04O5WMHWNi1
+VmdKZJi4:`9kHkF1aJ1QVe1
+R4
+R5
+8../../src/IORegister.v
+F../../src/IORegister.v
+L0 46
+R6
+r1
+31
+R7
+R8
+R9
+n@i@o@register
+!s100 L3DGR>L@LB0A:E?n8Uf9]2
+!s108 1351132918.867261
+!s107 ../../src/IORegister.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/IORegister.v|
+!i10b 1
+!s85 0
+vMIPS150
+IRQnh<bf3L<NaHiGlc=5Zi2
+Vo=;cJ4nlC9M><17IAZDEl2
+R4
+R5
+8../../src/MIPS150.v
+F../../src/MIPS150.v
+L0 2
+R6
+r1
+31
+R7
+R8
+R9
+n@m@i@p@s150
+!s100 Gnz496BffCeJ6EVGbSkSa0
+!s108 1351132918.964249
+!s107 ../../src/MIPS150.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/MIPS150.v|
+!i10b 1
+!s85 0
+vml505top
+I9Ikk4AldZk1YKh_FAzChV3
+V8@X2gF:bji;EK^2[G`z880
+R4
+R5
+8../../src/ml505top.v
+F../../src/ml505top.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+!s100 d6WooO8F:J?39LcmYe[AV2
+!s108 1351132919.723490
+!s107 ../../src/ml505top.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/ml505top.v|
+!i10b 1
+!s85 0
+vPC
+IhZnKNXES]3>WWgkATTQ]71
+VlaB8FI00@n^1`n7niBY2z2
+R4
+R5
+8../../src/pc.v
+F../../src/pc.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@p@c
+!i10b 1
+!s100 Mh=zJEFMRz=6[GFEjKXfm2
+!s85 0
+!s108 1351132919.831956
+!s107 ../../src/pc.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/pc.v|
+vRegFile
+Ic?W_DWa^Mb5<nHU1N>nB`1
+V=>z1IXjiW:^O:N7<e^M>z0
+R4
+R5
+8../../src/RegFile.v
+F../../src/RegFile.v
+L0 17
+R6
+r1
+31
+R7
+R8
+R9
+n@reg@file
+!s100 TMN]VfUa]@49[@R^0>o013
+!s108 1351132919.053850
+!s107 ../../src/RegFile.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/RegFile.v|
+!i10b 1
+!s85 0
+vRegFileTestbench
+Ija2eB;z:ijD]Do9EU`fh52
+Vd12^USB?i8kki<nN?:mW^0
+R4
+R5
+8../../src/RegFileTestbench.v
+F../../src/RegFileTestbench.v
+L0 5
+R6
+r1
+31
+R7
+R8
+R9
+n@reg@file@testbench
+!s100 V@bZ0`C:<HbE>?jnfS[hZ2
+!s108 1351132919.127439
+!s107 ../../src/RegFileTestbench.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/RegFileTestbench.v|
+!i10b 1
+!s85 0
+vUAReceive
+I@NElX4NgR??6ih2]I1JHN0
+Vcd5LDA?@W6Qc:IlSBhKfI1
+R4
+R5
+8../../src/UAReceive.v
+F../../src/UAReceive.v
+Z12 F../../src/util.vh
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@u@a@receive
+!s100 5GUnIW?GdeO1SP[`=_^;=2
+!s108 1351132919.291353
+!s107 ../../src/util.vh|../../src/UAReceive.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/UAReceive.v|
+!i10b 1
+!s85 0
+vUART
+IiK:iR4:j2=nLNhE886FaT0
+VQalXem9`m0k5ieLza2^S73
+R4
+R5
+8../../src/UART.v
+F../../src/UART.v
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@u@a@r@t
+!s100 L_IL>oScGhK1aK;2Mc__B1
+!s108 1351132919.204763
+!s107 ../../src/UART.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/UART.v|
+!i10b 1
+!s85 0
+vUATransmit
+I>oVFRHSLT2O^cl:WlVJEI2
+VIDBmOoK5diMgHEPHe0V2e1
+R4
+R5
+8../../src/UATransmit.v
+F../../src/UATransmit.v
+R12
+L0 1
+R6
+r1
+31
+R7
+R8
+R9
+n@u@a@transmit
+!s100 4eJnF;@bj5^9cz8gKG=h[2
+!s108 1351132919.381771
+!s107 ../../src/util.vh|../../src/UATransmit.v|
+!s90 +acc|-vopt|-source|-nocovercells|+incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs|../../src/UATransmit.v|
+!i10b 1
+!s85 0
