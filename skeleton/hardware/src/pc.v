@@ -47,4 +47,3 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
    assign PC_IMEM = (RST)? 0: the_instant_pc;
 
 endmodule // PC
-

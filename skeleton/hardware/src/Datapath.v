@@ -73,7 +73,7 @@ module Datapath(
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
-	     .flush(Branch_compare),
+	     .flush(1'b0), //Branch_compare
 	     .PC_IF(PC_IF));
 
    RegFile the_regfile(.clk(CLK),
