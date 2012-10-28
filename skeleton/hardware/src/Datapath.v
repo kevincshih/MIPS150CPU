@@ -118,13 +118,10 @@ module Datapath(
 
 	 //Second Pipeline Registers
 	    A3_RA_DW <= A3_Reg;
-	    
-	    REUART_Reg <= REUART;
-	    WEUART_Reg <= WEUART;
 	    UARTsel_Reg <= UARTsel;
-	    RDsel_Reg <= RDsel;
-	    RegWrite_Reg <= RegWrite;
-	    
+		RDsel_Reg <= RDsel;
+		RegWrite_Reg <= RegWrite;
+		
 	    PC_4_Reg <= PC_4;
 	    
 	    PrevInstruction_Reg <= IMEM_Dout_IF_RA;
@@ -139,7 +136,9 @@ module Datapath(
 	rd1_Reg = rd1;
 	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
 	WEDM_RA_DW = WEDM;
-
+	REUART_Reg = REUART;
+	WEUART_Reg = WEUART;
+	    
 	end
 	
 

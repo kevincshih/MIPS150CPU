@@ -1,7 +1,7 @@
 module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
 	  input [1:0] PC_Sel,
 	  input EN, CLK, RST, flush,
-	  output[31:0] PC_IF, PC_IMEM
+	  output[31:0] PC_IF//, PC_IMEM
 	  );
 
    reg [31:0] 	the_pc, the_instant_pc;
@@ -44,6 +44,6 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
    end      
 
    assign PC_IF = the_pc;
-   assign PC_IMEM = (RST)? 0: the_instant_pc;
+   //assign PC_IMEM = (RST)? 0: the_instant_pc;
 
 endmodule // PC

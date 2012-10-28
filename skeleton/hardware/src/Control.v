@@ -152,7 +152,7 @@ end
 //UART I/O
 
 always @( * ) begin
-    if (MemRead && (Address == 32'h8000000)) begin
+    if (MemRead && (Address == 32'h80000000)) begin
         WEUARTreg = 1'b0;
         REUARTreg = 1'b0;
         UARTselreg = 2'b01; //DataInReady
