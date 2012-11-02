@@ -120,9 +120,7 @@ module Datapath(
 	    UARTsel_Reg <= UARTsel;
 		RDsel_Reg <= RDsel;
 		RegWrite_Reg <= RegWrite;
-		
-	    PC_4_Reg <= PC_4;
-	    
+	    PC_4_Reg <= PC_4;	    
 	    PrevInstruction_Reg <= IMEM_Dout_IF_RA;
 	    ALU_OutMW_Reg <= ALU_OutMW;
 	 
@@ -130,7 +128,7 @@ module Datapath(
    end // always @ (posedge CLK)
     
    always @(*) begin
-      IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
+    IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
 	PC_SelReg = PC_Sel;
 	rd1_Reg = rd1;
 	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
