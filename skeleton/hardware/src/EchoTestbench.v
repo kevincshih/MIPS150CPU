@@ -63,11 +63,22 @@ module EchoTestbench();
       // Wait for something to come back
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
-
+       #(Cycle*20)
       // Add more test cases!
-       $display("skipped the got something line");
-       
+       DataIn = 8'h7b;
+       DataOutReady = 0;
+       #(100*Cycle)
+       Reset = 1;
+       #(Cycle*30)
+       Reset = 0;
 
+       while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+       #(Cycle)
+       DataInValid = 1'b0;
+
+       while (!DataOutValid) #(Cycle);
+       $display("Got %d", DataOut);
 
       $finish();
   end

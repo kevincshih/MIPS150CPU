@@ -59,7 +59,7 @@
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.REGISTER_PORTB_OUTPUT_OF_MEMORY_PRIMITIVES">false</spirit:configurableElementValue>
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.PORT_B_ENABLE_RATE">100</spirit:configurableElementValue>
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.USE_RSTA_PIN">false</spirit:configurableElementValue>
-            <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.COE_FILE">./echo.coe</spirit:configurableElementValue>
+            <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.COE_FILE">./bios150v3.coe</spirit:configurableElementValue>
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.FILL_REMAINING_MEMORY_LOCATIONS">false</spirit:configurableElementValue>
             <spirit:configurableElementValue spirit:referenceId="PARAM_VALUE.COLLISION_WARNINGS">ALL</spirit:configurableElementValue>
             <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.C_RST_PRIORITY_A">CE</spirit:configurableElementValue>
@@ -155,8 +155,8 @@
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.mif</xilinx:name>
                      <xilinx:userFileType>mif</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:23:04 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0x5F15453D</xilinx:checkSum>
+                     <xilinx:timeStamp>Wed Oct 31 01:29:45 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x60957723</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                </xilinx:fileSet>
@@ -165,8 +165,8 @@
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.xco</xilinx:name>
                      <xilinx:userFileType>xco</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:23:04 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0xD5143288</xilinx:checkSum>
+                     <xilinx:timeStamp>Wed Oct 31 01:29:45 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x8858602C</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                </xilinx:fileSet>
@@ -175,36 +175,36 @@
                   <xilinx:file>
                      <xilinx:name>./blk_mem_gen_ds512.pdf</xilinx:name>
                      <xilinx:userFileType>pdf</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:24:34 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:18 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x5BB37B65</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./blk_mem_gen_readme.txt</xilinx:name>
                      <xilinx:userFileType>txt</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:24:34 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:18 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xED96AB8B</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.ngc</xilinx:name>
                      <xilinx:userFileType>ngc</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:00 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0x4E205A05</xilinx:checkSum>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:41 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x1AF1B891</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.v</xilinx:name>
                      <xilinx:userFileType>verilog</xilinx:userFileType>
                      <xilinx:userFileType>verilogSynthesis</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:24:34 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:18 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x75B632E7</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.veo</xilinx:name>
                      <xilinx:userFileType>veo</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:24:34 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:18 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x6E497F25</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -214,7 +214,7 @@
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.veo</xilinx:name>
                      <xilinx:userFileType>veo</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:00 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:41 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x6E497F25</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -224,7 +224,7 @@
                   <xilinx:file>
                      <xilinx:name>./imem_blk_ram.asy</xilinx:name>
                      <xilinx:userFileType>asy</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:00 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:41 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x851F4982</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -235,7 +235,7 @@
                      <xilinx:name>./imem_blk_ram_xmdf.tcl</xilinx:name>
                      <xilinx:userFileType>tclXmdf</xilinx:userFileType>
                      <xilinx:userFileType>tcl</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:00 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:41 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xE2E8D763</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -246,7 +246,7 @@
                      <xilinx:name>./imem_blk_ram.gise</xilinx:name>
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>gise</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:08 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:50 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xCA0BF739</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -254,8 +254,8 @@
                      <xilinx:name>./imem_blk_ram.xise</xilinx:name>
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>xise</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:08 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0xAC17079B</xilinx:checkSum>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:50 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x9D2A0FA4</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                </xilinx:fileSet>
@@ -269,7 +269,7 @@
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>txtFlist</xilinx:userFileType>
                      <xilinx:userFileType>txt</xilinx:userFileType>
-                     <xilinx:timeStamp>Wed Oct 24 01:25:09 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Wed Oct 31 01:31:50 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xA62A9EF6</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>

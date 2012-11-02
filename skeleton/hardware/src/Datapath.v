@@ -73,7 +73,6 @@ module Datapath(
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
-	     .flush(1'b0), //Branch_compare
 	     .PC_IF(PC_IF));
 
    RegFile the_regfile(.clk(CLK),
@@ -87,7 +86,7 @@ module Datapath(
 
    imem_blk_ram the_imem(.clka(CLK),
 			 .clkb(CLK),
-			 .ena(not_stall),
+			 .ena(not_stall && WEIM),
 			 .wea(ByteSel),
 			 .addra(addra),
 			 .dina(rd2),

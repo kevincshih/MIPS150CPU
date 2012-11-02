@@ -120,18 +120,18 @@ always @( * ) begin
         `SW: ByteSelReg = 4'b1111;
         default: ByteSelReg = 4'b0000;
     endcase
-end
+
 
 //Instruction Memory
 
-always @( * ) begin
+
     if (MemWrite && ~addr[3] && addr[1]) begin
         WEIMreg = 1'b1;
     end
     else begin
         WEIMreg = 1'b0;
     end
-end
+
 
 
 /*//Data Memory
@@ -149,9 +149,8 @@ end
 */
 
 
-//UART I/O
+   //UART I/O
 
-always @( * ) begin
     if (MemRead && (Address == 32'h80000000)) begin
         WEUARTreg = 1'b0;
         REUARTreg = 1'b0;
@@ -190,7 +189,7 @@ always @( * ) begin
    end
    else
      WEDMreg = 1'b0;
-
+   
    
 end
 
