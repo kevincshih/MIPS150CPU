@@ -1,8 +1,4 @@
-proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
-start RegFileTestbench
-# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl RegFileTestbench 
-# ** Note: (vsim-3812) Design is being optimized...
-# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -11,10 +7,6 @@ start RegFileTestbench
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# Loading work.glbl(fast)
-# Loading work.RegFileTestbench(fast)
-# Loading work.RegFile(fast)
-add wave RegFileTestbench/*
-add wave RegFileTestbench/DUT/*
-run 1000us
-# All tests passed!
+# OpenFile ../results/asm.wlf 
+add wave -position insertpoint  \
+asm:/asmTestbench/CPU/the_datapath/the_regfile/the_registers

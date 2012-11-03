@@ -1,0 +1,2449 @@
+--------------------------------------------------------------------------------
+Release 14.1 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -v 3 -s 1 -n 10 -fastpaths
+-xml ml505top.twx ml505top.ncd -o ml505top.twr ml505top.pcf
+
+Design file:              ml505top.ncd
+Physical constraint file: ml505top.pcf
+Device,package,speed:     xc5vlx110t,ff1136,-1 (PRODUCTION 1.73 2012-04-23, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+1 logic loop found and disabled.
+
+  ----------------------------------------------------------------------
+ ! Warning: The following connections close logic loops, and some paths !
+ !          through these connections may not be analyzed. To better    !
+ !          understand the logic associated with these loops, run a     !
+ !          Analyze Against User-Defined End-Point Analysis inside      !
+ !          Timing Analyzer (timingan) with the listed signal as a      !
+ !          source NET (*signal_name). The Timing Report will display   !
+ !          all the paths associated with this signal and the logic     !
+ !          loop will be reported.                                      !
+ !                                                                      !
+ ! Signal                            Driver            Load             !
+ ! --------------------------------  ----------------  ---------------- !
+ ! datapath/the_ALU/O_shift0002<31>  SLICE_X40Y51.A    SLICE_X40Y51.A2  !
+  ---------------------------------------------------------------------- 
+
+
+================================================================================
+Timing constraint: TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   4.000ns.
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_USER_CLK = PERIOD TIMEGRP "USER_CLK" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min low pulse limit / (low pulse / period)))
+  Period: 10.000ns
+  Low pulse: 5.000ns
+  Low pulse limit: 2.000ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: user_clk_pll/CLKIN1
+  Logical resource: user_clk_pll/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN1
+  Clock network: user_clk_g
+--------------------------------------------------------------------------------
+Slack: 6.000ns (period - (min high pulse limit / (high pulse / period)))
+  Period: 10.000ns
+  High pulse: 5.000ns
+  High pulse limit: 2.000ns (Tdcmpw_CLKIN_100_150)
+  Physical resource: user_clk_pll/CLKIN1
+  Logical resource: user_clk_pll/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN1
+  Clock network: user_clk_g
+--------------------------------------------------------------------------------
+Slack: 8.451ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.549ns (645.578MHz) (Tpllper_CLKIN)
+  Physical resource: user_clk_pll/CLKIN1
+  Logical resource: user_clk_pll/CLKIN1
+  Location pin: PLL_ADV_X0Y0.CLKIN1
+  Clock network: user_clk_g
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_USER_CLK / 0.5 HIGH 
+50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 585324353 paths analyzed, 3429 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  19.806ns.
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_10_6 (SLICE_X48Y34.CX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.194ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_10_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.304ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.359ns (1.275 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_10_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X44Y40.B1      net (fanout=7)        0.912   CPU/the_datapath/N25
+    SLICE_X44Y40.B       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A5      net (fanout=1)        0.244   CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>76
+    SLICE_X48Y34.CX      net (fanout=31)       1.870   CPU/the_datapath/WriteData_Reg<6>
+    SLICE_X48Y34.CLK     Tdick                -0.005   CPU/the_datapath/the_regfile/the_registers_10_7
+                                                       CPU/the_datapath/the_regfile/the_registers_10_6
+    -------------------------------------------------  ---------------------------
+    Total                                     19.304ns (3.608ns logic, 15.696ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.209ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_10_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.294ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.354ns (1.275 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_10_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X44Y40.B1      net (fanout=7)        0.912   CPU/the_datapath/N25
+    SLICE_X44Y40.B       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A5      net (fanout=1)        0.244   CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>76
+    SLICE_X48Y34.CX      net (fanout=31)       1.870   CPU/the_datapath/WriteData_Reg<6>
+    SLICE_X48Y34.CLK     Tdick                -0.005   CPU/the_datapath/the_regfile/the_registers_10_7
+                                                       CPU/the_datapath/the_regfile/the_registers_10_6
+    -------------------------------------------------  ---------------------------
+    Total                                     19.294ns (3.598ns logic, 15.696ns route)
+                                                       (18.6% logic, 81.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.276ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_10_6 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.222ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.359ns (1.275 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_10_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X44Y40.B1      net (fanout=7)        0.912   CPU/the_datapath/N25
+    SLICE_X44Y40.B       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A5      net (fanout=1)        0.244   CPU/the_datapath/WriteData_Reg<6>4
+    SLICE_X44Y40.A       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<4>
+                                                       CPU/the_datapath/WriteData_Reg<6>76
+    SLICE_X48Y34.CX      net (fanout=31)       1.870   CPU/the_datapath/WriteData_Reg<6>
+    SLICE_X48Y34.CLK     Tdick                -0.005   CPU/the_datapath/the_regfile/the_registers_10_7
+                                                       CPU/the_datapath/the_regfile/the_registers_10_6
+    -------------------------------------------------  ---------------------------
+    Total                                     19.222ns (3.611ns logic, 15.611ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_24_4 (SLICE_X50Y36.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.208ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_24_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.327ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.322ns (1.312 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_24_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y36.AX      net (fanout=31)       1.560   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_24_7
+                                                       CPU/the_datapath/the_regfile/the_registers_24_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.327ns (3.605ns logic, 15.722ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.223ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_24_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.317ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.317ns (1.312 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_24_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y36.AX      net (fanout=31)       1.560   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_24_7
+                                                       CPU/the_datapath/the_regfile/the_registers_24_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.317ns (3.595ns logic, 15.722ns route)
+                                                       (18.6% logic, 81.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.290ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_24_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.245ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.322ns (1.312 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_24_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y36.AX      net (fanout=31)       1.560   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_24_7
+                                                       CPU/the_datapath/the_regfile/the_registers_24_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.245ns (3.608ns logic, 15.637ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_25_4 (SLICE_X51Y36.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.214ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_25_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.296ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.347ns (1.287 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_25_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y36.AX      net (fanout=31)       1.529   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_25_7
+                                                       CPU/the_datapath/the_regfile/the_registers_25_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.296ns (3.605ns logic, 15.691ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.229ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_25_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.286ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.342ns (1.287 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_25_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y36.AX      net (fanout=31)       1.529   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_25_7
+                                                       CPU/the_datapath/the_regfile/the_registers_25_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.286ns (3.595ns logic, 15.691ns route)
+                                                       (18.6% logic, 81.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.296ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_25_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.214ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.347ns (1.287 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_25_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y36.AX      net (fanout=31)       1.529   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y36.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_25_7
+                                                       CPU/the_datapath/the_regfile/the_registers_25_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.214ns (3.608ns logic, 15.606ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_23_4 (SLICE_X50Y38.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.247ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_23_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.293ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.317ns (1.317 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_23_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y38.AX      net (fanout=31)       1.526   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_23_7
+                                                       CPU/the_datapath/the_regfile/the_registers_23_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.293ns (3.605ns logic, 15.688ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.262ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_23_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.283ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.312ns (1.317 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_23_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y38.AX      net (fanout=31)       1.526   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_23_7
+                                                       CPU/the_datapath/the_regfile/the_registers_23_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.283ns (3.595ns logic, 15.688ns route)
+                                                       (18.6% logic, 81.4% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.329ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_23_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.211ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.317ns (1.317 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_23_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X50Y38.AX      net (fanout=31)       1.526   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X50Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_23_7
+                                                       CPU/the_datapath/the_regfile/the_registers_23_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.211ns (3.608ns logic, 15.603ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_16_4 (SLICE_X51Y38.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.253ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_16_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.262ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.342ns (1.292 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_16_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y38.AX      net (fanout=31)       1.495   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_16_7
+                                                       CPU/the_datapath/the_regfile/the_registers_16_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.262ns (3.605ns logic, 15.657ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.268ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_16_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.252ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.337ns (1.292 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_16_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y38.AX      net (fanout=31)       1.495   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_16_7
+                                                       CPU/the_datapath/the_regfile/the_registers_16_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.252ns (3.595ns logic, 15.657ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.335ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_16_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.180ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.342ns (1.292 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_16_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y38.AX      net (fanout=31)       1.495   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y38.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_16_7
+                                                       CPU/the_datapath/the_regfile/the_registers_16_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.180ns (3.608ns logic, 15.572ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_4_4 (SLICE_X51Y37.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.262ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_4_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.250ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_4_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y37.AX      net (fanout=31)       1.483   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y37.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_4_7
+                                                       CPU/the_datapath/the_regfile/the_registers_4_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.250ns (3.605ns logic, 15.645ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.277ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_4_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.240ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.340ns (1.289 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_4_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y37.AX      net (fanout=31)       1.483   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y37.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_4_7
+                                                       CPU/the_datapath/the_regfile/the_registers_4_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.240ns (3.595ns logic, 15.645ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.344ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_4_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.168ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_4_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X51Y37.AX      net (fanout=31)       1.483   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X51Y37.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_4_7
+                                                       CPU/the_datapath/the_regfile/the_registers_4_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.168ns (3.608ns logic, 15.560ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_19_4 (SLICE_X49Y39.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.301ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_19_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.211ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_19_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X49Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X49Y39.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_19_7
+                                                       CPU/the_datapath/the_regfile/the_registers_19_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.211ns (3.605ns logic, 15.606ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.316ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_19_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.201ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.340ns (1.289 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_19_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X49Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X49Y39.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_19_7
+                                                       CPU/the_datapath/the_regfile/the_registers_19_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.201ns (3.595ns logic, 15.606ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.383ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_19_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.129ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_19_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X49Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X49Y39.CLK     Tdick                -0.008   CPU/the_datapath/the_regfile/the_registers_19_7
+                                                       CPU/the_datapath/the_regfile/the_registers_19_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.129ns (3.608ns logic, 15.521ns route)
+                                                       (18.9% logic, 81.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_18_4 (SLICE_X48Y39.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.305ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_18_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.207ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_18_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y39.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_18_7
+                                                       CPU/the_datapath/the_regfile/the_registers_18_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.207ns (3.601ns logic, 15.606ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.320ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_18_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.197ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.340ns (1.289 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_18_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y39.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_18_7
+                                                       CPU/the_datapath/the_regfile/the_registers_18_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.197ns (3.591ns logic, 15.606ns route)
+                                                       (18.7% logic, 81.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.387ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_18_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.125ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.345ns (1.289 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_18_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y39.AX      net (fanout=31)       1.444   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y39.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_18_7
+                                                       CPU/the_datapath/the_regfile/the_registers_18_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.125ns (3.604ns logic, 15.521ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_15_23 (SLICE_X9Y56.DX), 414008 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.377ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_15_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.333ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.147ns (0.650 - 0.797)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_15_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X29Y50.B1      net (fanout=48)       1.955   CPU/Address<0>
+    SLICE_X29Y50.B       Tilo                  0.094   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_SW3
+    SLICE_X29Y50.C3      net (fanout=1)        0.432   N230
+    SLICE_X29Y50.CMUX    Tilo                  0.392   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_G
+                                                       CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.DX       net (fanout=31)       1.550   CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.CLK      Tdick                 0.002   CPU/the_datapath/the_regfile/the_registers_15_23
+                                                       CPU/the_datapath/the_regfile/the_registers_15_23
+    -------------------------------------------------  ---------------------------
+    Total                                     19.333ns (3.819ns logic, 15.514ns route)
+                                                       (19.8% logic, 80.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.392ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_15_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.323ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.142ns (0.650 - 0.792)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_15_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X29Y50.B1      net (fanout=48)       1.955   CPU/Address<0>
+    SLICE_X29Y50.B       Tilo                  0.094   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_SW3
+    SLICE_X29Y50.C3      net (fanout=1)        0.432   N230
+    SLICE_X29Y50.CMUX    Tilo                  0.392   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_G
+                                                       CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.DX       net (fanout=31)       1.550   CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.CLK      Tdick                 0.002   CPU/the_datapath/the_regfile/the_registers_15_23
+                                                       CPU/the_datapath/the_regfile/the_registers_15_23
+    -------------------------------------------------  ---------------------------
+    Total                                     19.323ns (3.809ns logic, 15.514ns route)
+                                                       (19.7% logic, 80.3% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.459ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_15_23 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.251ns (Levels of Logic = 11)
+  Clock Path Skew:      -0.147ns (0.650 - 0.797)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_15_23
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X29Y50.B1      net (fanout=48)       1.955   CPU/Address<0>
+    SLICE_X29Y50.B       Tilo                  0.094   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_SW3
+    SLICE_X29Y50.C3      net (fanout=1)        0.432   N230
+    SLICE_X29Y50.CMUX    Tilo                  0.392   N230
+                                                       CPU/the_datapath/WriteData_Reg<23>_G
+                                                       CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.DX       net (fanout=31)       1.550   CPU/the_datapath/WriteData_Reg<23>
+    SLICE_X9Y56.CLK      Tdick                 0.002   CPU/the_datapath/the_regfile/the_registers_15_23
+                                                       CPU/the_datapath/the_regfile/the_registers_15_23
+    -------------------------------------------------  ---------------------------
+    Total                                     19.251ns (3.822ns logic, 15.429ns route)
+                                                       (19.9% logic, 80.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_regfile/the_registers_5_4 (SLICE_X48Y35.AX), 726289 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     0.379ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_5_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.123ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.355ns (1.279 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_5_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y35.AX      net (fanout=31)       1.360   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y35.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_5_7
+                                                       CPU/the_datapath/the_regfile/the_registers_5_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.123ns (3.601ns logic, 15.522ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.394ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_5_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.113ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.350ns (1.279 - 1.629)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_5_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOWB            2.180   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X10Y41.D1      net (fanout=228)      2.703   CPU/Instruction<16>
+    SLICE_X10Y41.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_3_19
+                                                       CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.D2      net (fanout=1)        0.809   CPU/the_datapath/the_regfile/mux40_91
+    SLICE_X14Y42.CMUX    Topdc                 0.389   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_4
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y35.AX      net (fanout=31)       1.360   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y35.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_5_7
+                                                       CPU/the_datapath/the_regfile/the_registers_5_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.113ns (3.591ns logic, 15.522ns route)
+                                                       (18.8% logic, 81.2% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     0.461ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Destination:          CPU/the_datapath/the_regfile/the_registers_5_4 (FF)
+  Requirement:          20.000ns
+  Data Path Delay:      19.041ns (Levels of Logic = 12)
+  Clock Path Skew:      -0.355ns (1.279 - 1.634)
+  Source Clock:         cpu_clk_g rising at 0.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.143ns
+
+  Clock Uncertainty:          0.143ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.277ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path: CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP to CPU/the_datapath/the_regfile/the_registers_5_4
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB36_X1Y11.DOBDOL0 Trcko_DOPB            2.190   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                       CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    SLICE_X37Y33.A5      net (fanout=34)       1.586   CPU/the_datapath/IMEM_Dout_IF<16>
+    SLICE_X37Y33.A       Tilo                  0.094   CPU/the_datapath/PrevInstruction_Reg<17>
+                                                       CPU/the_datapath/_old_IMEM_Dout_IF_RA_1<16>1
+    SLICE_X13Y43.D4      net (fanout=228)      2.262   CPU/Instruction<16>
+    SLICE_X13Y43.D       Tilo                  0.094   CPU/the_datapath/the_regfile/the_registers_23_19
+                                                       CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.C1      net (fanout=1)        1.165   CPU/the_datapath/the_regfile/mux40_7
+    SLICE_X14Y42.CMUX    Tilo                  0.392   CPU/the_datapath/the_regfile/mux40_92
+                                                       CPU/the_datapath/the_regfile/mux40_3
+                                                       CPU/the_datapath/the_regfile/mux40_2_f7
+    SLICE_X35Y45.D2      net (fanout=3)        1.499   CPU/the_datapath/rd2<17>
+    SLICE_X35Y45.D       Tilo                  0.094   CPU/the_datapath/ALU_SrcB_Reg<17>
+                                                       CPU/the_datapath/ALU_SrcB_Reg<17>1
+    SLICE_X41Y40.D1      net (fanout=15)       1.452   CPU/the_datapath/ALU_SrcB_Reg<17>
+    SLICE_X41Y40.D       Tilo                  0.094   CPU/the_datapath/UARTsel_Reg<1>
+                                                       CPU/the_datapath/the_ALU/Sh161
+    SLICE_X46Y44.C1      net (fanout=4)        1.376   CPU/the_datapath/the_ALU/Sh16
+    SLICE_X46Y44.C       Tilo                  0.094   CPU/the_datapath/the_ALU/Sh216
+                                                       CPU/the_datapath/the_ALU/Sh2401
+    SLICE_X43Y41.A2      net (fanout=2)        0.918   CPU/the_datapath/the_ALU/Sh240
+    SLICE_X43Y41.A       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>216_SW0
+    SLICE_X43Y41.B3      net (fanout=1)        0.714   N286
+    SLICE_X43Y41.B       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A5      net (fanout=1)        0.520   CPU/the_datapath/the_ALU/O<0>225
+    SLICE_X41Y44.A       Tilo                  0.094   CPU/the_datapath/ALU_OutMW_Reg<1>
+                                                       CPU/the_datapath/the_ALU/O<0>296
+    SLICE_X43Y41.D2      net (fanout=48)       1.093   CPU/Address<0>
+    SLICE_X43Y41.D       Tilo                  0.094   CPU/the_datapath/N25
+                                                       CPU/the_datapath/WriteData_Reg<0>71
+    SLICE_X39Y39.B1      net (fanout=7)        1.268   CPU/the_datapath/N25
+    SLICE_X39Y39.B       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A5      net (fanout=1)        0.224   CPU/the_datapath/WriteData_Reg<4>4
+    SLICE_X39Y39.A       Tilo                  0.094   CPU/the_datapath/WriteData_Reg<4>4
+                                                       CPU/the_datapath/WriteData_Reg<4>76
+    SLICE_X48Y35.AX      net (fanout=31)       1.360   CPU/the_datapath/WriteData_Reg<4>
+    SLICE_X48Y35.CLK     Tdick                -0.012   CPU/the_datapath/the_regfile/the_registers_5_7
+                                                       CPU/the_datapath/the_regfile/the_registers_5_4
+    -------------------------------------------------  ---------------------------
+    Total                                     19.041ns (3.604ns logic, 15.437ns route)
+                                                       (18.9% logic, 81.1% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_USER_CLK / 0.5 HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_2 (SLICE_X40Y39.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.317ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_2 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.488ns (Levels of Logic = 0)
+  Clock Path Skew:      0.171ns (1.462 - 1.291)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_2 to CPU/the_datapath/PC_IF_RA_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y40.DQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<2>
+                                                       CPU/the_datapath/the_PC/the_pc_2
+    SLICE_X40Y39.CX      net (fanout=10)       0.304   CPU/the_datapath/the_PC/the_pc<2>
+    SLICE_X40Y39.CLK     Tckdi       (-Th)     0.230   CPU/the_datapath/PC_IF_RA<3>
+                                                       CPU/the_datapath/PC_IF_RA_2
+    -------------------------------------------------  ---------------------------
+    Total                                      0.488ns (0.184ns logic, 0.304ns route)
+                                                       (37.7% logic, 62.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_28 (SLICE_X35Y52.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.359ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_28 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_28 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.343ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.016ns (0.135 - 0.151)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_28 to CPU/the_datapath/PC_IF_RA_28
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X34Y52.BQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<30>
+                                                       CPU/the_datapath/the_PC/the_pc_28
+    SLICE_X35Y52.AX      net (fanout=2)        0.158   CPU/the_datapath/the_PC/the_pc<28>
+    SLICE_X35Y52.CLK     Tckdi       (-Th)     0.229   CPU/the_datapath/PC_IF_RA<31>
+                                                       CPU/the_datapath/PC_IF_RA_28
+    -------------------------------------------------  ---------------------------
+    Total                                      0.343ns (0.185ns logic, 0.158ns route)
+                                                       (53.9% logic, 46.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_30 (SLICE_X35Y52.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.370ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_30 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_30 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.354ns (Levels of Logic = 0)
+  Clock Path Skew:      -0.016ns (0.135 - 0.151)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_30 to CPU/the_datapath/PC_IF_RA_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X34Y52.DQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<30>
+                                                       CPU/the_datapath/the_PC/the_pc_30
+    SLICE_X35Y52.CX      net (fanout=2)        0.158   CPU/the_datapath/the_PC/the_pc<30>
+    SLICE_X35Y52.CLK     Tckdi       (-Th)     0.218   CPU/the_datapath/PC_IF_RA<31>
+                                                       CPU/the_datapath/PC_IF_RA_30
+    -------------------------------------------------  ---------------------------
+    Total                                      0.354ns (0.196ns logic, 0.158ns route)
+                                                       (55.4% logic, 44.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_1 (SLICE_X40Y39.BX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.437ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_1 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_1 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.608ns (Levels of Logic = 0)
+  Clock Path Skew:      0.171ns (1.462 - 1.291)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_1 to CPU/the_datapath/PC_IF_RA_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y40.BQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<2>
+                                                       CPU/the_datapath/the_PC/the_pc_1
+    SLICE_X40Y39.BX      net (fanout=2)        0.436   CPU/the_datapath/the_PC/the_pc<1>
+    SLICE_X40Y39.CLK     Tckdi       (-Th)     0.242   CPU/the_datapath/PC_IF_RA<3>
+                                                       CPU/the_datapath/PC_IF_RA_1
+    -------------------------------------------------  ---------------------------
+    Total                                      0.608ns (0.172ns logic, 0.436ns route)
+                                                       (28.3% logic, 71.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_0 (SLICE_X40Y39.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.461ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_0 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_0 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.632ns (Levels of Logic = 0)
+  Clock Path Skew:      0.171ns (1.462 - 1.291)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_0 to CPU/the_datapath/PC_IF_RA_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X39Y40.CQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<2>
+                                                       CPU/the_datapath/the_PC/the_pc_0
+    SLICE_X40Y39.AX      net (fanout=2)        0.454   CPU/the_datapath/the_PC/the_pc<0>
+    SLICE_X40Y39.CLK     Tckdi       (-Th)     0.236   CPU/the_datapath/PC_IF_RA<3>
+                                                       CPU/the_datapath/PC_IF_RA_0
+    -------------------------------------------------  ---------------------------
+    Total                                      0.632ns (0.178ns logic, 0.454ns route)
+                                                       (28.2% logic, 71.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_uart/uareceive/RXShift_5 (SLICE_X45Y42.AX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.467ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_uart/uareceive/RXShift_6 (FF)
+  Destination:          CPU/the_uart/uareceive/RXShift_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.467ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_uart/uareceive/RXShift_6 to CPU/the_uart/uareceive/RXShift_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X45Y42.BQ      Tcko                  0.414   CPU/the_uart/uareceive/RXShift<7>
+                                                       CPU/the_uart/uareceive/RXShift_6
+    SLICE_X45Y42.AX      net (fanout=2)        0.282   CPU/the_uart/uareceive/RXShift<6>
+    SLICE_X45Y42.CLK     Tckdi       (-Th)     0.229   CPU/the_uart/uareceive/RXShift<7>
+                                                       CPU/the_uart/uareceive/RXShift_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.467ns (0.185ns logic, 0.282ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/PC_IF_RA_31 (SLICE_X35Y52.DX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.473ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_31 (FF)
+  Destination:          CPU/the_datapath/PC_IF_RA_31 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.492ns (Levels of Logic = 0)
+  Clock Path Skew:      0.019ns (0.556 - 0.537)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_31 to CPU/the_datapath/PC_IF_RA_31
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X33Y53.DQ      Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<31>
+                                                       CPU/the_datapath/the_PC/the_pc_31
+    SLICE_X35Y52.DX      net (fanout=2)        0.297   CPU/the_datapath/the_PC/the_pc<31>
+    SLICE_X35Y52.CLK     Tckdi       (-Th)     0.219   CPU/the_datapath/PC_IF_RA<31>
+                                                       CPU/the_datapath/PC_IF_RA_31
+    -------------------------------------------------  ---------------------------
+    Total                                      0.492ns (0.195ns logic, 0.297ns route)
+                                                       (39.6% logic, 60.4% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_uart/uareceive/BitCounter_2 (SLICE_X55Y46.A6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.486ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_uart/uareceive/BitCounter_1 (FF)
+  Destination:          CPU/the_uart/uareceive/BitCounter_2 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.500ns (Levels of Logic = 1)
+  Clock Path Skew:      0.014ns (0.141 - 0.127)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_uart/uareceive/BitCounter_1 to CPU/the_uart/uareceive/BitCounter_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X55Y47.AQ      Tcko                  0.414   CPU/the_uart/uareceive/BitCounter<3>
+                                                       CPU/the_uart/uareceive/BitCounter_1
+    SLICE_X55Y46.A6      net (fanout=8)        0.283   CPU/the_uart/uareceive/BitCounter<1>
+    SLICE_X55Y46.CLK     Tah         (-Th)     0.197   CPU/the_uart/uareceive/BitCounter<2>
+                                                       CPU/the_uart/uareceive/Mcount_BitCounter_xor<2>11
+                                                       CPU/the_uart/uareceive/BitCounter_2
+    -------------------------------------------------  ---------------------------
+    Total                                      0.500ns (0.217ns logic, 0.283ns route)
+                                                       (43.4% logic, 56.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_uart/uareceive/RXShift_3 (SLICE_X46Y40.CX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.491ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_uart/uareceive/RXShift_4 (FF)
+  Destination:          CPU/the_uart/uareceive/RXShift_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.491ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_uart/uareceive/RXShift_4 to CPU/the_uart/uareceive/RXShift_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X46Y40.DQ      Tcko                  0.414   CPU/the_uart/uareceive/RXShift<4>
+                                                       CPU/the_uart/uareceive/RXShift_4
+    SLICE_X46Y40.CX      net (fanout=2)        0.295   CPU/the_uart/uareceive/RXShift<4>
+    SLICE_X46Y40.CLK     Tckdi       (-Th)     0.218   CPU/the_uart/uareceive/RXShift<4>
+                                                       CPU/the_uart/uareceive/RXShift_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.491ns (0.196ns logic, 0.295ns route)
+                                                       (39.9% logic, 60.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAMB36_X1Y9.ADDRBL13), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.497ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               CPU/the_datapath/the_PC/the_pc_12 (FF)
+  Destination:          CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP (RAM)
+  Requirement:          0.000ns
+  Data Path Delay:      0.740ns (Levels of Logic = 0)
+  Clock Path Skew:      0.243ns (0.780 - 0.537)
+  Source Clock:         cpu_clk_g rising at 20.000ns
+  Destination Clock:    cpu_clk_g rising at 20.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: CPU/the_datapath/the_PC/the_pc_12 to CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    Location               Delay type         Delay(ns)  Physical Resource
+                                                         Logical Resource(s)
+    ---------------------------------------------------  -------------------
+    SLICE_X34Y48.BQ        Tcko                  0.414   CPU/the_datapath/the_PC/the_pc<14>
+                                                         CPU/the_datapath/the_PC/the_pc_12
+    RAMB36_X1Y9.ADDRBL13   net (fanout=10)       0.620   CPU/the_datapath/the_PC/the_pc<12>
+    RAMB36_X1Y9.CLKBWRCLKL Trckc_ADDRB (-Th)     0.294   CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+                                                         CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP
+    ---------------------------------------------------  ---------------------------
+    Total                                        0.740ns (0.120ns logic, 0.620ns route)
+                                                         (16.2% logic, 83.8% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_USER_CLK / 0.5 HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 17.778ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.222ns (450.045MHz) (Trper_CLKA)
+  Physical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAL
+  Logical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAL
+  Location pin: RAMB36_X1Y13.CLKARDCLKL
+  Clock network: cpu_clk_g
+--------------------------------------------------------------------------------
+Slack: 17.778ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.222ns (450.045MHz) (Trper_CLKA)
+  Physical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAU
+  Logical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAU
+  Location pin: RAMB36_X1Y13.CLKARDCLKU
+  Clock network: cpu_clk_g
+--------------------------------------------------------------------------------
+Slack: 17.778ns (period - min period limit)
+  Period: 20.000ns
+  Min period limit: 2.222ns (450.045MHz) (Trper_CLKA)
+  Physical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAL
+  Logical resource: CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP/CLKAL
+  Location pin: RAMB36_X1Y10.CLKARDCLKL
+  Clock network: cpu_clk_g
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_USER_CLK
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_USER_CLK                    |     10.000ns|      4.000ns|      9.903ns|            0|            0|            0|    585324353|
+| TS_cpu_clk                    |     20.000ns|     19.806ns|          N/A|            0|            0|    585324353|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock USER_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+USER_CLK       |   19.806|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 585324353 paths, 0 nets, and 11860 connections
+
+Design statistics:
+   Minimum period:  19.806ns{1}   (Maximum frequency:  50.490MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Sat Nov  3 11:57:08 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 641 MB
+
+
+

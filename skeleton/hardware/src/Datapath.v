@@ -1,6 +1,6 @@
 module Datapath(
 		input [3:0] ALUop, ByteSel,
-		input WEIM, WEDM, REUART, WEUART,
+		input WEIM, WEDM, REUART, WEUART, DinSel,
 		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
@@ -33,7 +33,7 @@ module Datapath(
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
-   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta;
+   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta, dina;
    wire [11:0] addra;
    wire [1:0]  offset;
    wire        RegWrite_WB;
@@ -89,7 +89,7 @@ module Datapath(
 			 .ena(not_stall && WEIM),
 			 .wea(ByteSel),
 			 .addra(addra),
-			 .dina(rd2),
+			 .dina(dina),
 			 .addrb(addrb),
 			 .doutb(IMEM_Dout_IF));
 
@@ -97,7 +97,7 @@ module Datapath(
 			 .ena(not_stall),
 			 .wea(ByteSel),
 			 .addra(addra),
-			 .dina(rd2),
+			 .dina(dina),
 			 .douta(douta));
    
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
@@ -194,10 +194,10 @@ module Datapath(
 	6'b100011: douta_masked = douta; // LW
 	
 	6'b100100: case(offset) // LBU
-		     2'b00: douta_masked = {24'b0, douta[31:24]};
-		     2'b01: douta_masked = {24'b0, douta[23:16]};
-		     2'b10: douta_masked = {24'b0, douta[15:8]};
-		     2'b11: douta_masked = {24'b0, douta[7:0]};
+		     2'b00: douta_masked = {24'b0, douta[7:0]};
+		     2'b01: douta_masked = {24'b0, douta[15:8]};
+		     2'b10: douta_masked = {24'b0, douta[23:16]};
+		     2'b11: douta_masked = {24'b0, douta[31:24]};
 		   endcase // case (offset)
 	
 	6'b100101: case(offset) // LHU
@@ -245,6 +245,7 @@ module Datapath(
    
    assign addra = ALU_OutMW[13:2];
    assign JR = rd1_Reg;
+   assign dina = (DinSel) ? rd2 : ALU_OutMW_Reg;
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;

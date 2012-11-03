@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="info" file="MapLib" num="562" delta="new" >No environment variables are currently set.
+</msg>
+
+<msg type="info" file="MapLib" num="841" delta="new" >Changing COMPENSATION attribute from <arg fmt="%s" index="1">SYSTEM_SYNCHRONOUS</arg> to <arg fmt="%s" index="2">INTERNAL</arg> for PLL_ADV <arg fmt="%s" index="3">user_clk_pll</arg>.
+</msg>
+
+<msg type="info" file="LIT" num="244" delta="new" >All of the single ended outputs in this design are using slew rate limited output drivers. The delay on speed critical single ended outputs can be dramatically reduced by designating them as fast outputs.
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKAL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKAL_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBU</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBU_tiesig</arg>
+</msg>
+
+<msg type="warning" file="Pack" num="2874" delta="new" >Trimming timing constraints from pin <arg fmt="%s" index="1">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP</arg>
+of frag <arg fmt="%s" index="2">REGCLKBL</arg> connected to power/ground net <arg fmt="%s" index="3">CPU/the_datapath/the_imem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_init.ram/SDP.SINGLE_PRIM36.TDP_REGCLKBL_tiesig</arg>
+</msg>
+
+<msg type="info" file="Pack" num="1716" delta="new" >Initializing temperature to <arg fmt="%0.3f" index="1">85.000</arg> Celsius. (default - Range: <arg fmt="%0.3f" index="2">0.000</arg> to <arg fmt="%0.3f" index="3">85.000</arg> Celsius)
+</msg>
+
+<msg type="info" file="Pack" num="1720" delta="new" >Initializing voltage to <arg fmt="%0.3f" index="1">0.950</arg> Volts. (default - Range: <arg fmt="%0.3f" index="2">0.950</arg> to <arg fmt="%0.3f" index="3">1.050</arg> Volts)
+</msg>
+
+<msg type="info" file="Map" num="215" delta="new" >The Interim Design Summary has been generated in the MAP Report (.mrp).
+</msg>
+
+<msg type="info" file="Pack" num="1650" delta="new" >Map created a placed design.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="new" >Gated clock. Clock net <arg fmt="%s" index="1">CPU/the_controller/UARTselreg_not0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="372" delta="new" >Gated clock. Clock net <arg fmt="%s" index="1">CPU/the_controller/RDselreg_not0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+</msg>
+
+<msg type="warning" file="PhysDesignRules" num="367" delta="new" >The signal &lt;<arg fmt="%s" index="1">delay_ctrl_not0000</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
+</msg>
+
+</messages>
+

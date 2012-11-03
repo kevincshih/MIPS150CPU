@@ -1,0 +1,58 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start asmTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl asmTestbench 
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.asmTestbench(fast)
+# Loading work.MIPS150(fast)
+# Loading work.Control(fast)
+# Loading work.ALUdec(fast)
+# Loading work.Datapath(fast)
+# Loading work.ALU(fast)
+# Loading work.PC(fast)
+# Loading work.RegFile(fast)
+# Loading work.imem_blk_ram(fast)
+# Loading work.dmem_blk_ram(fast)
+# Loading work.Branch_module(fast)
+# Loading work.UART(fast)
+# Loading work.IORegister(fast)
+# Loading work.UATransmit(fast)
+# Loading work.UAReceive(fast)
+file copy -force ../../../software/asmtest/asmtest.mif imem_blk_ram.mif
+file copy -force ../../../software/asmtest/asmtest.mif dmem_blk_ram.mif
+add wave asmTestbench/*
+add wave asmTestbench/CPU/*
+add wave asmTestbench/CPU/the_datapath/*
+add wave asmTestbench/CPU/the_controller/*
+add wave asmTestbench/CPU/the_datapath/the_imem/*
+add wave asmTestbench/CPU/the_datapath/the_regfile/*
+add wave asmTestbench/CPU/the_datapath/the_regfile/the_registers/*
+add wave asmTestbench/CPU/the_datapath/the_PC/*
+add wave asmTestbench/CPU/the_uart/*
+add wave asmTestbench/CPU/the_uart/uareceive/*
+add wave asmTestbench/CPU/the_uart/uatransmit/*
+add wave asmTestbench/uart/*
+add wave asmTestbench/uart/uareceive/*
+add wave asmTestbench/uart/uatransmit/*
+run 3000us
+#  Block Memory Generator CORE Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator CORE Generator module asmTestbench.CPU.the_datapath.the_imem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+#  Block Memory Generator CORE Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator CORE Generator module asmTestbench.CPU.the_datapath.the_dmem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# 
+# <EOF> 

@@ -6,7 +6,7 @@ module MIPS150(
 );
 
    // Control wires
-   wire    WEIM, WEDM, REUART, WEUART,
+   wire    WEIM, WEDM, REUART, WEUART, DinSel,
 	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel;
    wire [3:0] ALUop, ByteSel;
@@ -27,13 +27,13 @@ module MIPS150(
 			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),
 			  .ALUop(ALUop),
-			  .ByteSel(ByteSel),
+			  .ByteSel(ByteSel), .DinSel(DinSel),
 			  .WEIM(WEIM), .WEDM(WEDM), .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			  .RDsel(RDsel)); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
-			 .ByteSel(ByteSel),
+			 .ByteSel(ByteSel), .DinSel(DinSel),
 			 .WEIM(WEIM), .WEDM(WEDM), .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),

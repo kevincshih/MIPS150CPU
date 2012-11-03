@@ -22,6 +22,8 @@ WORK__Datapath = $(LIB_WORK)/@datapath/_primary.dat
 WORK__ControlTestbench = $(LIB_WORK)/@control@testbench/_primary.dat
 WORK__Control = $(LIB_WORK)/@control/_primary.dat
 WORK__Branch_module = $(LIB_WORK)/@branch_module/_primary.dat
+WORK__BiosTestbench = $(LIB_WORK)/@bios@testbench/_primary.dat
+WORK__asmTestbench = $(LIB_WORK)/asm@testbench/_primary.dat
 WORK__ALUdec = $(LIB_WORK)/@a@l@udec/_primary.dat
 WORK__ALU = $(LIB_WORK)/@a@l@u/_primary.dat
 VCOM = vcom
@@ -47,6 +49,8 @@ whole_library :     $(WORK__UATransmit) \
     $(WORK__ControlTestbench) \
     $(WORK__Control) \
     $(WORK__Branch_module) \
+    $(WORK__BiosTestbench) \
+    $(WORK__asmTestbench) \
     $(WORK__ALUdec) \
     $(WORK__ALU)
 
@@ -56,6 +60,8 @@ $(WORK__glbl) : /opt/Xilinx/14.1/ISE_DS/ISE/verilog/src/glbl.v
 
 $(WORK__ALU) \
 $(WORK__ALUdec) \
+$(WORK__asmTestbench) \
+$(WORK__BiosTestbench) \
 $(WORK__Branch_module) \
 $(WORK__Control) \
 $(WORK__ControlTestbench) \
@@ -80,9 +86,10 @@ $(WORK__UATransmit) : ../../src/UATransmit.v ../../src/util.vh ../../src/UART.v 
 		 ../../src/EchoTestbench.v ../../src/dmem_blk_ram/dmem_blk_ram.v \
 		 ../../src/Datapath.v ../../src/Opcode.vh ../../src/ALUop.vh \
 		 ../../src/ControlTestbench.v ../../src/Control.v \
-		 ../../src/branch_module.v ../../src/ALUdec.v \
+		 ../../src/branch_module.v ../../src/BiosTestbench.v \
+		 ../../src/asmTestbench.v ../../src/ALUdec.v \
 		 ../../src/ALU.v
-	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs \
+	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_cg+incdir+../../src/imem_blk_ram/tmp/_xmsgs+incdir+../../src/imem_blk_ram/xlnx_auto_0_xdb+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_cg+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram/xlnx_auto_0_xdb \
 		 -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF ../../src/UATransmit.v \
 		 ../../src/UART.v ../../src/UAReceive.v ../../src/RegFileTestbench.v \
 		 ../../src/RegFile.v ../../src/pc.v ../../src/ml505top.v \
@@ -91,5 +98,6 @@ $(WORK__UATransmit) : ../../src/UATransmit.v ../../src/util.vh ../../src/UART.v 
 		 ../../src/EchoTestbench.v ../../src/dmem_blk_ram/dmem_blk_ram.v \
 		 ../../src/Datapath.v ../../src/ControlTestbench.v \
 		 ../../src/Control.v ../../src/branch_module.v \
+		 ../../src/BiosTestbench.v ../../src/asmTestbench.v \
 		 ../../src/ALUdec.v ../../src/ALU.v
 

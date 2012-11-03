@@ -6,7 +6,7 @@ module Control(
     output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, ByteSel,
-    output WEIM, WEDM, REUART, WEUART, RegWrite
+    output WEIM, WEDM, REUART, WEUART, RegWrite, DinSel
     );
     `include "Opcode.vh"
     `include "ALUop.vh"
@@ -248,7 +248,8 @@ always @( * ) begin
     else begin
         AluSelAReg = 2'b01;
         AluSelBReg = 2'b01;
-    end
+    end // else: !if(((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `SW)))
+
 end
 
 endmodule

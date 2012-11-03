@@ -6,7 +6,7 @@ proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secu
 start EchoTestbench
 # vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbench 
 # ** Note: (vsim-3812) Design is being optimized...
-# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -36,19 +36,24 @@ file copy -force ../../../software/echo/echo.mif dmem_blk_ram.mif
 add wave EchoTestbench/*
 add wave EchoTestbench/CPU/*
 add wave EchoTestbench/CPU/the_datapath/*
+add wave EchoTestbench/CPU/the_controller/*
 add wave EchoTestbench/CPU/the_datapath/the_imem/*
 add wave EchoTestbench/CPU/the_datapath/the_regfile/*
 add wave EchoTestbench/CPU/the_datapath/the_regfile/the_registers/*
 add wave EchoTestbench/CPU/the_datapath/the_PC/*
+add wave EchoTestbench/CPU/the_uart/*
+add wave EchoTestbench/CPU/the_uart/uareceive/*
+add wave EchoTestbench/CPU/the_uart/uatransmit/*
 add wave EchoTestbench/uart/*
 add wave EchoTestbench/uart/uareceive/*
 add wave EchoTestbench/uart/uatransmit/*
-run 1000us
+run 3000us
 #  Block Memory Generator CORE Generator module loading initial data...
 #  Block Memory Generator data initialization complete.
 # Block Memory Generator CORE Generator module EchoTestbench.CPU.the_datapath.the_imem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 #  Block Memory Generator CORE Generator module loading initial data...
 #  Block Memory Generator data initialization complete.
 # Block Memory Generator CORE Generator module EchoTestbench.CPU.the_datapath.the_dmem.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# Got   0
+# Got   X
 # skipped the got something line
+# Got   X

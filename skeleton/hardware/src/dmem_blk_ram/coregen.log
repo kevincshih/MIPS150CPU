@@ -24,30 +24,30 @@ Generating ISE project...
 XCO file found: dmem_blk_ram.xco
 XMDF file found: dmem_blk_ram_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_bl
-k_ram/tmp/_cg/blk_mem_gen_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/_
+cg/blk_mem_gen_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_bl
-k_ram/tmp/_cg/dmem_blk_ram.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/_
+cg/dmem_blk_ram.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_bl
-k_ram/tmp/_cg/dmem_blk_ram.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/_
+cg/dmem_blk_ram.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_b
-lk_ram/tmp/_cg/dmem_blk_ram.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/
+_cg/dmem_blk_ram.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_b
-lk_ram/tmp/_cg/dmem_blk_ram.ngc" device information matches project device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/
+_cg/dmem_blk_ram.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_bl
-k_ram/tmp/_cg/dmem_blk_ram.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/_
+cg/dmem_blk_ram.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dme
-   m_blk_ram/tmp/_cg/dmem_blk_ram.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/t
+   mp/_cg/dmem_blk_ram.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v6/skeleton/hardware/src/dmem_bl
-k_ram/tmp/_cg/dmem_blk_ram.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/dmem_blk_ram/tmp/_
+cg/dmem_blk_ram.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
