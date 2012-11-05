@@ -144,6 +144,7 @@ module Datapath(
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
+	2'b11: ALU_SrcA_Reg = IMEM_Dout_IF[10:6];
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
       
@@ -185,10 +186,10 @@ module Datapath(
 		   endcase // case (offset)
 
 	6'b100001: case(offset) // LH
-		     2'b00: douta_masked = $signed(douta[31:16]);
+		     2'b00: douta_masked = $signed(douta[15:0]);
 		     2'b01: douta_masked = $signed(douta[15:0]);
 		     2'b10: douta_masked = $signed(douta[31:16]);
-		     2'b11: douta_masked = $signed(douta[15:0]);
+		     2'b11: douta_masked = $signed(douta[31:16]);
 		   endcase // case (offset)  
 	
 	6'b100011: douta_masked = douta; // LW
@@ -201,10 +202,10 @@ module Datapath(
 		   endcase // case (offset)
 	
 	6'b100101: case(offset) // LHU
-		     2'b00: douta_masked = {24'b0, douta[31:16]};
+		     2'b00: douta_masked = {24'b0, douta[15:0]};
 		     2'b01: douta_masked = {24'b0, douta[15:0]};
 		     2'b10: douta_masked = {24'b0, douta[31:16]};
-		     2'b11: douta_masked = {24'b0, douta[15:0]};
+		     2'b11: douta_masked = {24'b0, douta[31:16]};
 		   endcase // case (offset)
 	
 	default: douta_masked = douta;

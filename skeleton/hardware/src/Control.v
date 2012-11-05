@@ -218,19 +218,31 @@ always @( * ) begin
         AluSelAReg = 2'b00;
         AluSelBReg = 2'b00;
     end
-    else if ((op >= `RTYPE) && (op <= `BGTZ)) begin
-        if ((oldop == `RTYPE) && (oldrd != 0)) begin
-            AluSelAReg = (rs == oldrd) ? 2'b10 : 2'b01;
-            AluSelBReg = (rt == oldrd) ? 2'b10 : 2'b01;
-        end
-        else if ((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `SW))) && (oldrt != 0)) begin
-            AluSelAReg = (rs == oldrt) ? 2'b10 : 2'b01;
-            AluSelBReg = (rt == oldrt) ? 2'b10 : 2'b01;
-        end
-        else begin
-            AluSelAReg = 2'b01;
-            AluSelBReg = 2'b01;
-        end
+    else if ((funct >= `SLL) && (funct <= `SRA) && op == `RTYPE) begin
+       AluSelAReg = 2'b11;
+       if ((oldop == `RTYPE) && (oldrd != 0)) begin
+	  AluSelBReg = (rt == oldrd) ? 2'b10 : 2'b01;
+       end
+       else if ((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `SW))) && (oldrt != 0)) begin
+	  AluSelBReg = (rt == oldrt) ? 2'b10 : 2'b01;
+       end
+       else begin
+	  AluSelBReg = 2'b01;
+       end // else: !if((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `SW))) && (oldrt != 0))
+    end
+    else  if ((op >= `RTYPE) && (op <= `BGTZ)) begin
+       if ((oldop == `RTYPE) && (oldrd != 0)) begin
+          AluSelAReg = (rs == oldrd) ? 2'b10 : 2'b01;
+          AluSelBReg = (rt == oldrd) ? 2'b10 : 2'b01;
+       end
+       else if ((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `SW))) && (oldrt != 0)) begin
+          AluSelAReg = (rs == oldrt) ? 2'b10 : 2'b01;
+          AluSelBReg = (rt == oldrt) ? 2'b10 : 2'b01;
+       end
+       else begin
+          AluSelAReg = 2'b01;
+          AluSelBReg = 2'b01;
+       end
     end
     else if (((op >= `ADDIU) && (op <= `LUI)) || ((op >= `LB) && (op <= `SW))) begin
         if ((oldop == `RTYPE) && (oldrd != 0)) begin
