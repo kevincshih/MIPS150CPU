@@ -94,7 +94,7 @@ module Datapath(
 			 .doutb(IMEM_Dout_IF));
 
    dmem_blk_ram the_dmem(.clka(CLK),
-			 .ena(not_stall),
+			 .ena(not_stall && WEDM),
 			 .wea(ByteSel),
 			 .addra(addra),
 			 .dina(dina),
@@ -245,7 +245,7 @@ module Datapath(
    
    assign addra = ALU_OutMW[13:2];
    assign JR = rd1_Reg;
-   assign dina = (DinSel) ? rd2 : ALU_OutMW_Reg;
+   assign dina = (DinSel) ? ALU_OutMW_Reg : rd2;
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;

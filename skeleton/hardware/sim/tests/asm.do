@@ -15,4 +15,4 @@ add wave asmTestbench/CPU/the_uart/uatransmit/*
 add wave asmTestbench/uart/*
 add wave asmTestbench/uart/uareceive/*
 add wave asmTestbench/uart/uatransmit/*
-run 3000us
+run 1000us

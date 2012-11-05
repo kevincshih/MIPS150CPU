@@ -49,7 +49,7 @@ module asmTestbench();
       Reset = 0;
 
       while (1) #(Cycle) ;
-
+      
       $finish();
    end
 endmodule // asmTestbench
