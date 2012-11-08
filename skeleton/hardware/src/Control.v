@@ -105,7 +105,7 @@ always @( * ) begin
 	else if ((op >= `LB) && (op <= `LHU)) begin
 		RegDstReg = 2'b00;
 	end
-    else if (funct == `JAL) begin
+    else if (op == `JAL) begin
         RegDstReg = 2'b10;
 		RDselreg = 2'b01;
     end
@@ -203,7 +203,7 @@ always @( * ) begin
     else if ((op == `JAL) || (op == `J)) begin
         PCselReg = 2'b11;
     end
-    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL))) begin
+    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL) || (funct == `JR))) begin
         PCselReg = 2'b10;
     end
     else begin

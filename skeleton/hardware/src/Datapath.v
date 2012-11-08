@@ -94,7 +94,7 @@ module Datapath(
 			 .doutb(IMEM_Dout_IF));
 
    dmem_blk_ram the_dmem(.clka(CLK),
-			 .ena(not_stall && WEDM),
+			 .ena(not_stall),
 			 .wea(ByteSel),
 			 .addra(addra),
 			 .dina(dina),
@@ -159,7 +159,7 @@ module Datapath(
       case(RegDst)
 	2'b00: A3_Reg = rt;
 	2'b01: A3_Reg = rd;
-	2'b10: A3_Reg = 5'd31; // set $ra for JAL
+	2'b10: A3_Reg = 5'b11111; // set $ra for JAL
 	default: A3_Reg = rt;
       endcase // case (RegDst)
 
@@ -242,7 +242,6 @@ module Datapath(
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4_Reg;
-
    
    assign addra = ALU_OutMW[13:2];
    assign JR = rd1_Reg;

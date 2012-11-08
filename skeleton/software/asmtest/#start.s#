@@ -160,6 +160,33 @@ _start:
 	xor $t0, $t1, $t0
 	bne $t0, $s0, Error
 
+	# Test 17 NOR = 1
+	addiu $s7, $0, 0x11
+	addiu $s0, $0, 0x1
+	nor $t0, $0, $0
+	bne $s0, $t0, Error
+
+	# Test 18 NOR = 0
+	addiu $s7, $0, 0x12
+	nor $t0, $0, $s7
+	bne $0, $t0, Error
+
+	# Test 19 SLT = 1
+	addiu $s7, $0, 0x13
+	addiu $s0, $0, 0x1
+	addi $t0, $0, -100
+	addiu $t1, $0, 0x1
+	slt $t0, $t0, $t1
+	bne $s0, $t0, Error
+
+	# Test 20 SLT = 0
+	addiu $s0, $0, 0x0
+	addiu $s7, $0, 0x14
+	addi $t0, $0, -100
+	addiu $t1, $0, 0x1
+	slt $t0, $t1, $t0
+	bne $s0, $t0, Error
+
 	# Test 21 SLTU = 1
 	addiu $s0, $0, 0x1
 	addiu $s7, $0, 0x15
