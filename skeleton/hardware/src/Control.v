@@ -3,11 +3,13 @@ module Control(
     input[31:0]OldInstruction,
     input[31:0]Address,
     input branch, reset,
+	       input[1:0] offset,
     output[1:0]PCsel, RegDst, UARTsel, RDsel,
     output[1:0]AluSelA, AluSelB,
-    output[3:0]ALUop, ByteSel,
-    output WEIM, WEDM, REUART, WEUART, RegWrite, DinSel
-    );
+    output[3:0]ALUop, IMByteSel, DMByteSel,
+    output REUART, WEUART, RegWrite, DinSel
+    //output WEIM, WEDM, 
+	);
     `include "Opcode.vh"
     `include "ALUop.vh"
 
@@ -27,6 +29,7 @@ wire[4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
 wire[15:0] imm, oldimm;
 wire[25:0] target, oldtarget;
 wire[3:0] addr;
+wire weim, wedm;
 
   //Load and Store
 
@@ -34,6 +37,9 @@ wire[3:0] addr;
   //dest = rt
   //signed offset = imm
 
+assign weim = WEIMreg;
+assign wedm = WEDMreg;  
+  
   //Rtype
 
 assign op = Instruction[31:26];
@@ -74,18 +80,17 @@ assign RegWrite = (reset) ? 0 : RegWriteReg;
 assign RegDst = (reset) ? 0 : RegDstReg;
 assign MemWrite = (reset) ? 0 : MemWriteReg;
 assign MemRead = (reset) ? 0 : MemReadReg;
-assign WEIM = (reset) ? 0 : WEIMreg;
-assign WEDM = (reset) ? 0 : WEDMreg;
 assign REUART = (reset) ? 0 : REUARTreg;
 assign WEUART = (reset) ? 0 : WEUARTreg;
+assign IMByteSel = (reset || ~weim) ? 4'b0000 : ByteSelReg;
+assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
 
   //Muxes
 assign AluSelA = (reset) ? 0 : AluSelAReg;
 assign AluSelB = (reset) ? 0 : AluSelBReg;
-assign ByteSel = (reset) ? 0 : ByteSelReg;
 assign UARTsel = (reset) ? 0 : UARTselreg;
 assign RDsel = (reset) ? 0 : RDselreg;
-   assign DinSel = (reset) ? 0 : DinSelReg;
+assign DinSel = (reset) ? 0 : DinSelReg;
 
 ALUdec DUT(.funct(funct),
     .opcode(op),
@@ -116,8 +121,8 @@ always @( * ) begin
     MemWriteReg = (op == `SW) || (op == `SH) || (op == `SB);
     MemReadReg = (op == `LW) || (op == `LH) || (op == `LB) || (op == `LHU) || (op == `LBU);
     case(op)
-        `SB: ByteSelReg = 4'b0001;
-        `SH: ByteSelReg = 4'b0011;
+        `SB: ByteSelReg = 4'b1000 >> offset[1:0];
+        `SH: ByteSelReg = 4'b1100 >> offset[1];
         `SW: ByteSelReg = 4'b1111;
         default: ByteSelReg = 4'b0000;
     endcase
@@ -184,15 +189,15 @@ end
    if (MemWrite && ~addr[3] && addr[0]) begin
       WEDMreg = 1'b1;
    end
-   else if (MemRead && ~addr[3] && addr[0]) begin
-      WEDMreg = 1'b0;
-      RDselreg = 2'b10;
-   end
-   else
+   else begin
      WEDMreg = 1'b0;
-   
-   
-end
+   end
+
+	if (MemRead && ~addr[3] && addr[0]) begin
+      RDselreg = 2'b10;
+	end
+	
+	end
 
 //Branch/Jump Logic
 
