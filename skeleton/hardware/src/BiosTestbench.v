@@ -60,20 +60,127 @@ module BiosTestbench();
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
 
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
 
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
-      
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
-      
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
       while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
-      
-            while (!DataOutValid) #(Cycle);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
       $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+      DataIn = 8'h41;
+              while (!DataInReady) #(Cycle);
+      DataInValid = 1'b1;
+      DataInValid = 1'b0;
+      
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+        while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
+
+       // Wait for something to come back
+      while (!DataOutValid) #(Cycle);
+      $display("Got %d", DataOut);
+
+      
 
       
       $finish();

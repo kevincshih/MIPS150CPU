@@ -6,7 +6,7 @@ Loading device for application Rf_Device from file '5vlx110t.nph' in environment
 -1
 Opened constraints file ml505top.pcf.
 
-Sat Nov  3 11:54:17 2012
+Sun Nov 11 10:32:19 2012
 
 /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -w ml505top.ncd ml505top.bit ml505top.pcf 
 
@@ -124,16 +124,20 @@ There were 0 CONFIG constraint(s) processed from ml505top.pcf.
 
 Running DRC.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
+   CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:367 - The signal <delay_ctrl_not0000> is incomplete. The
    signal does not drive any load pins in the design.
-DRC detected 0 errors and 3 warnings.  Please see the previously displayed
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 '2100@license-srv.eecs.berkeley.edu'.
@@ -146,7 +150,7 @@ WARNING:Security:44 - Since no license file was found,
        (xlcm or "Manage Xilinx Licenses")
        to assist in obtaining a license.
 WARNING:Security:42 - Your license support version '2012.12' for ISE expires in
-27 days after which you will not qualify for Xilinx software updates or new
+19 days after which you will not qualify for Xilinx software updates or new
 releases.
 
 Creating bit map...

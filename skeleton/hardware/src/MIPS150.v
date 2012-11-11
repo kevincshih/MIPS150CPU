@@ -6,10 +6,10 @@ module MIPS150(
 );
 
    // Control wires
-   wire    WEIM, WEDM, REUART, WEUART, DinSel,
+   wire    REUART, WEUART, DinSel,
 	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite;
-   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel;
-   wire [3:0] ALUop, ByteSel;
+   wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
+   wire [3:0] ALUop, IMByteSel, DMByteSel;
 
    // Data wires
    wire [7:0] DataOut, DataIn;
@@ -21,20 +21,22 @@ module MIPS150(
 			  .OldInstruction(PrevInstruction),
 			  .branch(Branch_compare), // end inputs
 			  .RegWrite(RegWrite),// begin outputs
+			  .offset(offset),
 			  .RegDst(RegDst),
 			  .reset(rst),
 			  .PCsel(PC_Sel),
 			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),
 			  .ALUop(ALUop),
-			  .ByteSel(ByteSel), .DinSel(DinSel),
-			  .WEIM(WEIM), .WEDM(WEDM), .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
+			  .IMByteSel(IMByteSel), .DinSel(DinSel), .DMByteSel(DMByteSel),
+			  .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			  .RDsel(RDsel)); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
-			 .ByteSel(ByteSel), .DinSel(DinSel),
-			 .WEIM(WEIM), .WEDM(WEDM), .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
+			 .IMByteSel(IMByteSel),
+.DMByteSel(DMByteSel), .DinSel(DinSel),
+			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),
 			 .PC_Sel(PC_Sel), //PC_Sel 
@@ -44,6 +46,7 @@ module MIPS150(
 			 .RegWrite(RegWrite),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
+			 .offset(offset),
 			 .Instruction(Instruction), //output
 			 .PrevInstruction(PrevInstruction), //output
 			 .Address(Address), // output

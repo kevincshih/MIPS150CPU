@@ -1,10 +1,11 @@
 module Datapath(
-		input [3:0] ALUop, ByteSel,
-		input WEIM, WEDM, REUART, WEUART, DinSel,
+		input [3:0] ALUop, IMByteSel, DMByteSel,
+		input  REUART, WEUART, DinSel,
 		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		output Branch_compare,
+		output [1:0] offset,
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
 		output [7:0] DataIn
@@ -33,9 +34,9 @@ module Datapath(
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
-   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta, dina;
+   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta, dina, dina_unshifted;
    wire [11:0] addra;
-   wire [1:0]  offset;
+   wire [1:0]  prev_offset;
    wire        RegWrite_WB;
   
 
@@ -46,13 +47,13 @@ module Datapath(
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
    reg [1:0]   RDsel_Reg, UARTsel_Reg;
-   reg 	       WEDM_RA_DW, RegWrite_Reg;
+   reg 	       RegWrite_Reg;
    reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
 
    //mux registers
-   reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked;
+   reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted;
    reg [4:0]   A3_Reg, RegDst_Reg;
    reg [1:0]   PC_SelReg;
    
@@ -86,8 +87,8 @@ module Datapath(
 
    imem_blk_ram the_imem(.clka(CLK),
 			 .clkb(CLK),
-			 .ena(not_stall && WEIM),
-			 .wea(ByteSel),
+			 .ena(not_stall),
+			 .wea(IMByteSel),
 			 .addra(addra),
 			 .dina(dina),
 			 .addrb(addrb),
@@ -95,7 +96,7 @@ module Datapath(
 
    dmem_blk_ram the_dmem(.clka(CLK),
 			 .ena(not_stall),
-			 .wea(ByteSel),
+			 .wea(DMByteSel),
 			 .addra(addra),
 			 .dina(dina),
 			 .douta(douta));
@@ -132,10 +133,8 @@ module Datapath(
 	PC_SelReg = PC_Sel;
 	rd1_Reg = rd1;
 	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
-	WEDM_RA_DW = WEDM;
 	REUART_Reg = REUART;
 	WEUART_Reg = WEUART;
-	    
 	end
 	
 
@@ -178,41 +177,60 @@ module Datapath(
       endcase // case (RDsel)
 
       case(prev_opcode)
-	6'b100000: case(offset) // LB
-		     2'b00: douta_masked = $signed(douta[7:0]);
+	6'b100000: case(prev_offset) // LB
+/*		     2'b00: douta_masked = $signed(douta[7:0]);
 		     2'b01: douta_masked = $signed(douta[15:8]);
 		     2'b10: douta_masked = $signed(douta[23:16]);
-		     2'b11: douta_masked = $signed(douta[31:24]);
+		     2'b11: douta_masked = $signed(douta[31:24]); */
+
+		     2'b00: douta_masked = $signed(douta[31:24]);
+		     2'b01: douta_masked = $signed(douta[23:16]);
+		     2'b10: douta_masked = $signed(douta[15:8]);
+		     2'b11: douta_masked = $signed(douta[7:0]);
 		   endcase // case (offset)
 
-	6'b100001: case(offset) // LH
-		     2'b00: douta_masked = $signed(douta[15:0]);
-		     2'b01: douta_masked = $signed(douta[15:0]);
-		     2'b10: douta_masked = $signed(douta[31:16]);
-		     2'b11: douta_masked = $signed(douta[31:16]);
+	6'b100001: case(prev_offset) // LH
+		     2'b11: douta_masked = $signed(douta[15:0]);
+		     2'b10: douta_masked = $signed(douta[15:0]);
+		     2'b01: douta_masked = $signed(douta[31:16]);
+		     2'b00: douta_masked = $signed(douta[31:16]);
 		   endcase // case (offset)  
 	
 	6'b100011: douta_masked = douta; // LW
 	
-	6'b100100: case(offset) // LBU
-		     2'b00: douta_masked = {24'b0, douta[7:0]};
-		     2'b01: douta_masked = {24'b0, douta[15:8]};
-		     2'b10: douta_masked = {24'b0, douta[23:16]};
-		     2'b11: douta_masked = {24'b0, douta[31:24]};
+	6'b100100: case(prev_offset) // LBU
+		     2'b11: douta_masked = {24'b0, douta[7:0]};
+		     2'b10: douta_masked = {24'b0, douta[15:8]};
+		     2'b01: douta_masked = {24'b0, douta[23:16]};
+		     2'b00: douta_masked = {24'b0, douta[31:24]};
 		   endcase // case (offset)
 	
-	6'b100101: case(offset) // LHU
-		     2'b00: douta_masked = {24'b0, douta[15:0]};
-		     2'b01: douta_masked = {24'b0, douta[15:0]};
-		     2'b10: douta_masked = {24'b0, douta[31:16]};
-		     2'b11: douta_masked = {24'b0, douta[31:16]};
+	6'b100101: case(prev_offset) // LHU
+		     2'b11: douta_masked = {24'b0, douta[15:0]};
+		     2'b10: douta_masked = {24'b0, douta[15:0]};
+		     2'b01: douta_masked = {24'b0, douta[31:16]};
+		     2'b00: douta_masked = {24'b0, douta[31:16]};
 		   endcase // case (offset)
 	
 	default: douta_masked = douta;
       endcase // case (prev_opcode)
-      
-	
 
+      case(opcode)
+	6'b101000: case(offset)
+		     2'b00: dina_shifted = dina_unshifted[7:0] << 24;
+		     2'b01: dina_shifted = dina_unshifted[7:0] << 16;
+		     2'b10: dina_shifted = dina_unshifted[7:0] << 8;
+		     2'b11: dina_shifted = dina_unshifted;
+		   endcase // case (offset)
+	6'b101001: case(offset)
+		     2'b00: dina_shifted = dina_unshifted[15:0] << 16;
+		     2'b01: dina_shifted = dina_unshifted[15:0] << 16;
+		     2'b10: dina_shifted = dina_unshifted;
+		     2'b11: dina_shifted = dina_unshifted;
+		   endcase // case (offset)
+      endcase // case (opcode)
+      
+	       
 	
    end
 
@@ -245,7 +263,9 @@ module Datapath(
    
    assign addra = ALU_OutMW[13:2];
    assign JR = rd1_Reg;
-   assign dina = (DinSel) ? ALU_OutMW_Reg : rd2;
+   assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
+   assign dina = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
+   
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;
@@ -258,6 +278,7 @@ module Datapath(
    assign prev_opcode = PrevInstruction_Reg[31:26];
    assign DMEM_dout = douta_masked;
    assign offset = ALU_OutMW[1:0];
+   assign prev_offset = ALU_OutMW_Reg[1:0];
    
 endmodule // Datapath
 

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sat Nov 03 11:51:21 2012
+// Written by: Map P.15xf on Sun Nov 11 10:30:14 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -1254,9 +1254,9 @@ TIMEGRP cpu_clk = BEL "count_r_1" BEL "count_r_2" BEL "count_r_3" BEL
         "CPU/the_datapath/PrevInstruction_Reg_13" BEL
         "CPU/the_datapath/PrevInstruction_Reg_12" BEL
         "CPU/the_datapath/PrevInstruction_Reg_11" BEL
-        "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/RDsel_Reg_1" BEL
-        "CPU/the_datapath/RDsel_Reg_0" BEL "CPU/the_datapath/UARTsel_Reg_1"
-        BEL "CPU/the_datapath/UARTsel_Reg_0" BEL "CPU/the_datapath/A3_RA_DW_4"
+        "CPU/the_datapath/RDsel_Reg_1" BEL "CPU/the_datapath/RDsel_Reg_0" BEL
+        "CPU/the_datapath/UARTsel_Reg_1" BEL "CPU/the_datapath/UARTsel_Reg_0"
+        BEL "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/A3_RA_DW_4"
         BEL "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2"
         BEL "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0"
         BEL "CPU/the_datapath/PC_IF_RA_31" BEL "CPU/the_datapath/PC_IF_RA_30"
@@ -1277,6 +1277,7 @@ TIMEGRP cpu_clk = BEL "count_r_1" BEL "count_r_2" BEL "count_r_3" BEL
         BEL "CPU/the_datapath/PC_IF_RA_1" BEL "CPU/the_datapath/PC_IF_RA_0"
         BEL "CPU/the_datapath/resetReg" BEL "count_r_0" BEL
         "CPU/the_uart/uatransmit/HandShook" BEL
+        "CPU/the_uart/uareceive/HasByte" BEL
         "CPU/the_uart/uatransmit/TXShift_8" BEL
         "CPU/the_uart/uatransmit/TXShift_7" BEL
         "CPU/the_uart/uatransmit/TXShift_6" BEL
@@ -1287,9 +1288,8 @@ TIMEGRP cpu_clk = BEL "count_r_1" BEL "count_r_2" BEL "count_r_3" BEL
         "CPU/the_uart/uatransmit/TXShift_1" BEL
         "CPU/the_uart/uatransmit/TXShift_0" BEL
         "CPU/the_uart/uatransmit/TXShift_9" BEL
-        "CPU/the_uart/uareceive/HasByte" BEL "CPU/the_datapath/resetReg_1" BEL
-        "Mshreg_reset_r_1" BEL "reset_r_1" BEL
-        "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
+        "CPU/the_datapath/PrevInstruction_Reg_26_1" BEL "Mshreg_reset_r_1" BEL
+        "reset_r_1" BEL "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
         "CPU/the_uart/uareceive/RXShift_8" PIN
         "CPU/the_datapath/the_dmem/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM36.SP_pins<62>"
         PIN
