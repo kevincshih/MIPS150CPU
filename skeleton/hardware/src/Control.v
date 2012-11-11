@@ -122,7 +122,7 @@ always @( * ) begin
     MemReadReg = (op == `LW) || (op == `LH) || (op == `LB) || (op == `LHU) || (op == `LBU);
     case(op)
         `SB: ByteSelReg = 4'b1000 >> offset[1:0];
-        `SH: ByteSelReg = 4'b1100 >> offset[1];
+        `SH: ByteSelReg = 4'b1100 >> offset[1] * 2;
         `SW: ByteSelReg = 4'b1111;
         default: ByteSelReg = 4'b0000;
     endcase
