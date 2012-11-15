@@ -12,6 +12,47 @@ _start:
 	li $s2, 0x1000100F
 	addiu $s7, $0, 0x0
 
+	# Test 0 Branching
+
+    li  $v0, 0x12345678
+    sw    $v0,184($sp)
+    sw    $v0,188($sp)
+    lw    $a0,184($sp)
+    nop
+    bne $v0, $a0, Error
+    nop
+    li $t0, 0xFFFFFFFF
+    bltz $t0, z
+    nop
+    j Error
+    nop
+
+    z: blez $t0, a
+    nop
+    j Error
+    nop
+
+    a: li $t0, 0x00000001
+    blez $t0, Error
+    nop
+    bgtz $t0, b
+    nop
+    j Error
+    nop
+
+    b: bgtz $0, Error
+    nop
+    bltz $0, Error
+    nop
+    bgez $0, c
+    nop
+    j Error
+    nop
+
+    c: li $t0, 0xFFFFFFFF
+    bgez $t0, Error
+    nop 
+	
 	# Test 1 li
 
 	addiu $s7, $s7, 1 # register to hold the test number (in case of failure)
