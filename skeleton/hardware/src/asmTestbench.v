@@ -18,6 +18,8 @@ module asmTestbench();
 
    initial Clock = 0;
    always #(HalfCycle) Clock <= ~Clock;
+   always #(Cycle) stall <= ~stall;
+   
    
    MIPS150 CPU(.clk(Clock),
 		   .rst(Reset),

@@ -10,8 +10,8 @@ _start:
 	li $s3, 0x8000000c # DataOut
 	li $s1, 0x80000008
 	li $s2, 0x1000100F
-	addiu $s7, $0, 0x0
-
+	addiu $s7, $0, 0x0	
+	
 	# Test 0 Branching
 
     li  $v0, 0x12345678
