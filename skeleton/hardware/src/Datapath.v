@@ -87,7 +87,7 @@ module Datapath(
 
    imem_blk_ram the_imem(.clka(CLK),
 			 .clkb(CLK),
-			 .ena(not_stall),
+			 .ena(1'b1),
 			 .wea(IMByteSel),
 			 .addra(addra),
 			 .dina(dina),
@@ -95,7 +95,7 @@ module Datapath(
 			 .doutb(IMEM_Dout_IF));
 
    dmem_blk_ram the_dmem(.clka(CLK),
-			 .ena(not_stall),
+			 .ena(1'b1),
 			 .wea(DMByteSel),
 			 .addra(addra),
 			 .dina(dina),
