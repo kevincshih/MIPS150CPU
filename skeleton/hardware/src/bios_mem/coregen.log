@@ -1,0 +1,21 @@
+INFO:encore:314 - Created non-GUI application for batch mode execution.
+INFO:sim:172 - Generating IP...
+Resolving generic values...
+ERROR:sim - Unable to find ./bios150v3.coe
+   Coregen is looking for
+   /home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bio
+   s_mem/bios150v3.coe
+ERROR:sim - Unable to find ./bios150v3.coe
+   Coregen is looking for
+   /home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bio
+   s_mem/bios150v3.coe
+ERROR:sim:963 - IP initializer could not set IP core parameters on IP model
+ERROR:sim - Unable to find ./bios150v3.coe
+   Coregen is looking for
+   /home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bio
+   s_mem/bios150v3.coe
+ERROR:sim - Failed to initialize IP model.
+ERROR:sim - Failed to resolve generic values.
+ERROR:sim - Failed to generate 'bios_mem'.  Failed to resolve generic values.
+
+ERROR:sim:877 - Error found during execution of IP 'Block Memory Generator v4.3'
