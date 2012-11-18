@@ -9,9 +9,9 @@ module IFControl(
 	wire [3:0] pctop;
 	
 	assign pctop = PC[31:28];
-	assign REIC = REICreg;
-	assign REBIOS = BIOSreg;
-	assign IFSel = IFSelreg;
+	assign REIC = (reset) ? 0 : REICreg;
+	assign REBIOS = (reset) ? 0 : BIOSreg;
+	assign IFSel = (reset) ? 0 : IFSelreg;
 	
 	always @(*) begin
 	if (pctop == 4'b0001) begin
