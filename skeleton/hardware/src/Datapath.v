@@ -1,14 +1,17 @@
 module Datapath(
-		input [3:0] ALUop, IMByteSel, DMByteSel,
+		input [3:0] ALUop,
 		input  REUART, WEUART, DinSel,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, I_Cache_re, D_Cache_re, InstrSrc, bios_en,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
+		input [31:0] dcache_dout, icache_dout,
 		output Branch_compare,
 		output [1:0] offset,
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
-		output [7:0] DataIn
+		output [7:0] DataIn,
+		output [3:0] PC_High_bits,
+		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_IF		
 		);
 
 
@@ -22,11 +25,12 @@ module Datapath(
    wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF;
    
    //wires for IMEM  stage
-   wire [31:0] IMEM_Dout_IF;
-   wire [11:0] addrb;
+   wire [31:0] 		      IMEM_Dout_IF, Instruction_Dout_IF;
+   wire [11:0] 		      addrb;
+   wire [3:0] 		      PC_top_nibble;
+   
    
    //wires for RegFile & ALU stage
-   wire [3:0]  PC_High_bits;
    wire [4:0]  rs, rt, rd, A3;
    wire [5:0]  prev_opcode, opcode, funct;
    wire [15:0] Imm;
@@ -34,7 +38,7 @@ module Datapath(
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
-   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta, dina, dina_unshifted;
+   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, dina, dina_unshifted, bios_douta, bios_doutb;
    wire [11:0] addra;
    wire [1:0]  prev_offset;
    wire        RegWrite_WB;
@@ -42,7 +46,8 @@ module Datapath(
 
    //First Pipeline Register
    reg [31:0]  PC_IF_RA, PC_4_Reg;
-   reg [31:0]  IMEM_Dout_IF_RA;
+   reg [31:0]  Instruction_Dout_IF_RA;
+   reg 	       InstrSrc_Reg;
 
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
@@ -85,21 +90,33 @@ module Datapath(
 		       .rd1(rd1),
 		       .rd2(rd2));
 
-   imem_blk_ram the_imem(.clka(CLK),
+/*   imem_blk_ram the_imem(.clka(CLK),
 			 .clkb(CLK),
 			 .ena(1'b1),
 			 .wea(IMByteSel),
 			 .addra(addra),
-			 .dina(dina),
+			 .dina(bios_doutb),
+			 .enb(1'b1),
 			 .addrb(addrb),
-			 .doutb(IMEM_Dout_IF));
+			 .doutb(IMEM_Dout_IF));*/
+   
+   bios_mem the_bios(.clka(CLK),
+		     .ena(1'b1),
+		     .addra(addra),
+		     .douta(bios_douta),
+		     .clkb(CLK),
+		     .enb(bios_en),
+		     .addrb(addrb),
+		     .doutb(bios_doutb)
+		     );
+   
 
-   dmem_blk_ram the_dmem(.clka(CLK),
+/*   dmem_blk_ram the_dmem(.clka(CLK),
 			 .ena(1'b1),
 			 .wea(DMByteSel),
 			 .addra(addra),
 			 .dina(dina),
-			 .douta(douta));
+			 .douta(douta));*/
    
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
@@ -115,6 +132,7 @@ module Datapath(
 	 if (not_stall) begin
 	 //First Pipeline Registers
 	    PC_IF_RA <= PC_IF;
+	    InstrSrc_Reg <= InstrSrc;
 
 	 //Second Pipeline Registers
 	    A3_RA_DW <= A3_Reg;
@@ -122,17 +140,17 @@ module Datapath(
 		RDsel_Reg <= RDsel;
 		RegWrite_Reg <= RegWrite;
 	    PC_4_Reg <= PC_4;	    
-	    PrevInstruction_Reg <= IMEM_Dout_IF_RA;
+	    PrevInstruction_Reg <= Instruction_Dout_IF_RA;
 	    ALU_OutMW_Reg <= ALU_OutMW;
 	 
 	 end // if (not_stall)
    end // always @ (posedge CLK)
     
    always @(*) begin
-    IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
+    Instruction_Dout_IF_RA = (resetReg) ? 32'b0 : Instruction_Dout_IF;
 	PC_SelReg = PC_Sel;
 	rd1_Reg = rd1;
-	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
+	JAL_Target_Reg = Instruction_Dout_IF_RA[25:0];
 	REUART_Reg = REUART;
 	WEUART_Reg = WEUART;
 	end
@@ -143,7 +161,7 @@ module Datapath(
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
-	2'b11: ALU_SrcA_Reg = IMEM_Dout_IF[10:6];
+	2'b11: ALU_SrcA_Reg = Instruction_Dout_IF[10:6];
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
       
@@ -183,36 +201,36 @@ module Datapath(
 		     2'b10: douta_masked = $signed(douta[23:16]);
 		     2'b11: douta_masked = $signed(douta[31:24]); */
 
-		     2'b00: douta_masked = $signed(douta[31:24]);
-		     2'b01: douta_masked = $signed(douta[23:16]);
-		     2'b10: douta_masked = $signed(douta[15:8]);
-		     2'b11: douta_masked = $signed(douta[7:0]);
+		     2'b00: douta_masked = $signed(dcache_dout[31:24]);
+		     2'b01: douta_masked = $signed(dcache_dout[23:16]);
+		     2'b10: douta_masked = $signed(dcache_dout[15:8]);
+		     2'b11: douta_masked = $signed(dcache_dout[7:0]);
 		   endcase // case (offset)
 
 	6'b100001: case(prev_offset) // LH
-		     2'b11: douta_masked = $signed(douta[15:0]);
-		     2'b10: douta_masked = $signed(douta[15:0]);
-		     2'b01: douta_masked = $signed(douta[31:16]);
-		     2'b00: douta_masked = $signed(douta[31:16]);
+		     2'b11: douta_masked = $signed(dcache_dout[15:0]);
+		     2'b10: douta_masked = $signed(dcache_dout[15:0]);
+		     2'b01: douta_masked = $signed(dcache_dout[31:16]);
+		     2'b00: douta_masked = $signed(dcache_dout[31:16]);
 		   endcase // case (offset)  
 	
-	6'b100011: douta_masked = douta; // LW
+	6'b100011: douta_masked = dcache_dout; // LW
 	
 	6'b100100: case(prev_offset) // LBU
-		     2'b11: douta_masked = {24'b0, douta[7:0]};
-		     2'b10: douta_masked = {24'b0, douta[15:8]};
-		     2'b01: douta_masked = {24'b0, douta[23:16]};
-		     2'b00: douta_masked = {24'b0, douta[31:24]};
+		     2'b11: douta_masked = {24'b0, dcache_dout[7:0]};
+		     2'b10: douta_masked = {24'b0, dcache_dout[15:8]};
+		     2'b01: douta_masked = {24'b0, dcache_dout[23:16]};
+		     2'b00: douta_masked = {24'b0, dcache_dout[31:24]};
 		   endcase // case (offset)
 	
 	6'b100101: case(prev_offset) // LHU
-		     2'b11: douta_masked = {24'b0, douta[15:0]};
-		     2'b10: douta_masked = {24'b0, douta[15:0]};
-		     2'b01: douta_masked = {24'b0, douta[31:16]};
-		     2'b00: douta_masked = {24'b0, douta[31:16]};
+		     2'b11: douta_masked = {24'b0, dcache_dout[15:0]};
+		     2'b10: douta_masked = {24'b0, dcache_dout[15:0]};
+		     2'b01: douta_masked = {24'b0, dcache_dout[31:16]};
+		     2'b00: douta_masked = {24'b0, dcache_dout[31:16]};
 		   endcase // case (offset)
 	
-	default: douta_masked = douta;
+	default: douta_masked = dcache_dout;
       endcase // case (prev_opcode)
 
       case(opcode)
@@ -240,15 +258,18 @@ module Datapath(
    //Wires in IFetch/IMEM (first stage)
    assign PC_4 = PC_IF + 4;
    assign addrb = PC_IF[13:2];
-
+   assign PC_top_nibble = PC_IF[31:28];
+   assign Instruction_Dout_IF = (InstrSrc_Reg)? icache_dout : bios_doutb;
+   assign icache_addr = PC_IF;
+   
    //Wires in RegFile and ALU (second stage)
-   assign Instruction = IMEM_Dout_IF_RA; // output
-   assign opcode = IMEM_Dout_IF_RA[31:26];
-   assign rs = IMEM_Dout_IF_RA[25:21];
-   assign rt = IMEM_Dout_IF_RA[20:16];
-   assign rd = IMEM_Dout_IF_RA[15:11];
-   assign Imm = IMEM_Dout_IF_RA[15:0];
-   assign funct = IMEM_Dout_IF_RA[5:0];
+   assign Instruction = Instruction_Dout_IF_RA; // output
+   assign opcode = Instruction_Dout_IF_RA[31:26];
+   assign rs = Instruction_Dout_IF_RA[25:21];
+   assign rt = Instruction_Dout_IF_RA[20:16];
+   assign rd = Instruction_Dout_IF_RA[15:11];
+   assign Imm = Instruction_Dout_IF_RA[15:0];
+   assign funct = Instruction_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
@@ -261,10 +282,10 @@ module Datapath(
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4_Reg;
    
-   assign addra = ALU_OutMW[13:2];
+   assign dcache_addr = ALU_OutMW;
    assign JR = rd1_Reg;
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
-   assign dina = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
+   assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    
    
    //Wires in DataMem and WriteBack (third stage)

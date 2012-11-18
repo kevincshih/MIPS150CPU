@@ -17,12 +17,7 @@ module MIPS150(
 	           output [31:0] icache_din,
 	           input [31:0] dcache_dout,
 	           input [31:0] instruction,
-	           input stall,
-
-	           output [31:0] gp_code,
-	           output [31:0] gp_frame,
-	           output gp_valid,
-	           input frame_interrupt
+	           input stall
 	       );
 
    // Control wires
@@ -48,9 +43,11 @@ module MIPS150(
 			  .AluSelA(ALU_Sel_A), 
 			  .AluSelB(ALU_Sel_B),
 			  .ALUop(ALUop),
-			  .IMByteSel(IMByteSel), .DinSel(DinSel), .DMByteSel(DMByteSel),
+			  .IMByteSel(icache_we), .DinSel(DinSel), .DMByteSel(dcache_we),
 			  .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
-			  .RDsel(RDsel)); //end outputs
+			  .RDsel(RDsel),
+			  .dcache_re(dcache_re),
+			  .icache_re(icache_re)); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
@@ -72,7 +69,13 @@ module MIPS150(
 			 .Address(Address), // output
 			 .DataOutReady(DataOutReady), //output
 			 .DataInValid(DataInValid), //output
-			 .DataIn(DataIn)); //output
+			 .DataIn(DataIn)
+			 .dcache_addr(dcache_addr),
+			 .icache_addr(icache_addr),
+			 .dcache_din(dcache_din),
+			 .icache_din(icache_din)
+			 .dcache_dout(dcache_dout),
+			 .icache_dout(instruction)); //output
 
    UART the_uart(
 		 .Clock(clk), //input 
