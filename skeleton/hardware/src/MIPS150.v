@@ -22,13 +22,13 @@ module MIPS150(
 
    // Control wires
    wire    REUART, WEUART, DinSel,
-	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite;
+	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
    wire [3:0] ALUop;
 
    // Data wires
    wire [7:0] DataOut, DataIn;
-   wire [31:0] Instruction, PrevInstruction, Address;
+   wire [31:0] Instruction, PrevInstruction, Address, PC;
    
    Control the_controller(
 			  .Address(Address),
@@ -46,12 +46,15 @@ module MIPS150(
 			  .IMByteSel(icache_we), .DinSel(DinSel), .DMByteSel(dcache_we),
 			  .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			  .RDsel(RDsel),
-			  .REDC(dcache_re); //end outputs
+			  .PC(PC),
+			  .ICacheSel(ICacheSel),
+			  .CTsel(CTsel),
+			  .CTreset(CTreset),
+			  .REDC(dcache_re)); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
-			 .IMByteSel(IMByteSel),
-.DMByteSel(DMByteSel), .DinSel(DinSel),
+			 .DinSel(DinSel),
 			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),
@@ -70,10 +73,14 @@ module MIPS150(
 			 .DataInValid(DataInValid), //output
 			 .DataIn(DataIn),
 			 .RCIS(RCIS),
+			 .PC_toControl(PC),
+			 .CTsel(CTsel),
+			 .CTreset(CTreset),
+			 .ICacheSel(ICacheSel),
 			 .dcache_addr(dcache_addr),
 			 .icache_addr(icache_addr),
 			 .dcache_din(dcache_din),
-			 .icache_din(icache_din)
+			 .icache_din(icache_din),
 			 .dcache_dout(dcache_dout),
 			 .icache_dout(instruction)); //output
 

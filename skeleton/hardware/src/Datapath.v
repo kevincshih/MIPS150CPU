@@ -1,7 +1,7 @@
 module Datapath(
 		input [3:0] ALUop,
 		input  REUART, WEUART, DinSel, CTsel, CTreset,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, I_Cache_re, D_Cache_re, REBIOS,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		input [31:0] dcache_dout, icache_dout,
@@ -10,8 +10,7 @@ module Datapath(
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
 		output [7:0] DataIn,
-		output [3:0] PC_High_bits,
-		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_IF		
+		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_toControl		
 		);
 
 
@@ -27,7 +26,7 @@ module Datapath(
    //wires for IMEM  stage
    wire [31:0] 		      IMEM_Dout_IF, Instruction_Dout_IF;
    wire [11:0] 		      addrb;
-   wire [3:0] 		      PC_top_nibble;
+   wire [3:0] 		      PC_High_bits;
    wire 		      InstrSrc;
    
    
@@ -58,7 +57,7 @@ module Datapath(
    reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
-   reg [31:0]  InstCounter, CycleCounter;
+   reg [31:0]  InstrCounter, CycleCounter;
   
 
    //mux registers
@@ -74,7 +73,7 @@ module Datapath(
 			    .stall(stall),
 			    .REIC(REIC),
 			    .REBIOS(REBIOS),
-			    IFSel(InstrSrc));
+			    .IFSel(InstrSrc));
    
    
    ALU the_ALU(.A(ALU_SrcA),
@@ -208,6 +207,7 @@ module Datapath(
 	2'b01: UART_Data_Reg = {31'd0, DataInReady};
 	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
 	2'b00: UART_Data_Reg = {24'd0, DataOut};
+	2'b11: UART_Data_Reg = bios_douta;
 	default: UART_Data_Reg = {24'd0, DataOut};
       endcase // case (UARTSel)
 
@@ -285,7 +285,7 @@ module Datapath(
    assign addrb = PC_IF[13:2];
    assign PC_top_nibble = PC_IF[31:28];
    assign Instruction_Dout_IF = (InstrSrc_Reg)? icache_dout : bios_doutb;
-   assign icache_addr = PC_IF;
+   assign icache_addr = (ICacheSel)? ALU_OutMW : PC_IF;
    
    //Wires in RegFile and ALU (second stage)
    assign Instruction = Instruction_Dout_IF_RA; // output
@@ -306,14 +306,15 @@ module Datapath(
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4_Reg;
-   
+
+   assign addra = ALU_OutMW[13:2];
    assign dcache_addr = ALU_OutMW;
    assign JR = rd1_Reg;
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    assign icache_din = dcache_din;
    assign CounterData = (CTsel)? InstrCounter : CycleCounter;
-   
+   assign PC_toControl = PC_IF_RA;
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;
