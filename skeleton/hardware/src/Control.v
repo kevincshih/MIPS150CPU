@@ -8,7 +8,7 @@ module Control(
     output[1:0]AluSelA, AluSelB,
     output[3:0]ALUop, IMByteSel, DMByteSel,
     output REUART, WEUART, RegWrite, DinSel
-	output REIC, REDC, CTsel, CTreset
+	output CTsel, CTreset
 	);
     `include "Opcode.vh"
     `include "ALUop.vh"
@@ -192,10 +192,16 @@ always @( * ) begin
         UARTselreg = 2'b00; //DataOut
         RDselreg = 2'b00; //ReadFromUART
     end
-    else begin
+    else if (MemRead && (addr == 4'b0100)) begin
         REUARTreg = 1'b0;
         WEUARTreg = 1'b0;
+		UARTselreg = 2'b11; //BIOS
+        RDselreg = 2'b00; //ReadFromUART
     end
+	else begin
+		REUARTreg = 1'b0;
+		WEUARTreg = 1'b0;
+	end
 
 //Branch/Jump Logic
 
