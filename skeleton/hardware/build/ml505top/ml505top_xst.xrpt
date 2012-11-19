@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Xst" timeStamp="Sat Nov 17 10:57:05 2012">
+  <application stringID="Xst" timeStamp="Mon Nov 19 13:50:10 2012">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -51,13 +51,13 @@
         <item stringID="User_EnvOsname" value="unknown"/>
         <item stringID="User_EnvOsrelease" value="unknown"/>
       </item>
-      <item stringID="User_EnvHost" value="p380-13.EECS.Berkeley.EDU"/>
+      <item stringID="User_EnvHost" value="p380-15.EECS.Berkeley.EDU"/>
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Pentium(R) D CPU 3.20GHz"/>
-          <item stringID="speed" value="3192.288 MHz"/>
+          <item stringID="speed" value="3191.968 MHz"/>
         </row>
       </table>
     </section>

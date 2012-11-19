@@ -17,7 +17,7 @@ module PC(input[31:0]  PC_Branch, PC_4, PC_JAL, JR,
 	 endcase // case (PC_Sel)
       end
 
-      if (RST) the_pc <= 32'h40000000;
+      if (RST) the_pc <= 32'd0;
 	       
    end // always @ (posedge CLK)
    

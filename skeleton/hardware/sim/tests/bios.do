@@ -15,4 +15,4 @@ add wave BiosTestbench/CPU/the_uart/uatransmit/*
 add wave BiosTestbench/uart/*
 add wave BiosTestbench/uart/uareceive/*
 add wave BiosTestbench/uart/uatransmit/*
-run 10000us
+run 5000us

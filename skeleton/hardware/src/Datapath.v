@@ -1,16 +1,14 @@
 module Datapath(
-		input [3:0] ALUop,
-		input  REUART, WEUART, DinSel, CTsel, CTreset,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel,
+		input [3:0] ALUop, IMByteSel, DMByteSel,
+		input  REUART, WEUART, DinSel,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
-		input [31:0] dcache_dout, icache_dout,
-		output Branch_compare, RCIS,
+		output Branch_compare,
 		output [1:0] offset,
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
-		output [7:0] DataIn,
-		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_toControl		
+		output [7:0] DataIn
 		);
 
 
@@ -24,14 +22,11 @@ module Datapath(
    wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF;
    
    //wires for IMEM  stage
-   wire [31:0] 		      IMEM_Dout_IF, Instruction_Dout_IF;
-   wire [11:0] 		      addrb;
-   wire [3:0] 		      PC_High_bits;
-   wire 		      InstrSrc;
-   
-   
+   wire [31:0] IMEM_Dout_IF;
+   wire [11:0] addrb;
    
    //wires for RegFile & ALU stage
+   wire [3:0]  PC_High_bits;
    wire [4:0]  rs, rt, rd, A3;
    wire [5:0]  prev_opcode, opcode, funct;
    wire [15:0] Imm;
@@ -39,7 +34,7 @@ module Datapath(
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
-   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, dina, dina_unshifted, bios_douta, bios_doutb, CounterData;
+   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, douta, dina, dina_unshifted;
    wire [11:0] addra;
    wire [1:0]  prev_offset;
    wire        RegWrite_WB;
@@ -47,8 +42,7 @@ module Datapath(
 
    //First Pipeline Register
    reg [31:0]  PC_IF_RA, PC_4_Reg;
-   reg [31:0]  Instruction_Dout_IF_RA;
-   reg 	       InstrSrc_Reg;
+   reg [31:0]  IMEM_Dout_IF_RA;
 
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
@@ -57,8 +51,6 @@ module Datapath(
    reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
-   reg [31:0]  InstrCounter, CycleCounter;
-  
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted;
@@ -66,15 +58,7 @@ module Datapath(
    reg [1:0]   PC_SelReg;
    
    //reset register
-   reg 	       resetReg;
-
-   IFControl the_IF_Control(.PC(PC_IF),
-			    .reset(reset),
-			    .stall(stall),
-			    .REIC(REIC),
-			    .REBIOS(REBIOS),
-			    .IFSel(InstrSrc));
-   
+   reg resetReg;
    
    ALU the_ALU(.A(ALU_SrcA),
 	       .B(ALU_SrcB),
@@ -101,33 +85,21 @@ module Datapath(
 		       .rd1(rd1),
 		       .rd2(rd2));
 
-/*   imem_blk_ram the_imem(.clka(CLK),
+   imem_blk_ram the_imem(.clka(CLK),
 			 .clkb(CLK),
-			 .ena(1'b1),
+			 .ena(not_stall),
 			 .wea(IMByteSel),
 			 .addra(addra),
-			 .dina(bios_doutb),
-			 .enb(1'b1),
+			 .dina(dina),
 			 .addrb(addrb),
-			 .doutb(IMEM_Dout_IF));*/
-   
-   bios_mem the_bios(.clka(CLK),
-		     .ena(1'b1),
-		     .addra(addra),
-		     .douta(bios_douta),
-		     .clkb(CLK),
-		     .enb(REBIOS),
-		     .addrb(addrb),
-		     .doutb(bios_doutb)
-		     );
-   
+			 .doutb(IMEM_Dout_IF));
 
-/*   dmem_blk_ram the_dmem(.clka(CLK),
-			 .ena(1'b1),
+   dmem_blk_ram the_dmem(.clka(CLK),
+			 .ena(not_stall),
 			 .wea(DMByteSel),
 			 .addra(addra),
 			 .dina(dina),
-			 .douta(douta));*/
+			 .douta(douta));
    
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
@@ -139,19 +111,10 @@ module Datapath(
    
    always @(posedge CLK) begin
      resetReg <= reset;
-
-      if (CTreset) begin
-	 CycleCounter <= 0;
-      end
-      
-      
 	 
 	 if (not_stall) begin
 	 //First Pipeline Registers
 	    PC_IF_RA <= PC_IF;
-	    InstrSrc_Reg <= InstrSrc;
-	    CycleCounter <= CycleCounter + 1;
-	    
 
 	 //Second Pipeline Registers
 	    A3_RA_DW <= A3_Reg;
@@ -159,32 +122,28 @@ module Datapath(
 		RDsel_Reg <= RDsel;
 		RegWrite_Reg <= RegWrite;
 	    PC_4_Reg <= PC_4;	    
-	    PrevInstruction_Reg <= Instruction_Dout_IF_RA;
+	    PrevInstruction_Reg <= IMEM_Dout_IF_RA;
 	    ALU_OutMW_Reg <= ALU_OutMW;
 	 
 	 end // if (not_stall)
    end // always @ (posedge CLK)
     
    always @(*) begin
-    Instruction_Dout_IF_RA = (resetReg) ? 32'b0 : Instruction_Dout_IF;
+    IMEM_Dout_IF_RA = (resetReg) ? 32'b0 : IMEM_Dout_IF;
 	PC_SelReg = PC_Sel;
 	rd1_Reg = rd1;
-	JAL_Target_Reg = Instruction_Dout_IF_RA[25:0];
+	JAL_Target_Reg = IMEM_Dout_IF_RA[25:0];
 	REUART_Reg = REUART;
 	WEUART_Reg = WEUART;
 	end
 	
-   always @(Instruction) begin
-      if (CTreset) InstrCounter = 0;
-      InstrCounter = InstrCounter + 1;
-   end
-   
+
    always @(*) begin
       case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
-	2'b11: ALU_SrcA_Reg = Instruction_Dout_IF[10:6];
+	2'b11: ALU_SrcA_Reg = IMEM_Dout_IF[10:6];
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
       
@@ -207,7 +166,6 @@ module Datapath(
 	2'b01: UART_Data_Reg = {31'd0, DataInReady};
 	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
 	2'b00: UART_Data_Reg = {24'd0, DataOut};
-	2'b11: UART_Data_Reg = bios_douta;
 	default: UART_Data_Reg = {24'd0, DataOut};
       endcase // case (UARTSel)
 
@@ -215,7 +173,6 @@ module Datapath(
 	2'b00: WriteData_Reg = UART_Data;
 	2'b01: WriteData_Reg = ALU_OutMW_Reg;
 	2'b10: WriteData_Reg = DMEM_dout;
-	2'b11: WriteData_Reg = CounterData;
 	default: WriteData_Reg = DMEM_dout;
       endcase // case (RDsel)
 
@@ -226,36 +183,36 @@ module Datapath(
 		     2'b10: douta_masked = $signed(douta[23:16]);
 		     2'b11: douta_masked = $signed(douta[31:24]); */
 
-		     2'b00: douta_masked = $signed(dcache_dout[31:24]);
-		     2'b01: douta_masked = $signed(dcache_dout[23:16]);
-		     2'b10: douta_masked = $signed(dcache_dout[15:8]);
-		     2'b11: douta_masked = $signed(dcache_dout[7:0]);
+		     2'b00: douta_masked = $signed(douta[31:24]);
+		     2'b01: douta_masked = $signed(douta[23:16]);
+		     2'b10: douta_masked = $signed(douta[15:8]);
+		     2'b11: douta_masked = $signed(douta[7:0]);
 		   endcase // case (offset)
 
 	6'b100001: case(prev_offset) // LH
-		     2'b11: douta_masked = $signed(dcache_dout[15:0]);
-		     2'b10: douta_masked = $signed(dcache_dout[15:0]);
-		     2'b01: douta_masked = $signed(dcache_dout[31:16]);
-		     2'b00: douta_masked = $signed(dcache_dout[31:16]);
+		     2'b11: douta_masked = $signed(douta[15:0]);
+		     2'b10: douta_masked = $signed(douta[15:0]);
+		     2'b01: douta_masked = $signed(douta[31:16]);
+		     2'b00: douta_masked = $signed(douta[31:16]);
 		   endcase // case (offset)  
 	
-	6'b100011: douta_masked = dcache_dout; // LW
+	6'b100011: douta_masked = douta; // LW
 	
 	6'b100100: case(prev_offset) // LBU
-		     2'b11: douta_masked = {24'b0, dcache_dout[7:0]};
-		     2'b10: douta_masked = {24'b0, dcache_dout[15:8]};
-		     2'b01: douta_masked = {24'b0, dcache_dout[23:16]};
-		     2'b00: douta_masked = {24'b0, dcache_dout[31:24]};
+		     2'b11: douta_masked = {24'b0, douta[7:0]};
+		     2'b10: douta_masked = {24'b0, douta[15:8]};
+		     2'b01: douta_masked = {24'b0, douta[23:16]};
+		     2'b00: douta_masked = {24'b0, douta[31:24]};
 		   endcase // case (offset)
 	
 	6'b100101: case(prev_offset) // LHU
-		     2'b11: douta_masked = {24'b0, dcache_dout[15:0]};
-		     2'b10: douta_masked = {24'b0, dcache_dout[15:0]};
-		     2'b01: douta_masked = {24'b0, dcache_dout[31:16]};
-		     2'b00: douta_masked = {24'b0, dcache_dout[31:16]};
+		     2'b11: douta_masked = {24'b0, douta[15:0]};
+		     2'b10: douta_masked = {24'b0, douta[15:0]};
+		     2'b01: douta_masked = {24'b0, douta[31:16]};
+		     2'b00: douta_masked = {24'b0, douta[31:16]};
 		   endcase // case (offset)
 	
-	default: douta_masked = dcache_dout;
+	default: douta_masked = douta;
       endcase // case (prev_opcode)
 
       case(opcode)
@@ -283,18 +240,15 @@ module Datapath(
    //Wires in IFetch/IMEM (first stage)
    assign PC_4 = PC_IF + 4;
    assign addrb = PC_IF[13:2];
-   assign PC_top_nibble = PC_IF[31:28];
-   assign Instruction_Dout_IF = (InstrSrc_Reg)? icache_dout : bios_doutb;
-   assign icache_addr = (ICacheSel)? ALU_OutMW : PC_IF;
-   
+
    //Wires in RegFile and ALU (second stage)
-   assign Instruction = Instruction_Dout_IF_RA; // output
-   assign opcode = Instruction_Dout_IF_RA[31:26];
-   assign rs = Instruction_Dout_IF_RA[25:21];
-   assign rt = Instruction_Dout_IF_RA[20:16];
-   assign rd = Instruction_Dout_IF_RA[15:11];
-   assign Imm = Instruction_Dout_IF_RA[15:0];
-   assign funct = Instruction_Dout_IF_RA[5:0];
+   assign Instruction = IMEM_Dout_IF_RA; // output
+   assign opcode = IMEM_Dout_IF_RA[31:26];
+   assign rs = IMEM_Dout_IF_RA[25:21];
+   assign rt = IMEM_Dout_IF_RA[20:16];
+   assign rd = IMEM_Dout_IF_RA[15:11];
+   assign Imm = IMEM_Dout_IF_RA[15:0];
+   assign funct = IMEM_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
@@ -306,15 +260,12 @@ module Datapath(
    assign Imm_Extended = $signed(Imm);
    assign Imm_Shifted = Imm_Extended << 2;
    assign PC_Branch = Imm_Shifted + PC_4_Reg;
-
+   
    assign addra = ALU_OutMW[13:2];
-   assign dcache_addr = ALU_OutMW;
    assign JR = rd1_Reg;
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
-   assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
-   assign icache_din = dcache_din;
-   assign CounterData = (CTsel)? InstrCounter : CycleCounter;
-   assign PC_toControl = PC_IF_RA;
+   assign dina = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
+   
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;

@@ -77,8 +77,8 @@ module BiosTestbench();
       $display("Got %d", DataOut);
 
 
-      while (!DataInReady) #(Cycle);
-      DataInValid = 1'b1;
+              while (!DataInReady) #(Cycle);
+       DataInValid = 1'b1;
 
        // Wait for something to come back
       while (!DataOutValid) #(Cycle);
@@ -165,7 +165,7 @@ module BiosTestbench();
       $display("Got %d", DataOut);
 
       DataIn = 8'h41;
-      while (!DataInReady) #(Cycle);
+              while (!DataInReady) #(Cycle);
       DataInValid = 1'b1;
       DataInValid = 1'b0;
       

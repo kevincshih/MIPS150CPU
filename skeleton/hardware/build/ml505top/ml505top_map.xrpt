@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="Map" timeStamp="Sat Nov 17 11:04:03 2012">
+  <application stringID="Map" timeStamp="Mon Nov 19 13:56:43 2012">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -51,13 +51,13 @@
         <item stringID="User_EnvOsname" value="unknown"/>
         <item stringID="User_EnvOsrelease" value="unknown"/>
       </item>
-      <item stringID="User_EnvHost" value="p380-13.EECS.Berkeley.EDU"/>
+      <item stringID="User_EnvHost" value="p380-15.EECS.Berkeley.EDU"/>
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Pentium(R) D CPU 3.20GHz"/>
-          <item stringID="speed" value="3192.288 MHz"/>
+          <item stringID="speed" value="3191.968 MHz"/>
         </row>
       </table>
     </section>
@@ -125,9 +125,9 @@
         <item dataType="int" stringID="MAP_NUM_ERRORS" value="0"/>
         <item dataType="int" stringID="MAP_FILTERED_WARNINGS" value="0"/>
         <item dataType="int" stringID="MAP_NUM_WARNINGS" value="28"/>
-        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="1095224"/>
-        <item stringID="MAP_TOTAL_REAL_TIME" value="3 mins 47 secs "/>
-        <item stringID="MAP_TOTAL_CPU_TIME" value="3 mins 47 secs "/>
+        <item UNITS="KB" dataType="int" stringID="MAP_PEAK_MEMORY" value="1098004"/>
+        <item stringID="MAP_TOTAL_REAL_TIME" value="3 mins 24 secs "/>
+        <item stringID="MAP_TOTAL_CPU_TIME" value="3 mins 19 secs "/>
       </section>
       <section stringID="MAP_SLICE_REPORTING">
         <item AVAILABLE="69120" dataType="int" label="Number of Slice Registers" stringID="MAP_SLICE_REGISTERS" value="1249">
@@ -154,17 +154,17 @@
           <item dataType="int" stringID="MAP_NUM_LUT_RT_EXO6" value="4"/>
           <item dataType="int" stringID="MAP_NUM_LUT_RT_EXO5" value="0"/>
           <item dataType="int" stringID="MAP_NUM_LUT_RT_O6" value="56"/>
-          <item dataType="int" stringID="MAP_NUM_LUT_RT_O5" value="12"/>
+          <item dataType="int" stringID="MAP_NUM_LUT_RT_O5" value="0"/>
           <item dataType="int" stringID="MAP_NUM_LUT_RT_O5ANDO6" value="1"/>
         </item>
-        <item AVAILABLE="17280" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="647">
-          <item AVAILABLE="12800" dataType="int" stringID="MAP_NUM_SLICEL" value="645"/>
+        <item AVAILABLE="17280" dataType="int" label="Number of occupied Slices" stringID="MAP_OCCUPIED_SLICES" value="811">
+          <item AVAILABLE="12800" dataType="int" stringID="MAP_NUM_SLICEL" value="809"/>
           <item AVAILABLE="4480" dataType="int" stringID="MAP_NUM_SLICEM" value="2"/>
         </item>
-        <item dataType="int" label="Number of LUT Flip Flop pairs used" stringID="MAP_OCCUPIED_LUT_AND_FF" value="2394">
-          <item dataType="int" stringID="MAP_OCCUPIED_LUT_ONLY" value="1145"/>
-          <item dataType="int" label="Number with an unused LUT" stringID="MAP_OCCUPIED_FF_ONLY" value="570"/>
-          <item dataType="int" label="Number of fully used LUT-FF pairs" stringID="MAP_OCCUPIED_FF_AND_LUT" value="679"/>
+        <item dataType="int" label="Number of LUT Flip Flop pairs used" stringID="MAP_OCCUPIED_LUT_AND_FF" value="2538">
+          <item dataType="int" stringID="MAP_OCCUPIED_LUT_ONLY" value="1289"/>
+          <item dataType="int" label="Number with an unused LUT" stringID="MAP_OCCUPIED_FF_ONLY" value="714"/>
+          <item dataType="int" label="Number of fully used LUT-FF pairs" stringID="MAP_OCCUPIED_FF_AND_LUT" value="535"/>
         </item>
       </section>
       <section stringID="MAP_IOB_REPORTING">
