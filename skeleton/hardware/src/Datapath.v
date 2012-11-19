@@ -118,6 +118,33 @@ module Datapath(
 			 .dina(dina),
 			 .douta(douta));*/
    
+	Cache the_cache(
+	.clk(CLK),
+	.rst(reset),
+	.addr(addr),
+	.din(din),
+	.we(we),
+	.re(re),
+    .rdf_valid(rdf_valid),
+    .rdf_dout(rdf_dout),
+    .af_full(af_full),
+    .wdf_full(wdf_full),
+
+    .stall(stall),
+    .dout(dout),
+    .rdf_rd_en(rdf_rd_en),
+    .af_cmd_din(af_cmd_din),
+    .af_addr_din(af_addr_din),
+    .af_wr_en(af_wr_en),
+    .wdf_din(wdf_din),
+    .wdf_mask_din(wdf_mask_din),
+    .wdf_wr_en(wdf_wr_en),
+
+    // Needed for set-associative cache
+    .tag_hit(tag_hit),
+    .tag_valid(tag_valid),
+    .state(state));
+   
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
 				       .opcode(opcode),
