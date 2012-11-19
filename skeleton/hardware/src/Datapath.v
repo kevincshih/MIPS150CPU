@@ -1,11 +1,11 @@
 module Datapath(
 		input [3:0] ALUop,
-		input  REUART, WEUART, DinSel,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, I_Cache_re, D_Cache_re, InstrSrc, bios_en,
+		input  REUART, WEUART, DinSel, CTsel, CTreset,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, I_Cache_re, D_Cache_re, REBIOS,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		input [31:0] dcache_dout, icache_dout,
-		output Branch_compare,
+		output Branch_compare, RCIS,
 		output [1:0] offset,
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
@@ -28,6 +28,8 @@ module Datapath(
    wire [31:0] 		      IMEM_Dout_IF, Instruction_Dout_IF;
    wire [11:0] 		      addrb;
    wire [3:0] 		      PC_top_nibble;
+   wire 		      InstrSrc;
+   
    
    
    //wires for RegFile & ALU stage
@@ -38,7 +40,7 @@ module Datapath(
    wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
-   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, dina, dina_unshifted, bios_douta, bios_doutb;
+   wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, dina, dina_unshifted, bios_douta, bios_doutb, CounterData;
    wire [11:0] addra;
    wire [1:0]  prev_offset;
    wire        RegWrite_WB;
@@ -56,6 +58,8 @@ module Datapath(
    reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
+   reg [31:0]  InstCounter, CycleCounter;
+  
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted;
@@ -63,7 +67,15 @@ module Datapath(
    reg [1:0]   PC_SelReg;
    
    //reset register
-   reg resetReg;
+   reg 	       resetReg;
+
+   IFControl the_IF_Control(.PC(PC_IF),
+			    .reset(reset),
+			    .stall(stall),
+			    .REIC(REIC),
+			    .REBIOS(REBIOS),
+			    IFSel(InstrSrc));
+   
    
    ALU the_ALU(.A(ALU_SrcA),
 	       .B(ALU_SrcB),
@@ -105,7 +117,7 @@ module Datapath(
 		     .addra(addra),
 		     .douta(bios_douta),
 		     .clkb(CLK),
-		     .enb(bios_en),
+		     .enb(REBIOS),
 		     .addrb(addrb),
 		     .doutb(bios_doutb)
 		     );
@@ -118,33 +130,6 @@ module Datapath(
 			 .dina(dina),
 			 .douta(douta));*/
    
-	Cache the_cache(
-	.clk(CLK),
-	.rst(reset),
-	.addr(addr),
-	.din(din),
-	.we(we),
-	.re(re),
-    .rdf_valid(rdf_valid),
-    .rdf_dout(rdf_dout),
-    .af_full(af_full),
-    .wdf_full(wdf_full),
-
-    .stall(stall),
-    .dout(dout),
-    .rdf_rd_en(rdf_rd_en),
-    .af_cmd_din(af_cmd_din),
-    .af_addr_din(af_addr_din),
-    .af_wr_en(af_wr_en),
-    .wdf_din(wdf_din),
-    .wdf_mask_din(wdf_mask_din),
-    .wdf_wr_en(wdf_wr_en),
-
-    // Needed for set-associative cache
-    .tag_hit(tag_hit),
-    .tag_valid(tag_valid),
-    .state(state));
-   
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
 				       .opcode(opcode),
@@ -155,11 +140,19 @@ module Datapath(
    
    always @(posedge CLK) begin
      resetReg <= reset;
+
+      if (CTreset) begin
+	 CycleCounter <= 0;
+      end
+      
+      
 	 
 	 if (not_stall) begin
 	 //First Pipeline Registers
 	    PC_IF_RA <= PC_IF;
 	    InstrSrc_Reg <= InstrSrc;
+	    CycleCounter <= CycleCounter + 1;
+	    
 
 	 //Second Pipeline Registers
 	    A3_RA_DW <= A3_Reg;
@@ -182,7 +175,11 @@ module Datapath(
 	WEUART_Reg = WEUART;
 	end
 	
-
+   always @(Instruction) begin
+      if (CTreset) InstrCounter = 0;
+      InstrCounter = InstrCounter + 1;
+   end
+   
    always @(*) begin
       case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
@@ -218,6 +215,7 @@ module Datapath(
 	2'b00: WriteData_Reg = UART_Data;
 	2'b01: WriteData_Reg = ALU_OutMW_Reg;
 	2'b10: WriteData_Reg = DMEM_dout;
+	2'b11: WriteData_Reg = CounterData;
 	default: WriteData_Reg = DMEM_dout;
       endcase // case (RDsel)
 
@@ -313,6 +311,8 @@ module Datapath(
    assign JR = rd1_Reg;
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
+   assign icache_din = dcache_din;
+   assign CounterData = (CTsel)? InstrCounter : CycleCounter;
    
    
    //Wires in DataMem and WriteBack (third stage)

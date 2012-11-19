@@ -1,3 +1,4 @@
+b
 module IFControl(
     input[31:0]PC,
     input reset, stall,

@@ -24,7 +24,7 @@ module MIPS150(
    wire    REUART, WEUART, DinSel,
 	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
-   wire [3:0] ALUop, IMByteSel, DMByteSel;
+   wire [3:0] ALUop;
 
    // Data wires
    wire [7:0] DataOut, DataIn;
@@ -46,8 +46,7 @@ module MIPS150(
 			  .IMByteSel(icache_we), .DinSel(DinSel), .DMByteSel(dcache_we),
 			  .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
 			  .RDsel(RDsel),
-			  .dcache_re(dcache_re),
-			  .icache_re(icache_re)); //end outputs
+			  .REDC(dcache_re); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
@@ -69,7 +68,8 @@ module MIPS150(
 			 .Address(Address), // output
 			 .DataOutReady(DataOutReady), //output
 			 .DataInValid(DataInValid), //output
-			 .DataIn(DataIn)
+			 .DataIn(DataIn),
+			 .RCIS(RCIS),
 			 .dcache_addr(dcache_addr),
 			 .icache_addr(icache_addr),
 			 .dcache_din(dcache_din),
