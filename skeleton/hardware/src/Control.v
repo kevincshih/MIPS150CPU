@@ -1,17 +1,17 @@
 module Control(
-    input[31:0]Instruction,
-    input[31:0]OldInstruction,
-    input[31:0]Address,
-    input branch, reset,
+	       input[31:0]Instruction,
+	       input[31:0]OldInstruction,
+	       input[31:0]Address, PC,	       
+	       input branch, reset,
 	       input[1:0] offset,
-    output[1:0]PCsel, RegDst, UARTsel, RDsel,
-    output[1:0]AluSelA, AluSelB,
-    output[3:0]ALUop, IMByteSel, DMByteSel,
-    output REUART, WEUART, RegWrite, DinSel
-    //output WEIM, WEDM, 
-	);
-    `include "Opcode.vh"
-    `include "ALUop.vh"
+	       output[1:0]PCsel, RegDst, UARTsel, RDsel,
+	       output[1:0]AluSelA, AluSelB,
+	       output[3:0]ALUop, IMByteSel, DMByteSel,
+	       output REUART, WEUART, RegWrite, DinSel,
+	       output CTsel, CTreset, REDC, ICacheSel
+	       );
+`include "Opcode.vh"
+`include "ALUop.vh"
 
   //--|Parameters|--------------------------------------------------------------
   //Reset flush pipelines posedge
@@ -23,6 +23,7 @@ module Control(
 reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg, RDselreg, UARTselreg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg;
+reg REICreg, REDCreg, REBIOSreg, CTselreg, CTResetreg, ICacheSelreg;
 
 wire[5:0] op, funct, oldop, oldfunct;
 wire[4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
@@ -84,22 +85,26 @@ assign REUART = (reset) ? 0 : REUARTreg;
 assign WEUART = (reset) ? 0 : WEUARTreg;
 assign IMByteSel = (reset || ~weim) ? 4'b0000 : ByteSelReg;
 assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
+    assign REDC = REDCreg;
 
   //Muxes
-assign AluSelA = (reset) ? 0 : AluSelAReg;
-assign AluSelB = (reset) ? 0 : AluSelBReg;
-assign UARTsel = (reset) ? 0 : UARTselreg;
-assign RDsel = (reset) ? 0 : RDselreg;
-assign DinSel = (reset) ? 0 : DinSelReg;
-
+   assign AluSelA = (reset) ? 0 : AluSelAReg;
+   assign AluSelB = (reset) ? 0 : AluSelBReg;
+   assign UARTsel = (reset) ? 0 : UARTselreg;
+   assign RDsel = (reset) ? 0 : RDselreg;
+   assign DinSel = (reset) ? 0 : DinSelReg;
+   assign CTsel = (reset) ? 0 : CTselreg;
+   assign CTreset = (reset) ? 0 : CTResetreg;
+   assign ICacheSel = (reset) ? 0 : ICacheSelreg;
+   
 ALUdec DUT(.funct(funct),
     .opcode(op),
     .ALUop(ALUop));
 
 //WriteBack Logic
 
-always @( * ) begin
-    if (op == `RTYPE) begin
+   always @( * ) begin
+      if (op == `RTYPE) begin
         RegDstReg = 2'b01;
 		RDselreg = 2'b01;
     end
@@ -127,34 +132,49 @@ always @( * ) begin
         default: ByteSelReg = 4'b0000;
     endcase
 
+//Instruction Cache
 
-//Instruction Memory
-
-
-    if (MemWrite && ~addr[3] && addr[1]) begin
+    if (MemWrite && ~addr[3] && ~addr[2] && addr[1] && PC[30]) begin
         WEIMreg = 1'b1;
+       ICacheSelreg = 1'b1;
     end
     else begin
         WEIMreg = 1'b0;
+       ICacheSelreg = 1'b0;
     end
+	
+   //Data Memory
 
+   if (MemWrite && ~addr[3] && ~addr[2] && addr[0]) begin
+      WEDMreg = 1'b1;
+   end
+   else begin
+     WEDMreg = 1'b0;
+   end
+   
+   if (MemRead && ~addr[3] && ~addr[2] && addr[0]) begin
+	   RDselreg = 2'b10;
+	   REDCreg = 1'b1;
+      end
+   else
+     REDCreg = 1'b0;
+		
+   //Counter I/O
 
-
-/*//Data Memory
-always @( * ) begin
-    if (MemWrite && ~addr[3] && addr[0]) begin
-       WEDMreg = 1'b1;
-        end
-    else if (MemRead && ~addr[3] && addr[0]) begin
-        WEDMreg = 1'b0;
-	RDselreg = 2'b10;
-        end
-    else
-        WEDMreg = 1'b0;
-end
-*/
-
-
+    if (MemRead && (Address == 32'h80000010)) begin
+    	CTselreg = 1'b0;
+		RDselreg = 2'b11;
+		CTResetreg = 1'b0;
+    end
+	else if (MemRead && (Address == 32'h80000014)) begin
+    	CTselreg = 1'b1;
+		RDselreg = 2'b11;
+		CTResetreg = 1'b0;
+    end
+	else if (MemWrite && (Address == 32'h80000018)) begin
+		CTResetreg = 1'b1;
+	end
+	
    //UART I/O
 
     if (MemRead && (Address == 32'h80000000)) begin
@@ -179,26 +199,18 @@ end
         UARTselreg = 2'b00; //DataOut
         RDselreg = 2'b00; //ReadFromUART
     end
-    else begin
+    else if (MemRead && (addr == 4'b0100)) begin
         REUARTreg = 1'b0;
         WEUARTreg = 1'b0;
+		UARTselreg = 2'b11; //BIOS
+        RDselreg = 2'b00; //ReadFromUART
     end
-
-   //Data Memory
-
-   if (MemWrite && ~addr[3] && addr[0]) begin
-      WEDMreg = 1'b1;
-   end
-   else begin
-     WEDMreg = 1'b0;
-   end
-
-	if (MemRead && ~addr[3] && addr[0]) begin
-      RDselreg = 2'b10;
+	else begin
+		REUARTreg = 1'b0;
+		WEUARTreg = 1'b0;
 	end
-	
-	end
-
+end // always @ ( * )
+   
 //Branch/Jump Logic
 
 always @( * ) begin

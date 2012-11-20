@@ -7,6 +7,13 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# OpenFile ../results/asm.wlf 
+# OpenFile ../results/echocaches.wlf 
+add wave -position insertpoint echocaches:/EchoTestbenchCaches/DUT/the_controller/*
+add wave -position insertpoint echocaches:/EchoTestbenchCaches/DUT/the_datapath/*
 add wave -position insertpoint  \
-asm:/asmTestbench/CPU/the_datapath/the_regfile/the_registers
+echocaches:/EchoTestbenchCaches/DUT/the_datapath/Instruction_Dout_IF \
+echocaches:/EchoTestbenchCaches/DUT/the_datapath/bios_douta \
+echocaches:/EchoTestbenchCaches/DUT/the_datapath/bios_doutb \
+echocaches:/EchoTestbenchCaches/DUT/the_datapath/Instruction_Dout_IF_RA \
+echocaches:/EchoTestbenchCaches/DUT/the_datapath/InstrSrc_Reg
+add wave -position insertpoint echocaches:/EchoTestbenchCaches/DUT/the_datapath/*

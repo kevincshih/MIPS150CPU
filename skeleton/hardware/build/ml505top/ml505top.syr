@@ -4,15 +4,15 @@ Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Parameter TMPDIR set to xst/tmp
 
 
-Total REAL time to Xst completion: 2.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 2.00 secs
-Total CPU time to Xst completion: 0.15 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
  
 --> 
 
@@ -113,41 +113,33 @@ Slice Utilization Ratio Delta      : 5
 Compiling verilog file "../../src/ALU.v" in library work
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
-Compiling verilog file "../../src/ALUdec.v" in library work
-Compiling verilog include file "../../src/Opcode.vh"
-Compiling verilog include file "../../src/ALUop.vh"
-Module <ALU> compiled
-Compiling verilog file "../../src/BiosTestbench.v" in library work
-Module <ALUdec> compiled
 Compiling verilog file "../../src/Control.v" in library work
-Module <BiosTestbench> compiled
+Module <ALU> compiled
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
-Compiling verilog file "../../src/Datapath.v" in library work
+Compiling verilog file "../../src/branch_module.v" in library work
 Module <Control> compiled
+WARNING:HDLCompilers:21 - "../../src/branch_module.v" line 14 Zero width on based number ignored
+Compiling verilog file "../../src/Datapath.v" in library work
+Module <Branch_module> compiled
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
+Compiling verilog file "../../src/pc.v" in library work
+Module <Datapath> compiled
 Compiling verilog file "../../src/ControlTestbench.v" in library work
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
-Module <Datapath> compiled
-Compiling verilog file "../../src/MIPS150.v" in library work
-Module <ControlTestbench> compiled
+Module <PC> compiled
 Compiling verilog file "../../src/EchoTestbench.v" in library work
-Module <MIPS150> compiled
-Compiling verilog file "../../src/branch_module.v" in library work
-Module <EchoTestbench> compiled
-WARNING:HDLCompilers:21 - "../../src/branch_module.v" line 14 Zero width on based number ignored
+Module <ControlTestbench> compiled
 Compiling verilog file "../../src/Hazard.v" in library work
-Module <Branch_module> compiled
+Module <EchoTestbench> compiled
 Compiling verilog file "../../src/IORegister.v" in library work
 Module <Hazard> compiled
-Compiling verilog file "../../src/ml505top.v" in library work
+Compiling verilog file "../../src/MIPS150.v" in library work
 Module <IORegister> compiled
-Compiling verilog file "../../src/pc.v" in library work
-Module <ml505top> compiled
 Compiling verilog file "../../src/RegFile.v" in library work
-Module <PC> compiled
+Module <MIPS150> compiled
 Compiling verilog file "../../src/RegFileTestbench.v" in library work
 Module <RegFile> compiled
 Compiling verilog file "../../src/UART.v" in library work
@@ -155,16 +147,24 @@ Module <RegFileTestbench> compiled
 Compiling verilog file "../../src/UAReceive.v" in library work
 Module <UART> compiled
 Compiling verilog include file "../../src/util.vh"
-Compiling verilog file "../../src/UATransmit.v" in library work
+Compiling verilog file "../../src/BiosTestbench.v" in library work
 Module <UAReceive> compiled
+Compiling verilog file "../../src/imem_blk_ram/imem_blk_ram.v" in library work
+Module <BiosTestbench> compiled
+Compiling verilog file "../../src/ml505top.v" in library work
+Module <imem_blk_ram> compiled
+Compiling verilog file "../../src/UATransmit.v" in library work
+Module <ml505top> compiled
 Compiling verilog include file "../../src/util.vh"
-Compiling verilog file "../../src/asmTestbench.v" in library work
+Compiling verilog file "../../src/ALUdec.v" in library work
+Compiling verilog include file "../../src/Opcode.vh"
+Compiling verilog include file "../../src/ALUop.vh"
 Module <UATransmit> compiled
 Compiling verilog file "../../src/dmem_blk_ram/dmem_blk_ram.v" in library work
-Module <asmTestbench> compiled
-Compiling verilog file "../../src/imem_blk_ram/imem_blk_ram.v" in library work
+Module <ALUdec> compiled
+Compiling verilog file "../../src/asmTestbench.v" in library work
 Module <dmem_blk_ram> compiled
-Module <imem_blk_ram> compiled
+Module <asmTestbench> compiled
 No errors in compilation
 Analysis of file <"ml505top.prj"> succeeded.
  
@@ -1022,7 +1022,7 @@ Offset:              10.371ns (Levels of Logic = 12)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'cpu_clk'
-  Total number of paths / destination ports: 3205487 / 111
+  Total number of paths / destination ports: 3205485 / 109
 -------------------------------------------------------------------------
 Offset:              10.970ns (Levels of Logic = 12)
   Source:            CPU/the_datapath/resetReg_1 (FF)
@@ -1148,13 +1148,13 @@ Delay:               10.854ns (Levels of Logic = 36)
 =========================================================================
 
 
-Total REAL time to Xst completion: 166.00 secs
-Total CPU time to Xst completion: 162.72 secs
+Total REAL time to Xst completion: 167.00 secs
+Total CPU time to Xst completion: 166.89 secs
  
 --> 
 
 
-Total memory usage is 711576 kilobytes
+Total memory usage is 711560 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   59 (   0 filtered)

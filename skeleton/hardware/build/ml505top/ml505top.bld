@@ -2,14 +2,17 @@ Release 14.1 ngdbuild P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
--sd ../../src -sd ../../src/dmem_blk_ram -sd ../../src/dmem_blk_ram/tmp -sd
-../../src/dmem_blk_ram/tmp/_xmsgs -sd ../../src/imem_blk_ram -sd
-../../src/imem_blk_ram/tmp -sd ../../src/imem_blk_ram/tmp/_xmsgs -nt timestamp
--uc ../../src/ml505top.ucf -p xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
+-sd ../../src -sd ../../src/imem_blk_ram -sd ../../src/imem_blk_ram/tmp -sd
+../../src/imem_blk_ram/tmp/_cg -sd ../../src/imem_blk_ram/tmp/_xmsgs -sd
+../../src/imem_blk_ram/xlnx_auto_0_xdb -sd ../../src/dmem_blk_ram -sd
+../../src/dmem_blk_ram/tmp -sd ../../src/dmem_blk_ram/tmp/_cg -sd
+../../src/dmem_blk_ram/tmp/_xmsgs -sd ../../src/dmem_blk_ram/xlnx_auto_0_xdb -nt
+timestamp -uc ../../src/ml505top.ucf -p xc5vlx110t-ff1136-1 ml505top.ngc
+ml505top.ngd
 
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/cp1/skeleton/hardware/build/ml505top
-/ml505top.ngc" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505t
+op.ngc" ...
 Loading design module "../../src/dmem_blk_ram/dmem_blk_ram.ngc"...
 Loading design module "../../src/imem_blk_ram/imem_blk_ram.ngc"...
 Gathering constraint information from source properties...
@@ -39,10 +42,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 513704 kilobytes
+Total memory usage is 513660 kilobytes
 
 Writing NGD file "ml505top.ngd" ...
-Total REAL time to NGDBUILD completion:  15 sec
+Total REAL time to NGDBUILD completion:  14 sec
 Total CPU time to NGDBUILD completion:   14 sec
 
 Writing NGDBUILD log file "ml505top.bld"...
