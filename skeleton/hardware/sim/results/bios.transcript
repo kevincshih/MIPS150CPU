@@ -151,8 +151,7 @@ start BiosTestbench
 #         Region: /BiosTestbench/mem_arch/dcache/cache_tag
 file copy -force ../../../software/bios150v3/bios150v3.mif bios_mem.mif
 add wave BiosTestbench/*
-add wave BiosTestbench/DUT*
-# (vish-4014) No objects found matching 'BiosTestbench/DUT*'.
+add wave BiosTestbench/DUT/*
 add wave BiosTestbench/DUT/the_datapath/*
 add wave BiosTestbench/DUT/the_controller/*
 add wave BiosTestbench/DUT/the_datapath/the_regfile/*
@@ -201,18 +200,34 @@ run 10000us
 # Third Stage Calibration completed at time 55805000.0 ps
 # Fourth Stage Calibration completed at time 74725000.0 ps
 # Calibration completed at time 74725000.0 ps
+# Got  10
+# Got  10
+# Got  10
+# Got  10
+# Got  10
+# Got  10
+# Got  10
+# blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687705000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687705000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687725000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687725000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687745000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687745000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687765000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687765000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687785000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687785000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687805000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687805000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
+# blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
+# Got  10
 # Got   0
 # Got   0
 # Got   0
 # Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got  49
-# Got  49
-# Got  49
-# Got  49
 # Got  49
 # Got  49
 # Got  49

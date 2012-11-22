@@ -62,7 +62,7 @@ module Datapath(
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted;
-   reg [4:0]   A3_Reg, RegDst_Reg;
+   reg [4:0]   A3_Reg;
    reg [1:0]   PC_SelReg;
    
    //reset register

@@ -1,28 +1,15 @@
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bios_m
-em/coregen.log
-Wrote CGP file for project 'coregen'.
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/coregen.l
+og
+Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bios_m
-em/coregen.log
-Resolving generic values...
-Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
-All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/coregen.log
-Wrote CGP file for project 'coregen'.
-Saved CGP file for project 'coregen'.
-Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
-Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
-All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/coregen.l
+og
 Resolving generic values...
 Finished resolving generic values.
 Generating IP...
@@ -31,6 +18,107 @@ XST: Design Hierarchy Analysis
 XST: HDL Analysis
 XST: HDL Synthesis
 XST: Advanced HDL Synthesis
+XST: Low Level Synthesis
+XST: Partition Report
+XST: Final Report
+Generating Implementation files.
+Generating NGC file.
+
+Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -intstyle
+ise -dd ./tmp/_cg/ ./tmp/_cg/bios_mem.edn ./tmp/_cg/bios_mem_unobf.ngc
+
+Executing edif2ngd -noa "tmp/_cg/bios_mem.edn" "tmp/_cg/bios_mem.ngo"
+Release 14.1 - edif2ngd P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
+INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Writing module to "tmp/_cg/bios_mem.ngo"...
+Reading NGO file
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngo" ...
+Loading design module "./tmp/_cg/bios_mem_blk_mem_gen_v4_3_xst_1.ngc"...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "./tmp/_cg/bios_mem_unobf.ngc" ...
+Total REAL time to NGCBUILD completion:  15 sec
+Total CPU time to NGCBUILD completion:   9 sec
+
+Writing NGCBUILD log file "./tmp/_cg/bios_mem_unobf.blc"...
+
+NGCBUILD done.
+Finished Generation.
+Generating IP instantiation template...
+Generating ASY schematic symbol...
+Generating metadata file...
+Generating ISE project...
+XCO file found: bios_mem.xco
+XMDF file found: bios_mem_xmdf.tcl
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.asy -view all -origin_type imported
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.ngc -view all -origin_type created
+Checking file
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngc" for project device match ...
+File
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngc" device information matches project device.
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.v -view all -origin_type created
+INFO:HDLCompiler:1845 - Analyzing Verilog file
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_
+   cg/bios_mem.v" into library work
+INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.veo -view all -origin_type imported
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+lk_mem_gen_readme.txt -view all -origin_type imported
+INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
+   Please set the new top explicitly by running the "project set top" command.
+   To re-calculate the new top automatically, set the "Auto Implementation Top"
+   property to true.
+Top level has been set to "/bios_mem"
+Generating README file...
+Generating FLIST file...
+Moving files to output directory...
+Finished moving files to output directory
+Saved CGP file for project 'coregen'.
+Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+All runtime messages will be recorded in
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/coregen.log
+Saved CGP file for project 'coregen'.
+Saved CGP file for project 'coregen'.
+Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+All runtime messages will be recorded in
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/coregen.log
+Resolving generic values...
+Finished resolving generic values.
+Generating IP...
+XST: HDL Compilation
+XST: Design Hierarchy Analysis
+XST: HDL Analysis
+XST: HDL Synthesis
+XST: Advanced HDL Synthesis
+XST: Low Level Synthesis
 XST: Partition Report
 XST: Final Report
 Generating Implementation files.
@@ -49,8 +137,8 @@ INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
 INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Writing module to "tmp/_cg/cache_data_blk_ram.ngo"...
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_data_blk_ram/tmp/_cg/cache_data_blk_ram.ngo" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ra
+m/tmp/_cg/cache_data_blk_ram.ngo" ...
 Loading design module
 "./tmp/_cg/cache_data_blk_ram_blk_mem_gen_v4_3_xst_1.ngc"...
 
@@ -80,31 +168,30 @@ Generating ISE project...
 XCO file found: cache_data_blk_ram.xco
 XMDF file found: cache_data_blk_ram_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/tmp/_cg/blk_mem_gen_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/tmp/_cg/blk_mem_gen_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/tmp/_cg/cache_data_blk_ram.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/tmp/_cg/cache_data_blk_ram.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/tmp/_cg/cache_data_blk_ram.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/tmp/_cg/cache_data_blk_ram.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_data_blk_ram/tmp/_cg/cache_data_blk_ram.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ra
+m/tmp/_cg/cache_data_blk_ram.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_data_blk_ram/tmp/_cg/cache_data_blk_ram.ngc" device information matches project
-device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ra
+m/tmp/_cg/cache_data_blk_ram.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/tmp/_cg/cache_data_blk_ram.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/tmp/_cg/cache_data_blk_ram.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/ca
-   che_data_blk_ram/tmp/_cg/cache_data_blk_ram.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk
+   _ram/tmp/_cg/cache_data_blk_ram.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-data_blk_ram/tmp/_cg/cache_data_blk_ram.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_data_blk_ram
+/tmp/_cg/cache_data_blk_ram.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
@@ -118,15 +205,15 @@ Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/coregen.log
-Wrote CGP file for project 'coregen'.
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+coregen.log
+Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+coregen.log
 Resolving generic values...
 Finished resolving generic values.
 Generating IP...
@@ -136,6 +223,8 @@ XST: HDL Analysis
 XST: HDL Synthesis
 XST: Advanced HDL Synthesis
 XST: Low Level Synthesis
+XST: Partition Report
+XST: Final Report
 Generating Implementation files.
 Generating NGC file.
 
@@ -151,8 +240,8 @@ INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
 INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Writing module to "tmp/_cg/cache_tag_blk_ram.ngo"...
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.ngo" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram
+/tmp/_cg/cache_tag_blk_ram.ngo" ...
 Loading design module
 "./tmp/_cg/cache_tag_blk_ram_blk_mem_gen_v4_3_xst_1.ngc"...
 
@@ -182,31 +271,30 @@ Generating ISE project...
 XCO file found: cache_tag_blk_ram.xco
 XMDF file found: cache_tag_blk_ram_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/tmp/_cg/blk_mem_gen_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+tmp/_cg/blk_mem_gen_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/tmp/_cg/cache_tag_blk_ram.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+tmp/_cg/cache_tag_blk_ram.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/tmp/_cg/cache_tag_blk_ram.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+tmp/_cg/cache_tag_blk_ram.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram
+/tmp/_cg/cache_tag_blk_ram.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache
-_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.ngc" device information matches project
-device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram
+/tmp/_cg/cache_tag_blk_ram.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/tmp/_cg/cache_tag_blk_ram.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+tmp/_cg/cache_tag_blk_ram.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/ca
-   che_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_
+   ram/tmp/_cg/cache_tag_blk_ram.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/cache_
-tag_blk_ram/tmp/_cg/cache_tag_blk_ram.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/cache_tag_blk_ram/
+tmp/_cg/cache_tag_blk_ram.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
@@ -220,15 +308,13 @@ Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/coregen.log
-Wrote CGP file for project 'coregen'.
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/coregen.log
+Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/coregen.log
 Resolving generic values...
 Finished resolving generic values.
 Generating IP...
@@ -239,7 +325,6 @@ XST: HDL Synthesis
 XST: Advanced HDL Synthesis
 XST: Low Level Synthesis
 Generating Implementation files.
-Generating the Verilog instantiation template.
 Generating NGC file.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -intstyle
@@ -252,8 +337,8 @@ INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
 INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Writing module to "tmp/_cg/mig_af.ngo"...
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_a
-f/tmp/_cg/mig_af.ngo" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mi
+g_af.ngo" ...
 Loading design module "./tmp/_cg/mig_af_fifo_generator_v6_2_xst_1.ngc"...
 
 Partition Implementation Status
@@ -286,30 +371,30 @@ Generating ISE project...
 XCO file found: mig_af.xco
 XMDF file found: mig_af_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/tmp/_cg/fifo_generator_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/fif
+o_generator_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/tmp/_cg/mig_af.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mig
+_af.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/tmp/_cg/mig_af.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mig
+_af.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_a
-f/tmp/_cg/mig_af.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mi
+g_af.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_a
-f/tmp/_cg/mig_af.ngc" device information matches project device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mi
+g_af.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/tmp/_cg/mig_af.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mig
+_af.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mi
-   g_af/tmp/_cg/mig_af.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg
+   /mig_af.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_af
-/tmp/_cg/mig_af.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_af/tmp/_cg/mig
+_af.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
@@ -323,15 +408,15 @@ Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/coregen.log
-Wrote CGP file for project 'coregen'.
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/coregen.lo
+g
+Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/coregen.lo
+g
 Resolving generic values...
 Finished resolving generic values.
 Generating IP...
@@ -341,8 +426,6 @@ XST: HDL Analysis
 XST: HDL Synthesis
 XST: Advanced HDL Synthesis
 XST: Low Level Synthesis
-XST: Partition Report
-XST: Final Report
 Generating Implementation files.
 Generating NGC file.
 
@@ -356,8 +439,8 @@ INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
 INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Writing module to "tmp/_cg/mig_rdf.ngo"...
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_r
-df/tmp/_cg/mig_rdf.ngo" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/m
+ig_rdf.ngo" ...
 Loading design module "./tmp/_cg/mig_rdf_fifo_generator_v6_2_xst_1.ngc"...
 
 Partition Implementation Status
@@ -390,30 +473,30 @@ Generating ISE project...
 XCO file found: mig_rdf.xco
 XMDF file found: mig_rdf_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/tmp/_cg/fifo_generator_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/fi
+fo_generator_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/tmp/_cg/mig_rdf.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/mi
+g_rdf.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/tmp/_cg/mig_rdf.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/mi
+g_rdf.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_r
-df/tmp/_cg/mig_rdf.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/m
+ig_rdf.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_r
-df/tmp/_cg/mig_rdf.ngc" device information matches project device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/m
+ig_rdf.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/tmp/_cg/mig_rdf.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/mi
+g_rdf.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mi
-   g_rdf/tmp/_cg/mig_rdf.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_c
+   g/mig_rdf.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_rd
-f/tmp/_cg/mig_rdf.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_rdf/tmp/_cg/mi
+g_rdf.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
@@ -427,15 +510,15 @@ Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/coregen.log
-Wrote CGP file for project 'coregen'.
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/coregen.lo
+g
+Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/coregen.lo
+g
 Resolving generic values...
 Finished resolving generic values.
 Generating IP...
@@ -446,6 +529,7 @@ XST: HDL Synthesis
 XST: Advanced HDL Synthesis
 XST: Low Level Synthesis
 Generating Implementation files.
+Generating the Verilog instantiation template.
 Generating NGC file.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -intstyle
@@ -458,8 +542,8 @@ INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
 INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 Writing module to "tmp/_cg/mig_wdf.ngo"...
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_w
-df/tmp/_cg/mig_wdf.ngo" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/m
+ig_wdf.ngo" ...
 Loading design module "./tmp/_cg/mig_wdf_fifo_generator_v6_2_xst_1.ngc"...
 
 Partition Implementation Status
@@ -492,30 +576,30 @@ Generating ISE project...
 XCO file found: mig_wdf.xco
 XMDF file found: mig_wdf_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/tmp/_cg/fifo_generator_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/fi
+fo_generator_readme.txt -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/tmp/_cg/mig_wdf.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/mi
+g_wdf.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/tmp/_cg/mig_wdf.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/mi
+g_wdf.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_w
-df/tmp/_cg/mig_wdf.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/m
+ig_wdf.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_w
-df/tmp/_cg/mig_wdf.ngc" device information matches project device.
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/m
+ig_wdf.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/tmp/_cg/mig_wdf.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/mi
+g_wdf.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mi
-   g_wdf/tmp/_cg/mig_wdf.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_c
+   g/mig_wdf.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/mig_wd
-f/tmp/_cg/mig_wdf.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/mig_wdf/tmp/_cg/mi
+g_wdf.veo -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
@@ -529,13 +613,101 @@ Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bios_m
-em/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/coregen.l
+og
 Saved CGP file for project 'coregen'.
 Saved CGP file for project 'coregen'.
 Release 14.1 - Xilinx CORE Generator P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 All runtime messages will be recorded in
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v16/skeleton/hardware/src/bios_m
-em/coregen.log
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/coregen.l
+og
 Resolving generic values...
+Finished resolving generic values.
+Generating IP...
+XST: HDL Compilation
+XST: Design Hierarchy Analysis
+XST: HDL Analysis
+XST: HDL Synthesis
+XST: Advanced HDL Synthesis
+XST: Low Level Synthesis
+XST: Partition Report
+XST: Final Report
+Generating Implementation files.
+Generating the Verilog wrapper.
+Generating NGC file.
+
+Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngcbuild -intstyle
+ise -dd ./tmp/_cg/ ./tmp/_cg/bios_mem.edn ./tmp/_cg/bios_mem_unobf.ngc
+
+Executing edif2ngd -noa "tmp/_cg/bios_mem.edn" "tmp/_cg/bios_mem.ngo"
+Release 14.1 - edif2ngd P.15xf (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+INFO:NgdBuild - Release 14.1 edif2ngd P.15xf (lin64)
+INFO:NgdBuild - Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Writing module to "tmp/_cg/bios_mem.ngo"...
+Reading NGO file
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngo" ...
+Loading design module "./tmp/_cg/bios_mem_blk_mem_gen_v4_3_xst_1.ngc"...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGCBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Writing NGC file "./tmp/_cg/bios_mem_unobf.ngc" ...
+Total REAL time to NGCBUILD completion:  15 sec
+Total CPU time to NGCBUILD completion:   9 sec
+
+Writing NGCBUILD log file "./tmp/_cg/bios_mem_unobf.blc"...
+
+NGCBUILD done.
+Finished Generation.
+Generating IP instantiation template...
+Generating ASY schematic symbol...
+Generating metadata file...
+Generating ISE project...
+XCO file found: bios_mem.xco
+XMDF file found: bios_mem_xmdf.tcl
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.asy -view all -origin_type imported
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.ngc -view all -origin_type created
+Checking file
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngc" for project device match ...
+File
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
+bios_mem.ngc" device information matches project device.
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.v -view all -origin_type created
+INFO:HDLCompiler:1845 - Analyzing Verilog file
+   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_
+   cg/bios_mem.v" into library work
+INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+ios_mem.veo -view all -origin_type imported
+Adding
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
+lk_mem_gen_readme.txt -view all -origin_type imported
+INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
+   Please set the new top explicitly by running the "project set top" command.
+   To re-calculate the new top automatically, set the "Auto Implementation Top"
+   property to true.
+Top level has been set to "/bios_mem"
+Generating README file...
+Generating FLIST file...
+Moving files to output directory...
+Finished moving files to output directory
+Saved CGP file for project 'coregen'.

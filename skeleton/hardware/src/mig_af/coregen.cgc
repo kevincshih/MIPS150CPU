@@ -146,8 +146,8 @@
                   <xilinx:file>
                      <xilinx:name>./mig_af.xco</xilinx:name>
                      <xilinx:userFileType>xco</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:51:04 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0xBCBA4791</xilinx:checkSum>
+                     <xilinx:timeStamp>Thu Nov 22 23:13:18 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x13B2D7D5</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                </xilinx:fileSet>
@@ -156,36 +156,36 @@
                   <xilinx:file>
                      <xilinx:name>./fifo_generator_readme.txt</xilinx:name>
                      <xilinx:userFileType>txt</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:53:46 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:02 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x406DA7B6</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./fifo_generator_ug175.pdf</xilinx:name>
                      <xilinx:userFileType>pdf</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:53:46 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:02 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x5BB37B65</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./mig_af.ngc</xilinx:name>
                      <xilinx:userFileType>ngc</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:09 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0x0238181B</xilinx:checkSum>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:23 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0xF6933D11</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./mig_af.v</xilinx:name>
                      <xilinx:userFileType>verilog</xilinx:userFileType>
                      <xilinx:userFileType>verilogSynthesis</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:13 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0xCC5282E9</xilinx:checkSum>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:28 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0x9983F230</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                   <xilinx:file>
                      <xilinx:name>./mig_af.veo</xilinx:name>
                      <xilinx:userFileType>veo</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:53:46 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:02 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xEB02D149</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -195,7 +195,7 @@
                   <xilinx:file>
                      <xilinx:name>./mig_af.veo</xilinx:name>
                      <xilinx:userFileType>veo</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:13 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:28 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0xEB02D149</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -205,7 +205,7 @@
                   <xilinx:file>
                      <xilinx:name>./mig_af.asy</xilinx:name>
                      <xilinx:userFileType>asy</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:13 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:28 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x81DA4448</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -216,7 +216,7 @@
                      <xilinx:name>./mig_af_xmdf.tcl</xilinx:name>
                      <xilinx:userFileType>tclXmdf</xilinx:userFileType>
                      <xilinx:userFileType>tcl</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:13 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:28 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x2A618C9B</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -227,7 +227,7 @@
                      <xilinx:name>./mig_af.gise</xilinx:name>
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>gise</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:21 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:36 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x9EB030B7</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
@@ -235,8 +235,8 @@
                      <xilinx:name>./mig_af.xise</xilinx:name>
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>xise</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:21 GMT 2012</xilinx:timeStamp>
-                     <xilinx:checkSum>0x5CE085E4</xilinx:checkSum>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:36 GMT 2012</xilinx:timeStamp>
+                     <xilinx:checkSum>0xDE4FE546</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>
                </xilinx:fileSet>
@@ -250,7 +250,7 @@
                      <xilinx:userFileType>ignore</xilinx:userFileType>
                      <xilinx:userFileType>txtFlist</xilinx:userFileType>
                      <xilinx:userFileType>txt</xilinx:userFileType>
-                     <xilinx:timeStamp>Sat Nov 17 20:54:21 GMT 2012</xilinx:timeStamp>
+                     <xilinx:timeStamp>Thu Nov 22 23:16:36 GMT 2012</xilinx:timeStamp>
                      <xilinx:checkSum>0x9824C449</xilinx:checkSum>
                      <xilinx:generationId>generationID_4013899584</xilinx:generationId>
                   </xilinx:file>

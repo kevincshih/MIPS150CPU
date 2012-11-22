@@ -2,7 +2,7 @@ proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secu
 start BiosTestbench
 file copy -force ../../../software/bios150v3/bios150v3.mif bios_mem.mif
 add wave BiosTestbench/*
-add wave BiosTestbench/DUT*
+add wave BiosTestbench/DUT/*
 add wave BiosTestbench/DUT/the_datapath/*
 add wave BiosTestbench/DUT/the_controller/*
 add wave BiosTestbench/DUT/the_datapath/the_regfile/*
