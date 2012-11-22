@@ -48,7 +48,7 @@ module Datapath(
    //First Pipeline Register
    reg [31:0]  PC_IF_RA, PC_4_Reg;
    reg [31:0]  Instruction_Dout_IF_RA;
-   reg 	       InstrSrc_Reg;
+   reg 	       InstrSrc_Reg, stall_reg;
 
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
@@ -70,9 +70,10 @@ module Datapath(
 
    IFControl the_IF_Control(.PC(PC_IF),
 			    .reset(reset),
-			    .stall(not_stall),
+			    .stall(Stall),
 			    .REIC(RCIS),
 			    .REBIOS(REBIOS),
+			    .stall_reg(stall_reg),
 			    .IFSel(InstrSrc));
    
    
@@ -139,7 +140,8 @@ module Datapath(
    
    always @(posedge CLK) begin
      resetReg <= reset;
-
+      stall_reg <= Stall;
+      
       if (CTreset || reset) begin
 	 CycleCounter <= 0;
       end
