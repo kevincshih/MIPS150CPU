@@ -1,0 +1,296 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start Memory150TestBench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl Memory150TestBench 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+# ** Note: (vopt-143) Recognized 4 FSMs in module "ddr2_phy_calib(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_ctrl(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_phy_init(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "Cache(fast)".
+###### ../../src/Memory150.v(215):     );
+# ** Warning: ../../src/Memory150.v(215): (vopt-2685) [TFMPC] - Too few port connections for 'req_con'.  Expected 60, found 34.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_rdf_valid'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_rdf_rd_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_addr_din'.
+###### ../../src/Memory150.v(238):     );
+# ** Warning: ../../src/Memory150.v(238): (vopt-2685) [TFMPC] - Too few port connections for 'icache'.  Expected 22, found 19.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'state'.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'tag_hit'.
+###### ../../src/Memory150.v(261):     );
+# ** Warning: ../../src/Memory150.v(261): (vopt-2685) [TFMPC] - Too few port connections for 'dcache'.  Expected 22, found 19.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'state'.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'tag_hit'.
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.Memory150TestBench(fast)
+# Loading work.mt4htf3264hy(fast)
+# Loading work.ddr2_model(fast)
+# Loading work.Memory150(fast)
+# Loading work.mig_v3_61(fast)
+# Loading work.ddr2_idelay_ctrl(fast)
+# Loading unisims_ver.IDELAYCTRL(fast)
+# Loading work.ddr2_infrastructure(fast)
+# Loading work.ddr2_top(fast)
+# Loading work.ddr2_mem_if_top(fast)
+# Loading work.ddr2_phy_top(fast)
+# Loading work.ddr2_phy_write(fast)
+# Loading work.ddr2_phy_io(fast)
+# Loading work.ddr2_phy_calib(fast)
+# Loading unisims_ver.FDRSE(fast)
+# Loading unisims_ver.ODDR(fast)
+# Loading work.ddr2_phy_dqs_iob(fast)
+# Loading unisims_ver.FDCPE_1(fast)
+# Loading unisims_ver.FDP(fast)
+# Loading work.ddr2_phy_dm_iob(fast)
+# Loading unisims_ver.FDRSE_1(fast)
+# Loading unisims_ver.ODDR(fast__1)
+# Loading work.ddr2_phy_dq_iob(fast)
+# Loading unisims_ver.ODDR(fast__2)
+# Loading unisims_ver.IDDR(fast)
+# Loading work.ddr2_phy_ctl_io(fast)
+# Loading unisims_ver.FDCPE(fast)
+# Loading work.ddr2_phy_init(fast)
+# Loading work.ddr2_usr_top(fast)
+# Loading work.ddr2_usr_rd(fast)
+# Loading work.ddr2_usr_addr_fifo(fast)
+# Loading unisims_ver.FIFO36(fast)
+# Loading work.ddr2_usr_wr(fast)
+# Loading unisims_ver.FIFO36_72(fast)
+# Loading work.ddr2_ctrl(fast)
+# Loading work.mig_af(fast)
+# Loading unisims_ver.FDC(fast)
+# Loading unisims_ver.FIFO36_EXP(fast)
+# Loading unisims_ver.FDPE(fast)
+# Loading work.mig_wdf(fast)
+# Loading work.mig_rdf(fast)
+# Loading work.RequestController(fast)
+# Loading work.Cache(fast)
+# Loading work.cache_data_blk_ram(fast)
+# Loading work.cache_tag_blk_ram(fast)
+# ** Warning: (vsim-3017) ../../src/Memory150.v(215): [TFMPC] - Too few port connections. Expected 60, found 52.
+#         Region: /Memory150TestBench/mem_arch/req_con
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'bypass_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'bypass_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'filler_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'filler_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_rdf_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_af_full'.
+# ** Warning: (vsim-3017) ../../src/Memory150.v(238): [TFMPC] - Too few port connections. Expected 22, found 19.
+#         Region: /Memory150TestBench/mem_arch/icache
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_hit'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'state'.
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+#         Region: /Memory150TestBench/mem_arch/icache/cache_tag
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+#         Region: /Memory150TestBench/mem_arch/icache/cache_tag
+# ** Warning: (vsim-3017) ../../src/Memory150.v(261): [TFMPC] - Too few port connections. Expected 22, found 19.
+#         Region: /Memory150TestBench/mem_arch/dcache
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_hit'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'state'.
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+#         Region: /Memory150TestBench/mem_arch/dcache/cache_tag
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+#         Region: /Memory150TestBench/mem_arch/dcache/cache_tag
+add wave Memory150TestBench/*
+add wave Memory150TestBench/mem_arch/*
+add wave Memory150TestBench/mem_arch/dcache/*
+add wave Memory150TestBench/mem_arch/icache/*
+add wave Memory150TestBench/mem_arch/req_con/*
+run -all
+# Block Memory Generator CORE Generator module Memory150TestBench.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module Memory150TestBench.mem_arch.icache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module Memory150TestBench.mem_arch.dcache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module Memory150TestBench.mem_arch.dcache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Warning : At time 0.1 ns,  RDEN on AFIFO36_INTERNAL instance Memory150TestBench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
+# TB: Time = 105.0 ns
+# Memory150TestBench.ddr2.u_mem2.cmd_task: at time 10942.6 ns WARNING: 200 us is required before CKE goes active.
+# Memory150TestBench.ddr2.u_mem3.cmd_task: at time 10942.6 ns WARNING: 200 us is required before CKE goes active.
+# Memory150TestBench.ddr2.u_mem0.cmd_task: at time 10942.6 ns WARNING: 200 us is required before CKE goes active.
+# Memory150TestBench.ddr2.u_mem1.cmd_task: at time 10942.6 ns WARNING: 200 us is required before CKE goes active.
+# TB: Time = 20295.0 ns
+# First Stage Calibration completed at time 35105.0 ns
+# TB: Time = 40315.0 ns
+# Second Stage Calibration completed at time 45945.0 ns
+# Third Stage Calibration completed at time 55815.0 ns
+# TB: Time = 60335.0 ns
+# Fourth Stage Calibration completed at time 74735.0 ns
+# Calibration completed at time 74735.0 ns
+# --- Start Performance Cache Test #1 ---
+# ignore cycle counts here
+# TB: i-Write #1 start at 76175.0 ns
+# TB: d-Write #1 start at 76175.0 ns
+# TB: i-Write #2 start at 76285.0 ns
+# TB: d-Write #2 start at 76285.0 ns
+# TB: Write #2 done at 76285.0 ns (1 cycles)
+# TB: Write #2 done at 76285.0 ns (1 cycles)
+# TB: i-Read #1, Addr=00000000 start at 76385.0 ns
+# TB: d-Read #1, Addr=00010000 start at 76385.0 ns
+# TB: Write #2 done at 76385.0 ns (1 cycles)
+# TB: Write #2 done at 76385.0 ns (1 cycles)
+# TB: i-Read #2, Addr=00100000 start at 76925.0 ns
+# TB: d-Read #2, Addr=00110000 start at 76925.0 ns
+# TB: i-Read  #2 pass at 76925.0 ns (1 cycles)
+# TB: d-Read  #2 pass at 76925.0 ns (1 cycles)
+# TB: i-Read #3, Addr=00100000 start at 77325.0 ns
+# TB: d-Read #3, Addr=00110000 start at 77325.0 ns
+# TB: i-Read  #3 pass at 77325.0 ns (1 cycles)
+# TB: d-Read  #3 pass at 77325.0 ns (1 cycles)
+# TB: i-Read  #3 pass at 77345.0 ns (1 cycles)
+# TB: d-Read  #3 pass at 77345.0 ns (1 cycles)
+# --- End Performance Cache Test #1 ---
+# --------------------------
+# --- Start I$ Idle Test ---
+# --------------------------
+# TB: d-Write #3 start at 77555.0 ns
+# TB: Write #3 done at 77645.0 ns (3 cycles)
+# TB: d-Read #4, Addr=00000000 start at 77645.0 ns
+# TB: d-Read  #4 pass at 77945.0 ns (14 cycles)
+# TB: d-Read #5, Addr=00000000 start at 77945.0 ns
+# TB: d-Read  #5 pass at 77985.0 ns (1 cycles)
+# TB: d-Write #4 start at 77985.0 ns
+# blk_mem_gen_v4_3 collision detected at time: 78035000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78035000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78055000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78055000, A write address: 0, B read address: 0
+# TB: Write #4 done at 78065.0 ns (3 cycles)
+# TB: d-Read #6, Addr=00000000 start at 78065.0 ns
+# TB: d-Read  #6 pass at 78105.0 ns (1 cycles)
+# TB: d-Write #5 start at 78105.0 ns
+# blk_mem_gen_v4_3 collision detected at time: 78155000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78155000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78175000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 78175000, A write address: 0, B read address: 0
+# TB: Write #5 done at 78185.0 ns (3 cycles)
+# TB: d-Read #7, Addr=00000000 start at 78185.0 ns
+# TB: d-Read  #7 pass at 78225.0 ns (1 cycles)
+# TB: d-Write #6 start at 78225.0 ns
+# TB: Write #6 done at 78305.0 ns (3 cycles)
+# TB: d-Read #8, Addr=00100000 start at 78305.0 ns
+# TB: d-Read  #8 pass at 78605.0 ns (14 cycles)
+# TB: d-Read #9, Addr=00100000 start at 78605.0 ns
+# TB: d-Read  #9 pass at 78645.0 ns (1 cycles)
+# TB: d-Read #10, Addr=00000000 start at 78645.0 ns
+# TB: d-Read  #10 pass at 78985.0 ns (16 cycles)
+# TB: d-Read #11, Addr=00000000 start at 78985.0 ns
+# TB: d-Read  #11 pass at 79025.0 ns (1 cycles)
+# --------------------------
+# ---- End I$ Idle Test ----
+# --------------------------
+# ------------------------------
+# --- Start I$ Read Hit Test ---
+# ------------------------------
+# TB: i-Write #3 start at 79025.0 ns
+# TB: Write #3 done at 79105.0 ns (3 cycles)
+# TB: i-Read #4, Addr=00000000 start at 79105.0 ns
+# TB: i-Read  #4 pass at 79405.0 ns (14 cycles)
+# TB: i-Read #5, Addr=00000000 start at 79405.0 ns
+# TB: i-Read  #5 pass at 79445.0 ns (1 cycles)
+# TB: i-Read #6, Addr=00000000 start at 79445.0 ns
+# TB: d-Write #7 start at 79445.0 ns
+# blk_mem_gen_v4_3 collision detected at time: 79495000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79495000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79515000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79515000, A write address: 0, B read address: 0
+# TB: i-Read  #6 pass at 79525.0 ns (3 cycles)
+# TB: Write #7 done at 79525.0 ns (3 cycles)
+# TB: i-Read #7, Addr=00000000 start at 79525.0 ns
+# TB: d-Read #12, Addr=00000000 start at 79525.0 ns
+# TB: i-Read  #7 pass at 79565.0 ns (1 cycles)
+# TB: d-Read  #12 pass at 79565.0 ns (1 cycles)
+# TB: i-Read #8, Addr=00000000 start at 79565.0 ns
+# TB: d-Read #13, Addr=00000000 start at 79565.0 ns
+# TB: i-Read  #8 pass at 79605.0 ns (1 cycles)
+# TB: d-Read  #13 pass at 79605.0 ns (1 cycles)
+# TB: i-Read #9, Addr=00000000 start at 79605.0 ns
+# TB: d-Write #8 start at 79605.0 ns
+# blk_mem_gen_v4_3 collision detected at time: 79655000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79655000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79675000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79675000, A write address: 0, B read address: 0
+# TB: i-Read  #9 pass at 79685.0 ns (3 cycles)
+# TB: Write #8 done at 79685.0 ns (3 cycles)
+# TB: i-Read #10, Addr=00000000 start at 79685.0 ns
+# TB: d-Read #14, Addr=00000000 start at 79685.0 ns
+# TB: i-Read  #10 pass at 79725.0 ns (1 cycles)
+# TB: d-Read  #14 pass at 79725.0 ns (1 cycles)
+# TB: i-Read #11, Addr=00000000 start at 79725.0 ns
+# TB: d-Write #9 start at 79725.0 ns
+# blk_mem_gen_v4_3 collision detected at time: 79775000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79775000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79795000, A write address: 0, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 79795000, A write address: 0, B read address: 0
+# TB: i-Read  #11 pass at 79805.0 ns (3 cycles)
+# TB: Write #9 done at 79805.0 ns (3 cycles)
+# TB: i-Read #12, Addr=00000000 start at 79805.0 ns
+# TB: d-Read #15, Addr=00000000 start at 79805.0 ns
+# TB: i-Read  #12 pass at 79845.0 ns (1 cycles)
+# TB: d-Read  #15 pass at 79845.0 ns (1 cycles)
+# TB: i-Read #13, Addr=00000000 start at 79845.0 ns
+# TB: d-Write #10 start at 79845.0 ns
+# TB: i-Read  #13 pass at 79925.0 ns (3 cycles)
+# TB: Write #10 done at 79925.0 ns (3 cycles)
+# TB: i-Read #14, Addr=00000000 start at 79925.0 ns
+# TB: d-Read #16, Addr=00100000 start at 79925.0 ns
+# TB: i-Read  #14 pass at 80225.0 ns (14 cycles)
+# TB: d-Read  #16 pass at 80225.0 ns (14 cycles)
+# TB: i-Read #15, Addr=00000000 start at 80225.0 ns
+# TB: d-Read #17, Addr=00100000 start at 80225.0 ns
+# TB: i-Read  #15 pass at 80265.0 ns (1 cycles)
+# TB: d-Read  #17 pass at 80265.0 ns (1 cycles)
+# TB: i-Read #16, Addr=00000000 start at 80265.0 ns
+# TB: d-Read #18, Addr=00000000 start at 80265.0 ns
+# TB: Time = 80355.0 ns
+# TB: i-Read  #16 pass at 80605.0 ns (16 cycles)
+# TB: d-Read  #18 pass at 80605.0 ns (16 cycles)
+# TB: i-Read #17, Addr=00000000 start at 80605.0 ns
+# TB: d-Read #19, Addr=00000000 start at 80605.0 ns
+# TB: i-Read  #17 pass at 80645.0 ns (1 cycles)
+# TB: d-Read  #19 pass at 80645.0 ns (1 cycles)
+# ------------------------------
+# ---- End I$ Read Hit Test ----
+# ------------------------------
+#  All tests PASSED 

@@ -159,6 +159,7 @@ add wave EchoTestbenchCaches/DUT/the_datapath/*
 add wave EchoTestbenchCaches/DUT/the_uart/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_PC/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/*
+add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers
 add wave EchoTestbenchCaches/DUT/the_datapath/the_IF_Control/*
 run 10000us
 # Block Memory Generator CORE Generator module EchoTestbenchCaches.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
@@ -197,5 +198,11 @@ run 10000us
 # Third Stage Calibration completed at time 55805000.0 ps
 # Fourth Stage Calibration completed at time 74725000.0 ps
 # Calibration completed at time 74725000.0 ps
-# 
-# <EOF> 
+# Got 7a
+# Got 80
+# Got 81
+# Got 82
+# Got 83
+# Got 84
+# Got 85
+# Got 86

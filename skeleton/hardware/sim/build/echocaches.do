@@ -10,5 +10,6 @@ add wave EchoTestbenchCaches/DUT/the_datapath/*
 add wave EchoTestbenchCaches/DUT/the_uart/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_PC/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/*
+add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers
 add wave EchoTestbenchCaches/DUT/the_datapath/the_IF_Control/*
 run 10000us
