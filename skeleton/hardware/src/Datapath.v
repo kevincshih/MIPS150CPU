@@ -1,7 +1,7 @@
 module Datapath(
 		input [3:0] ALUop,
 		input  REUART, WEUART, DinSel, CTsel, CTreset,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		input [31:0] dcache_dout, icache_dout,
@@ -36,7 +36,7 @@ module Datapath(
    wire [5:0]  prev_opcode, opcode, funct;
    wire [15:0] Imm;
    wire [25:0] JAL_Target; 
-   wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, rd1, rd2, Imm_Shifted, JR;
+   wire [31:0] ALU_SrcA, ALU_SrcB, Imm_Extended, Imm_Zero, Immediate, rd1, rd2, Imm_Shifted, JR;
    
    //wires for DataMem and WriteBack stage
    wire [31:0] ALU_OutMW, WriteData, DMEM_dout, UART_Data, dina_unshifted, bios_douta, bios_doutb, CounterData;
@@ -193,7 +193,7 @@ module Datapath(
 	2'b01: ALU_SrcB_Reg = rd2; // normal r-type
  	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
 	2'b10: ALU_SrcB_Reg = ALU_OutMW_Reg; // fwd B
-	2'b11: ALU_SrcB_Reg = Imm_Extended; // imm for i-type
+	2'b11: ALU_SrcB_Reg = Immediate; // immediate, zero or SE'd, for i-type
 	default: ALU_SrcB_Reg = rd2;
       endcase // case (ALU_Sel_B)
       
@@ -340,7 +340,9 @@ module Datapath(
    assign JAL_Target = JAL_Target_Reg;
    assign PC_JAL = {PC_High_bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
+   assign Imm_Zero = {16'b0, Imm};
    assign Imm_Shifted = Imm_Extended << 2;
+   assign Immediate = (SEXTImm)? Imm_Extended : Imm_Zero;
    assign PC_Branch = Imm_Shifted + PC_4_Reg;
 
    assign addra = ALU_OutMW[13:2];

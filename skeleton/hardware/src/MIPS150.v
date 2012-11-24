@@ -22,7 +22,7 @@ module MIPS150(
 
    // Control wires
    wire    REUART, WEUART, DinSel,
-	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel;
+	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel, SEXTImm;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
    wire [3:0] ALUop;
 
@@ -52,6 +52,7 @@ module MIPS150(
 			  .ICacheSel(ICacheSel),
 			  .CTsel(CTsel),
 			  .CTreset(CTreset),
+			  .SEXTImm(SEXTImm),
 			  .REDC(dcache_re)); //end outputs
 
    Datapath the_datapath(
@@ -65,6 +66,7 @@ module MIPS150(
 			 .ALU_Sel_B(ALU_Sel_B),
 			 .RegDst(RegDst),
 			 .RegWrite(RegWrite),
+			 .SEXTImm(SEXTImm),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
 			 .offset(offset),
