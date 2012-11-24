@@ -14,7 +14,27 @@ XST: Low Level Synthesis
 XST: Partition Report
 XST: Final Report
 Generating Implementation files.
-Generating the Verilog wrapper.
+Exception in thread "Thread-0" java.lang.InternalError: Can't connect to X11
+window server using 'localhost:10.0' as the value of the DISPLAY variable.
+	at sun.awt.X11GraphicsEnvironment.initDisplay(Native Method)
+	at sun.awt.X11GraphicsEnvironment.access$000(Unknown Source)
+	at sun.awt.X11GraphicsEnvironment$1.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.awt.X11GraphicsEnvironment.<clinit>(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment(Unknown Source)
+	at sun.awt.X11.XToolkit.<clinit>(Unknown Source)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at java.awt.Toolkit$2.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.awt.Toolkit.getDefaultToolkit(Unknown Source)
+	at java.awt.Toolkit.getEventQueue(Unknown Source)
+	at java.awt.EventQueue.invokeLater(Unknown Source)
+	at javax.swing.SwingUtilities.invokeLater(Unknown Source)
+	at com.xilinx.coreutil.util.guis.SwingWorker$2.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
 Generating NGC file.
 Finished Generation.
 Generating IP instantiation template...
@@ -25,30 +45,30 @@ Generating ISE project...
 XCO file found: bios_mem.xco
 XMDF file found: bios_mem_xmdf.tcl
 Adding
-/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
-ios_mem.asy -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_c
+g/bios_mem.asy -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
-ios_mem.ngc -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_c
+g/bios_mem.ngc -view all -origin_type created
 Checking file
-"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
-bios_mem.ngc" for project device match ...
+"/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_
+cg/bios_mem.ngc" for project device match ...
 File
-"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/
-bios_mem.ngc" device information matches project device.
+"/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_
+cg/bios_mem.ngc" device information matches project device.
 Adding
-/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
-ios_mem.v -view all -origin_type created
+/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_c
+g/bios_mem.v -view all -origin_type created
 INFO:HDLCompiler:1845 - Analyzing Verilog file
-   "/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_
-   cg/bios_mem.v" into library work
+   "/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tm
+   p/_cg/bios_mem.v" into library work
 INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
 Adding
-/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
-ios_mem.veo -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_c
+g/bios_mem.veo -view all -origin_type imported
 Adding
-/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/src/bios_mem/tmp/_cg/b
-lk_mem_gen_readme.txt -view all -origin_type imported
+/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/src/bios_mem/tmp/_c
+g/blk_mem_gen_readme.txt -view all -origin_type imported
 INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
    Please set the new top explicitly by running the "project set top" command.
    To re-calculate the new top automatically, set the "Auto Implementation Top"
