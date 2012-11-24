@@ -28,7 +28,9 @@ module MIPS150(
 
    // Data wires
    wire [7:0] DataOut, DataIn;
-   wire [31:0] Instruction, PrevInstruction, Address, PC;
+   wire [31:0] Instruction, PrevInstruction, Address, PC, dcache_dout2, instruction2;
+   
+   reg [31:0] dcache_doutreg, instructionreg;
    
    Control the_controller(
 			  .Address(Address),
@@ -81,8 +83,8 @@ module MIPS150(
 			 .icache_addr(icache_addr),
 			 .dcache_din(dcache_din),
 			 .icache_din(icache_din),
-			 .dcache_dout(dcache_dout),
-			 .icache_dout(instruction)); //output
+			 .dcache_dout(dcache_dout2),
+			 .icache_dout(instruction2)); //output
 
    UART the_uart(
 		 .Clock(clk), //input 
@@ -95,7 +97,16 @@ module MIPS150(
 		 .DataOutReady(DataOutReady), //input
 		 .SIn(FPGA_SERIAL_RX), //input
 		 .SOut(FPGA_SERIAL_TX)); //output
-   
+   assign not_stall = ~stall;
+   assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_doutreg;
+   assign instruction2 = (not_stall) ? instruction : instructionreg;
+	  
+   always @(posedge clk) begin
+		if (not_stall) begin
+		dcache_doutreg <= dcache_dout;
+		instructionreg <= instruction;
+		end
+	  end
    
 
 
