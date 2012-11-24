@@ -3,8 +3,8 @@ Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
 
 Project Information
 --------------------
-ProjectID=ecfeea17d2db46ae803a316365ce1299
-ProjectIteration=3
+ProjectID=9e25b3a659d043b3bee1dd5b53878d9b
+ProjectIteration=2
 
 WebTalk Summary
 ----------------
@@ -13,4 +13,4 @@ INFO:WebTalk:2 - WebTalk is enabled.
 INFO:WebTalk:8 - WebTalk Install setting is ON.
 INFO:WebTalk:6 - WebTalk User setting is ON.
 
-INFO:WebTalk:5 - /home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/14.1/ISE_DS/ISE/data/reports/webtalk_introduction.html
+INFO:WebTalk:5 - /home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v27/skeleton/hardware/build/ml505top/usage_statistics_webtalk.html WebTalk report has not been sent to Xilinx.  Please check your network and proxy settings.  For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/14.1/ISE_DS/ISE/data/reports/webtalk_introduction.html

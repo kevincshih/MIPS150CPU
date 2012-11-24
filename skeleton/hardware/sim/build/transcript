@@ -196,13 +196,13 @@ run 10000us
 # Third Stage Calibration completed at time 55805000.0 ps
 # Fourth Stage Calibration completed at time 74725000.0 ps
 # Calibration completed at time 74725000.0 ps
+# Got  13
 # Got  10
+# Got  13
 # Got  10
+# Got  13
 # Got  10
-# Got  10
-# Got  10
-# Got  10
-# Got  10
+# Got  13
 # blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
 # blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
 # blk_mem_gen_v4_3 collision detected at time: 687705000, A write address: 77, B read address: 77
@@ -220,11 +220,11 @@ run 10000us
 # blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
 # blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
 # Got  10
-# Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got   0
-# Got   0
+# Got  62
+# Got  32
+# Got  32
+# Got  32
+# Got  32
+# Got  32
+# Got  32
+# Got  32

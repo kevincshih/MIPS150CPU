@@ -1,7 +1,7 @@
-INFILE=/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505top.ncd
-OUTFILE=/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505top.bit
+INFILE=/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v27/skeleton/hardware/build/ml505top/ml505top.ncd
+OUTFILE=/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v27/skeleton/hardware/build/ml505top/ml505top.bit
 FAMILY=Virtex5
 PART=xc5vlx110t-1ff1136
-WORKINGDIR=/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top
+WORKINGDIR=/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v27/skeleton/hardware/build/ml505top
 LICENSE=ISE
 USER_INFO=__174112198_174112199_174416789
