@@ -164,16 +164,16 @@ ALUdec DUT(.funct(funct),
     if (MemRead && (Address == 32'h80000010)) begin
     	CTselreg = 1'b0;
 		RDselreg = 2'b11;
-		CTResetreg = 1'b0;
     end
 	else if (MemRead && (Address == 32'h80000014)) begin
     	CTselreg = 1'b1;
 		RDselreg = 2'b11;
-		CTResetreg = 1'b0;
     end
-	else if (MemWrite && (Address == 32'h80000018)) begin
+	
+	if (MemWrite && (Address == 32'h80000018)) begin
 		CTResetreg = 1'b1;
 	end
+	else CTResetreg = 1'b0;
 	
    //UART I/O
 

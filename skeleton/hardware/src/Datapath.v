@@ -138,6 +138,11 @@ module Datapath(
 				       .take_branch(Branch_compare));
    
    
+   always @(Instruction) begin
+      if (CTreset || reset) InstrCounter = 0;
+      else InstrCounter = InstrCounter + 1;
+   end   
+
    always @(posedge CLK) begin
      resetReg <= reset;
       stall_reg <= Stall;
@@ -145,15 +150,12 @@ module Datapath(
       if (CTreset || reset) begin
 	 CycleCounter <= 0;
       end
-      
-      
+     else CycleCounter <= CycleCounter + 1;
 	 
 	 if (not_stall) begin
 	 //First Pipeline Registers
 	    PC_IF_RA <= PC_IF;
 	    InstrSrc_Reg <= InstrSrc;
-	    CycleCounter <= CycleCounter + 1;
-	    
 
 	 //Second Pipeline Registers
 	    A3_RA_DW <= A3_Reg;
@@ -176,10 +178,7 @@ module Datapath(
 	WEUART_Reg = WEUART;
 	end
 	
-   always @(Instruction) begin
-      if (CTreset || reset) InstrCounter = 0;
-      InstrCounter = InstrCounter + 1;
-   end
+   
    
    always @(*) begin
       case(ALU_Sel_A)
