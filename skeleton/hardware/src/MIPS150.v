@@ -97,6 +97,7 @@ module MIPS150(
 		 .DataOutReady(DataOutReady), //input
 		 .SIn(FPGA_SERIAL_RX), //input
 		 .SOut(FPGA_SERIAL_TX)); //output
+		 
    assign not_stall = ~stall;
    assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_doutreg;
    assign instruction2 = (not_stall) ? instruction : instructionreg;
