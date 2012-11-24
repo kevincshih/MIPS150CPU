@@ -1,7 +1,11 @@
 Release 14.1 - par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
+<<<<<<< HEAD
 Sat Nov 24 00:40:37 2012
+=======
+Fri Nov 23 19:51:08 2012
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 All signals are completely routed.
 

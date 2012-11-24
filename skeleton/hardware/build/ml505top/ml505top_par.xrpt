@@ -5,7 +5,11 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
+<<<<<<< HEAD
   <application stringID="par" timeStamp="Sat Nov 24 00:36:42 2012">
+=======
+  <application stringID="par" timeStamp="Fri Nov 23 19:47:40 2012">
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -51,13 +55,21 @@
         <item stringID="User_EnvOsname" value="unknown"/>
         <item stringID="User_EnvOsrelease" value="unknown"/>
       </item>
+<<<<<<< HEAD
       <item stringID="User_EnvHost" value="p380-37.EECS.Berkeley.EDU"/>
+=======
+      <item stringID="User_EnvHost" value="p380-35.EECS.Berkeley.EDU"/>
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
       <table stringID="User_EnvCpu">
         <column stringID="arch"/>
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="Intel(R) Pentium(R) D CPU 3.20GHz"/>
+<<<<<<< HEAD
           <item stringID="speed" value="3192.272 MHz"/>
+=======
+          <item stringID="speed" value="3192.158 MHz"/>
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
         </row>
       </table>
     </section>
@@ -88,12 +100,21 @@
     </task>
     <task stringID="PAR_PAR">
       <section stringID="PAR_DESIGN_SUMMARY">
+<<<<<<< HEAD
         <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="3 mins 46 secs "/>
         <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="3 mins 54 secs "/>
         <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
         <item dataType="float" stringID="PAR_TIMING_SCORE" value="14712031.000000"/>
         <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="4 mins 20 secs "/>
         <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="4 mins 27 secs "/>
+=======
+        <item stringID="PAR_REAL_TIME_COMPLETION_ROUTER" value="3 mins 20 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_ROUTER" value="3 mins 26 secs "/>
+        <item dataType="int" stringID="PAR_UNROUTES" value="0"/>
+        <item dataType="float" stringID="PAR_TIMING_SCORE" value="14712031.000000"/>
+        <item stringID="PAR_REAL_TIME_COMPLETION_PAR" value="3 mins 52 secs "/>
+        <item stringID="PAR_CPU_TIME_COMPLETION_PAR" value="3 mins 58 secs "/>
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
       </section>
     </task>
     <task stringID="PAR_par">

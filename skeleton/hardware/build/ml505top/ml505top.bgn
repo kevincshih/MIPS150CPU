@@ -6,7 +6,11 @@ Loading device for application Rf_Device from file '5vlx110t.nph' in environment
 -1
 Opened constraints file ml505top.pcf.
 
+<<<<<<< HEAD
 Sat Nov 24 00:41:01 2012
+=======
+Fri Nov 23 19:51:32 2012
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -w ml505top.ncd ml505top.bit ml505top.pcf 
 
@@ -156,7 +160,11 @@ WARNING:Security:44 - Since no license file was found,
        (xlcm or "Manage Xilinx Licenses")
        to assist in obtaining a license.
 WARNING:Security:42 - Your license support version '2012.12' for ISE expires in
+<<<<<<< HEAD
 6 days after which you will not qualify for Xilinx software updates or new
+=======
+7 days after which you will not qualify for Xilinx software updates or new
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 releases.
 
 Creating bit map...

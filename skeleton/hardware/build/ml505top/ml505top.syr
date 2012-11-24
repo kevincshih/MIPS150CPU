@@ -5,14 +5,22 @@ Parameter TMPDIR set to xst/tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
+<<<<<<< HEAD
 Total CPU time to Xst completion: 0.13 secs
+=======
+Total CPU time to Xst completion: 0.14 secs
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
+<<<<<<< HEAD
 Total CPU time to Xst completion: 0.14 secs
+=======
+Total CPU time to Xst completion: 0.15 secs
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
  
 --> 
 
@@ -3584,6 +3592,7 @@ INFO:Xst:2261 - The FF/Latch <count_rden_2> in Unit <ddr2_phy_calib> is equivale
 INFO:Xst:2261 - The FF/Latch <PC_IF_RA_0> in Unit <Datapath> is equivalent to the following FF/Latch, which will be removed : <PC_4_Reg_0> 
 INFO:Xst:2261 - The FF/Latch <PC_IF_RA_1> in Unit <Datapath> is equivalent to the following FF/Latch, which will be removed : <PC_4_Reg_1> 
 WARNING:Xst:2170 - Unit ALU : the following signal(s) form a combinatorial loop: O_shift0002<31>.
+<<<<<<< HEAD
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: Madd_InstrCounter_cy<10>, Madd_InstrCounter_cy<22>, Madd_InstrCounter_cy<29>, Madd_InstrCounter_cy<4>, Madd_InstrCounter_cy<12>, Madd_InstrCounter_cy<7>, Madd_InstrCounter_cy<5>, InstrCounter<31>, Madd_InstrCounter_cy<11>, Madd_InstrCounter_cy<9>, Madd_InstrCounter_cy<20>, Madd_InstrCounter_cy<3>, Madd_InstrCounter_cy<13>, Madd_InstrCounter_cy<1>, Madd_InstrCounter_cy<28>, Madd_InstrCounter_cy<0>, _old_InstrCounter_54<0>, Madd_InstrCounter_cy<6>, InstrCounter<0>, Madd_InstrCounter_cy<8>, Madd_InstrCounter_cy<18>, Madd_InstrCounter_lut<0>, Madd_InstrCounter_cy<24>, Madd_InstrCounter_cy<16>, Madd_InstrCounter_cy<26>, Madd_InstrCounter_cy<19>, Madd_InstrCounter_cy<30>, Madd_InstrCounter_cy<21>, Madd_InstrCounter_cy<14>, Madd_InstrCounter_cy<2>, WriteData_Reg<31>, Madd_InstrCounter_cy<15>, Madd_InstrCounter_cy<25>, Madd_InstrCounter_cy<17>, Madd_InstrCounter_cy<23>, Madd_InstrCounter_cy<27>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<30>, _old_InstrCounter_54<30>, WriteData_Reg<30>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<29>, _old_InstrCounter_54<29>, WriteData_Reg<29>.
@@ -3613,6 +3622,37 @@ WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial 
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<5>, InstrCounter<5>, WriteData_Reg<5>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<4>, _old_InstrCounter_54<4>, WriteData_Reg<4>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<3>, _old_InstrCounter_54<3>, InstrCounter<3>.
+=======
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: Madd_InstrCounter_cy<12>, Madd_InstrCounter_cy<15>, Madd_InstrCounter_cy<0>, Madd_InstrCounter_cy<13>, _old_InstrCounter_54<0>, Madd_InstrCounter_cy<29>, Madd_InstrCounter_cy<22>, Madd_InstrCounter_cy<30>, Madd_InstrCounter_cy<28>, InstrCounter<0>, Madd_InstrCounter_cy<17>, InstrCounter<31>, Madd_InstrCounter_cy<2>, Madd_InstrCounter_cy<10>, Madd_InstrCounter_cy<19>, Madd_InstrCounter_cy<14>, Madd_InstrCounter_cy<23>, Madd_InstrCounter_cy<11>, Madd_InstrCounter_cy<16>, Madd_InstrCounter_cy<4>, Madd_InstrCounter_cy<8>, Madd_InstrCounter_cy<24>, Madd_InstrCounter_cy<18>, Madd_InstrCounter_cy<3>, Madd_InstrCounter_cy<9>, Madd_InstrCounter_cy<6>, Madd_InstrCounter_cy<27>, Madd_InstrCounter_cy<21>, WriteData_Reg<31>, Madd_InstrCounter_cy<7>, Madd_InstrCounter_cy<26>, Madd_InstrCounter_cy<25>, Madd_InstrCounter_lut<0>, Madd_InstrCounter_cy<5>, Madd_InstrCounter_cy<1>, Madd_InstrCounter_cy<20>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<30>, WriteData_Reg<30>, InstrCounter<30>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<29>, _old_InstrCounter_54<29>, WriteData_Reg<29>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<28>, WriteData_Reg<28>, _old_InstrCounter_54<28>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<27>, WriteData_Reg<27>, InstrCounter<27>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<26>, _old_InstrCounter_54<26>, WriteData_Reg<26>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<25>, WriteData_Reg<25>, InstrCounter<25>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<24>, WriteData_Reg<24>, InstrCounter<24>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<23>, _old_InstrCounter_54<23>, WriteData_Reg<23>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<22>, InstrCounter<22>, WriteData_Reg<22>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<21>, _old_InstrCounter_54<21>, WriteData_Reg<21>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<20>, WriteData_Reg<20>, InstrCounter<20>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<19>, InstrCounter<19>, _old_InstrCounter_54<19>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<18>, _old_InstrCounter_54<18>, InstrCounter<18>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<17>, WriteData_Reg<17>, InstrCounter<17>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<16>, _old_InstrCounter_54<16>, InstrCounter<16>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<15>, _old_InstrCounter_54<15>, InstrCounter<15>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<14>, _old_InstrCounter_54<14>, WriteData_Reg<14>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<13>, InstrCounter<13>, _old_InstrCounter_54<13>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<12>, _old_InstrCounter_54<12>, InstrCounter<12>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<11>, _old_InstrCounter_54<11>, InstrCounter<11>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<10>, WriteData_Reg<10>, _old_InstrCounter_54<10>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<9>, InstrCounter<9>, _old_InstrCounter_54<9>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<8>, InstrCounter<8>, WriteData_Reg<8>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<7>, WriteData_Reg<7>, _old_InstrCounter_54<7>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<6>, _old_InstrCounter_54<6>, InstrCounter<6>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<5>, WriteData_Reg<5>, _old_InstrCounter_54<5>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<4>, InstrCounter<4>, _old_InstrCounter_54<4>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<3>, InstrCounter<3>, WriteData_Reg<3>.
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<2>, WriteData_Reg<2>, InstrCounter<2>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: _old_InstrCounter_54<1>, WriteData_Reg<1>, InstrCounter<1>.
 
@@ -6107,13 +6147,22 @@ WARNING:Xst:616 - Invalid property "SYN_NOPRUNE 1": Did not attach to mem_arch/d
 WARNING:Xst:616 - Invalid property "SYN_BLACK_BOX 1": Did not attach to mem_arch/ddr2_addr_fifo.
 
 
+<<<<<<< HEAD
 Total REAL time to Xst completion: 270.00 secs
 Total CPU time to Xst completion: 267.42 secs
+=======
+Total REAL time to Xst completion: 242.00 secs
+Total CPU time to Xst completion: 238.44 secs
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
  
 --> 
 
 
+<<<<<<< HEAD
 Total memory usage is 905972 kilobytes
+=======
+Total memory usage is 905964 kilobytes
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings : 1550 (   0 filtered)

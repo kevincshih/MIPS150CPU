@@ -1,6 +1,6 @@
 iMPACT Version: Apr 23 2012 20:20:28
 
-iMPACT log file Started on Sat Nov 24 10:12:44 2012
+iMPACT log file Started on Sat Nov 24 10:26:34 2012
 
 Preference Table
 Name                 Setting             
@@ -65,7 +65,7 @@ INFO:iMPACT:501 - '1': Added Device xcf32p successfully.
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 done.
-Elapsed time =      1 sec.
+Elapsed time =      0 sec.
 Elapsed time =      0 sec.
 '5': Loading file 'ml505top.bit' ...
 done.
@@ -79,9 +79,9 @@ INFO:iMPACT:501 - '5': Added Device xc5vlx110t successfully.
 Maximum TCK operating frequency for this device chain: 10000000.
 Validating chain...
 Boundary-scan chain validated successfully.
-5: Device Temperature: Current Reading:   72.52 C, Min. Reading:   64.16 C, Max.Reading:   87.78 C
-5: VCCINT Supply: Current Reading:   1.025 V, Min. Reading:   0.996 V, Max.Reading:   1.049 V
-5: VCCAUX Supply: Current Reading:   2.549 V, Min. Reading:   2.481 V, Max.Reading:   2.613 V
+5: Device Temperature: Current Reading:   88.77 C, Min. Reading:   62.68 C, Max.Reading:   91.23 C
+5: VCCINT Supply: Current Reading:   1.040 V, Min. Reading:   0.996 V, Max.Reading:   1.066 V
+5: VCCAUX Supply: Current Reading:   2.590 V, Min. Reading:   2.481 V, Max.Reading:   2.648 V
 '5': Programming device...
  Match_cycle = 2.
  LCK_cycle = NoWait.
@@ -96,7 +96,7 @@ INFO:iMPACT:188 - '5': Programming completed successfully.
 LCK cycle: NoWait
 INFO:iMPACT - '5': Checking done pin....done.
 '5': Programmed successfully.
-Elapsed time =     12 sec.
+Elapsed time =     11 sec.
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------

@@ -5,7 +5,11 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <DeviceUsageSummary rev="2">
+<<<<<<< HEAD
 <DesignStatistics TimeStamp="Sat Nov 24 00:42:28 2012"><group name="NetStatistics">
+=======
+<DesignStatistics TimeStamp="Fri Nov 23 19:52:57 2012"><group name="NetStatistics">
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 <item name="NumNets_Active" rev="2">
 <attrib name="value" value="9564"/></item>
 <item name="NumNets_Gnd" rev="2">
@@ -216,7 +220,11 @@
 <attrib name="value" value="3"/></item>
 </group>
 </DesignStatistics>
+<<<<<<< HEAD
 <DeviceUsage TimeStamp="Sat Nov 24 00:42:28 2012"><group name="SiteSummary">
+=======
+<DeviceUsage TimeStamp="Fri Nov 23 19:52:57 2012"><group name="SiteSummary">
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 <item name="BUFG" rev="2">
 <attrib name="total" value="1000000"/><attrib name="used" value="6"/></item>
 <item name="BUFG_BUFG" rev="2">
@@ -333,7 +341,11 @@
 <attrib name="total" value="1000000"/><attrib name="used" value="12"/></item>
 </group>
 </DeviceUsage>
+<<<<<<< HEAD
 <ReportConfigData TimeStamp="Sat Nov 24 00:42:28 2012"><group name="IODELAY">
+=======
+<ReportConfigData TimeStamp="Fri Nov 23 19:52:57 2012"><group name="IODELAY">
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 <item name="C" rev="2">
 <attrib name="C" value="80"/><attrib name="C_INV" value="0"/></item>
 <item name="DATAIN" rev="2">
@@ -1036,7 +1048,11 @@
 <attrib name="ASYNC" value="8"/><attrib name="SYNC" value="7"/></item>
 </group>
 </ReportConfigData>
+<<<<<<< HEAD
 <ReportPinData TimeStamp="Sat Nov 24 00:42:28 2012"><group name="IODELAY">
+=======
+<ReportPinData TimeStamp="Fri Nov 23 19:52:57 2012"><group name="IODELAY">
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 <item name="C" rev="2">
 <attrib name="value" value="80"/></item>
 <item name="CE" rev="2">

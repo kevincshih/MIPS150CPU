@@ -12260,7 +12260,11 @@ Design statistics:
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
+<<<<<<< HEAD
 Analysis completed Sat Nov 24 00:44:11 2012 
+=======
+Analysis completed Fri Nov 23 19:54:31 2012 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 --------------------------------------------------------------------------------
 
 Trace Settings:

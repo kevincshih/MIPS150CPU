@@ -10,7 +10,11 @@ Target Device  : xc5vlx110t
 Target Package : ff1136
 Target Speed   : -1
 Mapper Version : virtex5 -- $Revision: 1.55 $
+<<<<<<< HEAD
 Mapped Date    : Sat Nov 24 00:28:53 2012
+=======
+Mapped Date    : Fri Nov 23 19:40:30 2012
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
@@ -24,7 +28,11 @@ WARNING:Security:44 - Since no license file was found,
        (xlcm or "Manage Xilinx Licenses")
        to assist in obtaining a license.
 WARNING:Security:42 - Your license support version '2012.12' for ISE expires in
+<<<<<<< HEAD
 6 days after which you will not qualify for Xilinx software updates or new
+=======
+7 days after which you will not qualify for Xilinx software updates or new
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 releases.
 ----------------------------------------------------------------------
 Mapping design into LUTs...
@@ -382,11 +390,19 @@ Derivative  |
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
 Running timing-driven placement...
+<<<<<<< HEAD
 Total REAL time at the beginning of Placer: 1 mins 14 secs 
 Total CPU  time at the beginning of Placer: 1 mins 14 secs 
 
 Phase 1.1  Initial Placement Analysis
 Phase 1.1  Initial Placement Analysis (Checksum:b520e8f7) REAL time: 1 mins 21 secs 
+=======
+Total REAL time at the beginning of Placer: 1 mins 10 secs 
+Total CPU  time at the beginning of Placer: 1 mins 10 secs 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:b520e8f7) REAL time: 1 mins 17 secs 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Phase 2.7  Design Feasibility Check
 WARNING:Place:838 - An IO Bus with more than one IO standard is found.
@@ -401,6 +417,7 @@ WARNING:Place:838 - An IO Bus with more than one IO standard is found.
    	 Comp: GPIO_LED<7>   IOSTANDARD = SSTL18_II_DCI
 
 
+<<<<<<< HEAD
 Phase 2.7  Design Feasibility Check (Checksum:b520e8f7) REAL time: 1 mins 21 secs 
 
 Phase 3.31  Local Placement Optimization
@@ -414,6 +431,21 @@ Phase 5.33  Local Placement Optimization (Checksum:cc107b15) REAL time: 3 mins 1
 
 Phase 6.32  Local Placement Optimization
 Phase 6.32  Local Placement Optimization (Checksum:cc107b15) REAL time: 3 mins 19 secs 
+=======
+Phase 2.7  Design Feasibility Check (Checksum:b520e8f7) REAL time: 1 mins 17 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:30898267) REAL time: 1 mins 17 secs 
+
+Phase 4.37  Local Placement Optimization
+Phase 4.37  Local Placement Optimization (Checksum:cc107b15) REAL time: 1 mins 17 secs 
+
+Phase 5.33  Local Placement Optimization
+Phase 5.33  Local Placement Optimization (Checksum:cc107b15) REAL time: 3 mins 1 secs 
+
+Phase 6.32  Local Placement Optimization
+Phase 6.32  Local Placement Optimization (Checksum:cc107b15) REAL time: 3 mins 2 secs 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Phase 7.2  Initial Clock and IO Placement
 
@@ -629,6 +661,7 @@ TIMEGRP "TN_mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_d
 AREA_GROUP "CLKAG_mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/delayed_dqs<3>" RANGE = CLOCKREGION_X0Y2;
 
 
+<<<<<<< HEAD
 Phase 7.2  Initial Clock and IO Placement (Checksum:3d2446c5) REAL time: 3 mins 21 secs 
 
 Phase 8.36  Local Placement Optimization
@@ -642,6 +675,21 @@ Phase 10.3  Local Placement Optimization (Checksum:3d2446c5) REAL time: 3 mins 2
 
 Phase 11.5  Local Placement Optimization
 Phase 11.5  Local Placement Optimization (Checksum:3d2446c5) REAL time: 3 mins 22 secs 
+=======
+Phase 7.2  Initial Clock and IO Placement (Checksum:3d2446c5) REAL time: 3 mins 4 secs 
+
+Phase 8.36  Local Placement Optimization
+Phase 8.36  Local Placement Optimization (Checksum:3d2446c5) REAL time: 3 mins 4 secs 
+
+Phase 9.30  Global Clock Region Assignment
+Phase 9.30  Global Clock Region Assignment (Checksum:3d2446c5) REAL time: 3 mins 4 secs 
+
+Phase 10.3  Local Placement Optimization
+Phase 10.3  Local Placement Optimization (Checksum:3d2446c5) REAL time: 3 mins 5 secs 
+
+Phase 11.5  Local Placement Optimization
+Phase 11.5  Local Placement Optimization (Checksum:3d2446c5) REAL time: 3 mins 5 secs 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Phase 12.8  Global Placement
 ......................................
@@ -650,6 +698,7 @@ Phase 12.8  Global Placement
 ............................................
 ......................................................................................
 ...............................................................................
+<<<<<<< HEAD
 Phase 12.8  Global Placement (Checksum:dcb41d75) REAL time: 4 mins 35 secs 
 
 Phase 13.29  Local Placement Optimization
@@ -669,6 +718,27 @@ Phase 17.34  Placement Validation (Checksum:e172664f) REAL time: 7 mins 4 secs
 
 Total REAL time to Placer completion: 7 mins 5 secs 
 Total CPU  time to Placer completion: 7 mins 4 secs 
+=======
+Phase 12.8  Global Placement (Checksum:dcb41d75) REAL time: 4 mins 15 secs 
+
+Phase 13.29  Local Placement Optimization
+Phase 13.29  Local Placement Optimization (Checksum:dcb41d75) REAL time: 4 mins 15 secs 
+
+Phase 14.5  Local Placement Optimization
+Phase 14.5  Local Placement Optimization (Checksum:dcb41d75) REAL time: 4 mins 17 secs 
+
+Phase 15.18  Placement Optimization
+Phase 15.18  Placement Optimization (Checksum:e172664f) REAL time: 6 mins 26 secs 
+
+Phase 16.5  Local Placement Optimization
+Phase 16.5  Local Placement Optimization (Checksum:e172664f) REAL time: 6 mins 27 secs 
+
+Phase 17.34  Placement Validation
+Phase 17.34  Placement Validation (Checksum:e172664f) REAL time: 6 mins 28 secs 
+
+Total REAL time to Placer completion: 6 mins 29 secs 
+Total CPU  time to Placer completion: 6 mins 28 secs 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 Running post-placement packing...
 Writing output files...
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/CTResetreg_or0000 is sourced by a combinatorial
@@ -748,8 +818,13 @@ Specific Feature Utilization:
 Average Fanout of Non-Clock Nets:                3.47
 
 Peak Memory Usage:  1167 MB
+<<<<<<< HEAD
 Total REAL time to MAP completion:  7 mins 20 secs 
 Total CPU time to MAP completion:   7 mins 19 secs 
+=======
+Total REAL time to MAP completion:  6 mins 42 secs 
+Total CPU time to MAP completion:   6 mins 41 secs 
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Mapping completed.
 See MAP report file "ml505top_map.mrp" for details.

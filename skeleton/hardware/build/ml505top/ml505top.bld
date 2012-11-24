@@ -23,8 +23,13 @@ Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
 -uc ../../src/ml505top.ucf -p xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
 
 Reading NGO file
+<<<<<<< HEAD
 "/home/cc/cs150/fa12/class/cs150-bb/Project/skeleton/hardware/build/ml505top/ml5
 05top.ngc" ...
+=======
+"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v27/skeleton/hardware/build/ml5
+05top/ml505top.ngc" ...
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 Loading design module "../../src/bios_mem/bios_mem.ngc"...
 Loading design module "../../src/cache_data_blk_ram/cache_data_blk_ram.ngc"...
 Loading design module "../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc"...
@@ -147,10 +152,18 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:  22
 
+<<<<<<< HEAD
 Total memory usage is 552340 kilobytes
 
 Writing NGD file "ml505top.ngd" ...
 Total REAL time to NGDBUILD completion:  30 sec
 Total CPU time to NGDBUILD completion:   29 sec
+=======
+Total memory usage is 552288 kilobytes
+
+Writing NGD file "ml505top.ngd" ...
+Total REAL time to NGDBUILD completion:  29 sec
+Total CPU time to NGDBUILD completion:   28 sec
+>>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
 
 Writing NGDBUILD log file "ml505top.bld"...
