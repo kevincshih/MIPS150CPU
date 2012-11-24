@@ -45,16 +45,15 @@ typedef void (*entry_t)(void);
 
 int main(void)
 {
-  //uwrite_int8s("\r\n\r\n\r\n\r\n");
-    uwrite_int8s("\n\r");
+    uwrite_int8s("\r\n\r\n\r\n\r\n");
 
     for ( ; ; ) {
         uwrite_int8s("> ");
 
         int8_t buffer[BUFFER_LEN];
-	int8_t* input = read_token("lw 10001000", BUFFER_LEN, " \x0d");
+        int8_t* input = read_token(buffer, BUFFER_LEN, " \x0d");
 
-	/*        if (strcmp(input, "file") == 0) {
+        if (strcmp(input, "file") == 0) {
             uint32_t address = ascii_hex_to_uint32(read_token(buffer, BUFFER_LEN, " \x0d"));
             uint32_t file_length = ascii_dec_to_uint32(read_token(buffer, BUFFER_LEN, " \x0d"));
             store(address, file_length);
@@ -63,7 +62,7 @@ int main(void)
 
             entry_t start = (entry_t)(address);
             start();
-	    } else */ if (strcmp(input, "lw") == 0) {
+        } else if (strcmp(input, "lw") == 0) {
             uint32_t address = ascii_hex_to_uint32(read_token(buffer, BUFFER_LEN, " \x0d"));
             volatile uint32_t* p = (volatile uint32_t*)(address);
 
@@ -71,7 +70,7 @@ int main(void)
             uwrite_int8s(":");
             uwrite_int8s(uint32_to_ascii_hex(*p, buffer, BUFFER_LEN));
             uwrite_int8s("\r\n");
-        } /*else if (strcmp(input, "lhu") == 0) {
+        } else if (strcmp(input, "lhu") == 0) {
             uint32_t address = ascii_hex_to_uint32(read_token(buffer, BUFFER_LEN, " \x0d"));
             volatile uint16_t* p = (volatile uint16_t*)(address);
 
@@ -105,7 +104,7 @@ int main(void)
 
             volatile uint8_t* p = (volatile uint8_t*)(address);
             *p = byte;
-	    }*/
+        }
     }
 
     return 0;
