@@ -8,7 +8,8 @@ module Control(
 	       output[1:0]AluSelA, AluSelB,
 	       output[3:0]ALUop, IMByteSel, DMByteSel,
 	       output REUART, WEUART, RegWrite, DinSel,
-	       output CTsel, CTreset, REDC, ICacheSel
+	       output CTsel, CTreset, REDC, ICacheSel,
+	       output SEXTImm
 	       );
 `include "Opcode.vh"
 `include "ALUop.vh"
@@ -96,7 +97,8 @@ assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
    assign CTsel = (reset) ? 0 : CTselreg;
    assign CTreset = (reset) ? 0 : CTResetreg;
    assign ICacheSel = (reset) ? 0 : ICacheSelreg;
-   
+   assign SEXTImm = ((op >= `ANDI) && (op <= `LUI)) ? 1'b0 : 1'b1;
+
 ALUdec DUT(.funct(funct),
     .opcode(op),
     .ALUop(ALUop));
