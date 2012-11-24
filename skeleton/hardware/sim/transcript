@@ -7,37 +7,7 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# OpenFile results/bios.wlf 
-add wave -position insertpoint  \
-bios:/BiosTestbench/Clock \
-bios:/BiosTestbench/Reset
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/Instruction
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/PC_IF_RA
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_uart/DataIn \
-bios:/BiosTestbench/DUT/the_uart/DataInValid \
-bios:/BiosTestbench/DUT/the_uart/DataInReady
-add wave -position insertpoint  \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[1]} \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[2]} \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[3]} \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[4]}
-add wave -position insertpoint  \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[29]} \
-{bios:/BiosTestbench/DUT/the_datapath/the_regfile/the_registers[31]}
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/not_stall
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/ALU_OutMW_Reg
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/ALU_OutMW
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/bios_douta
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/douta_masked
-add wave -position insertpoint  \
-bios:/BiosTestbench/DUT/the_datapath/the_regfile/we \
-bios:/BiosTestbench/DUT/the_datapath/the_regfile/wa \
-bios:/BiosTestbench/DUT/the_datapath/the_regfile/wd
+# vsim ..//home/cc/cs150/fa12/class/cs150-bb/bios.wlf 
+# ** Error: (vsim-19) Failed to access library '..//home/cc/cs150/fa12/class/cs150-bb/bios' at "..//home/cc/cs150/fa12/class/cs150-bb/bios".
+# No such file or directory. (errno = ENOENT)
+# Error loading design

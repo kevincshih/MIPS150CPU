@@ -61,7 +61,7 @@ module Datapath(
   
 
    //mux registers
-   reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted;
+   reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted, bios_douta_masked;
    reg [4:0]   A3_Reg;
    reg [1:0]   PC_SelReg;
    
@@ -209,7 +209,7 @@ module Datapath(
 	2'b01: UART_Data_Reg = {31'd0, DataInReady};
 	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
 	2'b00: UART_Data_Reg = {24'd0, DataOut};
-	2'b11: UART_Data_Reg = bios_douta;
+	2'b11: UART_Data_Reg = bios_douta_masked;
 	default: UART_Data_Reg = {24'd0, DataOut};
       endcase // case (UARTSel)
 
@@ -274,7 +274,42 @@ module Datapath(
 		     2'b11: dina_shifted = dina_unshifted;
 		   endcase // case (offset)
       endcase // case (opcode)
-      
+
+
+      // masks for bios_douta
+          case(prev_opcode)
+	    6'b100000: case(prev_offset) // LB
+			 2'b00: bios_douta_masked = $signed(bios_douta[31:24]);
+			 2'b01: bios_douta_masked = $signed(bios_douta[23:16]);
+			 2'b10: bios_douta_masked = $signed(bios_douta[15:8]);
+			 2'b11: bios_douta_masked = $signed(bios_douta[7:0]);
+			    endcase // case (offset)
+
+	    6'b100001: case(prev_offset) // LH
+			 2'b11: bios_douta_masked = $signed(bios_douta[15:0]);
+			 2'b10: bios_douta_masked = $signed(bios_douta[15:0]);
+			 2'b01: bios_douta_masked = $signed(bios_douta[31:16]);
+			 2'b00: bios_douta_masked = $signed(bios_douta[31:16]);
+		       endcase // case (offset)
+	    
+	    6'b100011: bios_douta_masked = bios_douta;
+	     // LW
+	    6'b100100: case(prev_offset) // LBU
+			 2'b11: bios_douta_masked = {24'b0, bios_douta[7:0]};
+			 2'b10: bios_douta_masked = {24'b0, bios_douta[15:8]};
+			 2'b01: bios_douta_masked = {24'b0, bios_douta[23:16]};
+			 2'b00: bios_douta_masked = {24'b0, bios_douta[31:24]};
+		       endcase // case (offset)
+	    
+	    6'b100101: case(prev_offset) // LHU
+			 2'b11: bios_douta_masked = {24'b0, bios_douta[15:0]};
+			 2'b10: bios_douta_masked = {24'b0, bios_douta[15:0]};
+			 2'b01: bios_douta_masked = {24'b0, bios_douta[31:16]};
+			 2'b00: bios_douta_masked = {24'b0, bios_douta[31:16]};
+		       endcase // case (offset)
+	    
+	    default: bios_douta_masked = bios_douta;
+	  endcase // case (prev_opcode)
 	       
 	
    end
