@@ -61,7 +61,7 @@ module Datapath(
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
    reg [25:0]  JAL_Target_Reg;
    reg [31:0]  InstrCounter, CycleCounter;
-  
+   reg CTselreg, CTresetreg;
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted, bios_douta_masked;
@@ -142,7 +142,7 @@ module Datapath(
    
    
    always @(Instruction) begin
-      if (CTreset || reset) InstrCounter = 0;
+      if (CTresetreg || reset) InstrCounter = 0;
       else InstrCounter = InstrCounter + 1;
    end   
 
@@ -150,7 +150,7 @@ module Datapath(
      resetReg <= reset;
       stall_reg <= Stall;
       
-      if (CTreset || reset) begin
+      if (CTresetreg || reset) begin
 	 CycleCounter <= 0;
       end
      else CycleCounter <= CycleCounter + 1;
@@ -168,7 +168,8 @@ module Datapath(
 	    PC_4_Reg <= PC_4;	    
 	    PrevInstruction_Reg <= Instruction_Dout_IF_RA;
 	    ALU_OutMW_Reg <= ALU_OutMW;
-	 
+		CTresetreg <= CTreset;
+		CTselreg <= CTsel;
 	 end // if (not_stall)
    end // always @ (posedge CLK)
     
@@ -355,7 +356,7 @@ module Datapath(
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    assign icache_din = dcache_din;
-   assign CounterData = (CTsel)? InstrCounter : CycleCounter;
+   assign CounterData = (CTselreg)? InstrCounter : CycleCounter;
    assign PC_toControl = PC_IF_RA;
    
    //Wires in DataMem and WriteBack (third stage)
