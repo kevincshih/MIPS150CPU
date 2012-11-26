@@ -8,10 +8,13 @@ module IFControl(
 	
 	wire [3:0] pctop;
 	
+	wire mmult_debug;
+	assign mmult_debug = 1'b0;
+	
 	assign pctop = PC[31:28];
-	assign REIC = (reset) ? 0 : REICreg;
+	assign REIC = (reset || mmult_debug) ? 0 : REICreg;
    assign REBIOS = (reset) ? 0 : BIOSreg;
-   assign IFSel = (reset || stall) ? 0 : IFSelreg;
+   assign IFSel = (reset || mmult_debug) ? 0 : IFSelreg;
 	
 	always @(*) begin
 	if (pctop == 4'b0001) begin

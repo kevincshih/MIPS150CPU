@@ -35,6 +35,7 @@ if (opcode == `RTYPE) begin
  	`NOR:    ALUopreg = `ALU_NOR;
  	`SLT:    ALUopreg = `ALU_SLT;
  	`SLTU:   ALUopreg = `ALU_SLTU;
+	`JALR: 	 ALUopreg = `ALU_ADDU;
 	default: ALUopreg = `ALU_XXX;
 	endcase
 
@@ -49,6 +50,7 @@ else begin
 	`XORI: ALUopreg = `ALU_XOR;
 	`SLTIU: ALUopreg = `ALU_SLTU;
 	`SLTI: ALUopreg = `ALU_SLT;
+	`JAL: ALUopreg = `ALU_ADDU;
         default: ALUopreg = `ALU_ADDU;
 	endcase
 

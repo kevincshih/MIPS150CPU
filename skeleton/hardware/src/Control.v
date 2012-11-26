@@ -222,7 +222,7 @@ always @( * ) begin
     else if ((op == `JAL) || (op == `J)) begin
         PCselReg = 2'b11;
     end
-    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JAL) || (funct == `JR))) begin
+    else if ((op == `RTYPE) && ((funct == `JALR) || (funct == `JR))) begin
         PCselReg = 2'b10;
     end
     else begin

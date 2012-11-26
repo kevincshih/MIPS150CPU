@@ -1,22 +1,10 @@
 Release 14.1 Drc P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-<<<<<<< HEAD
-Sat Nov 24 00:41:01 2012
-=======
-Fri Nov 23 19:51:32 2012
->>>>>>> 074a8dd05bbbe087a6302d9802e10f4dcbcfd596
+Sun Nov 25 17:11:34 2012
 
 drc -z ml505top.ncd ml505top.pcf
 
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/CTResetreg_or0000 is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data
-   into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data
-   into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
@@ -26,8 +14,12 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/CTResetreg_cmp_eq0000 is sourced by a combinatorial pin.
-   This is not good design practice. Use the CE pin to control the loading of
-   data into the flip-flop.
-DRC detected 0 errors and 5 warnings.  Please see the previously displayed
+   CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial pin. This is
+   not good design practice. Use the CE pin to control the loading of data into
+   the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+DRC detected 0 errors and 4 warnings.  Please see the previously displayed
 individual error or warning messages for more details.

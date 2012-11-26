@@ -16,12 +16,15 @@ module Datapath(
 
 `include "Opcode.vh"
 `include "ALUop.vh"
-
+	
+	wire mmult_debug;
+	assign mmult_debug = 1'b1;
+	
    //other control wires
    wire 		      not_stall;
    
    //wires for PC
-   wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF;
+   wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF, PC_IF2;
    
    //wires for IMEM  stage
    wire [31:0] 		      Instruction_Dout_IF;
@@ -91,7 +94,7 @@ module Datapath(
 	     .EN(not_stall),
 	     .CLK(CLK),
 	     .RST(reset),
-	     .PC_IF(PC_IF));
+	     .PC_IF(PC_IF2));
 
    RegFile the_regfile(.clk(CLK),
 		       .we(RegWrite_WB),
@@ -317,6 +320,7 @@ module Datapath(
    assign not_stall = ~Stall;
    
    //Wires in IFetch/IMEM (first stage)
+   assign PC_IF = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
    assign PC_4 = PC_IF + 4;
    assign addrb = PC_IF[13:2];
    assign PC_top_nibble = PC_IF[31:28];

@@ -37,7 +37,7 @@ always @(*) begin
      `ALU_NOR:  O = ~A & ~B;
      `ALU_LUI: O = {B[15:0], 16'b0}; 
 
-     default:  O = 32'b0;
+     default:  O = A + B;
      
    endcase
 end

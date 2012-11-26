@@ -7,7 +7,7 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# vsim ..//home/cc/cs150/fa12/class/cs150-bb/bios.wlf 
-# ** Error: (vsim-19) Failed to access library '..//home/cc/cs150/fa12/class/cs150-bb/bios' at "..//home/cc/cs150/fa12/class/cs150-bb/bios".
-# No such file or directory. (errno = ENOENT)
-# Error loading design
+# OpenFile results/mmult.wlf 
+add wave -position insertpoint  \
+mmult:/MmultTestbench/Clock \
+mmult:/MmultTestbench/Reset

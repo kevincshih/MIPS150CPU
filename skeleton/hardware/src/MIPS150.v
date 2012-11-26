@@ -32,6 +32,8 @@ module MIPS150(
    
    reg [31:0] dcache_doutreg, instructionreg;
    
+   reg stall_reg;
+   
    Control the_controller(
 			  .Address(Address),
 			  .Instruction(Instruction), // begin inputs
@@ -59,7 +61,7 @@ module MIPS150(
 			 .ALUop(ALUop), //begin inputs
 			 .DinSel(DinSel),
 			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
-			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
+			 .RDsel(RDsel), .Stall(~not_stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),
 			 .PC_Sel(PC_Sel), //PC_Sel 
 			 .ALU_Sel_A(ALU_Sel_A),
@@ -101,10 +103,11 @@ module MIPS150(
 		 .SOut(FPGA_SERIAL_TX)); //output
 		 
    assign not_stall = ~stall;
-   assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_doutreg;
-   assign instruction2 = (not_stall) ? instruction : instructionreg;
+   assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_dout;
+   assign instruction2 = (not_stall) ? instruction : instruction;
 	  
    always @(posedge clk) begin
+		stall_reg <= stall;
 		if (not_stall) begin
 		dcache_doutreg <= dcache_dout;
 		instructionreg <= instruction;
