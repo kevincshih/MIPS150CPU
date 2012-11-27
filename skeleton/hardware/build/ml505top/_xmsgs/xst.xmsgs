@@ -127,7 +127,7 @@
 </msg>
 
 <msg type="warning" file="Xst" num="905" delta="new" >&quot;<arg fmt="%s" index="1">../../src/Datapath.v</arg>&quot; line <arg fmt="%d" index="2">144</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;CTreset&gt;, &lt;reset&gt;</arg>
+<arg fmt="%s" index="3">&lt;CTresetreg&gt;, &lt;reset&gt;</arg>
 </msg>
 
 <msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">../../src/bios_mem/bios_mem.v</arg>&quot; line <arg fmt="%d" index="2">118</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">bios_mem</arg>&gt;.

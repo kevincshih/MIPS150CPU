@@ -2,7 +2,7 @@
 #include "benchmark.h"
 #include "ascii.h"
 
-#define N 1
+#define N 6
 #define DATA (int32_t *) 0x10018000
 
 /* Computes S = AB where A, B, and S are all of 2^N x 2^N matrices. A, B, and S

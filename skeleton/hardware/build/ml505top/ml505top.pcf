@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sun Nov 25 17:04:11 2012
+// Written by: Map P.15xf on Mon Nov 26 16:48:41 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -599,16 +599,6 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_uart/uatransmit/ClockCounter_2" BEL
         "CPU/the_uart/uatransmit/ClockCounter_1" BEL
         "CPU/the_uart/uatransmit/ClockCounter_0" BEL
-        "CPU/the_uart/uatransmit/TXShift_9" BEL
-        "CPU/the_uart/uatransmit/TXShift_8" BEL
-        "CPU/the_uart/uatransmit/TXShift_7" BEL
-        "CPU/the_uart/uatransmit/TXShift_6" BEL
-        "CPU/the_uart/uatransmit/TXShift_5" BEL
-        "CPU/the_uart/uatransmit/TXShift_4" BEL
-        "CPU/the_uart/uatransmit/TXShift_3" BEL
-        "CPU/the_uart/uatransmit/TXShift_2" BEL
-        "CPU/the_uart/uatransmit/TXShift_1" BEL
-        "CPU/the_uart/uatransmit/TXShift_0" BEL
         "CPU/the_uart/uareceive/BitCounter_2" BEL
         "CPU/the_uart/uareceive/BitCounter_1" BEL
         "CPU/the_uart/uareceive/BitCounter_3" BEL
@@ -622,7 +612,6 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_uart/uareceive/ClockCounter_2" BEL
         "CPU/the_uart/uareceive/ClockCounter_1" BEL
         "CPU/the_uart/uareceive/ClockCounter_0" BEL
-        "CPU/the_uart/uareceive/HasByte" BEL
         "CPU/the_uart/uareceive/RXShift_7" BEL
         "CPU/the_uart/uareceive/RXShift_6" BEL
         "CPU/the_uart/uareceive/RXShift_5" BEL
@@ -1732,8 +1721,9 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         BEL "CPU/the_datapath/PC_4_Reg_8" BEL "CPU/the_datapath/PC_4_Reg_7"
         BEL "CPU/the_datapath/PC_4_Reg_6" BEL "CPU/the_datapath/PC_4_Reg_5"
         BEL "CPU/the_datapath/PC_4_Reg_4" BEL "CPU/the_datapath/PC_4_Reg_3"
-        BEL "CPU/the_datapath/PC_4_Reg_2" BEL "CPU/the_datapath/RegWrite_Reg"
-        BEL "CPU/the_datapath/PrevInstruction_Reg_31" BEL
+        BEL "CPU/the_datapath/PC_4_Reg_2" BEL "CPU/the_datapath/CTselreg" BEL
+        "CPU/the_datapath/CTresetreg" BEL
+        "CPU/the_datapath/PrevInstruction_Reg_31" BEL
         "CPU/the_datapath/PrevInstruction_Reg_30" BEL
         "CPU/the_datapath/PrevInstruction_Reg_29" BEL
         "CPU/the_datapath/PrevInstruction_Reg_28" BEL
@@ -1749,11 +1739,9 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/PrevInstruction_Reg_13" BEL
         "CPU/the_datapath/PrevInstruction_Reg_12" BEL
         "CPU/the_datapath/PrevInstruction_Reg_11" BEL
+        "CPU/the_datapath/RDsel_Reg_1" BEL "CPU/the_datapath/RDsel_Reg_0" BEL
         "CPU/the_datapath/UARTsel_Reg_1" BEL "CPU/the_datapath/UARTsel_Reg_0"
-        BEL "CPU/the_datapath/A3_RA_DW_4" BEL "CPU/the_datapath/A3_RA_DW_3"
-        BEL "CPU/the_datapath/A3_RA_DW_2" BEL "CPU/the_datapath/A3_RA_DW_1"
-        BEL "CPU/the_datapath/A3_RA_DW_0" BEL "CPU/the_datapath/RDsel_Reg_1"
-        BEL "CPU/the_datapath/RDsel_Reg_0" BEL "CPU/the_datapath/PC_IF_RA_31"
+        BEL "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/PC_IF_RA_31"
         BEL "CPU/the_datapath/PC_IF_RA_30" BEL "CPU/the_datapath/PC_IF_RA_29"
         BEL "CPU/the_datapath/PC_IF_RA_28" BEL "CPU/the_datapath/PC_IF_RA_27"
         BEL "CPU/the_datapath/PC_IF_RA_26" BEL "CPU/the_datapath/PC_IF_RA_25"
@@ -1769,7 +1757,10 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         BEL "CPU/the_datapath/PC_IF_RA_6" BEL "CPU/the_datapath/PC_IF_RA_5"
         BEL "CPU/the_datapath/PC_IF_RA_4" BEL "CPU/the_datapath/PC_IF_RA_3"
         BEL "CPU/the_datapath/PC_IF_RA_2" BEL "CPU/the_datapath/PC_IF_RA_1"
-        BEL "CPU/the_datapath/PC_IF_RA_0" BEL "CPU/the_datapath/resetReg" BEL
+        BEL "CPU/the_datapath/PC_IF_RA_0" BEL "CPU/the_datapath/A3_RA_DW_4"
+        BEL "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2"
+        BEL "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0"
+        BEL "CPU/the_datapath/resetReg" BEL
         "mem_arch/req_con/icache_req_num_0" BEL
         "mem_arch/req_con/icache_req_num_1" BEL
         "mem_arch/req_con/icache_req_num_2" BEL
@@ -2769,8 +2760,18 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "count_r_21" BEL "count_r_22" BEL "count_r_23" BEL "count_r_24" BEL
         "count_r_25" BEL "mem_arch/icache/cs_FSM_FFd2" BEL
         "mem_arch/dcache/cs_FSM_FFd2" BEL "CPU/the_uart/uatransmit/HandShook"
-        BEL "Mshreg_reset_r_3" BEL "reset_r_3" BEL
-        "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
+        BEL "CPU/the_uart/uatransmit/TXShift_8" BEL
+        "CPU/the_uart/uatransmit/TXShift_7" BEL
+        "CPU/the_uart/uatransmit/TXShift_6" BEL
+        "CPU/the_uart/uatransmit/TXShift_5" BEL
+        "CPU/the_uart/uatransmit/TXShift_4" BEL
+        "CPU/the_uart/uatransmit/TXShift_3" BEL
+        "CPU/the_uart/uatransmit/TXShift_2" BEL
+        "CPU/the_uart/uatransmit/TXShift_1" BEL
+        "CPU/the_uart/uatransmit/TXShift_0" BEL
+        "CPU/the_uart/uareceive/HasByte" BEL
+        "CPU/the_uart/uatransmit/TXShift_9" BEL "Mshreg_reset_r_3" BEL
+        "reset_r_3" BEL "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
         "CPU/the_uart/uareceive/RXShift_8" PIN
         "CPU/the_datapath/the_bios/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
         PIN

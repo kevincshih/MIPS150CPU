@@ -1,16 +1,16 @@
 Release 14.1 Drc P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Nov 25 17:11:34 2012
+Mon Nov 26 16:52:52 2012
 
 drc -z ml505top.ncd ml505top.pcf
 
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
+   CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
+   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -18,7 +18,7 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    not good design practice. Use the CE pin to control the loading of data into
    the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
+   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 DRC detected 0 errors and 4 warnings.  Please see the previously displayed
