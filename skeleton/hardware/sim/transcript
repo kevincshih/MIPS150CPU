@@ -11,3 +11,9 @@
 add wave -position insertpoint  \
 mmult:/MmultTestbench/Clock \
 mmult:/MmultTestbench/Reset
+add wave -position insertpoint mmult:/MmultTestbench/mem_arch/dcache/*
+add wave -position insertpoint  \
+mmult:/MmultTestbench/DUT/the_datapath/Instruction
+add wave -position insertpoint  \
+mmult:/MmultTestbench/DUT/the_datapath/PC_IF_RA
+# Break key hit 

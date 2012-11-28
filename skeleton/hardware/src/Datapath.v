@@ -18,13 +18,14 @@ module Datapath(
 `include "ALUop.vh"
 	
 	wire mmult_debug;
-	assign mmult_debug = 1'b0;
+	assign mmult_debug = 1'b1; 
+	
 	
    //other control wires
    wire 		      not_stall;
    
    //wires for PC
-   wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF, PC_IF2;
+   wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF, PC_IF2, icache_addr2;
    
    //wires for IMEM  stage
    wire [31:0] 		      Instruction_Dout_IF;
@@ -326,7 +327,8 @@ module Datapath(
    assign addrb = PC_IF[13:2];
    assign PC_top_nibble = PC_IF[31:28];
    assign Instruction_Dout_IF = (InstrSrc_Reg)? bios_doutb : icache_dout;
-   assign icache_addr = (ICacheSel)? ALU_OutMW : PC_IF;
+   assign icache_addr2 = (ICacheSel)? ALU_OutMW : PC_IF;
+   assign icache_addr = (mmult_debug) ? {4'b0100, icache_addr2[27:0]}: icache_addr2;
    
    //Wires in RegFile and ALU (second stage)
    assign Instruction = Instruction_Dout_IF_RA; // output
@@ -373,8 +375,3 @@ module Datapath(
    assign prev_offset = ALU_OutMW_Reg[1:0];
    
 endmodule // Datapath
-
-   
-
-   
-   
