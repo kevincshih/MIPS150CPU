@@ -18,3 +18,5 @@ add wave -position insertpoint  \
 echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/we \
 echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/wa \
 echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/wd
+add wave -position insertpoint  \
+{echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers[3]}

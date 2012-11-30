@@ -18,7 +18,7 @@ module Datapath(
 `include "ALUop.vh"
 	
 	wire mmult_debug;
-	assign mmult_debug = 1'b0; 
+	assign mmult_debug = 1'b1; 
 	
 	
    //other control wires
@@ -50,19 +50,22 @@ module Datapath(
   
 
    //First Pipeline Register
-   reg [31:0]  PC_IF_RA, PC_4_Reg;
+   reg [31:0]  PC_IF_RA, PC_4_Reg, PC_4_Reg_stallreg; wire [31:0] PC_4_Reg_stall;
    reg [31:0]  Instruction_Dout_IF_RA;
    reg 	       InstrSrc_Reg, stall_reg;
 
    //Second Pipeline Register
-   reg [4:0]   A3_RA_DW;
-   reg [1:0]   RDsel_Reg, UARTsel_Reg;
+   reg [4:0]   A3_RA_DW, A3_RA_DW_stallreg; wire[4:0] A3_RA_DW_stall;
+   reg [1:0]   RDsel_Reg, RDsel_Reg_stallreg, UARTsel_Reg, UARTsel_Reg_stallreg;
+   wire [1:0] UARTsel_Reg_stall, RDsel_Reg_stall;
    reg 	       RegWrite_Reg;
    reg 	       REUART_Reg, WEUART_Reg;
-   reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg;
+   reg [31:0]  PrevInstruction_Reg, PrevInstruction_Reg_stallreg, ALU_OutMW_Reg, ALU_OutMW_Reg_stallreg, rd1_Reg;
+   wire [31:0] PrevInstruction_Reg_stall, ALU_OutMW_Reg_stall;
    reg [25:0]  JAL_Target_Reg;
    reg [31:0]  InstrCounter, CycleCounter;
-   reg CTselreg, CTresetreg;
+   reg CTselreg, CTselreg_stallreg, CTresetreg, CTresetreg_stallreg;
+   wire CTselreg_stall, CTresetreg_stall;
 
    //mux registers
    reg [31:0]  ALU_SrcA_Reg, ALU_SrcB_Reg, UART_Data_Reg, WriteData_Reg, douta_masked, dina_shifted, bios_douta_masked;
@@ -101,7 +104,7 @@ module Datapath(
 		       .we(RegWrite_WB),
 		       .ra1(rs),
 		       .ra2(rt),
-		       .wa(A3_RA_DW),
+		       .wa(A3_RA_DW_stall),
 		       .wd(WriteData),
 		       .rd1(rd1),
 		       .rd2(rd2));
@@ -143,7 +146,7 @@ module Datapath(
    
    
    always @(Instruction) begin
-      if (CTresetreg || reset) InstrCounter = 0;
+      if (CTresetreg_stall || reset) InstrCounter = 0;
       else InstrCounter = InstrCounter + 1;
    end   
 
@@ -156,7 +159,7 @@ module Datapath(
      resetReg <= reset;
       stall_reg <= Stall;
       
-      if (CTresetreg || reset) begin
+      if (CTresetreg_stall || reset) begin
 	 CycleCounter <= 0;
       end
      else CycleCounter <= CycleCounter + 1;
@@ -180,9 +183,30 @@ module Datapath(
 	    ALU_OutMW_Reg <= ALU_OutMW;
 		CTresetreg <= CTreset;
 		CTselreg <= CTsel;
+		
+	 //Extra Stall Registers	
+		
+		A3_RA_DW_stallreg <= A3_RA_DW_stall;
+		UARTsel_Reg_stallreg <= UARTsel_Reg_stall;
+		RDsel_Reg_stallreg <= RDsel_Reg_stall;
+		PC_4_Reg_stallreg <= PC_4_Reg_stall;
+		PrevInstruction_Reg_stallreg <= PrevInstruction_Reg_stall;
+		ALU_OutMW_Reg_stallreg <= ALU_OutMW_Reg_stall;
+		CTresetreg_stallreg <= CTresetreg_stall;
+		CTselreg_stallreg <= CTselreg_stall;
+		
 	 end // if (not_stall)
    end // always @ (posedge CLK)
-   
+
+   assign A3_RA_DW_stall = (not_stall) ? A3_RA_DW : A3_RA_DW_stallreg;
+   assign UARTsel_Reg_stall = (not_stall) ? UARTsel_Reg : UARTsel_Reg_stallreg;
+   assign RDsel_Reg_stall = (not_stall) ? RDsel_Reg : RDsel_Reg_stallreg;
+   assign PC_4_Reg_stall = (not_stall) ? PC_4_Reg : PC_4_Reg_stallreg;
+   assign PrevInstruction_Reg_stall = (not_stall) ? PrevInstruction_Reg : PrevInstruction_Reg_stallreg;
+   assign ALU_OutMW_Reg_stall = (not_stall) ? ALU_OutMW_Reg : ALU_OutMW_Reg_stallreg;
+   assign CTresetreg_stall = (not_stall) ? CTresetreg : CTresetreg_stallreg;
+   assign CTselreg_stall = (not_stall) ? CTselreg : CTselreg_stallreg;   
+
    assign icache_dout2 = (not_stall) ? icache_dout : icache_dout_reg;
    assign bios_doutb2 = (not_stall) ? bios_doutb : bios_doutb_reg;
    assign InstrSrc2 = (not_stall) ? InstrSrc : InstrSrc_Reg;
@@ -204,7 +228,7 @@ module Datapath(
       case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA2; // calculate branch address
-	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
+	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg_stall; // fwd A
 	2'b11: ALU_SrcA_Reg = Instruction_Dout_IF[10:6];
 	default: ALU_SrcA_Reg = rd1;
       endcase // case (ALU_Sel_A)
@@ -212,7 +236,7 @@ module Datapath(
       case(ALU_Sel_B)
 	2'b01: ALU_SrcB_Reg = rd2; // normal r-type
  	2'b00: ALU_SrcB_Reg = 32'd8; // PC+8 for JAL
-	2'b10: ALU_SrcB_Reg = ALU_OutMW_Reg; // fwd B
+	2'b10: ALU_SrcB_Reg = ALU_OutMW_Reg_stall; // fwd B
 	2'b11: ALU_SrcB_Reg = Immediate; // immediate, zero or SE'd, for i-type
 	default: ALU_SrcB_Reg = rd2;
       endcase // case (ALU_Sel_B)
@@ -224,7 +248,7 @@ module Datapath(
 	default: A3_Reg = rt;
       endcase // case (RegDst)
 
-      case(UARTsel_Reg)
+      case(UARTsel_Reg_stall)
 	2'b01: UART_Data_Reg = {31'd0, DataInReady};
 	2'b10: UART_Data_Reg = {31'd0, DataOutValid};
 	2'b00: UART_Data_Reg = {24'd0, DataOut};
@@ -232,9 +256,9 @@ module Datapath(
 	default: UART_Data_Reg = {24'd0, DataOut};
       endcase // case (UARTSel)
 
-      case (RDsel_Reg)
+      case (RDsel_Reg_stall)
 	2'b00: WriteData_Reg = UART_Data;
-	2'b01: WriteData_Reg = ALU_OutMW_Reg;
+	2'b01: WriteData_Reg = ALU_OutMW_Reg_stall;
 	2'b10: WriteData_Reg = DMEM_dout;
 	2'b11: WriteData_Reg = CounterData;
 	default: WriteData_Reg = DMEM_dout;
@@ -365,28 +389,28 @@ module Datapath(
    assign Imm_Zero = {16'b0, Imm};
    assign Imm_Shifted = Imm_Extended << 2;
    assign Immediate = (SEXTImm)? Imm_Extended : Imm_Zero;
-   assign PC_Branch = Imm_Shifted + PC_4_Reg;
+   assign PC_Branch = Imm_Shifted + PC_4_Reg_stall;
 
    assign addra = ALU_OutMW[13:2];
    assign dcache_addr = ALU_OutMW;
    assign JR = rd1_Reg;
-   assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
+   assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg_stall : rd2;
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    assign icache_din = dcache_din;
-   assign CounterData = (CTselreg)? InstrCounter : CycleCounter;
+   assign CounterData = (CTselreg_stall)? InstrCounter : CycleCounter;
    assign PC_toControl = PC_IF_RA2;
    
    //Wires in DataMem and WriteBack (third stage)
-   assign A3 = A3_RA_DW;
+   //assign A3_RA_DW_stall = A3_RA_DW;
    assign DataOutReady = REUART_Reg; // output
    assign DataInValid = WEUART_Reg; // output
    assign PrevInstruction = PrevInstruction_Reg; // output
    assign DataIn = rd2[7:0]; // output
    assign WriteData = WriteData_Reg;
    assign UART_Data = UART_Data_Reg;
-   assign prev_opcode = PrevInstruction_Reg[31:26];
+   assign prev_opcode = PrevInstruction_Reg_stall[31:26];
    assign DMEM_dout = douta_masked;
    assign offset = ALU_OutMW[1:0];
-   assign prev_offset = ALU_OutMW_Reg[1:0];
+   assign prev_offset = ALU_OutMW_Reg_stall[1:0];
    
 endmodule // Datapath
