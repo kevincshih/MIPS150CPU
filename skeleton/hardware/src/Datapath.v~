@@ -186,7 +186,7 @@ module Datapath(
    assign icache_dout2 = (not_stall) ? icache_dout : icache_dout_reg;
    assign bios_doutb2 = (not_stall) ? bios_doutb : bios_doutb_reg;
    assign InstrSrc2 = (not_stall) ? InstrSrc : InstrSrc_Reg;
-   assign PC_IF_RA2 = (not_stall) ? PC_IF_RA : PC_IF_RA_Reg;
+   assign PC_IF_RA2 = (not_stall) ? PC_IF_RA : PC_IF_RA_reg;
    assign PC_IF = (not_stall) ? PC_IF3 : PC_IF_RA;	
    
    always @(*) begin
