@@ -147,6 +147,11 @@ module Datapath(
       else InstrCounter = InstrCounter + 1;
    end   
 
+    reg [31:0] icache_dout_reg, bios_doutb_reg, PC_IF_RA_reg;
+	wire [31:0] PC_IF3, icache_dout2, bios_doutb2;
+	wire [31:0] PC_IF_RA2;
+	wire InstrSrc2;
+
    always @(posedge CLK) begin
      resetReg <= reset;
       stall_reg <= Stall;
@@ -159,9 +164,13 @@ module Datapath(
 	 if (not_stall) begin
 	 //First Pipeline Registers
 	    PC_IF_RA <= PC_IF;
-	    InstrSrc_Reg <= InstrSrc;
-
+	    InstrSrc_Reg <= InstrSrc2;
+		icache_dout_reg <= icache_dout2;
+		bios_doutb_reg <= bios_doutb2;
+		PC_IF_RA_reg <= PC_IF_RA2;
+		
 	 //Second Pipeline Registers
+	    
 	    A3_RA_DW <= A3_Reg;
 	    UARTsel_Reg <= UARTsel;
 		RDsel_Reg <= RDsel;
@@ -173,7 +182,13 @@ module Datapath(
 		CTselreg <= CTsel;
 	 end // if (not_stall)
    end // always @ (posedge CLK)
-    
+   
+   assign icache_dout2 = (not_stall) ? icache_dout : icache_dout_reg;
+   assign bios_doutb2 = (not_stall) ? bios_doutb : bios_doutb_reg;
+   assign InstrSrc2 = (not_stall) ? InstrSrc : InstrSrc_Reg;
+   assign PC_IF_RA2 = (not_stall) ? PC_IF_RA : PC_IF_RA_reg;
+   assign PC_IF = (not_stall) ? PC_IF3 : PC_IF_RA;	
+   
    always @(*) begin
     Instruction_Dout_IF_RA = (resetReg) ? 32'b0 : Instruction_Dout_IF;
 	PC_SelReg = PC_Sel;
@@ -322,11 +337,11 @@ module Datapath(
    assign not_stall = ~Stall;
    
    //Wires in IFetch/IMEM (first stage)
-   assign PC_IF = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
+   assign PC_IF3 = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
    assign PC_4 = PC_IF + 4;
    assign addrb = PC_IF[13:2];
    assign PC_top_nibble = PC_IF[31:28];
-   assign Instruction_Dout_IF = (InstrSrc_Reg)? bios_doutb : icache_dout;
+   assign Instruction_Dout_IF = (InstrSrc_Reg)? bios_doutb2 : icache_dout2;
    assign icache_addr2 = (ICacheSel)? ALU_OutMW : PC_IF;
    assign icache_addr = (mmult_debug) ? {4'b0100, icache_addr2[27:0]}: icache_addr2;
    
