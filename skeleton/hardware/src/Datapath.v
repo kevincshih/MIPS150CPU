@@ -203,7 +203,7 @@ module Datapath(
    always @(*) begin
       case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
-	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
+	2'b00: ALU_SrcA_Reg = PC_IF_RA2; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
 	2'b11: ALU_SrcA_Reg = Instruction_Dout_IF[10:6];
 	default: ALU_SrcA_Reg = rd1;
@@ -358,7 +358,7 @@ module Datapath(
    assign Address = ALU_OutMW; // output to control
    assign RegWrite_WB = RegWrite_Reg;
 
-   assign PC_High_bits = PC_IF_RA[31:28];
+   assign PC_High_bits = PC_IF_RA2[31:28];
    assign JAL_Target = JAL_Target_Reg;
    assign PC_JAL = {PC_High_bits, JAL_Target, 2'b00};
    assign Imm_Extended = $signed(Imm);
@@ -374,7 +374,7 @@ module Datapath(
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    assign icache_din = dcache_din;
    assign CounterData = (CTselreg)? InstrCounter : CycleCounter;
-   assign PC_toControl = PC_IF_RA;
+   assign PC_toControl = PC_IF_RA2;
    
    //Wires in DataMem and WriteBack (third stage)
    assign A3 = A3_RA_DW;

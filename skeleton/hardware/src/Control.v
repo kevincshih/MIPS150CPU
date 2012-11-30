@@ -147,6 +147,8 @@ ALUdec DUT(.funct(funct),
 	
    //Data Memory
 
+   //Data Write
+   
    if (MemWrite && ~addr[3] && ~addr[2] && addr[0]) begin
       WEDMreg = 1'b1;
    end
@@ -154,6 +156,7 @@ ALUdec DUT(.funct(funct),
      WEDMreg = 1'b0;
    end
    
+   //Data Read
    if (MemRead && ~addr[3] && ~addr[2] && addr[0]) begin
 	   RDselreg = 2'b10;
 	   REDCreg = 1'b1;
