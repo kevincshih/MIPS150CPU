@@ -107,12 +107,12 @@ module MIPS150(
    assign instruction2 = (not_stall) ? instruction : instruction;
 	  
    always @(posedge clk) begin
-		stall_reg <= stall;
-		if (not_stall) begin
-		dcache_doutreg <= dcache_dout;
-		instructionreg <= instruction;
-		end
-	  end
+      stall_reg <= stall;
+      if (not_stall) begin
+	 dcache_doutreg <= dcache_dout;
+	 instructionreg <= instruction;
+      end
+   end
    
 
 

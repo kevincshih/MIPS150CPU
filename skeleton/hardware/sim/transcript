@@ -7,16 +7,13 @@
 # //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
-# OpenFile results/echocaches.wlf 
+# OpenFile results/mmult.wlf 
 add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_controller/Instruction \
-echocaches:/EchoTestbenchCaches/DUT/the_controller/PC
+mmult:/MmultTestbench/Clock \
+mmult:/MmultTestbench/Reset
+add wave -position insertpoint mmult:/MmultTestbench/mem_arch/dcache/*
 add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/Stall \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/CLK
+mmult:/MmultTestbench/DUT/the_datapath/Instruction
 add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/we \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/wa \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/wd
-add wave -position insertpoint  \
-{echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers[3]}
+mmult:/MmultTestbench/DUT/the_datapath/PC_IF_RA
+# Break key hit 

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Fri Nov 30 15:37:14 2012
+// Written by: Map P.15xf on Fri Nov 30 13:24:46 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -1721,89 +1721,8 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         BEL "CPU/the_datapath/PC_4_Reg_8" BEL "CPU/the_datapath/PC_4_Reg_7"
         BEL "CPU/the_datapath/PC_4_Reg_6" BEL "CPU/the_datapath/PC_4_Reg_5"
         BEL "CPU/the_datapath/PC_4_Reg_4" BEL "CPU/the_datapath/PC_4_Reg_3"
-        BEL "CPU/the_datapath/PC_4_Reg_2" BEL
-        "CPU/the_datapath/CTselreg_stallreg" BEL
-        "CPU/the_datapath/CTresetreg_stallreg" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_31" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_30" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_29" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_28" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_27" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_26" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_25" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_24" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_23" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_22" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_21" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_20" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_19" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_18" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_17" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_16" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_15" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_14" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_13" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_12" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_11" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_10" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_9" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_8" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_7" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_6" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_5" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_4" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_3" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_2" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_1" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_stallreg_0" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_31" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_30" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_29" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_28" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_27" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_stallreg_26" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_31" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_30" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_29" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_28" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_27" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_26" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_25" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_24" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_23" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_22" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_21" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_20" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_19" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_18" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_17" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_16" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_15" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_14" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_13" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_12" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_11" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_10" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_9" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_8" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_7" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_6" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_5" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_4" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_3" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_2" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_1" BEL
-        "CPU/the_datapath/PC_4_Reg_stallreg_0" BEL
-        "CPU/the_datapath/RDsel_Reg_stallreg_1" BEL
-        "CPU/the_datapath/RDsel_Reg_stallreg_0" BEL
-        "CPU/the_datapath/UARTsel_Reg_stallreg_1" BEL
-        "CPU/the_datapath/UARTsel_Reg_stallreg_0" BEL
-        "CPU/the_datapath/A3_RA_DW_stallreg_4" BEL
-        "CPU/the_datapath/A3_RA_DW_stallreg_3" BEL
-        "CPU/the_datapath/A3_RA_DW_stallreg_2" BEL
-        "CPU/the_datapath/A3_RA_DW_stallreg_1" BEL
-        "CPU/the_datapath/A3_RA_DW_stallreg_0" BEL "CPU/the_datapath/CTselreg"
-        BEL "CPU/the_datapath/CTresetreg" BEL
+        BEL "CPU/the_datapath/PC_4_Reg_2" BEL "CPU/the_datapath/CTselreg" BEL
+        "CPU/the_datapath/CTresetreg" BEL
         "CPU/the_datapath/PrevInstruction_Reg_31" BEL
         "CPU/the_datapath/PrevInstruction_Reg_30" BEL
         "CPU/the_datapath/PrevInstruction_Reg_29" BEL
@@ -1825,39 +1744,7 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         BEL "CPU/the_datapath/UARTsel_Reg_0" BEL "CPU/the_datapath/A3_RA_DW_4"
         BEL "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2"
         BEL "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0"
-        BEL "CPU/the_datapath/PC_IF_RA_reg_31" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_30" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_29" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_28" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_27" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_26" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_25" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_24" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_23" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_22" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_21" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_20" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_19" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_18" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_17" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_16" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_15" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_14" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_13" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_12" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_11" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_10" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_9" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_8" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_7" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_6" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_5" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_4" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_3" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_2" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_1" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_0" BEL
-        "CPU/the_datapath/bios_doutb_reg_31" BEL
+        BEL "CPU/the_datapath/bios_doutb_reg_31" BEL
         "CPU/the_datapath/bios_doutb_reg_30" BEL
         "CPU/the_datapath/bios_doutb_reg_29" BEL
         "CPU/the_datapath/bios_doutb_reg_28" BEL
@@ -1889,23 +1776,6 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/bios_doutb_reg_2" BEL
         "CPU/the_datapath/bios_doutb_reg_1" BEL
         "CPU/the_datapath/bios_doutb_reg_0" BEL
-        "CPU/the_datapath/InstrSrc_Reg" BEL "CPU/the_datapath/PC_IF_RA_31" BEL
-        "CPU/the_datapath/PC_IF_RA_30" BEL "CPU/the_datapath/PC_IF_RA_29" BEL
-        "CPU/the_datapath/PC_IF_RA_28" BEL "CPU/the_datapath/PC_IF_RA_27" BEL
-        "CPU/the_datapath/PC_IF_RA_26" BEL "CPU/the_datapath/PC_IF_RA_25" BEL
-        "CPU/the_datapath/PC_IF_RA_24" BEL "CPU/the_datapath/PC_IF_RA_23" BEL
-        "CPU/the_datapath/PC_IF_RA_22" BEL "CPU/the_datapath/PC_IF_RA_21" BEL
-        "CPU/the_datapath/PC_IF_RA_20" BEL "CPU/the_datapath/PC_IF_RA_19" BEL
-        "CPU/the_datapath/PC_IF_RA_18" BEL "CPU/the_datapath/PC_IF_RA_17" BEL
-        "CPU/the_datapath/PC_IF_RA_16" BEL "CPU/the_datapath/PC_IF_RA_15" BEL
-        "CPU/the_datapath/PC_IF_RA_14" BEL "CPU/the_datapath/PC_IF_RA_13" BEL
-        "CPU/the_datapath/PC_IF_RA_12" BEL "CPU/the_datapath/PC_IF_RA_11" BEL
-        "CPU/the_datapath/PC_IF_RA_10" BEL "CPU/the_datapath/PC_IF_RA_9" BEL
-        "CPU/the_datapath/PC_IF_RA_8" BEL "CPU/the_datapath/PC_IF_RA_7" BEL
-        "CPU/the_datapath/PC_IF_RA_6" BEL "CPU/the_datapath/PC_IF_RA_5" BEL
-        "CPU/the_datapath/PC_IF_RA_4" BEL "CPU/the_datapath/PC_IF_RA_3" BEL
-        "CPU/the_datapath/PC_IF_RA_2" BEL "CPU/the_datapath/PC_IF_RA_1" BEL
-        "CPU/the_datapath/PC_IF_RA_0" BEL
         "CPU/the_datapath/icache_dout_reg_31" BEL
         "CPU/the_datapath/icache_dout_reg_30" BEL
         "CPU/the_datapath/icache_dout_reg_29" BEL
@@ -1937,8 +1807,57 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/icache_dout_reg_3" BEL
         "CPU/the_datapath/icache_dout_reg_2" BEL
         "CPU/the_datapath/icache_dout_reg_1" BEL
-        "CPU/the_datapath/icache_dout_reg_0" BEL "CPU/the_datapath/resetReg"
-        BEL "mem_arch/req_con/icache_req_num_0" BEL
+        "CPU/the_datapath/icache_dout_reg_0" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_31" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_30" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_29" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_28" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_27" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_26" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_25" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_24" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_23" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_22" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_21" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_20" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_19" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_18" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_17" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_16" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_15" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_14" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_13" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_12" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_11" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_10" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_9" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_8" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_7" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_6" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_5" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_4" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_3" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_2" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_1" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_0" BEL "CPU/the_datapath/InstrSrc_Reg"
+        BEL "CPU/the_datapath/PC_IF_RA_31" BEL "CPU/the_datapath/PC_IF_RA_30"
+        BEL "CPU/the_datapath/PC_IF_RA_29" BEL "CPU/the_datapath/PC_IF_RA_28"
+        BEL "CPU/the_datapath/PC_IF_RA_27" BEL "CPU/the_datapath/PC_IF_RA_26"
+        BEL "CPU/the_datapath/PC_IF_RA_25" BEL "CPU/the_datapath/PC_IF_RA_24"
+        BEL "CPU/the_datapath/PC_IF_RA_23" BEL "CPU/the_datapath/PC_IF_RA_22"
+        BEL "CPU/the_datapath/PC_IF_RA_21" BEL "CPU/the_datapath/PC_IF_RA_20"
+        BEL "CPU/the_datapath/PC_IF_RA_19" BEL "CPU/the_datapath/PC_IF_RA_18"
+        BEL "CPU/the_datapath/PC_IF_RA_17" BEL "CPU/the_datapath/PC_IF_RA_16"
+        BEL "CPU/the_datapath/PC_IF_RA_15" BEL "CPU/the_datapath/PC_IF_RA_14"
+        BEL "CPU/the_datapath/PC_IF_RA_13" BEL "CPU/the_datapath/PC_IF_RA_12"
+        BEL "CPU/the_datapath/PC_IF_RA_11" BEL "CPU/the_datapath/PC_IF_RA_10"
+        BEL "CPU/the_datapath/PC_IF_RA_9" BEL "CPU/the_datapath/PC_IF_RA_8"
+        BEL "CPU/the_datapath/PC_IF_RA_7" BEL "CPU/the_datapath/PC_IF_RA_6"
+        BEL "CPU/the_datapath/PC_IF_RA_5" BEL "CPU/the_datapath/PC_IF_RA_4"
+        BEL "CPU/the_datapath/PC_IF_RA_3" BEL "CPU/the_datapath/PC_IF_RA_2"
+        BEL "CPU/the_datapath/PC_IF_RA_1" BEL "CPU/the_datapath/PC_IF_RA_0"
+        BEL "CPU/the_datapath/resetReg" BEL
+        "mem_arch/req_con/icache_req_num_0" BEL
         "mem_arch/req_con/icache_req_num_1" BEL
         "mem_arch/req_con/icache_req_num_2" BEL
         "mem_arch/req_con/icache_req_num_3" BEL

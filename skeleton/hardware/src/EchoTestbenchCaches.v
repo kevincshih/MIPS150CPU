@@ -234,8 +234,6 @@ module EchoTestbenchCaches();
       @( posedge cpu_clk_g ) ;
       $display("Got %h", DataOut);
 
-	  /*
-	  
       DataIn = 8'h81;
       DataInValid = 1'b1;
       @( posedge cpu_clk_g ) ;
@@ -287,8 +285,7 @@ module EchoTestbenchCaches();
       @( posedge DataOutValid ) ;
       @( posedge cpu_clk_g ) ;
       $display("Got %h", DataOut);
-      */
-	  
+      
       DataIn = 8'h86;
       DataInValid = 1'b1;
       @( posedge cpu_clk_g ) ;

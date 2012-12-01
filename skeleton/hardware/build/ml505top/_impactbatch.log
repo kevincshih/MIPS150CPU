@@ -1,6 +1,6 @@
 iMPACT Version: Apr 23 2012 20:20:28
 
-iMPACT log file Started on Tue Nov 27 17:52:27 2012
+iMPACT log file Started on Sat Dec  1 14:30:27 2012
 
 Preference Table
 Name                 Setting             
@@ -35,7 +35,7 @@ Firmware hex file version = 2401.
 PLD file version = 200Dh.
  PLD version = 200Dh.
 Type = 0x0005.
-ESN option: 000010CC6C6E01.
+ESN option: 0000128F522F01.
 Identifying chain contents...'0': : Manufacturer's ID = Xilinx xc5vlx110t, Version : 7
 INFO:iMPACT:1777 - 
    Reading /opt/Xilinx/14.1/ISE_DS/ISE/virtex5/data/xc5vlx110t.bsd...
@@ -79,9 +79,9 @@ INFO:iMPACT:501 - '5': Added Device xc5vlx110t successfully.
 Maximum TCK operating frequency for this device chain: 10000000.
 Validating chain...
 Boundary-scan chain validated successfully.
-5: Device Temperature: Current Reading:   81.38 C, Min. Reading:   60.22 C, Max.Reading:   87.29 C
-5: VCCINT Supply: Current Reading:   1.031 V, Min. Reading:   0.999 V, Max.Reading:   1.040 V
-5: VCCAUX Supply: Current Reading:   2.572 V, Min. Reading:   2.484 V, Max.Reading:   2.587 V
+5: Device Temperature: Current Reading:   72.52 C, Min. Reading:   66.62 C, Max.Reading:   88.27 C
+5: VCCINT Supply: Current Reading:   1.002 V, Min. Reading:   0.999 V, Max.Reading:   1.066 V
+5: VCCAUX Supply: Current Reading:   2.502 V, Min. Reading:   2.493 V, Max.Reading:   2.657 V
 '5': Programming device...
  Match_cycle = 2.
  LCK_cycle = NoWait.

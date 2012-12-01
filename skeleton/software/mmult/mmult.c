@@ -48,15 +48,15 @@ uint32_t mmult() {
                 int32_t prod = times(a, b);
                 *s = *s + times(a, b);
             }
-            uwrite_int8s("j = ");
-            uwrite_int8s(uint32_to_ascii_hex(j, buffer, 128));
+	    uwrite_int8s("j = ");
+	    uwrite_int8s(uint32_to_ascii_hex(j, buffer, 128));
             uwrite_int8s("\r\n");
             uwrite_int8s("Row sum: ");
             uwrite_int8s(uint32_to_ascii_hex(*s, buffer, 128));
             uwrite_int8s("\r\n");
             sum += *s;
         }
-        uwrite_int8s("\r\n");
+	uwrite_int8s("\r\n");
         uwrite_int8s("\r\n");
         uwrite_int8s("\r\n");
         uwrite_int8s("\r\n");
@@ -94,7 +94,7 @@ void generate_matrices() {
 typedef void (*entry_t)(void);
 
 int main(int argc, char**argv) {
-    uwrite_int8s("Generating matrices...\r\n");
+  uwrite_int8s("Generating matrices...\r\n");
     generate_matrices();
     uwrite_int8s("Running and timing matrix multiply...\r\n");
     run_and_time(&mmult);

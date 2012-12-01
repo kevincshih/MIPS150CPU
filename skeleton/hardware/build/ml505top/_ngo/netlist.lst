@@ -1,8 +1,8 @@
-/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v30/skeleton/hardware/build/ml505top/ml505top.ngc 1354318063
-../../src/bios_mem/bios_mem.ngc 1354245683
-../../src/cache_data_blk_ram/cache_data_blk_ram.ngc 1354245684
-../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc 1354245684
-../../src/mig_rdf/mig_rdf.ngc 1354245684
-../../src/mig_wdf/mig_wdf.ngc 1354245684
-../../src/mig_af/mig_af.ngc 1354245684
+/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505top.ngc 1354310102
+../../src/bios_mem/bios_mem.ngc 1354259653
+../../src/cache_data_blk_ram/cache_data_blk_ram.ngc 1354259653
+../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc 1354259653
+../../src/mig_rdf/mig_rdf.ngc 1354259653
+../../src/mig_wdf/mig_wdf.ngc 1354259653
+../../src/mig_af/mig_af.ngc 1354259653
 OK

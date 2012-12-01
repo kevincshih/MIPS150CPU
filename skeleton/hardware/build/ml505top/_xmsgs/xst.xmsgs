@@ -126,11 +126,11 @@
 <msg type="warning" file="Xst" num="863" delta="new" >&quot;<arg fmt="%s" index="1">../../src/MIPS150.v</arg>&quot; line <arg fmt="%d" index="2">19</arg>: Name conflict (<arg fmt="%s" index="3">&lt;Instruction&gt; and &lt;instruction&gt;, renaming Instruction as instruction_rnm0</arg>).
 </msg>
 
-<msg type="warning" file="Xst" num="905" delta="new" >&quot;<arg fmt="%s" index="1">../../src/Datapath.v</arg>&quot; line <arg fmt="%d" index="2">148</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-<arg fmt="%s" index="3">&lt;CTresetreg_stall&gt;, &lt;reset&gt;</arg>
+<msg type="warning" file="Xst" num="905" delta="new" >&quot;<arg fmt="%s" index="1">../../src/Datapath.v</arg>&quot; line <arg fmt="%d" index="2">145</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<arg fmt="%s" index="3">&lt;CTresetreg&gt;, &lt;reset&gt;</arg>
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">../../src/bios_mem/bios_mem.v</arg>&quot; line <arg fmt="%d" index="2">122</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">bios_mem</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">../../src/bios_mem/bios_mem.v</arg>&quot; line <arg fmt="%d" index="2">119</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">bios_mem</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">i</arg>&gt; in unit &lt;<arg fmt="%s" index="2">ddr2_phy_calib</arg>&gt; has a constant value of <arg fmt="%s" index="3">1000</arg> during circuit operation. The register is replaced by logic.
@@ -487,7 +487,7 @@
 <msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">PC_top_nibble</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">A3</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">A3</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="737" delta="new" >Found <arg fmt="%d" index="1">32</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">dina_shifted</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
@@ -1030,84 +1030,6 @@
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">the_datapath</arg>&gt;.
-</msg>
-
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">RXShift_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">uareceive</arg>&gt;.
 </msg>
 
@@ -1502,84 +1424,6 @@
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">ctrl_rden_r_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ddr2_usr_rd</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">PrevInstruction_Reg_stallreg_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">Datapath</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">dqs_oe_270</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">ddr2_phy_write</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;dq_oe_270_1&gt; </arg>
