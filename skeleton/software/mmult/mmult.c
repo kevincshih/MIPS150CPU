@@ -1,6 +1,7 @@
 #include "types.h"
 #include "benchmark.h"
 #include "ascii.h"
+#include "uart.h"
 
 #define N 1
 #define DATA (int32_t *) 0x10018000

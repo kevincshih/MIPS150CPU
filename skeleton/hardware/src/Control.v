@@ -1,4 +1,5 @@
 module Control(
+		   input OldStall,
 	       input[31:0]Instruction,
 	       input[31:0]OldInstruction,
 	       input[31:0]Address, PC,	       
@@ -9,7 +10,7 @@ module Control(
 	       output[3:0]ALUop, IMByteSel, DMByteSel,
 	       output REUART, WEUART, RegWrite, DinSel,
 	       output CTsel, CTreset, REDC, ICacheSel,
-	       output SEXTImm, JRsel
+	       output SEXTImm, JRsel, ControlStall
 	       );
 `include "Opcode.vh"
 `include "ALUop.vh"
@@ -20,7 +21,7 @@ module Control(
   //start PC at 4
   //--|Solution|----------------------------------------------------------------
 
-   reg 	   MemWriteReg, MemReadReg, DinSelReg;
+   reg 	   MemWriteReg, MemReadReg, DinSelReg, ControlStallReg;
 reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg, RDselreg, UARTselreg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg;
@@ -101,6 +102,7 @@ assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
    assign CTreset = (reset) ? 0 : CTResetreg;
    assign ICacheSel = (reset) ? 0 : ICacheSelreg;
    assign SEXTImm = ((op >= `ANDI) && (op <= `LUI)) ? 1'b0 : 1'b1;
+   assign ControlStall = (reset) ? 0 : (~OldStall && ControlStallReg);
 
 ALUdec DUT(.funct(funct),
     .opcode(op),
@@ -137,6 +139,13 @@ ALUdec DUT(.funct(funct),
         default: ByteSelReg = 4'b0000;
     endcase
 
+//Stalls
+
+   if (WEIMreg || REDCreg || WEDMreg) begin
+   ControlStallReg = 1'b1;
+   end
+   else ControlStallReg = 1'b0;
+	
 //Instruction Cache
 
     if (MemWrite && ~addr[3] && ~addr[2] && addr[1] && PC[30]) begin
@@ -148,7 +157,7 @@ ALUdec DUT(.funct(funct),
        ICacheSelreg = 1'b0;
     end
 	
-   //Data Memory
+   //Data Cache
 
    if (MemWrite && ~addr[3] && ~addr[2] && addr[0]) begin
       WEDMreg = 1'b1;

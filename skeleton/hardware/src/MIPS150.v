@@ -34,7 +34,11 @@ module MIPS150(
    
    reg stall_reg;
    
+   wire ControlStall, OldStall;
+   
    Control the_controller(.JRsel(JRsel), 
+			  .ControlStall(ControlStall),
+			  .OldStall(OldStall),
 			  .Address(Address),
 			  .Instruction(Instruction), // begin inputs
 			  .OldInstruction(PrevInstruction),
@@ -57,7 +61,9 @@ module MIPS150(
 			  .SEXTImm(SEXTImm),
 			  .REDC(dcache_re)); //end outputs
 
-   Datapath the_datapath(.JRsel(JRsel), 
+   Datapath the_datapath(.JRsel(JRsel),
+			  .ControlStall(ControlStall),
+			  .OldStall(OldStall),   
 			 .ALUop(ALUop), //begin inputs
 			 .DinSel(DinSel),
 			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),

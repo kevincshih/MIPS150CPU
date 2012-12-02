@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sun Dec 02 03:24:21 2012
+// Written by: Map P.15xf on Sun Dec 02 15:34:15 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -185,35 +185,35 @@ COMP "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/en_dqs<6>"
 COMP "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/en_dqs<7>"
         LOCATE = SITE "SLICE_X0Y131" LEVEL 1;
 PIN
-        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>
+        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<88>
         = BEL
         "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
         PINNAME RDCLKL;
 PIN
-        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>
+        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<90>
         = BEL
         "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
         PINNAME RDRCLKL;
 PIN
-        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>
+        mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<122>
         = BEL
         "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
         PINNAME WRCLKL;
 PIN
-        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>
+        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<87>
         = BEL
         "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
-        PINNAME RDCLKL;
+        PINNAME RDCLKU;
 PIN
-        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>
+        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<89>
         = BEL
         "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
-        PINNAME RDRCLKL;
+        PINNAME RDRCLKU;
 PIN
-        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>
+        mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<120>
         = BEL
         "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP"
-        PINNAME WRCLKL;
+        PINNAME WRCLKU;
 PIN
         mem_arch/ddr2_read_fifo/BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36_pins<74>
         = BEL
@@ -1674,8 +1674,8 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/CycleCounter_3" BEL
         "CPU/the_datapath/CycleCounter_2" BEL
         "CPU/the_datapath/CycleCounter_1" BEL
-        "CPU/the_datapath/CycleCounter_0" BEL
-        "CPU/the_datapath/ALU_OutMW_Reg_31" BEL
+        "CPU/the_datapath/CycleCounter_0" BEL "CPU/the_datapath/InstrSrc_Reg"
+        BEL "CPU/the_datapath/ALU_OutMW_Reg_31" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_30" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_29" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_28" BEL
@@ -1721,9 +1721,8 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         BEL "CPU/the_datapath/PC_4_Reg_8" BEL "CPU/the_datapath/PC_4_Reg_7"
         BEL "CPU/the_datapath/PC_4_Reg_6" BEL "CPU/the_datapath/PC_4_Reg_5"
         BEL "CPU/the_datapath/PC_4_Reg_4" BEL "CPU/the_datapath/PC_4_Reg_3"
-        BEL "CPU/the_datapath/PC_4_Reg_2" BEL "CPU/the_datapath/CTselreg" BEL
-        "CPU/the_datapath/CTresetreg" BEL
-        "CPU/the_datapath/PrevInstruction_Reg_31" BEL
+        BEL "CPU/the_datapath/PC_4_Reg_2" BEL "CPU/the_datapath/CTresetreg"
+        BEL "CPU/the_datapath/PrevInstruction_Reg_31" BEL
         "CPU/the_datapath/PrevInstruction_Reg_30" BEL
         "CPU/the_datapath/PrevInstruction_Reg_29" BEL
         "CPU/the_datapath/PrevInstruction_Reg_28" BEL
@@ -1739,126 +1738,25 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/PrevInstruction_Reg_13" BEL
         "CPU/the_datapath/PrevInstruction_Reg_12" BEL
         "CPU/the_datapath/PrevInstruction_Reg_11" BEL
-        "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/RDsel_Reg_1" BEL
-        "CPU/the_datapath/RDsel_Reg_0" BEL "CPU/the_datapath/UARTsel_Reg_1"
-        BEL "CPU/the_datapath/UARTsel_Reg_0" BEL "CPU/the_datapath/A3_RA_DW_4"
-        BEL "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2"
-        BEL "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0"
-        BEL "CPU/the_datapath/bios_doutb_reg_31" BEL
-        "CPU/the_datapath/bios_doutb_reg_30" BEL
-        "CPU/the_datapath/bios_doutb_reg_29" BEL
-        "CPU/the_datapath/bios_doutb_reg_28" BEL
-        "CPU/the_datapath/bios_doutb_reg_27" BEL
-        "CPU/the_datapath/bios_doutb_reg_26" BEL
-        "CPU/the_datapath/bios_doutb_reg_25" BEL
-        "CPU/the_datapath/bios_doutb_reg_24" BEL
-        "CPU/the_datapath/bios_doutb_reg_23" BEL
-        "CPU/the_datapath/bios_doutb_reg_22" BEL
-        "CPU/the_datapath/bios_doutb_reg_21" BEL
-        "CPU/the_datapath/bios_doutb_reg_20" BEL
-        "CPU/the_datapath/bios_doutb_reg_19" BEL
-        "CPU/the_datapath/bios_doutb_reg_18" BEL
-        "CPU/the_datapath/bios_doutb_reg_17" BEL
-        "CPU/the_datapath/bios_doutb_reg_16" BEL
-        "CPU/the_datapath/bios_doutb_reg_15" BEL
-        "CPU/the_datapath/bios_doutb_reg_14" BEL
-        "CPU/the_datapath/bios_doutb_reg_13" BEL
-        "CPU/the_datapath/bios_doutb_reg_12" BEL
-        "CPU/the_datapath/bios_doutb_reg_11" BEL
-        "CPU/the_datapath/bios_doutb_reg_10" BEL
-        "CPU/the_datapath/bios_doutb_reg_9" BEL
-        "CPU/the_datapath/bios_doutb_reg_8" BEL
-        "CPU/the_datapath/bios_doutb_reg_7" BEL
-        "CPU/the_datapath/bios_doutb_reg_6" BEL
-        "CPU/the_datapath/bios_doutb_reg_5" BEL
-        "CPU/the_datapath/bios_doutb_reg_4" BEL
-        "CPU/the_datapath/bios_doutb_reg_3" BEL
-        "CPU/the_datapath/bios_doutb_reg_2" BEL
-        "CPU/the_datapath/bios_doutb_reg_1" BEL
-        "CPU/the_datapath/bios_doutb_reg_0" BEL
-        "CPU/the_datapath/icache_dout_reg_31" BEL
-        "CPU/the_datapath/icache_dout_reg_30" BEL
-        "CPU/the_datapath/icache_dout_reg_29" BEL
-        "CPU/the_datapath/icache_dout_reg_28" BEL
-        "CPU/the_datapath/icache_dout_reg_27" BEL
-        "CPU/the_datapath/icache_dout_reg_26" BEL
-        "CPU/the_datapath/icache_dout_reg_25" BEL
-        "CPU/the_datapath/icache_dout_reg_24" BEL
-        "CPU/the_datapath/icache_dout_reg_23" BEL
-        "CPU/the_datapath/icache_dout_reg_22" BEL
-        "CPU/the_datapath/icache_dout_reg_21" BEL
-        "CPU/the_datapath/icache_dout_reg_20" BEL
-        "CPU/the_datapath/icache_dout_reg_19" BEL
-        "CPU/the_datapath/icache_dout_reg_18" BEL
-        "CPU/the_datapath/icache_dout_reg_17" BEL
-        "CPU/the_datapath/icache_dout_reg_16" BEL
-        "CPU/the_datapath/icache_dout_reg_15" BEL
-        "CPU/the_datapath/icache_dout_reg_14" BEL
-        "CPU/the_datapath/icache_dout_reg_13" BEL
-        "CPU/the_datapath/icache_dout_reg_12" BEL
-        "CPU/the_datapath/icache_dout_reg_11" BEL
-        "CPU/the_datapath/icache_dout_reg_10" BEL
-        "CPU/the_datapath/icache_dout_reg_9" BEL
-        "CPU/the_datapath/icache_dout_reg_8" BEL
-        "CPU/the_datapath/icache_dout_reg_7" BEL
-        "CPU/the_datapath/icache_dout_reg_6" BEL
-        "CPU/the_datapath/icache_dout_reg_5" BEL
-        "CPU/the_datapath/icache_dout_reg_4" BEL
-        "CPU/the_datapath/icache_dout_reg_3" BEL
-        "CPU/the_datapath/icache_dout_reg_2" BEL
-        "CPU/the_datapath/icache_dout_reg_1" BEL
-        "CPU/the_datapath/icache_dout_reg_0" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_31" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_30" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_29" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_28" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_27" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_26" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_25" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_24" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_23" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_22" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_21" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_20" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_19" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_18" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_17" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_16" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_15" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_14" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_13" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_12" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_11" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_10" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_9" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_8" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_7" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_6" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_5" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_4" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_3" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_2" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_1" BEL
-        "CPU/the_datapath/PC_IF_RA_reg_0" BEL "CPU/the_datapath/InstrSrc_Reg"
-        BEL "CPU/the_datapath/PC_IF_RA_31" BEL "CPU/the_datapath/PC_IF_RA_30"
-        BEL "CPU/the_datapath/PC_IF_RA_29" BEL "CPU/the_datapath/PC_IF_RA_28"
-        BEL "CPU/the_datapath/PC_IF_RA_27" BEL "CPU/the_datapath/PC_IF_RA_26"
-        BEL "CPU/the_datapath/PC_IF_RA_25" BEL "CPU/the_datapath/PC_IF_RA_24"
-        BEL "CPU/the_datapath/PC_IF_RA_23" BEL "CPU/the_datapath/PC_IF_RA_22"
-        BEL "CPU/the_datapath/PC_IF_RA_21" BEL "CPU/the_datapath/PC_IF_RA_20"
-        BEL "CPU/the_datapath/PC_IF_RA_19" BEL "CPU/the_datapath/PC_IF_RA_18"
-        BEL "CPU/the_datapath/PC_IF_RA_17" BEL "CPU/the_datapath/PC_IF_RA_16"
-        BEL "CPU/the_datapath/PC_IF_RA_15" BEL "CPU/the_datapath/PC_IF_RA_14"
-        BEL "CPU/the_datapath/PC_IF_RA_13" BEL "CPU/the_datapath/PC_IF_RA_12"
-        BEL "CPU/the_datapath/PC_IF_RA_11" BEL "CPU/the_datapath/PC_IF_RA_10"
-        BEL "CPU/the_datapath/PC_IF_RA_9" BEL "CPU/the_datapath/PC_IF_RA_8"
-        BEL "CPU/the_datapath/PC_IF_RA_7" BEL "CPU/the_datapath/PC_IF_RA_6"
-        BEL "CPU/the_datapath/PC_IF_RA_5" BEL "CPU/the_datapath/PC_IF_RA_4"
-        BEL "CPU/the_datapath/PC_IF_RA_3" BEL "CPU/the_datapath/PC_IF_RA_2"
-        BEL "CPU/the_datapath/PC_IF_RA_1" BEL "CPU/the_datapath/PC_IF_RA_0"
-        BEL "CPU/the_datapath/resetReg" BEL
-        "mem_arch/req_con/icache_req_num_0" BEL
-        "mem_arch/req_con/icache_req_num_1" BEL
+        "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/PC_IF_RA_31" BEL
+        "CPU/the_datapath/PC_IF_RA_30" BEL "CPU/the_datapath/PC_IF_RA_29" BEL
+        "CPU/the_datapath/PC_IF_RA_28" BEL "CPU/the_datapath/PC_IF_RA_27" BEL
+        "CPU/the_datapath/PC_IF_RA_26" BEL "CPU/the_datapath/PC_IF_RA_25" BEL
+        "CPU/the_datapath/PC_IF_RA_24" BEL "CPU/the_datapath/PC_IF_RA_23" BEL
+        "CPU/the_datapath/PC_IF_RA_22" BEL "CPU/the_datapath/PC_IF_RA_21" BEL
+        "CPU/the_datapath/PC_IF_RA_20" BEL "CPU/the_datapath/PC_IF_RA_19" BEL
+        "CPU/the_datapath/PC_IF_RA_18" BEL "CPU/the_datapath/PC_IF_RA_17" BEL
+        "CPU/the_datapath/PC_IF_RA_16" BEL "CPU/the_datapath/PC_IF_RA_15" BEL
+        "CPU/the_datapath/PC_IF_RA_14" BEL "CPU/the_datapath/PC_IF_RA_13" BEL
+        "CPU/the_datapath/PC_IF_RA_12" BEL "CPU/the_datapath/PC_IF_RA_11" BEL
+        "CPU/the_datapath/PC_IF_RA_10" BEL "CPU/the_datapath/PC_IF_RA_9" BEL
+        "CPU/the_datapath/PC_IF_RA_8" BEL "CPU/the_datapath/PC_IF_RA_7" BEL
+        "CPU/the_datapath/PC_IF_RA_6" BEL "CPU/the_datapath/PC_IF_RA_5" BEL
+        "CPU/the_datapath/PC_IF_RA_4" BEL "CPU/the_datapath/PC_IF_RA_3" BEL
+        "CPU/the_datapath/PC_IF_RA_2" BEL "CPU/the_datapath/PC_IF_RA_1" BEL
+        "CPU/the_datapath/PC_IF_RA_0" BEL "CPU/the_datapath/OldStallReg" BEL
+        "CPU/the_datapath/resetReg" BEL "mem_arch/req_con/icache_req_num_0"
+        BEL "mem_arch/req_con/icache_req_num_1" BEL
         "mem_arch/req_con/icache_req_num_2" BEL
         "mem_arch/req_con/icache_req_num_3" BEL
         "mem_arch/req_con/icache_req_num_4" BEL
@@ -2277,17 +2175,17 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "mem_arch/icache/first_read_124" BEL "mem_arch/icache/first_read_125"
         BEL "mem_arch/icache/first_read_126" BEL
         "mem_arch/icache/first_read_127" PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<88>"
         PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<90>"
         PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<122>"
         PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<88>"
         PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<90>"
         PIN
-        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>"
+        "mem_arch/icache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<122>"
         BEL "mem_arch/icache/cs_FSM_FFd1" BEL "mem_arch/icache/cs_FSM_FFd3"
         BEL "mem_arch/icache/cs_FSM_FFd4" BEL "mem_arch/icache/cs_FSM_FFd7"
         BEL "mem_arch/icache/cs_FSM_FFd5" BEL "mem_arch/icache/cs_FSM_FFd6"
@@ -2662,17 +2560,17 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "mem_arch/dcache/first_read_124" BEL "mem_arch/dcache/first_read_125"
         BEL "mem_arch/dcache/first_read_126" BEL
         "mem_arch/dcache/first_read_127" PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<87>"
         PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<89>"
         PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<120>"
         PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<66>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<87>"
         PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<68>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<89>"
         PIN
-        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<94>"
+        "mem_arch/dcache/cache_tag/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_noinit.ram/SDP.WIDE_PRIM18.TDP_pins<120>"
         BEL "mem_arch/dcache/cs_FSM_FFd1" BEL "mem_arch/dcache/cs_FSM_FFd3"
         BEL "mem_arch/dcache/cs_FSM_FFd4" BEL "mem_arch/dcache/cs_FSM_FFd7"
         BEL "mem_arch/dcache/cs_FSM_FFd5" BEL "mem_arch/dcache/cs_FSM_FFd6"
@@ -2866,9 +2764,15 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_uart/uatransmit/TXShift_1" BEL
         "CPU/the_uart/uatransmit/TXShift_0" BEL
         "CPU/the_uart/uareceive/HasByte" BEL
-        "CPU/the_uart/uatransmit/TXShift_9" BEL
-        "mem_arch/icache/cs_FSM_FFd6_1" BEL "Mshreg_reset_r_3" BEL "reset_r_3"
-        BEL "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
+        "CPU/the_uart/uatransmit/TXShift_9" BEL "CPU/the_datapath/CTselreg"
+        BEL "CPU/the_datapath/RDsel_Reg_1" BEL "CPU/the_datapath/RDsel_Reg_0"
+        BEL "CPU/the_datapath/UARTsel_Reg_1" BEL
+        "CPU/the_datapath/UARTsel_Reg_0" BEL "CPU/the_datapath/A3_RA_DW_4" BEL
+        "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2" BEL
+        "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0" BEL
+        "mem_arch/icache/addr_hold_4_1" BEL "mem_arch/icache/addr_hold_3_1"
+        BEL "Mshreg_reset_r_3" BEL "reset_r_3" BEL
+        "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
         "CPU/the_uart/uareceive/RXShift_8" PIN
         "CPU/the_datapath/the_bios/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
         PIN

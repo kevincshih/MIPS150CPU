@@ -1,7 +1,7 @@
 module Datapath(
 		input [3:0] ALUop,
 		input  REUART, WEUART, DinSel, CTsel, CTreset,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm, JRsel, 
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm, JRsel, ControlStall, 
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		input [31:0] dcache_dout, icache_dout,
@@ -10,19 +10,21 @@ module Datapath(
 		output [31:0] Instruction, PrevInstruction, Address,
 		output DataOutReady, DataInValid,
 		output [7:0] DataIn,
-		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_toControl		
+		output [31:0] dcache_addr, icache_addr, dcache_din, icache_din, PC_toControl,
+		output OldStall
 		);
 
 
 `include "Opcode.vh"
 `include "ALUop.vh"
 	
-	wire mmult_debug, not_stall, not_stall2;
+	wire mmult_debug, not_stall2;
 	assign mmult_debug = 1'b0;
-	assign not_stall2 = not_stall; 
+	assign not_stall2 = 1'b1; 
 	
 	
    //other control wires
+   wire 		      not_stall;
    
    //wires for PC
    wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF, PC_IF2, icache_addr2;
@@ -71,14 +73,16 @@ module Datapath(
    
    //reset register
    reg 	       resetReg;
+   wire IFStall;
 
    IFControl the_IF_Control(.PC(PC_IF),
 			    .reset(reset),
-			    .stall(Stall),
+			    .stall(~not_stall),
 			    .REIC(RCIS),
 			    .REBIOS(REBIOS),
-			    .stall_reg(stall_reg),
-			    .IFSel(InstrSrc));
+			    .stall_reg(OldStall),
+			    .IFSel(InstrSrc),
+				.IFStall(IFStall));
    
    
    ALU the_ALU(.A(ALU_SrcA),
@@ -151,10 +155,11 @@ module Datapath(
 	wire [31:0] PC_IF3, icache_dout2, bios_doutb2;
 	wire [31:0] PC_IF_RA2;
 	wire InstrSrc2;
+	reg OldStallReg;
 
    always @(posedge CLK) begin
      resetReg <= reset;
-      stall_reg <= Stall;
+      OldStallReg <= ~not_stall;
       
       if (CTresetreg || reset) begin
 	 CycleCounter <= 0;
@@ -334,7 +339,8 @@ module Datapath(
    end
 
    //Control wires
-   assign not_stall = ~Stall;
+   assign not_stall = ~(Stall || IFStall || ControlStall);
+   assign OldStall = (reset) ? 0 : OldStallReg;
    
    //Wires in IFetch/IMEM (first stage)
    assign PC_IF3 = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
@@ -345,7 +351,10 @@ module Datapath(
    assign icache_addr2 = (ICacheSel)? ALU_OutMW : PC_IF;
    assign icache_addr = (mmult_debug) ? {4'b0100, icache_addr2[27:0]}: icache_addr2;
    
+   wire debug_address;
+   
    //Wires in RegFile and ALU (second stage)
+   assign debug_address = (ALU_OutMW < 32'h10002000);
    assign Instruction = Instruction_Dout_IF_RA; // output
    assign opcode = Instruction_Dout_IF_RA[31:26];
    assign rs = Instruction_Dout_IF_RA[25:21];
@@ -355,7 +364,7 @@ module Datapath(
    assign funct = Instruction_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
-   assign Address = (mmult_debug && (ALU_OutMW < 32'h10002000)) ? {4'b0100, ALU_OutMW[27:0]} : ALU_OutMW; // output to control
+   assign Address = (mmult_debug && debug_address) ? {4'b0100, ALU_OutMW[27:0]}: ALU_OutMW; // output to control
    assign RegWrite_WB = RegWrite_Reg;
 
    assign PC_High_bits = PC_IF_RA2[31:28];
