@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.15xf on Sat Dec 01 19:09:46 2012
+// Written by: Map P.15xf on Sun Dec 02 03:24:21 2012
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -1674,8 +1674,8 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/CycleCounter_3" BEL
         "CPU/the_datapath/CycleCounter_2" BEL
         "CPU/the_datapath/CycleCounter_1" BEL
-        "CPU/the_datapath/CycleCounter_0" BEL "CPU/the_datapath/InstrSrc_Reg"
-        BEL "CPU/the_datapath/ALU_OutMW_Reg_31" BEL
+        "CPU/the_datapath/CycleCounter_0" BEL
+        "CPU/the_datapath/ALU_OutMW_Reg_31" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_30" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_29" BEL
         "CPU/the_datapath/ALU_OutMW_Reg_28" BEL
@@ -1739,27 +1739,123 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_datapath/PrevInstruction_Reg_13" BEL
         "CPU/the_datapath/PrevInstruction_Reg_12" BEL
         "CPU/the_datapath/PrevInstruction_Reg_11" BEL
-        "CPU/the_datapath/RDsel_Reg_1" BEL "CPU/the_datapath/RDsel_Reg_0" BEL
-        "CPU/the_datapath/UARTsel_Reg_1" BEL "CPU/the_datapath/UARTsel_Reg_0"
-        BEL "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/PC_IF_RA_31"
-        BEL "CPU/the_datapath/PC_IF_RA_30" BEL "CPU/the_datapath/PC_IF_RA_29"
-        BEL "CPU/the_datapath/PC_IF_RA_28" BEL "CPU/the_datapath/PC_IF_RA_27"
-        BEL "CPU/the_datapath/PC_IF_RA_26" BEL "CPU/the_datapath/PC_IF_RA_25"
-        BEL "CPU/the_datapath/PC_IF_RA_24" BEL "CPU/the_datapath/PC_IF_RA_23"
-        BEL "CPU/the_datapath/PC_IF_RA_22" BEL "CPU/the_datapath/PC_IF_RA_21"
-        BEL "CPU/the_datapath/PC_IF_RA_20" BEL "CPU/the_datapath/PC_IF_RA_19"
-        BEL "CPU/the_datapath/PC_IF_RA_18" BEL "CPU/the_datapath/PC_IF_RA_17"
-        BEL "CPU/the_datapath/PC_IF_RA_16" BEL "CPU/the_datapath/PC_IF_RA_15"
-        BEL "CPU/the_datapath/PC_IF_RA_14" BEL "CPU/the_datapath/PC_IF_RA_13"
-        BEL "CPU/the_datapath/PC_IF_RA_12" BEL "CPU/the_datapath/PC_IF_RA_11"
-        BEL "CPU/the_datapath/PC_IF_RA_10" BEL "CPU/the_datapath/PC_IF_RA_9"
-        BEL "CPU/the_datapath/PC_IF_RA_8" BEL "CPU/the_datapath/PC_IF_RA_7"
-        BEL "CPU/the_datapath/PC_IF_RA_6" BEL "CPU/the_datapath/PC_IF_RA_5"
-        BEL "CPU/the_datapath/PC_IF_RA_4" BEL "CPU/the_datapath/PC_IF_RA_3"
-        BEL "CPU/the_datapath/PC_IF_RA_2" BEL "CPU/the_datapath/PC_IF_RA_1"
-        BEL "CPU/the_datapath/PC_IF_RA_0" BEL "CPU/the_datapath/A3_RA_DW_4"
+        "CPU/the_datapath/RegWrite_Reg" BEL "CPU/the_datapath/RDsel_Reg_1" BEL
+        "CPU/the_datapath/RDsel_Reg_0" BEL "CPU/the_datapath/UARTsel_Reg_1"
+        BEL "CPU/the_datapath/UARTsel_Reg_0" BEL "CPU/the_datapath/A3_RA_DW_4"
         BEL "CPU/the_datapath/A3_RA_DW_3" BEL "CPU/the_datapath/A3_RA_DW_2"
         BEL "CPU/the_datapath/A3_RA_DW_1" BEL "CPU/the_datapath/A3_RA_DW_0"
+        BEL "CPU/the_datapath/bios_doutb_reg_31" BEL
+        "CPU/the_datapath/bios_doutb_reg_30" BEL
+        "CPU/the_datapath/bios_doutb_reg_29" BEL
+        "CPU/the_datapath/bios_doutb_reg_28" BEL
+        "CPU/the_datapath/bios_doutb_reg_27" BEL
+        "CPU/the_datapath/bios_doutb_reg_26" BEL
+        "CPU/the_datapath/bios_doutb_reg_25" BEL
+        "CPU/the_datapath/bios_doutb_reg_24" BEL
+        "CPU/the_datapath/bios_doutb_reg_23" BEL
+        "CPU/the_datapath/bios_doutb_reg_22" BEL
+        "CPU/the_datapath/bios_doutb_reg_21" BEL
+        "CPU/the_datapath/bios_doutb_reg_20" BEL
+        "CPU/the_datapath/bios_doutb_reg_19" BEL
+        "CPU/the_datapath/bios_doutb_reg_18" BEL
+        "CPU/the_datapath/bios_doutb_reg_17" BEL
+        "CPU/the_datapath/bios_doutb_reg_16" BEL
+        "CPU/the_datapath/bios_doutb_reg_15" BEL
+        "CPU/the_datapath/bios_doutb_reg_14" BEL
+        "CPU/the_datapath/bios_doutb_reg_13" BEL
+        "CPU/the_datapath/bios_doutb_reg_12" BEL
+        "CPU/the_datapath/bios_doutb_reg_11" BEL
+        "CPU/the_datapath/bios_doutb_reg_10" BEL
+        "CPU/the_datapath/bios_doutb_reg_9" BEL
+        "CPU/the_datapath/bios_doutb_reg_8" BEL
+        "CPU/the_datapath/bios_doutb_reg_7" BEL
+        "CPU/the_datapath/bios_doutb_reg_6" BEL
+        "CPU/the_datapath/bios_doutb_reg_5" BEL
+        "CPU/the_datapath/bios_doutb_reg_4" BEL
+        "CPU/the_datapath/bios_doutb_reg_3" BEL
+        "CPU/the_datapath/bios_doutb_reg_2" BEL
+        "CPU/the_datapath/bios_doutb_reg_1" BEL
+        "CPU/the_datapath/bios_doutb_reg_0" BEL
+        "CPU/the_datapath/icache_dout_reg_31" BEL
+        "CPU/the_datapath/icache_dout_reg_30" BEL
+        "CPU/the_datapath/icache_dout_reg_29" BEL
+        "CPU/the_datapath/icache_dout_reg_28" BEL
+        "CPU/the_datapath/icache_dout_reg_27" BEL
+        "CPU/the_datapath/icache_dout_reg_26" BEL
+        "CPU/the_datapath/icache_dout_reg_25" BEL
+        "CPU/the_datapath/icache_dout_reg_24" BEL
+        "CPU/the_datapath/icache_dout_reg_23" BEL
+        "CPU/the_datapath/icache_dout_reg_22" BEL
+        "CPU/the_datapath/icache_dout_reg_21" BEL
+        "CPU/the_datapath/icache_dout_reg_20" BEL
+        "CPU/the_datapath/icache_dout_reg_19" BEL
+        "CPU/the_datapath/icache_dout_reg_18" BEL
+        "CPU/the_datapath/icache_dout_reg_17" BEL
+        "CPU/the_datapath/icache_dout_reg_16" BEL
+        "CPU/the_datapath/icache_dout_reg_15" BEL
+        "CPU/the_datapath/icache_dout_reg_14" BEL
+        "CPU/the_datapath/icache_dout_reg_13" BEL
+        "CPU/the_datapath/icache_dout_reg_12" BEL
+        "CPU/the_datapath/icache_dout_reg_11" BEL
+        "CPU/the_datapath/icache_dout_reg_10" BEL
+        "CPU/the_datapath/icache_dout_reg_9" BEL
+        "CPU/the_datapath/icache_dout_reg_8" BEL
+        "CPU/the_datapath/icache_dout_reg_7" BEL
+        "CPU/the_datapath/icache_dout_reg_6" BEL
+        "CPU/the_datapath/icache_dout_reg_5" BEL
+        "CPU/the_datapath/icache_dout_reg_4" BEL
+        "CPU/the_datapath/icache_dout_reg_3" BEL
+        "CPU/the_datapath/icache_dout_reg_2" BEL
+        "CPU/the_datapath/icache_dout_reg_1" BEL
+        "CPU/the_datapath/icache_dout_reg_0" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_31" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_30" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_29" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_28" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_27" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_26" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_25" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_24" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_23" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_22" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_21" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_20" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_19" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_18" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_17" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_16" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_15" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_14" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_13" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_12" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_11" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_10" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_9" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_8" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_7" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_6" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_5" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_4" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_3" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_2" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_1" BEL
+        "CPU/the_datapath/PC_IF_RA_reg_0" BEL "CPU/the_datapath/InstrSrc_Reg"
+        BEL "CPU/the_datapath/PC_IF_RA_31" BEL "CPU/the_datapath/PC_IF_RA_30"
+        BEL "CPU/the_datapath/PC_IF_RA_29" BEL "CPU/the_datapath/PC_IF_RA_28"
+        BEL "CPU/the_datapath/PC_IF_RA_27" BEL "CPU/the_datapath/PC_IF_RA_26"
+        BEL "CPU/the_datapath/PC_IF_RA_25" BEL "CPU/the_datapath/PC_IF_RA_24"
+        BEL "CPU/the_datapath/PC_IF_RA_23" BEL "CPU/the_datapath/PC_IF_RA_22"
+        BEL "CPU/the_datapath/PC_IF_RA_21" BEL "CPU/the_datapath/PC_IF_RA_20"
+        BEL "CPU/the_datapath/PC_IF_RA_19" BEL "CPU/the_datapath/PC_IF_RA_18"
+        BEL "CPU/the_datapath/PC_IF_RA_17" BEL "CPU/the_datapath/PC_IF_RA_16"
+        BEL "CPU/the_datapath/PC_IF_RA_15" BEL "CPU/the_datapath/PC_IF_RA_14"
+        BEL "CPU/the_datapath/PC_IF_RA_13" BEL "CPU/the_datapath/PC_IF_RA_12"
+        BEL "CPU/the_datapath/PC_IF_RA_11" BEL "CPU/the_datapath/PC_IF_RA_10"
+        BEL "CPU/the_datapath/PC_IF_RA_9" BEL "CPU/the_datapath/PC_IF_RA_8"
+        BEL "CPU/the_datapath/PC_IF_RA_7" BEL "CPU/the_datapath/PC_IF_RA_6"
+        BEL "CPU/the_datapath/PC_IF_RA_5" BEL "CPU/the_datapath/PC_IF_RA_4"
+        BEL "CPU/the_datapath/PC_IF_RA_3" BEL "CPU/the_datapath/PC_IF_RA_2"
+        BEL "CPU/the_datapath/PC_IF_RA_1" BEL "CPU/the_datapath/PC_IF_RA_0"
         BEL "CPU/the_datapath/resetReg" BEL
         "mem_arch/req_con/icache_req_num_0" BEL
         "mem_arch/req_con/icache_req_num_1" BEL
@@ -2771,9 +2867,8 @@ TIMEGRP cpu_clk = BEL "count_r_0" BEL "rst_sr_0" BEL "rst_sr_1" BEL "rst_sr_2"
         "CPU/the_uart/uatransmit/TXShift_0" BEL
         "CPU/the_uart/uareceive/HasByte" BEL
         "CPU/the_uart/uatransmit/TXShift_9" BEL
-        "mem_arch/icache/cs_FSM_FFd7_1" BEL "mem_arch/icache/cs_FSM_FFd7_2"
-        BEL "mem_arch/icache/cs_FSM_FFd7_3" BEL "Mshreg_reset_r_3" BEL
-        "reset_r_3" BEL "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
+        "mem_arch/icache/cs_FSM_FFd6_1" BEL "Mshreg_reset_r_3" BEL "reset_r_3"
+        BEL "CPU/the_uart/uareceive/Mshreg_RXShift_8" BEL
         "CPU/the_uart/uareceive/RXShift_8" PIN
         "CPU/the_datapath/the_bios/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v5_init.ram/TRUE_DP.SINGLE_PRIM36.TDP_pins<62>"
         PIN

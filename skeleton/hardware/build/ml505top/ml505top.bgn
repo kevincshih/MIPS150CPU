@@ -6,7 +6,7 @@ Loading device for application Rf_Device from file '5vlx110t.nph' in environment
 -1
 Opened constraints file ml505top.pcf.
 
-Sat Dec  1 19:14:09 2012
+Sun Dec  2 03:29:28 2012
 
 /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -w ml505top.ncd ml505top.bit ml505top.pcf 
 
@@ -124,7 +124,7 @@ There were 0 CONFIG constraint(s) processed from ml505top.pcf.
 
 Running DRC.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/JRselreg_or0000 is sourced by a combinatorial pin. This is
+   CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial pin. This is
    not good design practice. Use the CE pin to control the loading of data into
    the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -132,13 +132,13 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial pin. This is
-   not good design practice. Use the CE pin to control the loading of data into
-   the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CPU/the_controller/JRselreg_or0000 is sourced by a combinatorial pin. This is
+   not good design practice. Use the CE pin to control the loading of data into
+   the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
@@ -155,9 +155,9 @@ WARNING:Security:44 - Since no license file was found,
        please run the Xilinx License Configuration Manager
        (xlcm or "Manage Xilinx Licenses")
        to assist in obtaining a license.
-WARNING:Security:42 - Your license support version '2012.12' for ISE expires in
-0 days after which you will not qualify for Xilinx software updates or new
-releases.
+WARNING:Security:42 - Your software subscription period has lapsed. Your current
+version of Xilinx tools will continue to function, but you no longer qualify for
+Xilinx software updates or new releases.
 
 Creating bit map...
 Saving bit stream in "ml505top.bit".

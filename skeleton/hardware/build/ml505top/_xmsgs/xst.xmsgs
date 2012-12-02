@@ -126,11 +126,11 @@
 <msg type="warning" file="Xst" num="863" delta="new" >&quot;<arg fmt="%s" index="1">../../src/MIPS150.v</arg>&quot; line <arg fmt="%d" index="2">19</arg>: Name conflict (<arg fmt="%s" index="3">&lt;Instruction&gt; and &lt;instruction&gt;, renaming Instruction as instruction_rnm0</arg>).
 </msg>
 
-<msg type="warning" file="Xst" num="905" delta="new" >&quot;<arg fmt="%s" index="1">../../src/Datapath.v</arg>&quot; line <arg fmt="%d" index="2">146</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+<msg type="warning" file="Xst" num="905" delta="new" >&quot;<arg fmt="%s" index="1">../../src/Datapath.v</arg>&quot; line <arg fmt="%d" index="2">145</arg>: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
 <arg fmt="%s" index="3">&lt;CTresetreg&gt;, &lt;reset&gt;</arg>
 </msg>
 
-<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">../../src/bios_mem/bios_mem.v</arg>&quot; line <arg fmt="%d" index="2">120</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">bios_mem</arg>&gt;.
+<msg type="warning" file="Xst" num="2211" delta="new" >&quot;<arg fmt="%s" index="1">../../src/bios_mem/bios_mem.v</arg>&quot; line <arg fmt="%d" index="2">119</arg>: Instantiating black box module &lt;<arg fmt="%s" index="3">bios_mem</arg>&gt;.
 </msg>
 
 <msg type="info" file="Xst" num="2679" delta="new" >Register &lt;<arg fmt="%s" index="1">i</arg>&gt; in unit &lt;<arg fmt="%s" index="2">ddr2_phy_calib</arg>&gt; has a constant value of <arg fmt="%s" index="3">1000</arg> during circuit operation. The register is replaced by logic.
@@ -487,16 +487,7 @@
 <msg type="info" file="Xst" num="2371" delta="new" >HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 </msg>
 
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">icache_dout_reg</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">bios_doutb_reg</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
 <msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">PC_top_nibble</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">PC_IF_RA_reg</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 </msg>
 
 <msg type="warning" file="Xst" num="646" delta="new" >Signal &lt;<arg fmt="%s" index="1">A3</arg>&gt; is assigned but never used. This unconnected signal will be trimmed during the optimization process.

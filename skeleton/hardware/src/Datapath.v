@@ -17,13 +17,12 @@ module Datapath(
 `include "Opcode.vh"
 `include "ALUop.vh"
 	
-	wire mmult_debug, not_stall2;
-	assign mmult_debug = 1'b1;
-	assign not_stall2 = 1'b1; 
+	wire mmult_debug, not_stall, not_stall2;
+	assign mmult_debug = 1'b0;
+	assign not_stall2 = not_stall; 
 	
 	
    //other control wires
-   wire 		      not_stall;
    
    //wires for PC
    wire [31:0] 		      PC_Branch, PC_4, PC_JAL, PC_IF, PC_IF2, icache_addr2;
