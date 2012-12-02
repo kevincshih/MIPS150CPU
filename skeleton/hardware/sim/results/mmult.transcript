@@ -1,0 +1,208 @@
+Reading /opt/modeltech/tcl/vsim/pref.tcl 
+
+# 10.1b_2
+
+proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
+start MmultTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl MmultTestbench 
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+# ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+# ** Note: (vopt-143) Recognized 1 FSM in module "Cache(fast)".
+###### ../../src/Memory150.v(215):     );
+# ** Warning: ../../src/Memory150.v(215): (vopt-2685) [TFMPC] - Too few port connections for 'req_con'.  Expected 60, found 34.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_rdf_valid'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_af_full'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'pixel_rdf_rd_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'filler_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'bypass_addr_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_mask_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_wdf_din'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_af_wr_en'.
+# ** Warning: ../../src/Memory150.v(215): (vopt-2718) [TFMPC] - Missing connection for port 'line_addr_din'.
+###### ../../src/Memory150.v(238):     );
+# ** Warning: ../../src/Memory150.v(238): (vopt-2685) [TFMPC] - Too few port connections for 'icache'.  Expected 22, found 19.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'state'.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: ../../src/Memory150.v(238): (vopt-2718) [TFMPC] - Missing connection for port 'tag_hit'.
+###### ../../src/Memory150.v(261):     );
+# ** Warning: ../../src/Memory150.v(261): (vopt-2685) [TFMPC] - Too few port connections for 'dcache'.  Expected 22, found 19.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'state'.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: ../../src/Memory150.v(261): (vopt-2718) [TFMPC] - Missing connection for port 'tag_hit'.
+# ** Note: (vopt-143) Recognized 4 FSMs in module "ddr2_phy_calib(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_ctrl(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_phy_init(fast)".
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.glbl(fast)
+# Loading work.MmultTestbench(fast)
+# Loading work.mt4htf3264hy(fast)
+# Loading work.ddr2_model(fast)
+# Loading work.Memory150(fast)
+# Loading work.mig_v3_61(fast)
+# Loading work.ddr2_idelay_ctrl(fast)
+# Loading unisims_ver.IDELAYCTRL(fast)
+# Loading work.ddr2_infrastructure(fast)
+# Loading work.ddr2_top(fast)
+# Loading work.ddr2_mem_if_top(fast)
+# Loading work.ddr2_phy_top(fast)
+# Loading work.ddr2_phy_write(fast)
+# Loading work.ddr2_phy_io(fast)
+# Loading work.ddr2_phy_calib(fast)
+# Loading unisims_ver.FDRSE(fast)
+# Loading unisims_ver.ODDR(fast)
+# Loading work.ddr2_phy_dqs_iob(fast)
+# Loading unisims_ver.FDCPE_1(fast)
+# Loading unisims_ver.FDP(fast)
+# Loading work.ddr2_phy_dm_iob(fast)
+# Loading unisims_ver.FDRSE_1(fast)
+# Loading unisims_ver.ODDR(fast__1)
+# Loading work.ddr2_phy_dq_iob(fast)
+# Loading unisims_ver.ODDR(fast__2)
+# Loading unisims_ver.IDDR(fast)
+# Loading work.ddr2_phy_ctl_io(fast)
+# Loading unisims_ver.FDCPE(fast)
+# Loading work.ddr2_phy_init(fast)
+# Loading work.ddr2_usr_top(fast)
+# Loading work.ddr2_usr_rd(fast)
+# Loading work.ddr2_usr_addr_fifo(fast)
+# Loading unisims_ver.FIFO36(fast)
+# Loading work.ddr2_usr_wr(fast)
+# Loading unisims_ver.FIFO36_72(fast)
+# Loading work.ddr2_ctrl(fast)
+# Loading work.mig_af(fast)
+# Loading unisims_ver.FDC(fast)
+# Loading unisims_ver.FIFO36_EXP(fast)
+# Loading unisims_ver.FDPE(fast)
+# Loading work.mig_wdf(fast)
+# Loading work.mig_rdf(fast)
+# Loading work.RequestController(fast)
+# Loading work.Cache(fast)
+# Loading work.cache_data_blk_ram(fast)
+# Loading work.cache_tag_blk_ram(fast)
+# Loading work.MIPS150(fast)
+# Loading work.Control(fast)
+# Loading work.ALUdec(fast)
+# Loading work.Datapath(fast)
+# Loading work.IFControl(fast)
+# Loading work.ALU(fast)
+# Loading work.PC(fast)
+# Loading work.RegFile(fast)
+# Loading work.bios_mem(fast)
+# Loading work.Branch_module(fast)
+# Loading work.UART(fast)
+# Loading work.IORegister(fast)
+# Loading work.UATransmit(fast)
+# Loading work.UAReceive(fast)
+# ** Warning: (vsim-3017) ../../src/Memory150.v(215): [TFMPC] - Too few port connections. Expected 60, found 52.
+#         Region: /MmultTestbench/mem_arch/req_con
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'bypass_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'bypass_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'filler_af_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'filler_wdf_full'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_rdf_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_af_full'.
+# ** Warning: (vsim-3017) ../../src/Memory150.v(238): [TFMPC] - Too few port connections. Expected 22, found 19.
+#         Region: /MmultTestbench/mem_arch/icache
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_hit'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'state'.
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+#         Region: /MmultTestbench/mem_arch/icache/cache_tag
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+#         Region: /MmultTestbench/mem_arch/icache/cache_tag
+# ** Warning: (vsim-3017) ../../src/Memory150.v(261): [TFMPC] - Too few port connections. Expected 22, found 19.
+#         Region: /MmultTestbench/mem_arch/dcache
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_hit'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_valid'.
+# ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'state'.
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
+#         Region: /MmultTestbench/mem_arch/dcache/cache_tag
+# ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
+#         Region: /MmultTestbench/mem_arch/dcache/cache_tag
+file copy -force ../../../software/mmult/mmult.mif bios_mem.mif
+add wave MmultTestbench/*
+add wave MmultTestbench/mem_arch/*
+add wave MmultTestbench/mem_arch/dcache/*
+add wave MmultTestbench/mem_arch/icache/*
+add wave MmultTestbench/DUT/the_controller/*
+add wave MmultTestbench/DUT/the_datapath/*
+add wave MmultTestbench/DUT/the_uart/*
+add wave MmultTestbench/DUT/the_datapath/the_PC/*
+add wave MmultTestbench/DUT/the_datapath/the_regfile/*
+add wave MmultTestbench/DUT/the_datapath/the_regfile/the_registers
+add wave MmultTestbench/DUT/the_datapath/the_IF_Control/*
+run 9000us
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.icache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.dcache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.dcache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+#  Block Memory Generator CORE Generator module loading initial data...
+#  Block Memory Generator data initialization complete.
+# Block Memory Generator CORE Generator module MmultTestbench.DUT.the_datapath.the_bios.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Warning : At time 100.0 ps,  RDEN on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# Warning : At time 315000.0 ps,  RDEN on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
+# MmultTestbench.ddr2.u_mem2.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem3.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem0.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem1.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# First Stage Calibration completed at time 35095000.0 ps
+# Second Stage Calibration completed at time 45935000.0 ps
+# Third Stage Calibration completed at time 55805000.0 ps
+# Fourth Stage Calibration completed at time 74725000.0 ps
+# Calibration completed at time 74725000.0 ps
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# 
+# <EOF> 

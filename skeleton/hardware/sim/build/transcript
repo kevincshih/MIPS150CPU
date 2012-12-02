@@ -1,6 +1,6 @@
 proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
-start BiosTestbench
-# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl BiosTestbench 
+start MmultTestbench
+# vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl MmultTestbench 
 # ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
 # ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
@@ -58,7 +58,7 @@ start BiosTestbench
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # Loading work.glbl(fast)
-# Loading work.BiosTestbench(fast)
+# Loading work.MmultTestbench(fast)
 # Loading work.mt4htf3264hy(fast)
 # Loading work.ddr2_model(fast)
 # Loading work.Memory150(fast)
@@ -118,7 +118,7 @@ start BiosTestbench
 # Loading work.UATransmit(fast)
 # Loading work.UAReceive(fast)
 # ** Warning: (vsim-3017) ../../src/Memory150.v(215): [TFMPC] - Too few port connections. Expected 60, found 52.
-#         Region: /BiosTestbench/mem_arch/req_con
+#         Region: /MmultTestbench/mem_arch/req_con
 # ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_af_full'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'line_wdf_full'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'bypass_af_full'.
@@ -128,103 +128,77 @@ start BiosTestbench
 # ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_rdf_valid'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(215): [TFMPC] - Missing connection for port 'pixel_af_full'.
 # ** Warning: (vsim-3017) ../../src/Memory150.v(238): [TFMPC] - Too few port connections. Expected 22, found 19.
-#         Region: /BiosTestbench/mem_arch/icache
+#         Region: /MmultTestbench/mem_arch/icache
 # ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_hit'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'tag_valid'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(238): [TFMPC] - Missing connection for port 'state'.
 # ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
-#         Region: /BiosTestbench/mem_arch/icache/cache_tag
+#         Region: /MmultTestbench/mem_arch/icache/cache_tag
 # ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
-#         Region: /BiosTestbench/mem_arch/icache/cache_tag
+#         Region: /MmultTestbench/mem_arch/icache/cache_tag
 # ** Warning: (vsim-3017) ../../src/Memory150.v(261): [TFMPC] - Too few port connections. Expected 22, found 19.
-#         Region: /BiosTestbench/mem_arch/dcache
+#         Region: /MmultTestbench/mem_arch/dcache
 # ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_hit'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'tag_valid'.
 # ** Warning: (vsim-3722) ../../src/Memory150.v(261): [TFMPC] - Missing connection for port 'state'.
 # ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(68).
-#         Region: /BiosTestbench/mem_arch/dcache/cache_tag
+#         Region: /MmultTestbench/mem_arch/dcache/cache_tag
 # ** Warning: (vsim-3015) ../../src/Cache.v(137): [PCDPC] - Port size (24 or 24) does not match connection size (21) for port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v(73).
-#         Region: /BiosTestbench/mem_arch/dcache/cache_tag
-file copy -force ../../../software/bios150v3/bios150v3.mif bios_mem.mif
-add wave BiosTestbench/*
-add wave BiosTestbench/DUT/*
-add wave BiosTestbench/DUT/the_datapath/*
-add wave BiosTestbench/DUT/the_controller/*
-add wave BiosTestbench/DUT/the_datapath/the_regfile/*
-add wave BiosTestbench/DUT/the_datapath/the_regfile/the_registers/*
-add wave BiosTestbench/DUT/the_datapath/the_PC/*
-add wave BiosTestbench/DUT/the_uart/*
-add wave BiosTestbench/DUT/the_uart/uareceive/*
-add wave BiosTestbench/DUT/the_uart/uatransmit/*
-add wave BiosTestbench/uart/*
-add wave BiosTestbench/uart/uareceive/*
-add wave BiosTestbench/uart/uatransmit/*
-run 10000us
-# Block Memory Generator CORE Generator module BiosTestbench.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# Block Memory Generator CORE Generator module BiosTestbench.mem_arch.icache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# Block Memory Generator CORE Generator module BiosTestbench.mem_arch.dcache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# Block Memory Generator CORE Generator module BiosTestbench.mem_arch.dcache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+#         Region: /MmultTestbench/mem_arch/dcache/cache_tag
+file copy -force ../../../software/mmult/mmult.mif bios_mem.mif
+add wave MmultTestbench/*
+add wave MmultTestbench/mem_arch/*
+add wave MmultTestbench/mem_arch/dcache/*
+add wave MmultTestbench/mem_arch/icache/*
+add wave MmultTestbench/DUT/the_controller/*
+add wave MmultTestbench/DUT/the_datapath/*
+add wave MmultTestbench/DUT/the_uart/*
+add wave MmultTestbench/DUT/the_datapath/the_PC/*
+add wave MmultTestbench/DUT/the_datapath/the_regfile/*
+add wave MmultTestbench/DUT/the_datapath/the_regfile/the_registers
+add wave MmultTestbench/DUT/the_datapath/the_IF_Control/*
+run 9000us
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.icache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.dcache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Block Memory Generator CORE Generator module MmultTestbench.mem_arch.dcache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 #  Block Memory Generator CORE Generator module loading initial data...
 #  Block Memory Generator data initialization complete.
-# Block Memory Generator CORE Generator module BiosTestbench.DUT.the_datapath.the_bios.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
-# Warning : At time 100.0 ps,  RDEN on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
-# Warning : At time 315000.0 ps,  RDEN on AFIFO36_INTERNAL instance BiosTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
-# BiosTestbench.ddr2.u_mem2.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
-# BiosTestbench.ddr2.u_mem3.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
-# BiosTestbench.ddr2.u_mem0.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
-# BiosTestbench.ddr2.u_mem1.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# Block Memory Generator CORE Generator module MmultTestbench.DUT.the_datapath.the_bios.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+# Warning : At time 100.0 ps,  RDEN on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_write_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[4].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[3].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[2].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three RDCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# DRC Error : At time 105100.0 ps,  RST has to be held high for more than three WRCLK cycles on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_read_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1.
+# Warning : At time 315000.0 ps,  RDEN on AFIFO36_INTERNAL instance MmultTestbench.mem_arch.ddr2_addr_fifo.\BU2/U0/gbiv5.bi/v5_fifo.fblk/gextw[1].inst_extd/gonep.inst_prim/gfn72.sngfifo36 .INT_FIFO.genblk1 is high when RST is high. RDEN should be low during reset.
+# MmultTestbench.ddr2.u_mem2.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem3.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem0.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
+# MmultTestbench.ddr2.u_mem1.cmd_task: at time 10932600.0 ps WARNING: 200 us is required before CKE goes active.
 # First Stage Calibration completed at time 35095000.0 ps
 # Second Stage Calibration completed at time 45935000.0 ps
 # Third Stage Calibration completed at time 55805000.0 ps
 # Fourth Stage Calibration completed at time 74725000.0 ps
 # Calibration completed at time 74725000.0 ps
-# Got  13
-# Got  10
-# Got  13
-# Got  10
-# Got  13
-# Got  10
-# Got  13
-# blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687685000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687705000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687705000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687725000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687725000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687745000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687745000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687765000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687765000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687785000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687785000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687805000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687805000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
-# blk_mem_gen_v4_3 collision detected at time: 687825000, A write address: 77, B read address: 77
-# Got  10
-# Got  62
-# Got  32
-# Got  32
-# Got  32
-# Got  32
-# Got  32
-# Got  32
-# Got  32
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# Got   x
+# 
+# <EOF> 

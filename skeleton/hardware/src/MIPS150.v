@@ -106,6 +106,8 @@ module MIPS150(
    assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_dout;
    assign instruction2 = (not_stall) ? instruction : instruction;
 	  
+	  
+	  
    always @(posedge clk) begin
       stall_reg <= stall;
       if (not_stall) begin

@@ -18,7 +18,7 @@ module Datapath(
 `include "ALUop.vh"
 	
 	wire mmult_debug, not_stall2;
-	assign mmult_debug = 1'b0;
+	assign mmult_debug = 1'b1;
 	assign not_stall2 = 1'b1; 
 	
 	
