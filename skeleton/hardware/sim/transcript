@@ -1,4 +1,4 @@
-# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
+# //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.2.el6.centos.plus.x86_64
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
 # //  All Rights Reserved.
@@ -9,11 +9,26 @@
 # //
 # OpenFile results/mmult.wlf 
 add wave -position insertpoint  \
-mmult:/MmultTestbench/Clock \
-mmult:/MmultTestbench/Reset
-add wave -position insertpoint mmult:/MmultTestbench/mem_arch/dcache/*
+mmult:/MmultTestbench/DUT/the_controller/Instruction \
+mmult:/MmultTestbench/DUT/the_controller/PC
 add wave -position insertpoint  \
-mmult:/MmultTestbench/DUT/the_datapath/Instruction
+mmult:/MmultTestbench/DUT/the_datapath/CLK \
+mmult:/MmultTestbench/DUT/the_datapath/Stall
 add wave -position insertpoint  \
-mmult:/MmultTestbench/DUT/the_datapath/PC_IF_RA
-# Break key hit 
+mmult:/MmultTestbench/DUT/the_datapath/ALU_SrcA \
+mmult:/MmultTestbench/DUT/the_datapath/ALU_SrcB
+add wave -position insertpoint  \
+mmult:/MmultTestbench/DUT/the_datapath/ALU_OutMW
+add wave -position insertpoint  \
+mmult:/MmultTestbench/DUT/the_datapath/Address
+add wave -position insertpoint  \
+{mmult:/MmultTestbench/DUT/the_datapath/the_regfile/the_registers[4]} \
+{mmult:/MmultTestbench/DUT/the_datapath/the_regfile/the_registers[3]} \
+{mmult:/MmultTestbench/DUT/the_datapath/the_regfile/the_registers[2]}
+add wave -position insertpoint  \
+{mmult:/MmultTestbench/DUT/the_datapath/the_regfile/the_registers[31]} \
+{mmult:/MmultTestbench/DUT/the_datapath/the_regfile/the_registers[29]}
+add wave -position insertpoint  \
+mmult:/MmultTestbench/DUT/the_uart/DataInValid \
+mmult:/MmultTestbench/DUT/the_uart/DataInReady \
+mmult:/MmultTestbench/DUT/the_uart/DataIn

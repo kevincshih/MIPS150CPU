@@ -356,7 +356,7 @@ module Datapath(
    assign funct = Instruction_Dout_IF_RA[5:0];
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
-   assign Address = ALU_OutMW; // output to control
+   assign Address = (mmult_debug && (ALU_OutMW < 32'h10002000)) ? {4'b0100, ALU_OutMW[27:0]} : ALU_OutMW; // output to control
    assign RegWrite_WB = RegWrite_Reg;
 
    assign PC_High_bits = PC_IF_RA2[31:28];
