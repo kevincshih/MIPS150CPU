@@ -22,15 +22,19 @@ module MIPS150(
 
    // Control wires
    wire    REUART, WEUART, DinSel,
-	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel;
+	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel, SEXTImm, JRsel;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
    wire [3:0] ALUop;
 
    // Data wires
    wire [7:0] DataOut, DataIn;
-   wire [31:0] Instruction, PrevInstruction, Address, PC;
+   wire [31:0] Instruction, PrevInstruction, Address, PC, dcache_dout2, instruction2;
    
-   Control the_controller(
+   reg [31:0] dcache_doutreg, instructionreg;
+   
+   reg stall_reg;
+   
+   Control the_controller(.JRsel(JRsel), 
 			  .Address(Address),
 			  .Instruction(Instruction), // begin inputs
 			  .OldInstruction(PrevInstruction),
@@ -50,19 +54,21 @@ module MIPS150(
 			  .ICacheSel(ICacheSel),
 			  .CTsel(CTsel),
 			  .CTreset(CTreset),
+			  .SEXTImm(SEXTImm),
 			  .REDC(dcache_re)); //end outputs
 
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
 			 .DinSel(DinSel),
 			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
-			 .RDsel(RDsel), .Stall(stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
+			 .RDsel(RDsel), .Stall(~not_stall), .CLK(clk), .DataOutValid(DataOutValid), .reset(rst),
 			 .DataInReady(DataInReady),
 			 .PC_Sel(PC_Sel), //PC_Sel 
 			 .ALU_Sel_A(ALU_Sel_A),
 			 .ALU_Sel_B(ALU_Sel_B),
 			 .RegDst(RegDst),
 			 .RegWrite(RegWrite),
+			 .SEXTImm(SEXTImm),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
 			 .offset(offset),
@@ -95,16 +101,18 @@ module MIPS150(
 		 .DataOutReady(DataOutReady), //input
 		 .SIn(FPGA_SERIAL_RX), //input
 		 .SOut(FPGA_SERIAL_TX)); //output
-   
-   assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_doutreg;
-   assign instruction2 = (not_stall) ? instruction : instructionreg;
+		 
+   assign not_stall = ~stall;
+   assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_dout;
+   assign instruction2 = (not_stall) ? instruction : instruction;
 	  
    always @(posedge clk) begin
-		if (not_stall) begin
-		dcache_doutreg <= dcache_dout2;
-		instructionreg <= instruction2;
-		end
-	  end
+      stall_reg <= stall;
+      if (not_stall) begin
+	 dcache_doutreg <= dcache_dout;
+	 instructionreg <= instruction;
+      end
+   end
    
 
 

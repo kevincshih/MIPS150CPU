@@ -1,7 +1,7 @@
 module Datapath(
 		input [3:0] ALUop,
 		input  REUART, WEUART, DinSel, CTsel, CTreset,
-		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm,
+		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm, JRsel, 
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
 		input [31:0] dcache_dout, icache_dout,
@@ -17,8 +17,9 @@ module Datapath(
 `include "Opcode.vh"
 `include "ALUop.vh"
 	
-	wire mmult_debug;
-	assign mmult_debug = 1'b0; 
+	wire mmult_debug, not_stall2;
+	assign mmult_debug = 1'b0;
+	assign not_stall2 = 1'b1; 
 	
 	
    //other control wires
@@ -183,11 +184,11 @@ module Datapath(
 	 end // if (not_stall)
    end // always @ (posedge CLK)
    
-   assign icache_dout2 = (not_stall) ? icache_dout : icache_dout_reg;
-   assign bios_doutb2 = (not_stall) ? bios_doutb : bios_doutb_reg;
-   assign InstrSrc2 = (not_stall) ? InstrSrc : InstrSrc_Reg;
-   assign PC_IF_RA2 = (not_stall) ? PC_IF_RA : PC_IF_RA_reg;
-   assign PC_IF = (not_stall) ? PC_IF3 : PC_IF_RA;	
+   assign icache_dout2 = (not_stall2) ? icache_dout : icache_dout_reg;
+   assign bios_doutb2 = (not_stall2) ? bios_doutb : bios_doutb_reg;
+   assign InstrSrc2 = (not_stall2) ? InstrSrc : InstrSrc_Reg;
+   assign PC_IF_RA2 = (not_stall2) ? PC_IF_RA : PC_IF_RA_reg;
+   assign PC_IF = (not_stall2) ? PC_IF3 : PC_IF_RA;	
    
    always @(*) begin
     Instruction_Dout_IF_RA = (resetReg) ? 32'b0 : Instruction_Dout_IF;
@@ -369,7 +370,7 @@ module Datapath(
 
    assign addra = ALU_OutMW[13:2];
    assign dcache_addr = ALU_OutMW;
-   assign JR = rd1_Reg;
+   assign JR = (JRsel) ? ALU_OutMW_Reg : rd1_Reg;
    assign dina_unshifted = (DinSel) ? ALU_OutMW_Reg : rd2;
    assign dcache_din = (opcode == `SB || opcode == `SH) ? dina_shifted : dina_unshifted;
    assign icache_din = dcache_din;

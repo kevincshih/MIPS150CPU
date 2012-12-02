@@ -9,39 +9,39 @@ Target Device  : xc5vlx110t
 Target Package : ff1136
 Target Speed   : -1
 Mapper Version : virtex5 -- $Revision: 1.55 $
-Mapped Date    : Fri Nov 30 13:15:45 2012
+Mapped Date    : Sat Dec  1 19:01:34 2012
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:   38
+Number of warnings:   39
 Slice Logic Utilization:
-  Number of Slice Registers:                 4,534 out of  69,120    6%
-    Number used as Flip Flops:               4,496
-    Number used as Latches:                     38
-  Number of Slice LUTs:                      5,612 out of  69,120    8%
-    Number used as logic:                    5,583 out of  69,120    8%
-      Number using O6 output only:           5,354
-      Number using O5 output only:              98
-      Number using O5 and O6:                  131
+  Number of Slice Registers:                 4,441 out of  69,120    6%
+    Number used as Flip Flops:               4,402
+    Number used as Latches:                     39
+  Number of Slice LUTs:                      5,344 out of  69,120    7%
+    Number used as logic:                    5,314 out of  69,120    7%
+      Number using O6 output only:           5,085
+      Number using O5 output only:             126
+      Number using O5 and O6:                  103
     Number used as Memory:                      20 out of  17,920    1%
       Number used as Shift Register:            20
         Number using O6 output only:            20
-    Number used as exclusive route-thru:         9
-  Number of route-thrus:                       109
-    Number using O6 output only:               106
-    Number using O5 output only:                 2
+    Number used as exclusive route-thru:        10
+  Number of route-thrus:                       142
+    Number using O6 output only:               135
+    Number using O5 output only:                 6
     Number using O5 and O6:                      1
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 3,058 out of  17,280   17%
-  Number of LUT Flip Flop pairs used:        7,918
-    Number with an unused Flip Flop:         3,384 out of   7,918   42%
-    Number with an unused LUT:               2,306 out of   7,918   29%
-    Number of fully used LUT-FF pairs:       2,228 out of   7,918   28%
-    Number of unique control sets:             367
+  Number of occupied Slices:                 2,650 out of  17,280   15%
+  Number of LUT Flip Flop pairs used:        7,529
+    Number with an unused Flip Flop:         3,088 out of   7,529   41%
+    Number with an unused LUT:               2,185 out of   7,529   29%
+    Number of fully used LUT-FF pairs:       2,256 out of   7,529   29%
+    Number of unique control sets:             370
     Number of slice register sites lost
-      to control set restrictions:             750 out of  69,120    1%
+      to control set restrictions:             763 out of  69,120    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -71,11 +71,11 @@ Specific Feature Utilization:
   Number of BUFIOs:                              8 out of      80   10%
   Number of PLL_ADVs:                            1 out of       6   16%
 
-Average Fanout of Non-Clock Nets:                3.50
+Average Fanout of Non-Clock Nets:                3.49
 
-Peak Memory Usage:  1172 MB
-Total REAL time to MAP completion:  9 mins 9 secs 
-Total CPU time to MAP completion:   9 mins 6 secs 
+Peak Memory Usage:  1169 MB
+Total REAL time to MAP completion:  8 mins 20 secs 
+Total CPU time to MAP completion:   8 mins 15 secs 
 
 Table of Contents
 -----------------
@@ -323,13 +323,15 @@ WARNING:Place:838 - An IO Bus with more than one IO standard is found.
    	 Comp: GPIO_LED<7>   IOSTANDARD = SSTL18_II_DCI
 
 
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/JRselreg_or0000 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 
 Section 3 - Informational
@@ -338,14 +340,14 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 '2100@license-srv.eecs.berkeley.edu'.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:56 - Part 'xc5vlx110t' is not a WebPack part.
-INFO:LIT:243 - Logical network N1583 has no load.
+INFO:LIT:243 - Logical network N1462 has no load.
 INFO:LIT:395 - The above info message is repeated 19 more times for the
    following (max. 5 shown):
-   N1584,
-   N1585,
-   N1586,
-   N1587,
-   N1588
+   N1463,
+   N1464,
+   N1465,
+   N1466,
+   N1467
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:950 - SAVE has been detected on block
@@ -458,15 +460,15 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
-The signal "N1441" is unused and has been removed.
+The signal "N1308" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_F" (ROM) removed.
-The signal "N1442" is unused and has been removed.
+The signal "N1309" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_G" (ROM) removed.
-The signal "N181" is unused and has been removed.
+The signal "N178" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _35_mux0000_SW0" (ROM) removed.
@@ -1201,7 +1203,7 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |    -9.879ns|    39.758ns|     527|     2749359
+* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |    -9.879ns|    39.758ns|     527|     2740121
   USER_CLK / 0.5 HIGH 50%                   | HOLD        |    -0.036ns|            |      24|         684
 ----------------------------------------------------------------------------------------------------------
 * TS_clk90 = PERIOD TIMEGRP "clk90" TS_USER | SETUP       |    -0.100ns|     5.400ns|     144|       14400
@@ -1306,10 +1308,10 @@ Derived Constraints for TS_USER_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_USER_CLK                    |     10.000ns|      4.000ns|     19.879ns|            0|          923|            0|7465500939881|
-| TS_cpu_clk                    |     20.000ns|     39.758ns|          N/A|          551|            0|7465500923746|            0|
+|TS_USER_CLK                    |     10.000ns|      4.000ns|     19.879ns|            0|          923|            0|7457052776855|
+| TS_cpu_clk                    |     20.000ns|     39.758ns|          N/A|          551|            0|7457052760744|            0|
 | TS_clk200                     |      5.000ns|      1.666ns|          N/A|            0|            0|           24|            0|
-| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4062|            0|
+| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4038|            0|
 | TS_clk90                      |      5.000ns|      5.400ns|          N/A|          144|            0|          926|            0|
 | TS_clkdiv0                    |     10.000ns|      3.999ns|          N/A|           35|            0|        11123|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+

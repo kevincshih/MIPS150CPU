@@ -11,4 +11,4 @@ add wave MmultTestbench/DUT/the_datapath/the_PC/*
 add wave MmultTestbench/DUT/the_datapath/the_regfile/*
 add wave MmultTestbench/DUT/the_datapath/the_regfile/the_registers
 add wave MmultTestbench/DUT/the_datapath/the_IF_Control/*
-run 3000us
+run 9000us

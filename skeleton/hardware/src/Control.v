@@ -9,7 +9,7 @@ module Control(
 	       output[3:0]ALUop, IMByteSel, DMByteSel,
 	       output REUART, WEUART, RegWrite, DinSel,
 	       output CTsel, CTreset, REDC, ICacheSel,
-	       output SEXTImm
+	       output SEXTImm, JRsel
 	       );
 `include "Opcode.vh"
 `include "ALUop.vh"
@@ -24,7 +24,7 @@ module Control(
 reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg, RDselreg, UARTselreg;
 reg[3:0] ByteSelReg;
 reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg;
-reg REICreg, REDCreg, REBIOSreg, CTselreg, CTResetreg, ICacheSelreg;
+reg REICreg, REDCreg, REBIOSreg, CTselreg, CTResetreg, ICacheSelreg, JRselreg;
 
 wire[5:0] op, funct, oldop, oldfunct;
 wire[4:0] rs, rt, rd, shamt, oldrs, oldrt, oldrd, oldshamt;
@@ -38,6 +38,7 @@ wire weim, wedm;
   //base = rs
   //dest = rt
   //signed offset = imm
+
 
 assign weim = WEIMreg;
 assign wedm = WEDMreg;  
@@ -84,6 +85,8 @@ assign MemWrite = (reset) ? 0 : MemWriteReg;
 assign MemRead = (reset) ? 0 : MemReadReg;
 assign REUART = (reset) ? 0 : REUARTreg;
 assign WEUART = (reset) ? 0 : WEUARTreg;
+assign JRsel = (reset) ? 0 : JRselreg;
+
 assign IMByteSel = (reset || ~weim) ? 4'b0000 : ByteSelReg;
 assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
     assign REDC = REDCreg;
@@ -233,6 +236,18 @@ end
 //ALU Forwarding Logic
 
 always @( * ) begin
+    if ((op == `RTYPE) && ((funct == `JALR)||(funct == `JR))) begin
+		if ((oldop == `RTYPE) && (oldrd != 0)) begin
+          JRselreg = (rs == oldrd) ? 1'b1 : 1'b0;
+       end
+       else if ((((oldop >= `ADDIU) && (oldop <= `LUI)) || ((oldop >= `LB) && (oldop <= `LHU))) && (oldrt != 0)) begin
+          JRselreg = (rs == oldrt) ? 1'b1 : 1'b0;
+       end
+       else begin
+          JRselreg = 1'b0;
+       end
+    end
+
     if ((op == `JAL) || ((op == `RTYPE) && (funct == `JALR))) begin
         AluSelAReg = 2'b00;
         AluSelBReg = 2'b00;

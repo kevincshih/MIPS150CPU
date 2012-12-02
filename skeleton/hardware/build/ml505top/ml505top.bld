@@ -6,21 +6,21 @@ Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
 ../../src/bios_mem/tmp/_xmsgs -sd ../../src/cache_data_blk_ram -sd
 ../../src/cache_data_blk_ram/tmp -sd ../../src/cache_data_blk_ram/tmp/_xmsgs -sd
 ../../src/cache_tag_blk_ram -sd ../../src/cache_tag_blk_ram/tmp -sd
-../../src/cache_tag_blk_ram/tmp/_xmsgs -sd ../../src/dmem_blk_ram -sd
-../../src/dmem_blk_ram/tmp -sd ../../src/dmem_blk_ram/tmp/_xmsgs -sd
-../../src/imem_blk_ram -sd ../../src/imem_blk_ram/tmp -sd
-../../src/imem_blk_ram/tmp/_xmsgs -sd ../../src/mig_af -sd ../../src/mig_af/tmp
--sd ../../src/mig_af/tmp/_xmsgs -sd ../../src/mig_rdf -sd ../../src/mig_rdf/tmp
--sd ../../src/mig_rdf/tmp/_xmsgs -sd ../../src/mig_v3_61 -sd ../../src/mig_wdf
--sd ../../src/mig_wdf/tmp -sd ../../src/mig_wdf/tmp/_xmsgs -sd ../../src/coregen
--sd ../../src/coregen/tmp -sd ../../src/coregen/tmp/_cg -sd
-../../src/coregen/tmp/_xmsgs -sd ../../src/coregen/_xmsgs -sd
-../../src/coregen/chipscope_icon.constraints -nt timestamp -uc
-../../src/ml505top.ucf -p xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
+../../src/cache_tag_blk_ram/tmp/_xmsgs -sd ../../src/coregen -sd
+../../src/coregen/_xmsgs -sd ../../src/coregen/chipscope_icon.constraints -sd
+../../src/coregen/tmp -sd ../../src/coregen/tmp/_xmsgs -sd
+../../src/dmem_blk_ram -sd ../../src/dmem_blk_ram/tmp -sd
+../../src/dmem_blk_ram/tmp/_xmsgs -sd ../../src/imem_blk_ram -sd
+../../src/imem_blk_ram/tmp -sd ../../src/imem_blk_ram/tmp/_xmsgs -sd
+../../src/mig_af -sd ../../src/mig_af/tmp -sd ../../src/mig_af/tmp/_xmsgs -sd
+../../src/mig_rdf -sd ../../src/mig_rdf/tmp -sd ../../src/mig_rdf/tmp/_xmsgs -sd
+../../src/mig_v3_61 -sd ../../src/mig_wdf -sd ../../src/mig_wdf/tmp -sd
+../../src/mig_wdf/tmp/_xmsgs -nt timestamp -uc ../../src/ml505top.ucf -p
+xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
 
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505t
-op.ngc" ...
+"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v30f/skeleton/hardware/build/ml
+505top/ml505top.ngc" ...
 Loading design module "../../src/bios_mem/bios_mem.ngc"...
 Loading design module "../../src/cache_data_blk_ram/cache_data_blk_ram.ngc"...
 Loading design module "../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc"...
@@ -123,14 +123,14 @@ WARNING:NgdBuild:443 - SFF primitive
 WARNING:NgdBuild:443 - SFF primitive
    'mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/gen_r
    den[1].u_calib_rden_r' has unconnected output pin
-WARNING:NgdBuild:452 - logical net 'N1583' has no driver
-WARNING:NgdBuild:452 - logical net 'N1584' has no driver
-WARNING:NgdBuild:452 - logical net 'N1585' has no driver
-WARNING:NgdBuild:452 - logical net 'N1586' has no driver
-WARNING:NgdBuild:452 - logical net 'N1587' has no driver
-WARNING:NgdBuild:452 - logical net 'N1588' has no driver
-WARNING:NgdBuild:452 - logical net 'N1589' has no driver
-WARNING:NgdBuild:452 - logical net 'N1590' has no driver
+WARNING:NgdBuild:452 - logical net 'N1462' has no driver
+WARNING:NgdBuild:452 - logical net 'N1463' has no driver
+WARNING:NgdBuild:452 - logical net 'N1464' has no driver
+WARNING:NgdBuild:452 - logical net 'N1465' has no driver
+WARNING:NgdBuild:452 - logical net 'N1466' has no driver
+WARNING:NgdBuild:452 - logical net 'N1467' has no driver
+WARNING:NgdBuild:452 - logical net 'N1468' has no driver
+WARNING:NgdBuild:452 - logical net 'N1469' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -143,10 +143,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:  22
 
-Total memory usage is 553244 kilobytes
+Total memory usage is 552644 kilobytes
 
 Writing NGD file "ml505top.ngd" ...
-Total REAL time to NGDBUILD completion:  31 sec
-Total CPU time to NGDBUILD completion:   30 sec
+Total REAL time to NGDBUILD completion:  35 sec
+Total CPU time to NGDBUILD completion:   32 sec
 
 Writing NGDBUILD log file "ml505top.bld"...
