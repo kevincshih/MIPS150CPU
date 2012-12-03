@@ -11,4 +11,4 @@ add wave EchoTestbenchCaches/DUT/the_datapath/the_PC/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers
 add wave EchoTestbenchCaches/DUT/the_datapath/the_IF_Control/*
-run 1000us
+run 10000us

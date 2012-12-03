@@ -137,8 +137,10 @@ Compiling verilog file "../../src/Datapath.v" in library work
 Module <ControlTestbench> compiled
 Compiling verilog include file "../../src/Opcode.vh"
 Compiling verilog include file "../../src/ALUop.vh"
-Compiling verilog file "../../src/EchoTestbench.v" in library work
+Compiling verilog file "../../src/MIPS150.v" in library work
 Module <Datapath> compiled
+Compiling verilog file "../../src/EchoTestbench.v" in library work
+Module <MIPS150> compiled
 Compiling verilog file "../../src/EchoTestbenchCaches.v" in library work
 Module <EchoTestbench> compiled
 Compiling verilog file "../../src/Hazard.v" in library work
@@ -147,10 +149,12 @@ Compiling verilog file "../../src/IFControl.v" in library work
 Module <Hazard> compiled
 Compiling verilog file "../../src/IORegister.v" in library work
 Module <IFControl> compiled
-Compiling verilog file "../../src/MIPS150.v" in library work
+Compiling verilog file "../../src/chipscope/chipscope_icon.v" in library work
 Module <IORegister> compiled
+Compiling verilog file "../../src/chipscope/chipscope_ila.v" in library work
+Module <chipscope_icon> compiled
 Compiling verilog file "../../src/Memory150.v" in library work
-Module <MIPS150> compiled
+Module <chipscope_ila> compiled
 Compiling verilog file "../../src/Memory150TestBench.v" in library work
 Module <Memory150> compiled
 Compiling verilog include file "../../src/CacheTestTasks.vh"
@@ -185,10 +189,8 @@ Compiling verilog file "../../src/cache_data_blk_ram/cache_data_blk_ram.v" in li
 Module <Branch_module> compiled
 Compiling verilog file "../../src/cache_tag_blk_ram/cache_tag_blk_ram.v" in library work
 Module <cache_data_blk_ram> compiled
-Compiling verilog file "../../src/coregen/chipscope_icon.v" in library work
-Module <cache_tag_blk_ram> compiled
 Compiling verilog file "../../src/dmem_blk_ram/dmem_blk_ram.v" in library work
-Module <chipscope_icon> compiled
+Module <cache_tag_blk_ram> compiled
 Compiling verilog file "../../src/imem_blk_ram/imem_blk_ram.v" in library work
 Module <dmem_blk_ram> compiled
 Compiling verilog file "../../src/mig_af/mig_af.v" in library work
@@ -1933,9 +1935,9 @@ Analyzing module <ALUdec> in library <work>.
 Module <ALUdec> is correct for synthesis.
  
 Analyzing module <Datapath> in library <work>.
-WARNING:Xst:905 - "../../src/Datapath.v" line 149: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
-   <CTresetreg>, <reset>
-WARNING:Xst:2211 - "../../src/bios_mem/bios_mem.v" line 123: Instantiating black box module <bios_mem>.
+WARNING:Xst:905 - "../../src/Datapath.v" line 126: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <CTreset>, <reset>
+WARNING:Xst:2211 - "../../src/bios_mem/bios_mem.v" line 108: Instantiating black box module <bios_mem>.
 Module <Datapath> is correct for synthesis.
  
 Analyzing module <IFControl> in library <work>.
@@ -2185,6 +2187,7 @@ Unit <ALUdec> synthesized.
 Synthesizing Unit <IFControl>.
     Related source file is "../../src/IFControl.v".
 WARNING:Xst:647 - Input <PC<27:0>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <stall_reg> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
 Unit <IFControl> synthesized.
 
 
@@ -2798,28 +2801,28 @@ WARNING:Xst:737 - Found 2-bit latch for signal <UARTselreg>. Latches may be gene
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 2-bit latch for signal <RDselreg>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
-    Found 5-bit comparator equal for signal <AluSelAReg$cmp_eq0001> created at line 278.
-    Found 5-bit comparator equal for signal <AluSelAReg$cmp_eq0002> created at line 282.
-    Found 6-bit comparator greatequal for signal <AluSelAReg$cmp_ge0000> created at line 281.
-    Found 6-bit comparator greatequal for signal <AluSelAReg$cmp_ge0001> created at line 281.
-    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0000> created at line 264.
-    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0001> created at line 276.
-    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0002> created at line 281.
-    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0003> created at line 281.
-    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0004> created at line 290.
-    Found 5-bit comparator equal for signal <AluSelBReg$cmp_eq0000> created at line 267.
-    Found 5-bit comparator equal for signal <AluSelBReg$cmp_eq0001> created at line 270.
-    Found 4-bit shifter logical right for signal <ByteSelReg$shift0000> created at line 136.
-    Found 4-bit shifter logical right for signal <ByteSelReg$shift0001> created at line 137.
-    Found 6-bit comparator greater for signal <RDselreg$cmp_gt0000> created at line 118.
-    Found 6-bit comparator greater for signal <RDselreg$cmp_gt0001> created at line 122.
-    Found 6-bit comparator less for signal <RDselreg$cmp_lt0000> created at line 118.
-    Found 6-bit comparator less for signal <RDselreg$cmp_lt0001> created at line 122.
-    Found 6-bit comparator greatequal for signal <RegDstReg$cmp_ge0000> created at line 118.
-    Found 6-bit comparator greatequal for signal <RegDstReg$cmp_ge0001> created at line 122.
-    Found 6-bit comparator lessequal for signal <RegDstReg$cmp_le0000> created at line 118.
-    Found 6-bit comparator lessequal for signal <RegDstReg$cmp_le0001> created at line 122.
-    Found 6-bit comparator greatequal for signal <SEXTImm$cmp_ge0000> created at line 104.
+    Found 5-bit comparator equal for signal <AluSelAReg$cmp_eq0001> created at line 269.
+    Found 5-bit comparator equal for signal <AluSelAReg$cmp_eq0002> created at line 273.
+    Found 6-bit comparator greatequal for signal <AluSelAReg$cmp_ge0000> created at line 272.
+    Found 6-bit comparator greatequal for signal <AluSelAReg$cmp_ge0001> created at line 272.
+    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0000> created at line 255.
+    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0001> created at line 267.
+    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0002> created at line 272.
+    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0003> created at line 272.
+    Found 6-bit comparator lessequal for signal <AluSelAReg$cmp_le0004> created at line 281.
+    Found 5-bit comparator equal for signal <AluSelBReg$cmp_eq0000> created at line 258.
+    Found 5-bit comparator equal for signal <AluSelBReg$cmp_eq0001> created at line 261.
+    Found 4-bit shifter logical right for signal <ByteSelReg$shift0000> created at line 134.
+    Found 4-bit shifter logical right for signal <ByteSelReg$shift0001> created at line 135.
+    Found 6-bit comparator greater for signal <RDselreg$cmp_gt0000> created at line 116.
+    Found 6-bit comparator greater for signal <RDselreg$cmp_gt0001> created at line 120.
+    Found 6-bit comparator less for signal <RDselreg$cmp_lt0000> created at line 116.
+    Found 6-bit comparator less for signal <RDselreg$cmp_lt0001> created at line 120.
+    Found 6-bit comparator greatequal for signal <RegDstReg$cmp_ge0000> created at line 116.
+    Found 6-bit comparator greatequal for signal <RegDstReg$cmp_ge0001> created at line 120.
+    Found 6-bit comparator lessequal for signal <RegDstReg$cmp_le0000> created at line 116.
+    Found 6-bit comparator lessequal for signal <RegDstReg$cmp_le0001> created at line 120.
+    Found 6-bit comparator greatequal for signal <SEXTImm$cmp_ge0000> created at line 103.
     Summary:
 	inferred  20 Comparator(s).
 	inferred   2 Combinational logic shifter(s).
@@ -2828,23 +2831,17 @@ Unit <Control> synthesized.
 
 Synthesizing Unit <Datapath>.
     Related source file is "../../src/Datapath.v".
-WARNING:Xst:1780 - Signal <stall_reg> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <icache_dout_reg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <debug_address> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <bios_doutb_reg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <PC_top_nibble> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <PC_IF_RA_reg> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <A3> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:737 - Found 32-bit latch for signal <dina_shifted>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
     Found 5-bit register for signal <A3_RA_DW>.
     Found 32-bit register for signal <ALU_OutMW_Reg>.
-    Found 1-bit register for signal <CTresetreg>.
-    Found 1-bit register for signal <CTselreg>.
     Found 32-bit up counter for signal <CycleCounter>.
-    Found 32-bit adder for signal <InstrCounter$addsub0000> created at line 151.
+    Found 32-bit register for signal <dcache_addr_prestall_reg>.
+    Found 32-bit register for signal <icache_addr_prestall_reg>.
+    Found 32-bit adder for signal <InstrCounter$addsub0000> created at line 128.
     Found 1-bit register for signal <InstrSrc_Reg>.
-    Found 1-bit register for signal <OldStallReg>.
     Found 32-bit adder for signal <PC_4>.
     Found 32-bit register for signal <PC_4_Reg>.
     Found 32-bit adder for signal <PC_Branch>.
@@ -2853,10 +2850,11 @@ INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and 
     Found 2-bit register for signal <RDsel_Reg>.
     Found 1-bit register for signal <RegWrite_Reg>.
     Found 1-bit register for signal <resetReg>.
+    Found 1-bit register for signal <stall_reg>.
     Found 2-bit register for signal <UARTsel_Reg>.
     Summary:
 	inferred   1 Counter(s).
-	inferred 143 D-type flip-flop(s).
+	inferred 205 D-type flip-flop(s).
 	inferred   3 Adder/Subtractor(s).
 Unit <Datapath> synthesized.
 
@@ -2983,7 +2981,7 @@ Macro Statistics
 # Accumulators                                         : 1
  2-bit up accumulator                                  : 1
 # Registers                                            : 769
- 1-bit register                                        : 646
+ 1-bit register                                        : 644
  10-bit register                                       : 2
  11-bit register                                       : 2
  12-bit register                                       : 2
@@ -2996,7 +2994,7 @@ Macro Statistics
  26-bit register                                       : 1
  3-bit register                                        : 9
  31-bit register                                       : 6
- 32-bit register                                       : 40
+ 32-bit register                                       : 42
  4-bit register                                        : 7
  5-bit register                                        : 7
  6-bit register                                        : 9
@@ -3322,6 +3320,12 @@ WARNING:Xst:2677 - Node <addr_hold_28> of sequential type is unconnected in bloc
 WARNING:Xst:2677 - Node <addr_hold_29> of sequential type is unconnected in block <dcache>.
 WARNING:Xst:2677 - Node <addr_hold_30> of sequential type is unconnected in block <dcache>.
 WARNING:Xst:2677 - Node <addr_hold_31> of sequential type is unconnected in block <dcache>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_0> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_1> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_28> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_29> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_30> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <icache_addr_prestall_reg_31> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_0> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_1> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_2> of sequential type is unconnected in block <the_datapath>.
@@ -3338,6 +3342,12 @@ WARNING:Xst:2677 - Node <PrevInstruction_Reg_22> of sequential type is unconnect
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_23> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_24> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <PrevInstruction_Reg_25> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_0> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_1> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_28> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_29> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_30> of sequential type is unconnected in block <the_datapath>.
+WARNING:Xst:2677 - Node <dcache_addr_prestall_reg_31> of sequential type is unconnected in block <the_datapath>.
 WARNING:Xst:2677 - Node <RXShift_0> of sequential type is unconnected in block <uareceive>.
 
 Synthesizing (advanced) Unit <ddr2_phy_calib>.
@@ -3520,8 +3530,8 @@ Macro Statistics
  9-bit up counter                                      : 2
 # Accumulators                                         : 1
  2-bit up accumulator                                  : 1
-# Registers                                            : 4414
- Flip-Flops                                            : 4414
+# Registers                                            : 4476
+ Flip-Flops                                            : 4476
 # Latches                                              : 6
  1-bit latch                                           : 3
  2-bit latch                                           : 2
@@ -3579,6 +3589,7 @@ INFO:Xst:2261 - The FF/Latch <ddr2/u_ddr2_top_0/u_mem_if_top/u_usr_top/u_usr_add
 WARNING:Xst:1710 - FF/Latch <filler_reserved_0> (without init value) has a constant value of 0 in block <RequestController>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bypass_reserved_0> (without init value) has a constant value of 0 in block <RequestController>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <line_reserved_0> (without init value) has a constant value of 0 in block <RequestController>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <stall_reg> of sequential type is unconnected in block <Datapath>.
 WARNING:Xst:1710 - FF/Latch <burst_addr_r_0> (without init value) has a constant value of 0 in block <ddr2_phy_init>. This FF/Latch will be trimmed during the optimization process.
 INFO:Xst:1901 - Instance gen_stg2_sg1.u_iddr_dq in unit ddr2_phy_dq_iob of type IDDR has been replaced by IDDR_2CLK
 INFO:Xst:1901 - Instance ddr2/u_ddr2_top_0/u_mem_if_top/u_usr_top/u_usr_addr_fifo/u_af in unit Memory150 of type FIFO36 has been replaced by FIFO36_EXP
@@ -3600,37 +3611,37 @@ INFO:Xst:2261 - The FF/Latch <count_rden_2> in Unit <ddr2_phy_calib> is equivale
 INFO:Xst:2261 - The FF/Latch <PC_IF_RA_0> in Unit <Datapath> is equivalent to the following FF/Latch, which will be removed : <PC_4_Reg_0> 
 INFO:Xst:2261 - The FF/Latch <PC_IF_RA_1> in Unit <Datapath> is equivalent to the following FF/Latch, which will be removed : <PC_4_Reg_1> 
 WARNING:Xst:2170 - Unit ALU : the following signal(s) form a combinatorial loop: O_shift0002<31>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: Madd_InstrCounter_addsub0000_lut<0>, InstrCounter<31>, Madd_InstrCounter_addsub0000_cy<5>, Madd_InstrCounter_addsub0000_cy<26>, Madd_InstrCounter_addsub0000_cy<15>, Madd_InstrCounter_addsub0000_cy<2>, Madd_InstrCounter_addsub0000_cy<12>, Madd_InstrCounter_addsub0000_cy<19>, Madd_InstrCounter_addsub0000_cy<28>, Madd_InstrCounter_addsub0000_cy<8>, InstrCounter<0>, Madd_InstrCounter_addsub0000_cy<30>, Madd_InstrCounter_addsub0000_cy<21>, Madd_InstrCounter_addsub0000_cy<6>, Madd_InstrCounter_addsub0000_cy<16>, Madd_InstrCounter_addsub0000_cy<20>, Madd_InstrCounter_addsub0000_cy<17>, Madd_InstrCounter_addsub0000_cy<23>, WriteData_Reg<31>, InstrCounter_addsub0000<31>, Madd_InstrCounter_addsub0000_cy<18>, Madd_InstrCounter_addsub0000_cy<3>, Madd_InstrCounter_addsub0000_cy<0>, Madd_InstrCounter_addsub0000_cy<9>, Madd_InstrCounter_addsub0000_cy<24>, InstrCounter_addsub0000<0>, Madd_InstrCounter_addsub0000_cy<22>, Madd_InstrCounter_addsub0000_cy<13>, Madd_InstrCounter_addsub0000_cy<27>, Madd_InstrCounter_addsub0000_cy<4>, Madd_InstrCounter_addsub0000_cy<25>, Madd_InstrCounter_addsub0000_cy<7>, Madd_InstrCounter_addsub0000_cy<11>, Madd_InstrCounter_addsub0000_cy<10>, Madd_InstrCounter_addsub0000_cy<14>, Madd_InstrCounter_addsub0000_cy<29>, Madd_InstrCounter_addsub0000_cy<1>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<30>, WriteData_Reg<30>, InstrCounter_addsub0000<30>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<29>, WriteData_Reg<29>, InstrCounter<29>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<28>, InstrCounter_addsub0000<28>, WriteData_Reg<28>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<27>, WriteData_Reg<27>, InstrCounter<27>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<26>, WriteData_Reg<26>, InstrCounter_addsub0000<26>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<25>, WriteData_Reg<25>, InstrCounter_addsub0000<25>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<24>, WriteData_Reg<24>, InstrCounter_addsub0000<24>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: Madd_InstrCounter_addsub0000_cy<3>, Madd_InstrCounter_addsub0000_cy<15>, Madd_InstrCounter_addsub0000_cy<11>, Madd_InstrCounter_addsub0000_cy<9>, Madd_InstrCounter_addsub0000_cy<10>, Madd_InstrCounter_addsub0000_cy<14>, Madd_InstrCounter_addsub0000_cy<19>, Madd_InstrCounter_addsub0000_cy<26>, Madd_InstrCounter_addsub0000_lut<0>, Madd_InstrCounter_addsub0000_cy<30>, Madd_InstrCounter_addsub0000_cy<23>, Madd_InstrCounter_addsub0000_cy<7>, Madd_InstrCounter_addsub0000_cy<28>, Madd_InstrCounter_addsub0000_cy<21>, Madd_InstrCounter_addsub0000_cy<12>, Madd_InstrCounter_addsub0000_cy<1>, InstrCounter_addsub0000<31>, Madd_InstrCounter_addsub0000_cy<29>, WriteData_Reg<31>, Madd_InstrCounter_addsub0000_cy<24>, Madd_InstrCounter_addsub0000_cy<16>, Madd_InstrCounter_addsub0000_cy<5>, Madd_InstrCounter_addsub0000_cy<25>, InstrCounter<0>, Madd_InstrCounter_addsub0000_cy<18>, Madd_InstrCounter_addsub0000_cy<20>, Madd_InstrCounter_addsub0000_cy<0>, Madd_InstrCounter_addsub0000_cy<27>, Madd_InstrCounter_addsub0000_cy<6>, Madd_InstrCounter_addsub0000_cy<4>, Madd_InstrCounter_addsub0000_cy<8>, Madd_InstrCounter_addsub0000_cy<2>, Madd_InstrCounter_addsub0000_cy<13>, InstrCounter_addsub0000<0>, InstrCounter<31>, Madd_InstrCounter_addsub0000_cy<22>, Madd_InstrCounter_addsub0000_cy<17>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<30>, InstrCounter_addsub0000<30>, WriteData_Reg<30>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<29>, WriteData_Reg<29>, InstrCounter_addsub0000<29>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<28>, InstrCounter<28>, WriteData_Reg<28>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<27>, WriteData_Reg<27>, InstrCounter_addsub0000<27>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<26>, InstrCounter_addsub0000<26>, WriteData_Reg<26>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<25>, InstrCounter<25>, InstrCounter_addsub0000<25>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<24>, InstrCounter<24>, InstrCounter_addsub0000<24>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<23>, WriteData_Reg<23>, InstrCounter_addsub0000<23>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<22>, WriteData_Reg<22>, InstrCounter<22>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<21>, InstrCounter_addsub0000<21>, WriteData_Reg<21>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<20>, InstrCounter_addsub0000<20>, WriteData_Reg<20>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<22>, InstrCounter<22>, WriteData_Reg<22>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<21>, WriteData_Reg<21>, InstrCounter_addsub0000<21>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<20>, InstrCounter_addsub0000<20>, InstrCounter<20>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<19>, WriteData_Reg<19>, InstrCounter_addsub0000<19>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<18>, InstrCounter<18>, WriteData_Reg<18>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<17>, WriteData_Reg<17>, InstrCounter_addsub0000<17>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<16>, InstrCounter_addsub0000<16>, InstrCounter<16>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<15>, WriteData_Reg<15>, InstrCounter_addsub0000<15>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<14>, InstrCounter_addsub0000<14>, InstrCounter<14>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<13>, InstrCounter_addsub0000<13>, WriteData_Reg<13>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<12>, InstrCounter<12>, WriteData_Reg<12>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<11>, InstrCounter<11>, InstrCounter_addsub0000<11>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<18>, InstrCounter_addsub0000<18>, InstrCounter<18>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<17>, InstrCounter_addsub0000<17>, WriteData_Reg<17>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<16>, WriteData_Reg<16>, InstrCounter_addsub0000<16>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<15>, InstrCounter_addsub0000<15>, InstrCounter<15>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<14>, WriteData_Reg<14>, InstrCounter<14>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<13>, InstrCounter<13>, InstrCounter_addsub0000<13>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<12>, InstrCounter_addsub0000<12>, InstrCounter<12>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<11>, InstrCounter_addsub0000<11>, WriteData_Reg<11>.
 WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<10>, InstrCounter_addsub0000<10>, InstrCounter<10>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<9>, WriteData_Reg<9>, InstrCounter_addsub0000<9>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<8>, InstrCounter_addsub0000<8>, InstrCounter<8>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<7>, InstrCounter<7>, WriteData_Reg<7>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<6>, InstrCounter_addsub0000<6>, InstrCounter<6>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<5>, InstrCounter<5>, WriteData_Reg<5>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<4>, WriteData_Reg<4>, InstrCounter<4>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<3>, InstrCounter<3>, InstrCounter_addsub0000<3>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<2>, WriteData_Reg<2>, InstrCounter<2>.
-WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: WriteData_Reg<1>, InstrCounter<1>, InstrCounter_addsub0000<1>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<9>, InstrCounter_addsub0000<9>, WriteData_Reg<9>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<8>, WriteData_Reg<8>, InstrCounter_addsub0000<8>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<7>, WriteData_Reg<7>, InstrCounter_addsub0000<7>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<6>, WriteData_Reg<6>, InstrCounter_addsub0000<6>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<5>, WriteData_Reg<5>, InstrCounter_addsub0000<5>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<4>, InstrCounter_addsub0000<4>, WriteData_Reg<4>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<3>, WriteData_Reg<3>, InstrCounter<3>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter_addsub0000<2>, InstrCounter<2>, WriteData_Reg<2>.
+WARNING:Xst:2170 - Unit Datapath : the following signal(s) form a combinatorial loop: InstrCounter<1>, WriteData_Reg<1>, InstrCounter_addsub0000<1>.
 
 Optimizing unit <ml505top> ...
 
@@ -3677,6 +3688,12 @@ Optimizing unit <ddr2_phy_io> ...
 Optimizing unit <Memory150> ...
 WARNING:Xst:1710 - FF/Latch <cal2_idel_dec_cnt_5> (without init value) has a constant value of 0 in block <ddr2_phy_calib>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1710 - FF/Latch <cal2_idel_dec_cnt_5> (without init value) has a constant value of 0 in block <ddr2_phy_calib>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_31> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_30> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_29> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_28> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_1> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/dcache_addr_prestall_reg_0> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_25> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_24> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_23> of sequential type is unconnected in block <ml505top>.
@@ -3693,6 +3710,12 @@ WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_3> of sequential t
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_2> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_1> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <CPU/the_datapath/PrevInstruction_Reg_0> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_31> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_30> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_29> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_28> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_1> of sequential type is unconnected in block <ml505top>.
+WARNING:Xst:2677 - Node <CPU/the_datapath/icache_addr_prestall_reg_0> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dbg_gate_tap_cnt_6_5> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dbg_gate_tap_cnt_6_4> of sequential type is unconnected in block <ml505top>.
 WARNING:Xst:2677 - Node <mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dbg_gate_tap_cnt_6_3> of sequential type is unconnected in block <ml505top>.
@@ -4220,8 +4243,7 @@ FlipFlop mem_arch/ddr2/u_ddr2_infrastructure/rst90_sync_r_24 has been replicated
 FlipFlop mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_10 has been replicated 4 time(s)
 FlipFlop mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_11 has been replicated 40 time(s)
 FlipFlop mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/rst_r1 has been replicated 2 time(s)
-FlipFlop mem_arch/icache/addr_hold_3 has been replicated 1 time(s)
-FlipFlop mem_arch/icache/addr_hold_4 has been replicated 1 time(s)
+FlipFlop mem_arch/icache/cs_FSM_FFd7 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -4243,8 +4265,8 @@ Unit <ml505top> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 4458
- Flip-Flops                                            : 4458
+# Registers                                            : 4506
+ Flip-Flops                                            : 4506
 # Shift Registers                                      : 10
  10-bit shift register                                 : 1
  15-bit shift register                                 : 3
@@ -4281,34 +4303,34 @@ Design Statistics
 # IOs                              : 126
 
 Cell Usage :
-# BELS                             : 6107
+# BELS                             : 6295
 #      GND                         : 1
 #      INV                         : 88
 #      LUT1                        : 134
-#      LUT2                        : 362
-#      LUT3                        : 942
-#      LUT4                        : 851
-#      LUT5                        : 824
-#      LUT6                        : 2111
+#      LUT2                        : 317
+#      LUT3                        : 969
+#      LUT4                        : 903
+#      LUT5                        : 854
+#      LUT6                        : 2201
 #      MUXCY                       : 336
-#      MUXF7                       : 193
+#      MUXF7                       : 227
 #      VCC                         : 1
 #      XORCY                       : 264
-# FlipFlops/Latches                : 4751
-#      FD                          : 671
+# FlipFlops/Latches                : 4799
+#      FD                          : 650
 #      FD_1                        : 4
 #      FDCPE                       : 21
 #      FDCPE_1                     : 8
-#      FDE                         : 2176
+#      FDE                         : 2244
 #      FDP                         : 112
 #      FDPE                        : 34
-#      FDR                         : 423
+#      FDR                         : 422
 #      FDR_1                       : 3
-#      FDRE                        : 232
-#      FDRS                        : 98
-#      FDRSE                       : 402
+#      FDRE                        : 233
+#      FDRS                        : 97
+#      FDRSE                       : 403
 #      FDRSE_1                     : 136
-#      FDS                         : 160
+#      FDS                         : 161
 #      FDS_1                       : 3
 #      FDSE                        : 19
 #      IDDR_2CLK                   : 64
@@ -4349,17 +4371,17 @@ Selected Device : 5vlx110tff1136-1
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:            4751  out of  69120     6%  
- Number of Slice LUTs:                 5339  out of  69120     7%  
-    Number used as Logic:              5312  out of  69120     7%  
+ Number of Slice Registers:            4799  out of  69120     6%  
+ Number of Slice LUTs:                 5493  out of  69120     7%  
+    Number used as Logic:              5466  out of  69120     7%  
     Number used as Memory:               27  out of  17920     0%  
        Number used as SRL:               27
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   7588
-   Number with an unused Flip Flop:    2837  out of   7588    37%  
-   Number with an unused LUT:          2249  out of   7588    29%  
-   Number of fully used LUT-FF pairs:  2502  out of   7588    32%  
+ Number of LUT Flip Flop pairs used:   7726
+   Number with an unused Flip Flop:    2927  out of   7726    37%  
+   Number with an unused LUT:          2233  out of   7726    28%  
+   Number of fully used LUT-FF pairs:  2566  out of   7726    33%  
    Number of unique control sets:       377
 
 IO Utilization: 
@@ -4391,9 +4413,9 @@ Clock Information:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                                                                                                                                                                                            | Clock buffer(FF name)                                                                                         | Load  |
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------------------------------+-------+
-cpu_clk                                                                                                                                                                                                 | BUFG                                                                                                          | 2220  |
+cpu_clk                                                                                                                                                                                                 | BUFG                                                                                                          | 2268  |
 CPU/the_controller/UARTselreg_not0001(CPU/the_controller/UARTselreg_not00011:O)                                                                                                                         | NONE(*)(CPU/the_controller/UARTselreg_1)                                                                      | 2     |
-CPU/the_controller/RDselreg_not0001(CPU/the_controller/RDselreg_not0001128:O)                                                                                                                           | NONE(*)(CPU/the_controller/RDselreg_1)                                                                        | 2     |
+CPU/the_controller/RDselreg_not0001(CPU/the_controller/RDselreg_not0001126:O)                                                                                                                           | NONE(*)(CPU/the_controller/RDselreg_1)                                                                        | 2     |
 CPU/the_controller/JRselreg_or0000(CPU/the_controller/PCselReg_cmp_eq000111:O)                                                                                                                          | NONE(*)(CPU/the_controller/JRselreg)                                                                          | 1     |
 CPU/the_controller/DinSelReg_not0002(CPU/the_controller/DinSelReg_not00021:O)                                                                                                                           | NONE(*)(CPU/the_controller/DinSelReg)                                                                         | 1     |
 CPU/the_controller/CTselreg_or0000(CPU/the_controller/CTselreg_or00001:O)                                                                                                                               | NONE(*)(CPU/the_controller/CTselreg)                                                                          | 1     |
@@ -4441,10 +4463,10 @@ Timing Summary:
 ---------------
 Speed Grade: -1
 
-   Minimum period: 13.152ns (Maximum Frequency: 76.036MHz)
-   Minimum input arrival time before clock: 14.563ns
-   Maximum output required time after clock: 12.363ns
-   Maximum combinational path delay: 11.927ns
+   Minimum period: 15.256ns (Maximum Frequency: 65.549MHz)
+   Minimum input arrival time before clock: 14.793ns
+   Maximum output required time after clock: 11.830ns
+   Maximum combinational path delay: 11.367ns
 
 Timing Detail:
 --------------
@@ -4452,39 +4474,72 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'cpu_clk'
-  Clock period: 13.152ns (frequency: 76.036MHz)
-  Total number of paths / destination ports: 1597842940 / 4240
+  Clock period: 15.256ns (frequency: 65.549MHz)
+  Total number of paths / destination ports: 422112456098 / 4357
 -------------------------------------------------------------------------
-Delay:               13.152ns (Levels of Logic = 15)
-  Source:            mem_arch/icache/addr_hold_4_1 (FF)
-  Destination:       CPU/the_uart/uatransmit/TXShift_9 (FF)
+Delay:               15.256ns (Levels of Logic = 48)
+  Source:            mem_arch/icache/active_data_line_25 (FF)
+  Destination:       CPU/the_datapath/the_regfile/the_registers_3_30 (FF)
   Source Clock:      cpu_clk rising
   Destination Clock: cpu_clk rising
 
-  Data Path: mem_arch/icache/addr_hold_4_1 to CPU/the_uart/uatransmit/TXShift_9
+  Data Path: mem_arch/icache/active_data_line_25 to CPU/the_datapath/the_regfile/the_registers_3_30
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              4   0.471   0.592  mem_arch/icache/addr_hold_4_1 (mem_arch/icache/addr_hold_4_1)
-     LUT2:I0->O           17   0.094   1.157  mem_arch/icache/Sh76831 (mem_arch/icache/N36)
-     LUT6:I0->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            4   0.094   0.989  CPU/the_datapath/the_ALU/O<21>169 (CPU/Address<21>)
-     LUT6:I1->O           16   0.094   0.871  CPU/the_controller/CTreset1132 (CPU/the_controller/CTreset1132)
-     LUT6:I2->O            5   0.094   0.598  CPU/the_controller/WEUARTreg_or00001 (CPU/the_controller/WEUARTreg_or0000)
-     LUT6:I4->O            1   0.094   0.000  CPU/the_uart/uatransmit/TXShift_9_rstpot (CPU/the_uart/uatransmit/TXShift_9_rstpot)
-     FD:D                     -0.018          CPU/the_uart/uatransmit/TXShift_9
+     FDE:C->Q              1   0.471   1.069  mem_arch/icache/active_data_line_25 (mem_arch/icache/active_data_line_25)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW0 (N621)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_F (N1800)
+     MUXF7:I0->O           2   0.251   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O<13>148 (CPU/Address<13>)
+     LUT6:I2->O            2   0.094   0.485  CPU/the_controller/CTreset192_SW0 (N672)
+     LUT6:I5->O            1   0.094   0.480  CPU/the_controller/CTreset1230_SW0 (N1095)
+     LUT6:I5->O          102   0.094   0.620  CPU/the_datapath/CycleCounter_or00001 (CPU/the_datapath/CycleCounter_or0000)
+     LUT2:I1->O            1   0.094   0.000  CPU/the_datapath/InstrCounter<1>11 (CPU/the_datapath/InstrCounter<1>1)
+     MUXCY:S->O            1   0.372   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<1> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<2> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<3> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<4> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<5> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<6> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<7> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<8> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<9> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<10> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<11> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<12> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<13> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<14> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<15> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<16> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<17> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<18> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<19> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<20> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<21> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<22> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<23> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<24> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<25> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<26> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<27> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<28> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<28>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<29> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<29>)
+     XORCY:CI->O           2   0.357   0.581  CPU/the_datapath/Madd_InstrCounter_addsub0000_xor<30> (CPU/the_datapath/InstrCounter_addsub0000<30>)
+     LUT2:I0->O            1   0.094   0.336  CPU/the_datapath/InstrCounter<30>1 (CPU/the_datapath/InstrCounter<30>)
+     MUXF7:S->O           31   0.329   0.000  CPU/the_datapath/WriteData_Reg<30>54 (CPU/the_datapath/WriteData_Reg<30>)
+     FDE:D                    -0.018          CPU/the_datapath/the_regfile/the_registers_3_30
     ----------------------------------------
-    Total                     13.152ns (1.881ns logic, 11.271ns route)
-                                       (14.3% logic, 85.7% route)
+    Total                     15.256ns (4.012ns logic, 11.244ns route)
+                                       (26.3% logic, 73.7% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CPU/the_controller/DinSelReg_not0002'
@@ -4502,7 +4557,7 @@ Delay:               1.411ns (Levels of Logic = 1)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      LDE:G->Q              2   0.736   0.581  CPU/the_controller/DinSelReg (CPU/the_controller/DinSelReg)
-     LUT6:I4->O            1   0.094   0.000  CPU/the_controller/DinSelReg_mux0000 (CPU/the_controller/DinSelReg_mux0000)
+     LUT5:I3->O            1   0.094   0.000  CPU/the_controller/DinSelReg_mux0000 (CPU/the_controller/DinSelReg_mux0000)
      LDE:D                    -0.071          CPU/the_controller/DinSelReg
     ----------------------------------------
     Total                      1.411ns (0.830ns logic, 0.581ns route)
@@ -4546,7 +4601,7 @@ Delay:               5.834ns (Levels of Logic = 5)
     ----------------------------------------  ------------
      FD:C->Q               2   0.471   1.074  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/cal2_rd_data_sel_r_4 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/cal2_rd_data_sel_r_4)
      LUT6:I0->O            1   0.094   0.576  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or85 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or85)
-     LUT6:I4->O            1   0.094   0.710  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or190_SW0 (N978)
+     LUT6:I4->O            1   0.094   0.710  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or190_SW0 (N1524)
      LUT6:I3->O            9   0.094   0.524  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or190 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/dlyce_or)
      LUT4:I3->O           33   0.094   1.100  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/idel_set_wait1 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/idel_set_wait)
      LUT6:I1->O            1   0.094   0.336  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/cal1_ref_req_or00001 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/cal1_ref_req_or0000)
@@ -4558,7 +4613,7 @@ Delay:               5.834ns (Levels of Logic = 5)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk0'
   Clock period: 4.878ns (frequency: 205.002MHz)
-  Total number of paths / destination ports: 3219 / 1026
+  Total number of paths / destination ports: 3243 / 1026
 -------------------------------------------------------------------------
 Delay:               4.878ns (Levels of Logic = 6)
   Source:            mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/row_conflict_r_2 (FF)
@@ -4571,11 +4626,11 @@ Delay:               4.878ns (Levels of Logic = 6)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDE:C->Q              1   0.471   0.789  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/row_conflict_r_2 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/row_conflict_r_2)
-     LUT4:I0->O            2   0.094   0.485  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/conflict_detect_or0000_SW0 (N233)
+     LUT4:I0->O            2   0.094   0.485  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/conflict_detect_or0000_SW0 (N236)
      LUT6:I5->O            4   0.094   0.989  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/conflict_detect_or0000 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/conflict_detect_or0000)
-     LUT5:I0->O            1   0.094   0.710  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In134_SW0 (N998)
+     LUT5:I0->O            1   0.094   0.710  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In134_SW0 (N1544)
      LUT6:I3->O            1   0.094   0.710  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In134 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In134)
-     LUT6:I3->O            1   0.094   0.000  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In3281_G (N1145)
+     LUT6:I3->O            1   0.094   0.000  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In3281_G (N1723)
      MUXF7:I1->O           1   0.254   0.000  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In3281 (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4-In328)
      FDRS:D                   -0.018          mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_ctrl/state_r_FSM_FFd4
     ----------------------------------------
@@ -4605,224 +4660,257 @@ Delay:               0.807ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'cpu_clk'
-  Total number of paths / destination ports: 551848206 / 3007
+  Total number of paths / destination ports: 173663132604 / 3123
 -------------------------------------------------------------------------
-Offset:              12.716ns (Levels of Logic = 15)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
-  Destination:       CPU/the_uart/uatransmit/TXShift_9 (FF)
+Offset:              14.793ns (Levels of Logic = 48)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
+  Destination:       CPU/the_datapath/the_regfile/the_registers_3_30 (FF)
   Destination Clock: cpu_clk rising
 
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_uart/uatransmit/TXShift_9
+  Data Path: mem_arch/icache/cache_data:doutb<25> to CPU/the_datapath/the_regfile/the_registers_3_30
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            4   0.094   0.989  CPU/the_datapath/the_ALU/O<21>169 (CPU/Address<21>)
-     LUT6:I1->O           16   0.094   0.871  CPU/the_controller/CTreset1132 (CPU/the_controller/CTreset1132)
-     LUT6:I2->O            5   0.094   0.598  CPU/the_controller/WEUARTreg_or00001 (CPU/the_controller/WEUARTreg_or0000)
-     LUT6:I4->O            1   0.094   0.000  CPU/the_uart/uatransmit/TXShift_9_rstpot (CPU/the_uart/uatransmit/TXShift_9_rstpot)
-     FD:D                     -0.018          CPU/the_uart/uatransmit/TXShift_9
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O<13>148 (CPU/Address<13>)
+     LUT6:I2->O            2   0.094   0.485  CPU/the_controller/CTreset192_SW0 (N672)
+     LUT6:I5->O            1   0.094   0.480  CPU/the_controller/CTreset1230_SW0 (N1095)
+     LUT6:I5->O          102   0.094   0.620  CPU/the_datapath/CycleCounter_or00001 (CPU/the_datapath/CycleCounter_or0000)
+     LUT2:I1->O            1   0.094   0.000  CPU/the_datapath/InstrCounter<1>11 (CPU/the_datapath/InstrCounter<1>1)
+     MUXCY:S->O            1   0.372   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<1> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<2> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<3> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<4> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<5> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<6> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<7> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<8> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<9> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<10> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<11> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<12> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<13> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<13>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<14> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<14>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<15> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<15>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<16> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<16>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<17> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<17>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<18> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<18>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<19> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<19>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<20> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<20>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<21> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<21>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<22> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<22>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<23> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<23>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<24> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<24>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<25> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<25>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<26> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<26>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<27> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<27>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<28> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<28>)
+     MUXCY:CI->O           1   0.026   0.000  CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<29> (CPU/the_datapath/Madd_InstrCounter_addsub0000_cy<29>)
+     XORCY:CI->O           2   0.357   0.581  CPU/the_datapath/Madd_InstrCounter_addsub0000_xor<30> (CPU/the_datapath/InstrCounter_addsub0000<30>)
+     LUT2:I0->O            1   0.094   0.336  CPU/the_datapath/InstrCounter<30>1 (CPU/the_datapath/InstrCounter<30>)
+     MUXF7:S->O           31   0.329   0.000  CPU/the_datapath/WriteData_Reg<30>54 (CPU/the_datapath/WriteData_Reg<30>)
+     FDE:D                    -0.018          CPU/the_datapath/the_regfile/the_registers_3_30
     ----------------------------------------
-    Total                     12.716ns (1.410ns logic, 11.306ns route)
-                                       (11.1% logic, 88.9% route)
+    Total                     14.793ns (3.544ns logic, 11.249ns route)
+                                       (24.0% logic, 76.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/UARTselreg_not0001'
-  Total number of paths / destination ports: 65566742 / 2
+  Total number of paths / destination ports: 43841838 / 2
 -------------------------------------------------------------------------
-Offset:              13.612ns (Levels of Logic = 17)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
+Offset:              13.337ns (Levels of Logic = 17)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
   Destination:       CPU/the_controller/UARTselreg_1 (LATCH)
   Destination Clock: CPU/the_controller/UARTselreg_not0001 falling
 
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_controller/UARTselreg_1
+  Data Path: mem_arch/icache/cache_data:doutb<25> to CPU/the_controller/UARTselreg_1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            4   0.094   0.592  CPU/the_datapath/the_ALU/O<10>135 (CPU/Address<10>)
-     LUT6:I4->O            1   0.094   0.480  CPU/the_controller/CTreset194_SW0 (N669)
-     LUT6:I5->O           16   0.094   0.792  CPU/the_controller/CTreset194 (CPU/the_controller/CTreset194)
-     LUT4:I1->O            7   0.094   0.822  CPU/the_controller/CTreset1226 (CPU/the_controller/N18)
-     LUT6:I2->O            1   0.094   0.480  CPU/the_controller/UARTselreg_mux0000<1>_SW3 (N962)
-     LUT6:I5->O            1   0.094   0.000  CPU/the_controller/UARTselreg_mux0000<1> (CPU/the_controller/UARTselreg_mux0000<1>)
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O            7   0.094   0.743  CPU/the_datapath/the_ALU/O<28>223 (CPU/Address<28>)
+     LUT3:I0->O            2   0.094   1.074  CPU/the_controller/CTreset1128 (CPU/the_controller/CTreset1128)
+     LUT6:I0->O           11   0.094   0.535  CPU/the_controller/CTreset1230 (CPU/the_controller/N18)
+     LUT5:I4->O            5   0.094   0.502  CPU/the_controller/WEUARTreg_and00021 (CPU/the_controller/WEUARTreg_and0002)
+     LUT5:I4->O            1   0.094   0.789  CPU/the_controller/UARTselreg_mux0000<1>_SW0 (N1646)
+     LUT6:I2->O            1   0.094   0.000  CPU/the_controller/UARTselreg_mux0000<1> (CPU/the_controller/UARTselreg_mux0000<1>)
      LD:D                     -0.071          CPU/the_controller/UARTselreg_1
     ----------------------------------------
-    Total                     13.612ns (1.598ns logic, 12.014ns route)
-                                       (11.7% logic, 88.3% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/RDselreg_not0001'
-  Total number of paths / destination ports: 96729707 / 2
--------------------------------------------------------------------------
-Offset:              14.563ns (Levels of Logic = 16)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
-  Destination:       CPU/the_controller/RDselreg_0 (LATCH)
-  Destination Clock: CPU/the_controller/RDselreg_not0001 falling
-
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_controller/RDselreg_0
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT5:I4->O            1   0.094   0.480  CPU/the_datapath/the_ALU/O<31>58 (CPU/the_datapath/the_ALU/O<31>58)
-     LUT6:I5->O           10   0.094   1.118  CPU/the_datapath/the_ALU/O<31>263 (CPU/Address<31>)
-     LUT6:I0->O           16   0.094   1.055  CPU/the_controller/CTreset143 (CPU/the_controller/CTreset143)
-     LUT6:I1->O            5   0.094   1.091  CPU/the_controller/UARTselreg_mux0000<0>11 (CPU/the_controller/N3)
-     LUT6:I0->O            2   0.094   1.074  CPU/the_controller/RDselreg_mux0000<0>11 (CPU/the_controller/N21)
-     LUT6:I0->O            1   0.094   0.000  CPU/the_controller/RDselreg_mux0000<0> (CPU/the_controller/RDselreg_mux0000<0>)
-     LD:D                     -0.071          CPU/the_controller/RDselreg_0
-    ----------------------------------------
-    Total                     14.563ns (1.504ns logic, 13.059ns route)
-                                       (10.3% logic, 89.7% route)
-
-=========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/JRselreg_or0000'
-  Total number of paths / destination ports: 144 / 2
--------------------------------------------------------------------------
-Offset:              4.468ns (Levels of Logic = 4)
-  Source:            mem_arch/icache/cache_data:doutb<124> (PAD)
-  Destination:       CPU/the_controller/JRselreg (LATCH)
-  Destination Clock: CPU/the_controller/JRselreg_or0000 falling
-
-  Data Path: mem_arch/icache/cache_data:doutb<124> to CPU/the_controller/JRselreg
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<124>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<124>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<28>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<28>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<28>281_SW0 (N570)
-     LUT6:I5->O           17   0.094   1.157  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<28>281 (CPU/instruction_rnm0<28>)
-     LUT6:I0->O           24   0.094   0.458  CPU/the_controller/DUT/ALUopreg<0>21 (CPU/the_controller/DUT/ALUopreg_cmp_eq0000)
-     LDE:GE                    0.213          CPU/the_controller/JRselreg
-    ----------------------------------------
-    Total                      4.468ns (0.589ns logic, 3.879ns route)
+    Total                     13.337ns (1.758ns logic, 11.579ns route)
                                        (13.2% logic, 86.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/DinSelReg_not0002'
-  Total number of paths / destination ports: 279 / 2
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/RDselreg_not0001'
+  Total number of paths / destination ports: 72085732 / 2
 -------------------------------------------------------------------------
-Offset:              5.067ns (Levels of Logic = 6)
-  Source:            mem_arch/icache/cache_data:doutb<113> (PAD)
+Offset:              13.657ns (Levels of Logic = 17)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
+  Destination:       CPU/the_controller/RDselreg_0 (LATCH)
+  Destination Clock: CPU/the_controller/RDselreg_not0001 falling
+
+  Data Path: mem_arch/icache/cache_data:doutb<25> to CPU/the_controller/RDselreg_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O            7   0.094   0.743  CPU/the_datapath/the_ALU/O<28>223 (CPU/Address<28>)
+     LUT3:I0->O            2   0.094   1.074  CPU/the_controller/CTreset1128 (CPU/the_controller/CTreset1128)
+     LUT6:I0->O           11   0.094   0.631  CPU/the_controller/CTreset1230 (CPU/the_controller/N18)
+     LUT3:I1->O            3   0.094   0.800  CPU/the_controller/UARTselreg_mux0000<0>11 (CPU/the_controller/N41)
+     LUT5:I1->O            2   0.094   0.715  CPU/the_controller/RDselreg_mux0000<0>11 (CPU/the_controller/N22)
+     LUT6:I3->O            1   0.094   0.000  CPU/the_controller/RDselreg_mux0000<0> (CPU/the_controller/RDselreg_mux0000<0>)
+     LD:D                     -0.071          CPU/the_controller/RDselreg_0
+    ----------------------------------------
+    Total                     13.657ns (1.758ns logic, 11.899ns route)
+                                       (12.9% logic, 87.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/JRselreg_or0000'
+  Total number of paths / destination ports: 160 / 2
+-------------------------------------------------------------------------
+Offset:              4.141ns (Levels of Logic = 4)
+  Source:            mem_arch/icache/cache_data:doutb<255> (PAD)
+  Destination:       CPU/the_controller/JRselreg (LATCH)
+  Destination Clock: CPU/the_controller/JRselreg_or0000 falling
+
+  Data Path: mem_arch/icache/cache_data:doutb<255> to CPU/the_controller/JRselreg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+    cache_data_blk_ram:doutb<255>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<255>)
+     LUT6:I0->O            2   0.094   0.715  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>40 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>40)
+     LUT6:I3->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_G (N1807)
+     MUXF7:I1->O          14   0.254   1.140  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
+     LUT6:I0->O           29   0.094   0.463  CPU/the_controller/DUT/ALUopreg<0>312 (CPU/the_controller/DUT/ALUopreg_cmp_eq0000)
+     LDE:GE                    0.213          CPU/the_controller/JRselreg
+    ----------------------------------------
+    Total                      4.141ns (0.749ns logic, 3.392ns route)
+                                       (18.1% logic, 81.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/DinSelReg_not0002'
+  Total number of paths / destination ports: 306 / 2
+-------------------------------------------------------------------------
+Offset:              4.797ns (Levels of Logic = 6)
+  Source:            mem_arch/icache/cache_data:doutb<17> (PAD)
   Destination:       CPU/the_controller/DinSelReg (LATCH)
   Destination Clock: CPU/the_controller/DinSelReg_not0002 falling
 
-  Data Path: mem_arch/icache/cache_data:doutb<113> to CPU/the_controller/DinSelReg
+  Data Path: mem_arch/icache/cache_data:doutb<17> to CPU/the_controller/DinSelReg
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<113>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<113>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>281_SW0 (N657)
-     LUT6:I5->O          262   0.094   0.650  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>281 (CPU/instruction_rnm0<17>)
-     LUT4:I3->O            1   0.094   0.789  CPU/the_controller/DinSelReg_mux0000_SW0_SW1 (N682)
-     LUT6:I2->O            3   0.094   0.800  CPU/the_controller/DinSelReg_mux0000_SW0 (N246)
-     LUT6:I2->O            1   0.094   0.000  CPU/the_controller/DinSelReg_mux0000 (CPU/the_controller/DinSelReg_mux0000)
+    cache_data_blk_ram:doutb<17>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<17>)
+     LUT6:I0->O            1   0.094   0.576  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>229_SW1 (N857)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>281_G (N1775)
+     MUXF7:I1->O         262   0.254   0.650  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<17>281 (CPU/instruction_rnm0<17>)
+     LUT4:I3->O            1   0.094   0.789  CPU/the_controller/DinSelReg_mux0000_SW0_SW0 (N877)
+     LUT6:I2->O            3   0.094   0.984  CPU/the_controller/DinSelReg_mux0000_SW0 (N249)
+     LUT5:I0->O            1   0.094   0.000  CPU/the_controller/DinSelReg_mux0000 (CPU/the_controller/DinSelReg_mux0000)
      LDE:D                    -0.071          CPU/the_controller/DinSelReg
     ----------------------------------------
-    Total                      5.067ns (0.564ns logic, 4.503ns route)
-                                       (11.1% logic, 88.9% route)
+    Total                      4.797ns (0.724ns logic, 4.073ns route)
+                                       (15.1% logic, 84.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/CTselreg_or0000'
-  Total number of paths / destination ports: 9059211 / 1
+  Total number of paths / destination ports: 8359420 / 1
 -------------------------------------------------------------------------
-Offset:              13.038ns (Levels of Logic = 16)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
+Offset:              12.088ns (Levels of Logic = 15)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
   Destination:       CPU/the_controller/CTselreg (LATCH)
   Destination Clock: CPU/the_controller/CTselreg_or0000 falling
 
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_controller/CTselreg
+  Data Path: mem_arch/icache/cache_data:doutb<25> to CPU/the_controller/CTselreg
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            4   0.094   0.592  CPU/the_datapath/the_ALU/O<10>135 (CPU/Address<10>)
-     LUT6:I4->O            1   0.094   0.480  CPU/the_controller/CTreset194_SW0 (N669)
-     LUT6:I5->O           16   0.094   0.792  CPU/the_controller/CTreset194 (CPU/the_controller/CTreset194)
-     LUT4:I1->O            7   0.094   0.822  CPU/the_controller/CTreset1226 (CPU/the_controller/N18)
-     LUT6:I2->O            1   0.094   0.000  CPU/the_controller/CTselreg_and00011 (CPU/the_controller/CTselreg_and0001)
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O            7   0.094   0.743  CPU/the_datapath/the_ALU/O<28>223 (CPU/Address<28>)
+     LUT3:I0->O            2   0.094   1.074  CPU/the_controller/CTreset1128 (CPU/the_controller/CTreset1128)
+     LUT6:I0->O           11   0.094   0.765  CPU/the_controller/CTreset1230 (CPU/the_controller/N18)
+     LUT5:I2->O            1   0.094   0.000  CPU/the_controller/CTselreg_and00011 (CPU/the_controller/CTselreg_and0001)
      LD:D                     -0.071          CPU/the_controller/CTselreg
     ----------------------------------------
-    Total                     13.038ns (1.504ns logic, 11.534ns route)
-                                       (11.5% logic, 88.5% route)
+    Total                     12.088ns (1.570ns logic, 10.518ns route)
+                                       (13.0% logic, 87.0% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CPU/the_controller/ByteSelReg_and00001'
-  Total number of paths / destination ports: 41277744 / 64
+  Total number of paths / destination ports: 35540136 / 64
 -------------------------------------------------------------------------
-Offset:              12.174ns (Levels of Logic = 14)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
+Offset:              11.422ns (Levels of Logic = 14)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
   Destination:       CPU/the_datapath/dina_shifted_31 (LATCH)
   Destination Clock: CPU/the_controller/ByteSelReg_and00001 falling
 
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_datapath/dina_shifted_31
+  Data Path: mem_arch/icache/cache_data:doutb<25> to CPU/the_datapath/dina_shifted_31
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O           29   0.094   0.916  CPU/the_datapath/the_ALU/O<0>247 (CPU/Address<0>)
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.602  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I5->O           29   0.094   0.916  CPU/the_datapath/the_ALU/O<0>246 (CPU/Address<0>)
      LUT4:I0->O           24   0.094   1.095  CPU/the_datapath/dina_shifted_mux0000<24>21 (CPU/the_datapath/N45)
      LUT5:I0->O            1   0.094   0.000  CPU/the_datapath/dina_shifted_mux0000<31>55 (CPU/the_datapath/dina_shifted_mux0000<31>)
      LDE:D                    -0.071          CPU/the_datapath/dina_shifted_31
     ----------------------------------------
-    Total                     12.174ns (1.316ns logic, 10.858ns route)
-                                       (10.8% logic, 89.2% route)
+    Total                     11.422ns (1.476ns logic, 9.946ns route)
+                                       (12.9% logic, 87.1% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[7].u_iob_dqs/dqs_ibuf'
@@ -5016,37 +5104,36 @@ Offset:              3.395ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'cpu_clk'
-  Total number of paths / destination ports: 90503341 / 885
+  Total number of paths / destination ports: 68254528 / 885
 -------------------------------------------------------------------------
-Offset:              12.363ns (Levels of Logic = 15)
-  Source:            mem_arch/icache/addr_hold_4_1 (FF)
-  Destination:       CPU/the_datapath/the_bios:enb (PAD)
+Offset:              11.830ns (Levels of Logic = 14)
+  Source:            mem_arch/icache/active_data_line_25 (FF)
+  Destination:       mem_arch/icache/cache_data:addrb<7> (PAD)
   Source Clock:      cpu_clk rising
 
-  Data Path: mem_arch/icache/addr_hold_4_1 to CPU/the_datapath/the_bios:enb
+  Data Path: mem_arch/icache/active_data_line_25 to mem_arch/icache/cache_data:addrb<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              4   0.471   0.592  mem_arch/icache/addr_hold_4_1 (mem_arch/icache/addr_hold_4_1)
-     LUT2:I0->O           17   0.094   1.157  mem_arch/icache/Sh76831 (mem_arch/icache/N36)
-     LUT6:I0->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>223 (CPU/Address<29>)
-     LUT4:I2->O            2   0.094   0.581  CPU/the_datapath/not_stall_or000051 (CPU/the_datapath/not_stall_or000051)
-     LUT6:I4->O            2   0.094   0.485  CPU/the_datapath/not_stall_or0000101 (CPU/the_datapath/not_stall_or0000)
-     LUT6:I5->O            0   0.094   0.000  CPU/the_datapath/the_IF_Control/REBIOS1 (CPU/the_datapath/REBIOS)
-    bios_mem:enb               0.000          CPU/the_datapath/the_bios
+     FDE:C->Q              1   0.471   1.069  mem_arch/icache/active_data_line_25 (mem_arch/icache/active_data_line_25)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW0 (N621)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_F (N1800)
+     MUXF7:I0->O           2   0.251   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.698  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I4->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>224 (CPU/Address<29>)
+     LUT6:I4->O           52   0.094   0.920  CPU/the_controller/ICacheSel1 (CPU/ICacheSel)
+     LUT5:I1->O            1   0.094   0.336  CPU/the_datapath/icache_addr<9>1 (icache_addr<9>)
+    cache_data_blk_ram:addrb<4>        0.000          mem_arch/icache/cache_data
     ----------------------------------------
-    Total                     12.363ns (1.881ns logic, 10.482ns route)
-                                       (15.2% logic, 84.8% route)
+    Total                     11.830ns (1.944ns logic, 9.886ns route)
+                                       (16.4% logic, 83.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk90'
@@ -5069,34 +5156,33 @@ Offset:              3.395ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clkdiv0'
-  Total number of paths / destination ports: 65143 / 301
+  Total number of paths / destination ports: 49162 / 301
 -------------------------------------------------------------------------
-Offset:              9.948ns (Levels of Logic = 12)
+Offset:              9.799ns (Levels of Logic = 11)
   Source:            mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done (FF)
-  Destination:       CPU/the_datapath/the_bios:enb (PAD)
+  Destination:       mem_arch/icache/cache_data:addrb<7> (PAD)
   Source Clock:      clkdiv0 rising
 
-  Data Path: mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done to CPU/the_datapath/the_bios:enb
+  Data Path: mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done to mem_arch/icache/cache_data:addrb<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q             19   0.471   0.888  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done)
-     LUT4:I0->O            1   0.094   0.710  _or00001_1 (_or00001)
-     LUT6:I3->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>223 (CPU/Address<29>)
-     LUT4:I2->O            2   0.094   0.581  CPU/the_datapath/not_stall_or000051 (CPU/the_datapath/not_stall_or000051)
-     LUT6:I4->O            2   0.094   0.485  CPU/the_datapath/not_stall_or0000101 (CPU/the_datapath/not_stall_or0000)
-     LUT6:I5->O            0   0.094   0.000  CPU/the_datapath/the_IF_Control/REBIOS1 (CPU/the_datapath/REBIOS)
-    bios_mem:enb               0.000          CPU/the_datapath/the_bios
+     FDE:C->Q             22   0.471   0.902  mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done (mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_init/phy_init_done)
+     LUT4:I0->O           34   0.094   0.838  _or00001_1 (_or00001)
+     LUT6:I3->O           32   0.094   0.607  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N53)
+     LUT6:I5->O            7   0.094   0.609  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
+     LUT6:I4->O           82   0.094   1.206  CPU/the_datapath/ALU_SrcA_Reg<1> (CPU/the_datapath/ALU_SrcA_Reg<1>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/Sh1091 (CPU/the_datapath/the_ALU/Sh109)
+     LUT6:I3->O            3   0.094   0.491  CPU/the_datapath/the_ALU/Sh1411 (CPU/the_datapath/the_ALU/Sh141)
+     LUT6:I5->O            1   0.094   0.576  CPU/the_datapath/the_ALU/O<29>68_SW1 (N796)
+     LUT6:I4->O            1   0.094   0.480  CPU/the_datapath/the_ALU/O<29>86_SW0 (N1252)
+     LUT6:I5->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>224 (CPU/Address<29>)
+     LUT6:I4->O           52   0.094   0.920  CPU/the_controller/ICacheSel1 (CPU/ICacheSel)
+     LUT5:I1->O            1   0.094   0.336  CPU/the_datapath/icache_addr<9>1 (icache_addr<9>)
+    cache_data_blk_ram:addrb<4>        0.000          mem_arch/icache/cache_data
     ----------------------------------------
-    Total                      9.948ns (1.599ns logic, 8.349ns route)
-                                       (16.1% logic, 83.9% route)
+    Total                      9.799ns (1.505ns logic, 8.294ns route)
+                                       (15.4% logic, 84.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dqs[7].u_iob_dqs/dqs_ibuf'
@@ -5252,36 +5338,35 @@ Offset:              0.841ns (Levels of Logic = 0)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 31258915 / 908
+  Total number of paths / destination ports: 28085900 / 908
 -------------------------------------------------------------------------
-Delay:               11.927ns (Levels of Logic = 15)
-  Source:            mem_arch/icache/cache_data:doutb<127> (PAD)
-  Destination:       CPU/the_datapath/the_bios:enb (PAD)
+Delay:               11.367ns (Levels of Logic = 14)
+  Source:            mem_arch/icache/cache_data:doutb<25> (PAD)
+  Destination:       mem_arch/icache/cache_data:addrb<7> (PAD)
 
-  Data Path: mem_arch/icache/cache_data:doutb<127> to CPU/the_datapath/the_bios:enb
+  Data Path: mem_arch/icache/cache_data:doutb<25> to mem_arch/icache/cache_data:addrb<7>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-    cache_data_blk_ram:doutb<127>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<127>)
-     LUT6:I0->O            1   0.094   0.710  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>93)
-     LUT6:I3->O            1   0.094   0.480  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281_SW0 (N564)
-     LUT6:I5->O           17   0.094   0.877  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<31>281 (CPU/instruction_rnm0<31>)
-     LUT4:I0->O           10   0.094   0.625  CPU/the_controller/DUT/ALUopreg<0>211 (CPU/the_controller/N43)
-     LUT6:I4->O            6   0.094   0.603  CPU/the_controller/AluSelA<0>21 (CPU/the_controller/N49)
-     LUT6:I4->O           35   0.094   0.704  CPU/the_controller/AluSelA<1>1 (CPU/ALU_Sel_A<1>)
-     LUT5:I3->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<7>1 (CPU/the_datapath/ALU_SrcA_Reg<7>)
-     LUT6:I0->O            5   0.094   0.811  CPU/the_datapath/the_ALU/O_or000081_SW0 (N578)
-     LUT6:I2->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000081_1 (CPU/the_datapath/the_ALU/O_or000081)
-     LUT3:I0->O            8   0.094   0.518  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
-     LUT6:I5->O           29   0.094   0.607  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
-     LUT6:I5->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>223 (CPU/Address<29>)
-     LUT4:I2->O            2   0.094   0.581  CPU/the_datapath/not_stall_or000051 (CPU/the_datapath/not_stall_or000051)
-     LUT6:I4->O            2   0.094   0.485  CPU/the_datapath/not_stall_or0000101 (CPU/the_datapath/not_stall_or0000)
-     LUT6:I5->O            0   0.094   0.000  CPU/the_datapath/the_IF_Control/REBIOS1 (CPU/the_datapath/REBIOS)
-    bios_mem:enb               0.000          CPU/the_datapath/the_bios
+    cache_data_blk_ram:doutb<25>    2   0.000   1.074  mem_arch/icache/cache_data (mem_arch/icache/data_line_out<25>)
+     LUT6:I0->O            2   0.094   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>229_SW1 (N622)
+     LUT6:I4->O            1   0.094   0.000  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1_G (N1801)
+     MUXF7:I1->O           2   0.254   0.581  CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281_1 (CPU/the_datapath/_old_Instruction_Dout_IF_RA_53<25>281)
+     LUT4:I2->O            1   0.094   0.789  CPU/the_controller/JRselreg_mux00001_SW0 (N680)
+     LUT6:I2->O            4   0.094   0.496  CPU/the_controller/JRselreg_mux00001 (CPU/the_controller/JRselreg_mux0000)
+     LUT5:I4->O           27   0.094   0.606  CPU/the_datapath/ALU_SrcA_Reg<8>1_SW0 (N729)
+     LUT6:I5->O            9   0.094   1.113  CPU/the_datapath/ALU_SrcA_Reg<14>1 (CPU/the_datapath/ALU_SrcA_Reg<14>)
+     LUT6:I0->O            4   0.094   0.726  CPU/the_datapath/the_ALU/O_or000011 (CPU/the_datapath/the_ALU/O_or000011)
+     LUT6:I3->O           37   0.094   0.838  CPU/the_datapath/the_ALU/O_or000081 (CPU/the_datapath/the_ALU/O_or0000)
+     LUT3:I0->O           10   0.094   0.529  CPU/the_datapath/the_ALU/O_shift0002<31>1 (CPU/the_datapath/the_ALU/O_shift0002<31>)
+     LUT6:I5->O           24   0.094   0.698  CPU/the_datapath/the_ALU/O<0>110 (CPU/the_datapath/the_ALU/N7)
+     LUT6:I4->O            6   0.094   0.603  CPU/the_datapath/the_ALU/O<29>224 (CPU/Address<29>)
+     LUT6:I4->O           52   0.094   0.920  CPU/the_controller/ICacheSel1 (CPU/ICacheSel)
+     LUT5:I1->O            1   0.094   0.336  CPU/the_datapath/icache_addr<9>1 (icache_addr<9>)
+    cache_data_blk_ram:addrb<4>        0.000          mem_arch/icache/cache_data
     ----------------------------------------
-    Total                     11.927ns (1.410ns logic, 10.517ns route)
-                                       (11.8% logic, 88.2% route)
+    Total                     11.367ns (1.476ns logic, 9.891ns route)
+                                       (13.0% logic, 87.0% route)
 
 =========================================================================
 WARNING:Xst:616 - Invalid property "SYN_PRESERVE 1": Did not attach to mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/gen_dm_inst.gen_dm[7].u_iob_dm/u_dm_ce.
@@ -5848,15 +5933,15 @@ WARNING:Xst:616 - Invalid property "SYN_NOPRUNE 1": Did not attach to mem_arch/d
 WARNING:Xst:616 - Invalid property "SYN_BLACK_BOX 1": Did not attach to mem_arch/ddr2_addr_fifo.
 
 
-Total REAL time to Xst completion: 388.00 secs
-Total CPU time to Xst completion: 386.07 secs
+Total REAL time to Xst completion: 377.00 secs
+Total CPU time to Xst completion: 374.30 secs
  
 --> 
 
 
-Total memory usage is 899528 kilobytes
+Total memory usage is 901792 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 1556 (   0 filtered)
+Number of warnings : 1577 (   0 filtered)
 Number of infos    :   78 (   0 filtered)
 

@@ -34,11 +34,7 @@ module MIPS150(
    
    reg stall_reg;
    
-   wire ControlStall, OldStall;
-   
-   Control the_controller(.JRsel(JRsel), 
-			  .ControlStall(ControlStall),
-			  .OldStall(OldStall),
+   Control the_controller(
 			  .Address(Address),
 			  .Instruction(Instruction), // begin inputs
 			  .OldInstruction(PrevInstruction),
@@ -59,11 +55,10 @@ module MIPS150(
 			  .CTsel(CTsel),
 			  .CTreset(CTreset),
 			  .SEXTImm(SEXTImm),
+			  .JRsel(JRsel),
 			  .REDC(dcache_re)); //end outputs
 
-   Datapath the_datapath(.JRsel(JRsel),
-			  .ControlStall(ControlStall),
-			  .OldStall(OldStall),   
+   Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
 			 .DinSel(DinSel),
 			 .REUART(REUART), .WEUART(WEUART), .UARTsel(UARTsel),
@@ -75,6 +70,7 @@ module MIPS150(
 			 .RegDst(RegDst),
 			 .RegWrite(RegWrite),
 			 .SEXTImm(SEXTImm),
+			 .JRsel(JRsel),
 			 .DataOut(DataOut), //end inputs
 			 .Branch_compare(Branch_compare), //output
 			 .offset(offset),
@@ -112,15 +108,13 @@ module MIPS150(
    assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_dout;
    assign instruction2 = (not_stall) ? instruction : instruction;
 	  
-	  
-	  
    always @(posedge clk) begin
-      stall_reg <= stall;
-      if (not_stall) begin
-	 dcache_doutreg <= dcache_dout;
-	 instructionreg <= instruction;
-      end
-   end
+		stall_reg <= stall;
+		if (not_stall) begin
+		dcache_doutreg <= dcache_dout;
+		instructionreg <= instruction;
+		end
+	  end
    
 
 

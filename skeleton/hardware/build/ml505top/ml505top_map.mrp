@@ -9,39 +9,38 @@ Target Device  : xc5vlx110t
 Target Package : ff1136
 Target Speed   : -1
 Mapper Version : virtex5 -- $Revision: 1.55 $
-Mapped Date    : Sun Dec  2 15:26:26 2012
+Mapped Date    : Sun Dec  2 16:24:15 2012
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:   39
 Slice Logic Utilization:
-  Number of Slice Registers:                 4,441 out of  69,120    6%
-    Number used as Flip Flops:               4,402
+  Number of Slice Registers:                 4,489 out of  69,120    6%
+    Number used as Flip Flops:               4,450
     Number used as Latches:                     39
-  Number of Slice LUTs:                      5,265 out of  69,120    7%
-    Number used as logic:                    5,235 out of  69,120    7%
-      Number using O6 output only:           5,006
-      Number using O5 output only:             126
+  Number of Slice LUTs:                      5,419 out of  69,120    7%
+    Number used as logic:                    5,389 out of  69,120    7%
+      Number using O6 output only:           5,159
+      Number using O5 output only:             127
       Number using O5 and O6:                  103
     Number used as Memory:                      20 out of  17,920    1%
       Number used as Shift Register:            20
         Number using O6 output only:            20
     Number used as exclusive route-thru:        10
-  Number of route-thrus:                       140
-    Number using O6 output only:               135
-    Number using O5 output only:                 4
+  Number of route-thrus:                       137
+    Number using O6 output only:               136
     Number using O5 and O6:                      1
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 2,976 out of  17,280   17%
-  Number of LUT Flip Flop pairs used:        7,575
-    Number with an unused Flip Flop:         3,134 out of   7,575   41%
-    Number with an unused LUT:               2,310 out of   7,575   30%
-    Number of fully used LUT-FF pairs:       2,131 out of   7,575   28%
+  Number of occupied Slices:                 2,922 out of  17,280   16%
+  Number of LUT Flip Flop pairs used:        7,574
+    Number with an unused Flip Flop:         3,085 out of   7,574   40%
+    Number with an unused LUT:               2,155 out of   7,574   28%
+    Number of fully used LUT-FF pairs:       2,334 out of   7,574   30%
     Number of unique control sets:             370
     Number of slice register sites lost
-      to control set restrictions:             767 out of  69,120    1%
+      to control set restrictions:             763 out of  69,120    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -57,8 +56,8 @@ IO Utilization:
     IOB Flip Flops:                            265
 
 Specific Feature Utilization:
-  Number of BlockRAM/FIFO:                      25 out of     148   16%
-    Number using BlockRAM only:                 13
+  Number of BlockRAM/FIFO:                      26 out of     148   17%
+    Number using BlockRAM only:                 14
     Number using FIFO only:                     12
     Total primitives used:
       Number of 36k BlockRAM used:              12
@@ -71,11 +70,11 @@ Specific Feature Utilization:
   Number of BUFIOs:                              8 out of      80   10%
   Number of PLL_ADVs:                            1 out of       6   16%
 
-Average Fanout of Non-Clock Nets:                3.48
+Average Fanout of Non-Clock Nets:                3.53
 
-Peak Memory Usage:  1168 MB
-Total REAL time to MAP completion:  7 mins 56 secs 
-Total CPU time to MAP completion:   7 mins 54 secs 
+Peak Memory Usage:  1172 MB
+Total REAL time to MAP completion:  8 mins 21 secs 
+Total CPU time to MAP completion:   8 mins 20 secs 
 
 Table of Contents
 -----------------
@@ -340,14 +339,14 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 '2100@license-srv.eecs.berkeley.edu'.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:56 - Part 'xc5vlx110t' is not a WebPack part.
-INFO:LIT:243 - Logical network N1260 has no load.
+INFO:LIT:243 - Logical network N1884 has no load.
 INFO:LIT:395 - The above info message is repeated 19 more times for the
    following (max. 5 shown):
-   N1261,
-   N1262,
-   N1263,
-   N1264,
-   N1265
+   N1885,
+   N1886,
+   N1887,
+   N1888,
+   N1889
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:950 - SAVE has been detected on block
@@ -460,15 +459,15 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
-The signal "N1124" is unused and has been removed.
+The signal "N1668" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_F" (ROM) removed.
-The signal "N1125" is unused and has been removed.
+The signal "N1669" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_G" (ROM) removed.
-The signal "N178" is unused and has been removed.
+The signal "N181" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _35_mux0000_SW0" (ROM) removed.
@@ -1203,8 +1202,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |    -9.879ns|    39.758ns|     527|     2740121
-  USER_CLK / 0.5 HIGH 50%                   | HOLD        |    -0.036ns|            |      19|         504
+* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |   -11.801ns|    43.602ns|     651|     3972867
+  USER_CLK / 0.5 HIGH 50%                   | HOLD        |    -0.036ns|            |      24|         684
 ----------------------------------------------------------------------------------------------------------
 * TS_clk90 = PERIOD TIMEGRP "clk90" TS_USER | SETUP       |    -0.100ns|     5.400ns|     144|       14400
   _CLK / 2 PHASE 1.25 ns HIGH 50%           | HOLD        |     0.019ns|            |       0|           0
@@ -1308,10 +1307,10 @@ Derived Constraints for TS_USER_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_USER_CLK                    |     10.000ns|      4.000ns|     19.879ns|            0|          918|            0|7458872071650|
-| TS_cpu_clk                    |     20.000ns|     39.758ns|          N/A|          546|            0|7458872055539|            0|
+|TS_USER_CLK                    |     10.000ns|      4.000ns|     21.801ns|            0|         1047|            0|7893859595677703168|
+| TS_cpu_clk                    |     20.000ns|     43.602ns|          N/A|          675|            0|7893859595677686784|            0|
 | TS_clk200                     |      5.000ns|      1.666ns|          N/A|            0|            0|           24|            0|
-| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4038|            0|
+| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4062|            0|
 | TS_clk90                      |      5.000ns|      5.400ns|          N/A|          144|            0|          926|            0|
 | TS_clkdiv0                    |     10.000ns|      3.999ns|          N/A|           35|            0|        11123|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+

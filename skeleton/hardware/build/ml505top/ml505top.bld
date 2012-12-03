@@ -2,13 +2,14 @@ Release 14.1 ngdbuild P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
--sd ../../src -sd ../../src/bios_mem -sd ../../src/bios_mem/tmp -sd
-../../src/bios_mem/tmp/_xmsgs -sd ../../src/cache_data_blk_ram -sd
-../../src/cache_data_blk_ram/tmp -sd ../../src/cache_data_blk_ram/tmp/_xmsgs -sd
-../../src/cache_tag_blk_ram -sd ../../src/cache_tag_blk_ram/tmp -sd
-../../src/cache_tag_blk_ram/tmp/_xmsgs -sd ../../src/coregen -sd
-../../src/coregen/_xmsgs -sd ../../src/coregen/chipscope_icon.constraints -sd
-../../src/coregen/tmp -sd ../../src/coregen/tmp/_xmsgs -sd
+-sd ../../src -sd ../../src/chipscope -sd ../../src/chipscope/tmp -sd
+../../src/chipscope/tmp/_cg -sd ../../src/chipscope/tmp/_xmsgs -sd
+../../src/chipscope/_xmsgs -sd ../../src/chipscope/chipscope_icon.constraints
+-sd ../../src/chipscope/chipscope_ila.constraints -sd ../../src/bios_mem -sd
+../../src/bios_mem/tmp -sd ../../src/bios_mem/tmp/_xmsgs -sd
+../../src/cache_data_blk_ram -sd ../../src/cache_data_blk_ram/tmp -sd
+../../src/cache_data_blk_ram/tmp/_xmsgs -sd ../../src/cache_tag_blk_ram -sd
+../../src/cache_tag_blk_ram/tmp -sd ../../src/cache_tag_blk_ram/tmp/_xmsgs -sd
 ../../src/dmem_blk_ram -sd ../../src/dmem_blk_ram/tmp -sd
 ../../src/dmem_blk_ram/tmp/_xmsgs -sd ../../src/imem_blk_ram -sd
 ../../src/imem_blk_ram/tmp -sd ../../src/imem_blk_ram/tmp/_xmsgs -sd
@@ -19,8 +20,8 @@ Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
 xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
 
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150v30f/skeleton/hardware/build/ml
-505top/ml505top.ngc" ...
+"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505t
+op.ngc" ...
 Loading design module "../../src/bios_mem/bios_mem.ngc"...
 Loading design module "../../src/cache_data_blk_ram/cache_data_blk_ram.ngc"...
 Loading design module "../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc"...
@@ -123,14 +124,14 @@ WARNING:NgdBuild:443 - SFF primitive
 WARNING:NgdBuild:443 - SFF primitive
    'mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/gen_r
    den[1].u_calib_rden_r' has unconnected output pin
-WARNING:NgdBuild:452 - logical net 'N1260' has no driver
-WARNING:NgdBuild:452 - logical net 'N1261' has no driver
-WARNING:NgdBuild:452 - logical net 'N1262' has no driver
-WARNING:NgdBuild:452 - logical net 'N1263' has no driver
-WARNING:NgdBuild:452 - logical net 'N1264' has no driver
-WARNING:NgdBuild:452 - logical net 'N1265' has no driver
-WARNING:NgdBuild:452 - logical net 'N1266' has no driver
-WARNING:NgdBuild:452 - logical net 'N1267' has no driver
+WARNING:NgdBuild:452 - logical net 'N1884' has no driver
+WARNING:NgdBuild:452 - logical net 'N1885' has no driver
+WARNING:NgdBuild:452 - logical net 'N1886' has no driver
+WARNING:NgdBuild:452 - logical net 'N1887' has no driver
+WARNING:NgdBuild:452 - logical net 'N1888' has no driver
+WARNING:NgdBuild:452 - logical net 'N1889' has no driver
+WARNING:NgdBuild:452 - logical net 'N1890' has no driver
+WARNING:NgdBuild:452 - logical net 'N1891' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -143,7 +144,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:  22
 
-Total memory usage is 552080 kilobytes
+Total memory usage is 552996 kilobytes
 
 Writing NGD file "ml505top.ngd" ...
 Total REAL time to NGDBUILD completion:  30 sec

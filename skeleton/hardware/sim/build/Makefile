@@ -61,7 +61,6 @@ WORK__ddr2_ctrl = $(LIB_WORK)/ddr2_ctrl/_primary.dat
 WORK__Datapath = $(LIB_WORK)/@datapath/_primary.dat
 WORK__ControlTestbench = $(LIB_WORK)/@control@testbench/_primary.dat
 WORK__Control = $(LIB_WORK)/@control/_primary.dat
-WORK__chipscope_icon = $(LIB_WORK)/chipscope_icon/_primary.dat
 WORK__CacheTestBench = $(LIB_WORK)/@cache@test@bench/_primary.dat
 WORK__cache_tag_blk_ram = $(LIB_WORK)/cache_tag_blk_ram/_primary.dat
 WORK__cache_data_blk_ram = $(LIB_WORK)/cache_data_blk_ram/_primary.dat
@@ -134,7 +133,6 @@ whole_library :     $(WORK__vio_sync_out32) \
     $(WORK__Datapath) \
     $(WORK__ControlTestbench) \
     $(WORK__Control) \
-    $(WORK__chipscope_icon) \
     $(WORK__CacheTestBench) \
     $(WORK__cache_tag_blk_ram) \
     $(WORK__cache_data_blk_ram) \
@@ -156,7 +154,6 @@ $(WORK__Cache) \
 $(WORK__cache_data_blk_ram) \
 $(WORK__cache_tag_blk_ram) \
 $(WORK__CacheTestBench) \
-$(WORK__chipscope_icon) \
 $(WORK__Control) \
 $(WORK__ControlTestbench) \
 $(WORK__Datapath) \
@@ -240,14 +237,13 @@ $(WORK__vio_sync_out32) : ../../src/mig_v3_61/ddr2_chipscope.v ../../src/UATrans
 		 ../../src/mig_v3_61/ddr2_idelay_ctrl.v ../../src/mig_v3_61/ddr2_ctrl.v \
 		 ../../src/Datapath.v ../../src/Opcode.vh ../../src/ALUop.vh \
 		 ../../src/ControlTestbench.v ../../src/Control.v \
-		 ../../src/coregen/chipscope_icon.v ../../src/CacheTestBench.v \
-		 ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v \
+		 ../../src/CacheTestBench.v ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v \
 		 ../../src/cache_data_blk_ram/cache_data_blk_ram.v \
 		 ../../src/Cache.v ../../src/branch_module.v \
 		 ../../src/BiosTestbench.v ../../src/bios_mem/bios_mem.v \
 		 ../../src/asmTestbench.v ../../src/ALUdec.v \
 		 ../../src/ALU.v
-	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/bios_mem+incdir+../../src/bios_mem/tmp+incdir+../../src/bios_mem/tmp/_xmsgs+incdir+../../src/cache_data_blk_ram+incdir+../../src/cache_data_blk_ram/tmp+incdir+../../src/cache_data_blk_ram/tmp/_xmsgs+incdir+../../src/cache_tag_blk_ram+incdir+../../src/cache_tag_blk_ram/tmp+incdir+../../src/cache_tag_blk_ram/tmp/_xmsgs+incdir+../../src/coregen+incdir+../../src/coregen/_xmsgs+incdir+../../src/coregen/chipscope_icon.constraints+incdir+../../src/coregen/tmp+incdir+../../src/coregen/tmp/_xmsgs+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs+incdir+../../src/mig_af+incdir+../../src/mig_af/tmp+incdir+../../src/mig_af/tmp/_xmsgs+incdir+../../src/mig_rdf+incdir+../../src/mig_rdf/tmp+incdir+../../src/mig_rdf/tmp/_xmsgs+incdir+../../src/mig_v3_61+incdir+../../src/mig_wdf+incdir+../../src/mig_wdf/tmp+incdir+../../src/mig_wdf/tmp/_xmsgs \
+	$(VLOG) +acc -source -nocovercells +incdir+../../src+incdir+../../src/bios_mem+incdir+../../src/bios_mem/tmp+incdir+../../src/bios_mem/tmp/_xmsgs+incdir+../../src/cache_data_blk_ram+incdir+../../src/cache_data_blk_ram/tmp+incdir+../../src/cache_data_blk_ram/tmp/_xmsgs+incdir+../../src/cache_tag_blk_ram+incdir+../../src/cache_tag_blk_ram/tmp+incdir+../../src/cache_tag_blk_ram/tmp/_xmsgs+incdir+../../src/dmem_blk_ram+incdir+../../src/dmem_blk_ram/tmp+incdir+../../src/dmem_blk_ram/tmp/_xmsgs+incdir+../../src/imem_blk_ram+incdir+../../src/imem_blk_ram/tmp+incdir+../../src/imem_blk_ram/tmp/_xmsgs+incdir+../../src/mig_af+incdir+../../src/mig_af/tmp+incdir+../../src/mig_af/tmp/_xmsgs+incdir+../../src/mig_rdf+incdir+../../src/mig_rdf/tmp+incdir+../../src/mig_rdf/tmp/_xmsgs+incdir+../../src/mig_v3_61+incdir+../../src/mig_wdf+incdir+../../src/mig_wdf/tmp+incdir+../../src/mig_wdf/tmp/_xmsgs \
 		 -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF ../../src/mig_v3_61/ddr2_chipscope.v \
 		 ../../src/UATransmit.v ../../src/UART.v ../../src/UAReceive.v \
 		 ../../src/RequestController.v ../../src/RegFileTestbench.v \
@@ -273,8 +269,8 @@ $(WORK__vio_sync_out32) : ../../src/mig_v3_61/ddr2_chipscope.v ../../src/UATrans
 		 ../../src/mig_v3_61/ddr2_mem_if_top.v ../../src/mig_v3_61/ddr2_infrastructure.v \
 		 ../../src/mig_v3_61/ddr2_idelay_ctrl.v ../../src/mig_v3_61/ddr2_ctrl.v \
 		 ../../src/Datapath.v ../../src/ControlTestbench.v \
-		 ../../src/Control.v ../../src/coregen/chipscope_icon.v \
-		 ../../src/CacheTestBench.v ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v \
+		 ../../src/Control.v ../../src/CacheTestBench.v \
+		 ../../src/cache_tag_blk_ram/cache_tag_blk_ram.v \
 		 ../../src/cache_data_blk_ram/cache_data_blk_ram.v \
 		 ../../src/Cache.v ../../src/branch_module.v \
 		 ../../src/BiosTestbench.v ../../src/bios_mem/bios_mem.v \

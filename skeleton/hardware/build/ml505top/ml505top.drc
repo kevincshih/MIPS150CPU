@@ -1,7 +1,7 @@
 Release 14.1 Drc P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Dec  2 15:38:49 2012
+Sun Dec  2 16:40:26 2012
 
 drc -z ml505top.ncd ml505top.pcf
 
