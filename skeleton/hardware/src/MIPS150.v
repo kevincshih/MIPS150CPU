@@ -17,11 +17,15 @@ module MIPS150(
 	           output [31:0] icache_din,
 	           input [31:0] dcache_dout,
 	           input [31:0] instruction,
-	           input stall
+	           input stall, 
+			output [31:0] gp_code,
+			output [31:0] gp_frame,
+			output gp_valid,
+			input frame_interrupt
 	       );
 
    // Control wires
-   wire    REUART, WEUART, DinSel,
+   wire    REUART, WEUART, DinSel, isr_pc, mtc0, mfc0, irh, ISRByteSel, 
 	   DataOutValid, DataInReady, DataOutReady, DataInValid, Branch_compare, RegWrite, CTsel, CTreset, ICacheSel, SEXTImm, JRsel;
    wire [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel, offset;
    wire [3:0] ALUop;
@@ -56,8 +60,12 @@ module MIPS150(
 			  .CTreset(CTreset),
 			  .SEXTImm(SEXTImm),
 			  .JRsel(JRsel),
-			  .REDC(dcache_re)); //end outputs
+			  .REDC(dcache_re),
+			  .isr_pc(isr_pc),.mtc0(mtc0), .mfc0(mfc0), .irh(irh),
+			  .ISRByteSel(ISRByteSel)); //end outputs
 
+			  
+			  
    Datapath the_datapath(
 			 .ALUop(ALUop), //begin inputs
 			 .DinSel(DinSel),
@@ -90,7 +98,9 @@ module MIPS150(
 			 .dcache_din(dcache_din),
 			 .icache_din(icache_din),
 			 .dcache_dout(dcache_dout2),
-			 .icache_dout(instruction2)); //output
+			 .icache_dout(instruction2),
+			 .isr_pc(isr_pc), .mtc0(mtc0), .mfc0(mfc0), .irh(irh),
+			 .ISRByteSel(ISRByteSel)); //output
 
    UART the_uart(
 		 .Clock(clk), //input 
@@ -102,7 +112,8 @@ module MIPS150(
 		 .DataOutValid(DataOutValid), //output
 		 .DataOutReady(DataOutReady), //input
 		 .SIn(FPGA_SERIAL_RX), //input
-		 .SOut(FPGA_SERIAL_TX)); //output
+		 .SOut(FPGA_SERIAL_TX)); //output	
+		 
 		 
    assign not_stall = ~stall;
    assign dcache_dout2 = (not_stall) ? dcache_dout : dcache_dout;

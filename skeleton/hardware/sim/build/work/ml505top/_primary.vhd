@@ -21,6 +21,15 @@ entity ml505top is
         DDR2_DQS_P      : inout  vl_logic_vector(7 downto 0);
         DDR2_ODT        : out    vl_logic;
         DDR2_RAS_B      : out    vl_logic;
-        DDR2_WE_B       : out    vl_logic
+        DDR2_WE_B       : out    vl_logic;
+        DVI_D           : out    vl_logic_vector(11 downto 0);
+        DVI_DE          : out    vl_logic;
+        DVI_H           : out    vl_logic;
+        DVI_RESET_B     : out    vl_logic;
+        DVI_V           : out    vl_logic;
+        DVI_XCLK_N      : out    vl_logic;
+        DVI_XCLK_P      : out    vl_logic;
+        IIC_SCL_VIDEO   : inout  vl_logic;
+        IIC_SDA_VIDEO   : inout  vl_logic
     );
 end ml505top;

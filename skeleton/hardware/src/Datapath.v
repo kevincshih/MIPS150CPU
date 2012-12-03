@@ -1,6 +1,6 @@
 module Datapath(
-		input [3:0] ALUop,
-		input  REUART, WEUART, DinSel, CTsel, CTreset,
+		input [3:0] ALUop, ISRByteSel,  
+		input  REUART, WEUART, DinSel, CTsel, CTreset, isr_pc, mtc0, mfc0, irh, 
 		Stall, CLK, DataOutValid, DataInReady, reset, RegWrite, ICacheSel, SEXTImm, JRsel,
 		input [1:0] PC_Sel, ALU_Sel_A, ALU_Sel_B, RegDst, UARTsel, RDsel,
 		input [7:0] DataOut,
@@ -30,7 +30,7 @@ module Datapath(
    wire [31:0] 		      Instruction_Dout_IF;
    wire [11:0] 		      addrb;
    wire [3:0] 		      PC_High_bits;
-   wire 		      InstrSrc;
+   wire [1:0]		      InstrSrc;
    
    
    
@@ -46,21 +46,26 @@ module Datapath(
    wire [11:0] addra;
    wire [1:0]  prev_offset;
    wire        RegWrite_WB;
+   wire [31:0] ALU_OutMW_ALU;
+
   
 
    //First Pipeline Register
    reg [31:0]  PC_IF_RA, PC_4_Reg;
-   reg [31:0]  Instruction_Dout_IF_RA;
+   reg [31:0]  Instruction_Dout_IF_RA, Instruction_Dout_IF_Reg;
    reg 	       InstrSrc_Reg, stall_reg;
 
    //Second Pipeline Register
    reg [4:0]   A3_RA_DW;
    reg [1:0]   RDsel_Reg, UARTsel_Reg;
-   reg 	       RegWrite_Reg;
+   reg 	       RegWrite_Reg, mfc0_Reg;
    reg 	       REUART_Reg, WEUART_Reg;
    reg [31:0]  PrevInstruction_Reg, ALU_OutMW_Reg, rd1_Reg, icache_addr_prestall_reg, dcache_addr_prestall_reg;
    reg [25:0]  JAL_Target_Reg;
    reg [31:0]  InstrCounter, CycleCounter;
+  
+   //UART Registers
+   reg DataOutValidReg, DataInReadyReg;
   
 
    //mux registers
@@ -70,12 +75,17 @@ module Datapath(
    
    //reset register
    reg 	       resetReg;
-
+   
+   wire REBIOS, REISR;
+   
+   wire [31:0] isr_doutb;
+   
    IFControl the_IF_Control(.PC(PC_IF),
 			    .reset(reset),
 			    .stall(Stall),
 			    .REIC(RCIS),
 			    .REBIOS(REBIOS),
+				.REISR(REISR),
 			    .stall_reg(stall_reg),
 			    .IFSel(InstrSrc));
    
@@ -83,7 +93,7 @@ module Datapath(
    ALU the_ALU(.A(ALU_SrcA),
 	       .B(ALU_SrcB),
 	       .ALUop(ALUop),
-	       .Out(ALU_OutMW));
+	       .Out(ALU_OutMW_ALU));
    
 
    PC the_PC(.PC_Branch(PC_Branch),
@@ -114,6 +124,16 @@ module Datapath(
 		     .addrb(addrb),
 		     .doutb(bios_doutb)
 		     );
+			 
+	isr_mem the_isr(.clka(CLK),
+		     .ena(1'b1),
+			 .wea(ISRByteSel),
+		     .addra(addra),
+			 .dina(icache_din),
+		     .clkb(CLK),
+		     .addrb(addrb),
+		     .doutb(isr_doutb)
+		     );		 
    
    Branch_module the_branch_comparator(.ALUSrcA(ALU_SrcA),
 				       .ALUSrcB(ALU_SrcB),
@@ -121,6 +141,35 @@ module Datapath(
 				       .funct(funct),
 				       .rt(rt),
 				       .take_branch(Branch_compare));
+   
+   
+   wire irq, ur0, ur1;
+   wire [31:0] cop_dout;
+   //wire cop_din_en;
+   
+   
+   	COP0150 the_COP0150(
+	.Clock(CLK), //Done
+    .Enable(1'b1), //Done
+    .Reset(rst), //Done
+
+    .DataAddress(rd), //Done
+    .DataOut(cop_dout), //connect to ALU, Done
+    .DataInEnable(mtc0), //done
+    .DataIn(ALU_SrcB), //done
+
+    .InterruptedPC(PC_IF2), //done
+    .InterruptHandled(irh), //done
+    .InterruptRequest(irq), //done in COP0150
+
+    .UART0Request(ur0), //done
+    .UART1Request(ur1) //done
+	);
+   
+   
+   assign ur0 = (DataOutValid == 1'b1) && (DataOutValidReg == 1'b0);
+   assign ur1 = (DataInReady == 1'b1) && (DataInReadyReg == 1'b0);
+   assign ALU_OutMW = (isr_pc) ? cop_dout : ALU_OutMW_ALU;
    
    
    always @(Instruction) begin
@@ -144,6 +193,7 @@ module Datapath(
 	 icache_addr_prestall_reg <= icache_addr_prestall;
 	 
 	 //Second Pipeline Registers
+	 mfc0_Reg <= mfc0;
 	 A3_RA_DW <= A3_Reg;
 	 UARTsel_Reg <= UARTsel;
 	 RDsel_Reg <= RDsel;
@@ -152,6 +202,11 @@ module Datapath(
 	 PrevInstruction_Reg <= Instruction_Dout_IF_RA;
 	 ALU_OutMW_Reg <= ALU_OutMW;
 	 dcache_addr_prestall_reg <= dcache_addr;
+	 
+	 //UART registers
+	 DataOutValidReg <= DataOutValid;
+	 DataInReadyReg <= DataInReady;
+	 
 	 
       end // if (not_stall)
    end // always @ (posedge CLK)
@@ -168,7 +223,15 @@ module Datapath(
    
    
    always @(*) begin
-      case(ALU_Sel_A)
+	
+	case(InstrSrc_Reg)
+	2'b00: Instruction_Dout_IF_Reg = icache_dout;
+	2'b01: Instruction_Dout_IF_Reg = bios_doutb;
+	2'b10: Instruction_Dout_IF_Reg = isr_doutb;
+	default: Instruction_Dout_IF_Reg = bios_doutb;
+	endcase
+	
+   case(ALU_Sel_A)
 	2'b01: ALU_SrcA_Reg = rd1; // normal r-type
 	2'b00: ALU_SrcA_Reg = PC_IF_RA; // calculate branch address
 	2'b10: ALU_SrcA_Reg = ALU_OutMW_Reg; // fwd A
@@ -304,11 +367,12 @@ module Datapath(
    assign not_stall = ~Stall;
    
    //Wires in IFetch/IMEM (first stage)
-   assign PC_IF = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
+   //assign PC_IF = (mmult_debug) ? {4'b0100, PC_IF2[27:0]}: PC_IF2;
+   assign PC_IF = (irq) ? 32'hc0000000 : PC_IF2;
    assign PC_4 = PC_IF + 4;
    assign addrb = PC_IF[13:2];
    assign PC_top_nibble = PC_IF[31:28];
-   assign Instruction_Dout_IF = (InstrSrc_Reg)? bios_doutb : icache_dout;
+   assign Instruction_Dout_IF = Instruction_Dout_IF_Reg;
    assign icache_addr_prestall = (ICacheSel)? ALU_OutMW : PC_IF;
    assign icache_addr = (not_stall)? icache_addr_prestall : icache_addr_prestall_reg;
    
@@ -323,7 +387,7 @@ module Datapath(
    assign ALU_SrcA = ALU_SrcA_Reg;
    assign ALU_SrcB = ALU_SrcB_Reg;
    assign Address = ALU_OutMW; // output to control
-   assign RegWrite_WB = RegWrite_Reg;
+   assign RegWrite_WB = (RegWrite_Reg || mfc0_Reg);
 
    assign PC_High_bits = PC_IF_RA[31:28];
    assign JAL_Target = JAL_Target_Reg;

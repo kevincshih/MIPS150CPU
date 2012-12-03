@@ -6,10 +6,10 @@ module Control(
 	       input[1:0] offset,
 	       output[1:0]PCsel, RegDst, UARTsel, RDsel,
 	       output[1:0]AluSelA, AluSelB,
-	       output[3:0]ALUop, IMByteSel, DMByteSel,
+	       output[3:0]ALUop, IMByteSel, DMByteSel, ISRByteSel,
 	       output REUART, WEUART, RegWrite, DinSel,
 	       output CTsel, CTreset, REDC, ICacheSel,
-	       output SEXTImm, JRsel
+	       output SEXTImm, JRsel, isr_pc, mfc0, mtc0, irh
 	       );
 `include "Opcode.vh"
 `include "ALUop.vh"
@@ -23,7 +23,7 @@ module Control(
    reg 	   MemWriteReg, MemReadReg, DinSelReg;
 reg[1:0] AluSelAReg, AluSelBReg, PCselReg, RegWriteReg, RegDstReg, RDselreg, UARTselreg;
 reg[3:0] ByteSelReg;
-reg WEIMreg, WEDMreg, REUARTreg, WEUARTreg;
+reg WEIMreg, WEDMreg, WEISRreg, REUARTreg, WEUARTreg;
 reg REICreg, REDCreg, REBIOSreg, CTselreg, CTResetreg, ICacheSelreg, JRselreg;
 
 wire[5:0] op, funct, oldop, oldfunct;
@@ -32,6 +32,7 @@ wire[15:0] imm, oldimm;
 wire[25:0] target, oldtarget;
 wire[3:0] addr;
 wire weim, wedm;
+wire weisr;
 
   //Load and Store
 
@@ -39,9 +40,16 @@ wire weim, wedm;
   //dest = rt
   //signed offset = imm
 
+assign isr_pc = (PC[31:28] == 4'b1100);
+assign irh = isr_pc;
 
+assign mfc0 = (op == 6'b010000) && (rs == 5'b00000);
+assign mtc0 = (op == 6'b010000) && (rs == 5'b00100);
+  
 assign weim = WEIMreg;
 assign wedm = WEDMreg;  
+assign weisr = WEISRreg;
+
   
   //Rtype
 
@@ -86,7 +94,7 @@ assign MemRead = (reset) ? 0 : MemReadReg;
 assign REUART = (reset) ? 0 : REUARTreg;
 assign WEUART = (reset) ? 0 : WEUARTreg;
 assign JRsel = (reset) ? 0 : JRselreg;
-
+assign ISRByteSel = (reset || ~weisr) ? 4'b0000 : ByteSelReg;
 assign IMByteSel = (reset || ~weim) ? 4'b0000 : ByteSelReg;
 assign DMByteSel = (reset || ~wedm) ? 4'b0000 : ByteSelReg;
     assign REDC = REDCreg;
@@ -137,6 +145,9 @@ ALUdec DUT(.funct(funct),
         default: ByteSelReg = 4'b0000;
     endcase
 
+//ISR
+WEISRreg = (MemWrite && (addr == 4'b1100));
+	
 //Instruction Cache
 
     if (MemWrite && ~addr[3] && ~addr[2] && addr[1] && PC[30]) begin

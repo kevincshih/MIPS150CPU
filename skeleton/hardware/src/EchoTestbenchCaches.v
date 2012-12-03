@@ -47,6 +47,14 @@ module EchoTestbenchCaches();
     wire [31:0]  instruction;
     wire         stall;
 
+	wire [31:0] gp_code, gp_frame;
+	wire gp_valid, frame_interrupt;
+
+	assign gp_code = 32'h0;
+	assign gp_frame = 32'h0;
+	assign gp_valid = 1'b0;
+	assign frame_interrupt = 1'b0;
+	
     // Instantiate your CPU here and connect the FPGA_SERIAL_TX wires
     // to the UART we use for testing
     
@@ -164,7 +172,7 @@ module EchoTestbenchCaches();
         .dcache_din (dcache_din ),
         .icache_din (icache_din ),
         .dcache_dout(dcache_dout),
-        .instruction(instruction),
+        .icache_dout(instruction),
         .stall      (stall      )
     );
 
@@ -184,9 +192,14 @@ module EchoTestbenchCaches();
         .icache_din  (icache_din  ),
         .dcache_dout (dcache_dout ),
         .instruction (instruction ),
-        .stall(stall)
+        .stall(stall),
+		.gp_code(gp_code),
+		.gp_frame(gp_frame),
+		.gp_valid(gp_valid),
+		.frame_interrupt(frame_interrupt)
     );
 
+	
     UART          #( .ClockFreq(       ClockFreq))
                   uart( .Clock(           cpu_clk_g),
                         .Reset(           Reset || ~init_done),
