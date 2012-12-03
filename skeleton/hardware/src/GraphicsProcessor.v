@@ -40,7 +40,7 @@ module GraphicsProcessor(
     input [127:0] rdf_dout,
     output rdf_rd_en,
     output af_wr_en,
-    output [30:0] af_addr_din,
+    output [31:0] af_addr_din,
 		       
     //processor interface
     input [31:0] GP_CODE,
@@ -50,7 +50,46 @@ module GraphicsProcessor(
    
    //Your code goes here. GL HF.
 
-
+   reg [31:0] Code_Reg, Frame_Reg;
+   reg Valid_Reg;
+   reg [3:0] CurrentState, NextState;
+   
+   localparam Idle = 4'h0,
+			  Stop = 4'h1,
+			  Fill = 4'h2,
+			  LineColor = 4'h3,
+			  LineStart = 4'h4,
+			  LineEnd = 4'h5;
+			  
+   always@(posedge clk) begin
+   if (rst) CurrentState <= Idle;
+		else CurrentState <= NextState;
+   end
+   
+   always@(*) begin
+		NextState = CurrentState;
+		case(CurrentState)
+		Idle: begin
+		if (GP_CODE[31:24] == `STOP) begin
+		NextState = Idle;
+		end
+		else if (GP_CODE[31:24] == `FILL) begin
+		NextState = Idle;
+		end
+		else if (GP_CODE[31:24] == `LINE) begin
+		NextState = LineStart;
+		end
+		else NextState = Idle;
+		end
+		LineStart: begin
+		NextState = LineEnd;
+		end
+		LineEnd: begin
+		NextState = Idle;
+		end
+		default: NextState = Idle;
+		endcase
+   end
    
 
    //output assignment placeholders - delete these later

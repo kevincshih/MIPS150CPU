@@ -2,29 +2,39 @@ Release 14.1 ngdbuild P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
 Command Line: /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -dd _ngo
--sd ../../src -sd ../../src/chipscope -sd ../../src/chipscope/tmp -sd
-../../src/chipscope/tmp/_cg -sd ../../src/chipscope/tmp/_xmsgs -sd
-../../src/chipscope/_xmsgs -sd ../../src/chipscope/chipscope_icon.constraints
--sd ../../src/chipscope/chipscope_ila.constraints -sd ../../src/bios_mem -sd
-../../src/bios_mem/tmp -sd ../../src/bios_mem/tmp/_xmsgs -sd
-../../src/cache_data_blk_ram -sd ../../src/cache_data_blk_ram/tmp -sd
-../../src/cache_data_blk_ram/tmp/_xmsgs -sd ../../src/cache_tag_blk_ram -sd
+-sd ../../src -sd ../../src/bios_mem -sd ../../src/bios_mem/tmp -sd
+../../src/bios_mem/tmp/_xmsgs -sd ../../src/bios_mem/tmp/_cg -sd
+../../src/bios_mem/xlnx_auto_0_xdb -sd ../../src/cache_data_blk_ram -sd
+../../src/cache_data_blk_ram/tmp -sd ../../src/cache_data_blk_ram/tmp/_xmsgs -sd
+../../src/cache_data_blk_ram/tmp/_cg -sd
+../../src/cache_data_blk_ram/xlnx_auto_0_xdb -sd ../../src/cache_tag_blk_ram -sd
 ../../src/cache_tag_blk_ram/tmp -sd ../../src/cache_tag_blk_ram/tmp/_xmsgs -sd
-../../src/dmem_blk_ram -sd ../../src/dmem_blk_ram/tmp -sd
-../../src/dmem_blk_ram/tmp/_xmsgs -sd ../../src/imem_blk_ram -sd
-../../src/imem_blk_ram/tmp -sd ../../src/imem_blk_ram/tmp/_xmsgs -sd
-../../src/mig_af -sd ../../src/mig_af/tmp -sd ../../src/mig_af/tmp/_xmsgs -sd
-../../src/mig_rdf -sd ../../src/mig_rdf/tmp -sd ../../src/mig_rdf/tmp/_xmsgs -sd
-../../src/mig_v3_61 -sd ../../src/mig_wdf -sd ../../src/mig_wdf/tmp -sd
-../../src/mig_wdf/tmp/_xmsgs -nt timestamp -uc ../../src/ml505top.ucf -p
+../../src/cache_tag_blk_ram/tmp/_cg -sd
+../../src/cache_tag_blk_ram/xlnx_auto_0_xdb -sd ../../src/chipscope -sd
+../../src/chipscope/_xmsgs -sd ../../src/chipscope/chipscope_icon.constraints
+-sd ../../src/chipscope/chipscope_ila.constraints -sd ../../src/chipscope/tmp
+-sd ../../src/chipscope/tmp/_xmsgs -sd ../../src/dmem_blk_ram -sd
+../../src/dmem_blk_ram/tmp -sd ../../src/dmem_blk_ram/tmp/_xmsgs -sd
+../../src/imem_blk_ram -sd ../../src/imem_blk_ram/tmp -sd
+../../src/imem_blk_ram/tmp/_xmsgs -sd ../../src/mig_af -sd ../../src/mig_af/tmp
+-sd ../../src/mig_af/tmp/_xmsgs -sd ../../src/mig_rdf -sd ../../src/mig_rdf/tmp
+-sd ../../src/mig_rdf/tmp/_xmsgs -sd ../../src/mig_v3_61 -sd ../../src/mig_wdf
+-sd ../../src/mig_wdf/tmp -sd ../../src/mig_wdf/tmp/_xmsgs -sd ../../src/DVI -sd
+../../src/isr_mem -sd ../../src/isr_mem/tmp -sd ../../src/isr_mem/tmp/_cg -sd
+../../src/isr_mem/tmp/_xmsgs -sd ../../src/isr_mem/xlnx_auto_0_xdb -sd
+../../src/line-engine -sd ../../src/pixel_fifo -sd ../../src/pixel_fifo/tmp -sd
+../../src/pixel_fifo/tmp/_cg -sd ../../src/pixel_fifo/tmp/_xmsgs -sd
+../../src/pixel_fifo/xlnx_auto_0_xdb -nt timestamp -uc ../../src/ml505top.ucf -p
 xc5vlx110t-ff1136-1 ml505top.ngc ml505top.ngd
 
 Reading NGO file
-"/home/cc/cs150/fa12/class/cs150-bb/Proj/skeleton/hardware/build/ml505top/ml505t
-op.ngc" ...
+"/home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150cp4v3/skeleton/hardware/build/m
+l505top/ml505top.ngc" ...
+Loading design module "../../src/isr_mem/isr_mem.ngc"...
 Loading design module "../../src/bios_mem/bios_mem.ngc"...
 Loading design module "../../src/cache_data_blk_ram/cache_data_blk_ram.ngc"...
 Loading design module "../../src/cache_tag_blk_ram/cache_tag_blk_ram.ngc"...
+Loading design module "../../src/pixel_fifo/pixel_fifo.ngc"...
 Loading design module "../../src/mig_rdf/mig_rdf.ngc"...
 Loading design module "../../src/mig_wdf/mig_wdf.ngc"...
 Loading design module "../../src/mig_af/mig_af.ngc"...
@@ -35,37 +45,37 @@ Annotating constraints to design from ucf file "../../src/ml505top.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_RD_DATA_SEL" = FROM
-   "TNM_RD_DATA_SEL" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(223)]:
+   "TNM_RD_DATA_SEL" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(269)]:
    This constraint will be ignored because the relative clock constraint named
    'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_RDEN_SEL_MUX" = FROM
-   "TNM_RDEN_SEL_MUX" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(227)]:
+   "TNM_RDEN_SEL_MUX" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(273)]:
    This constraint will be ignored because the relative clock constraint named
    'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_PHY_INIT_DATA_SEL_0" =
    FROM "TNM_PHY_INIT_DATA_SEL" TO FFS "TS_SYS_CLK" * 4;>
-   [../../src/ml505top.ucf(232)]: This constraint will be ignored because the
+   [../../src/ml505top.ucf(278)]: This constraint will be ignored because the
    relative clock constraint named 'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_PHY_INIT_DATA_SEL_90" =
    FROM "TNM_PHY_INIT_DATA_SEL" TO RAMS "TS_SYS_CLK" * 4;>
-   [../../src/ml505top.ucf(240)]: This constraint will be ignored because the
+   [../../src/ml505top.ucf(286)]: This constraint will be ignored because the
    relative clock constraint named 'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_GATE_DLY" = FROM
-   "TNM_GATE_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(244)]: This
+   "TNM_GATE_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(290)]: This
    constraint will be ignored because the relative clock constraint named
    'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_RDEN_DLY" = FROM
-   "TNM_RDEN_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(247)]: This
+   "TNM_RDEN_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(293)]: This
    constraint will be ignored because the relative clock constraint named
    'TS_SYS_CLK' was not found.
 
 WARNING:ConstraintSystem:3 - Constraint <TIMESPEC "TS_MC_CAL_RDEN_DLY" = FROM
-   "TNM_CAL_RDEN_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(252)]:
+   "TNM_CAL_RDEN_DLY" TO FFS "TS_SYS_CLK" * 4;> [../../src/ml505top.ucf(298)]:
    This constraint will be ignored because the relative clock constraint named
    'TS_SYS_CLK' was not found.
 
@@ -124,14 +134,14 @@ WARNING:NgdBuild:443 - SFF primitive
 WARNING:NgdBuild:443 - SFF primitive
    'mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/gen_r
    den[1].u_calib_rden_r' has unconnected output pin
-WARNING:NgdBuild:452 - logical net 'N1884' has no driver
-WARNING:NgdBuild:452 - logical net 'N1885' has no driver
-WARNING:NgdBuild:452 - logical net 'N1886' has no driver
-WARNING:NgdBuild:452 - logical net 'N1887' has no driver
-WARNING:NgdBuild:452 - logical net 'N1888' has no driver
-WARNING:NgdBuild:452 - logical net 'N1889' has no driver
-WARNING:NgdBuild:452 - logical net 'N1890' has no driver
-WARNING:NgdBuild:452 - logical net 'N1891' has no driver
+WARNING:NgdBuild:452 - logical net 'N1670' has no driver
+WARNING:NgdBuild:452 - logical net 'N1671' has no driver
+WARNING:NgdBuild:452 - logical net 'N1672' has no driver
+WARNING:NgdBuild:452 - logical net 'N1673' has no driver
+WARNING:NgdBuild:452 - logical net 'N1674' has no driver
+WARNING:NgdBuild:452 - logical net 'N1675' has no driver
+WARNING:NgdBuild:452 - logical net 'N1676' has no driver
+WARNING:NgdBuild:452 - logical net 'N1677' has no driver
 
 Partition Implementation Status
 -------------------------------
@@ -144,10 +154,10 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:  22
 
-Total memory usage is 552996 kilobytes
+Total memory usage is 560972 kilobytes
 
 Writing NGD file "ml505top.ngd" ...
-Total REAL time to NGDBUILD completion:  30 sec
-Total CPU time to NGDBUILD completion:   30 sec
+Total REAL time to NGDBUILD completion:  34 sec
+Total CPU time to NGDBUILD completion:   33 sec
 
 Writing NGDBUILD log file "ml505top.bld"...

@@ -9,38 +9,38 @@ Target Device  : xc5vlx110t
 Target Package : ff1136
 Target Speed   : -1
 Mapper Version : virtex5 -- $Revision: 1.55 $
-Mapped Date    : Sun Dec  2 16:24:15 2012
+Mapped Date    : Mon Dec  3 13:56:58 2012
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:   39
+Number of warnings:   67
 Slice Logic Utilization:
-  Number of Slice Registers:                 4,489 out of  69,120    6%
-    Number used as Flip Flops:               4,450
+  Number of Slice Registers:                 4,978 out of  69,120    7%
+    Number used as Flip Flops:               4,939
     Number used as Latches:                     39
-  Number of Slice LUTs:                      5,419 out of  69,120    7%
-    Number used as logic:                    5,389 out of  69,120    7%
-      Number using O6 output only:           5,159
-      Number using O5 output only:             127
-      Number using O5 and O6:                  103
-    Number used as Memory:                      20 out of  17,920    1%
-      Number used as Shift Register:            20
-        Number using O6 output only:            20
-    Number used as exclusive route-thru:        10
-  Number of route-thrus:                       137
-    Number using O6 output only:               136
+  Number of Slice LUTs:                      6,081 out of  69,120    8%
+    Number used as logic:                    6,032 out of  69,120    8%
+      Number using O6 output only:           5,660
+      Number using O5 output only:             182
+      Number using O5 and O6:                  190
+    Number used as Memory:                      35 out of  17,920    1%
+      Number used as Shift Register:            35
+        Number using O6 output only:            35
+    Number used as exclusive route-thru:        14
+  Number of route-thrus:                       196
+    Number using O6 output only:               195
     Number using O5 and O6:                      1
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 2,922 out of  17,280   16%
-  Number of LUT Flip Flop pairs used:        7,574
-    Number with an unused Flip Flop:         3,085 out of   7,574   40%
-    Number with an unused LUT:               2,155 out of   7,574   28%
-    Number of fully used LUT-FF pairs:       2,334 out of   7,574   30%
-    Number of unique control sets:             370
+  Number of occupied Slices:                 3,110 out of  17,280   17%
+  Number of LUT Flip Flop pairs used:        8,243
+    Number with an unused Flip Flop:         3,265 out of   8,243   39%
+    Number with an unused LUT:               2,162 out of   8,243   26%
+    Number of fully used LUT-FF pairs:       2,816 out of   8,243   34%
+    Number of unique control sets:             408
     Number of slice register sites lost
-      to control set restrictions:             763 out of  69,120    1%
+      to control set restrictions:             819 out of  69,120    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -51,30 +51,30 @@ Slice Logic Distribution:
   over-mapped for a non-BRAM resource or if placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                       125 out of     640   19%
-    Number of LOCed IOBs:                      125 out of     125  100%
-    IOB Flip Flops:                            265
+  Number of bonded IOBs:                       145 out of     640   22%
+    Number of LOCed IOBs:                      145 out of     145  100%
+    IOB Flip Flops:                            279
 
 Specific Feature Utilization:
-  Number of BlockRAM/FIFO:                      26 out of     148   17%
-    Number using BlockRAM only:                 14
+  Number of BlockRAM/FIFO:                      34 out of     148   22%
+    Number using BlockRAM only:                 22
     Number using FIFO only:                     12
     Total primitives used:
-      Number of 36k BlockRAM used:              12
-      Number of 18k BlockRAM used:               2
+      Number of 36k BlockRAM used:              19
+      Number of 18k BlockRAM used:               3
       Number of 36k FIFO used:                  12
-    Total Memory used (KB):                    900 out of   5,328   16%
+    Total Memory used (KB):                  1,170 out of   5,328   21%
   Number of BUFG/BUFGCTRLs:                      6 out of      32   18%
     Number used as BUFGs:                        6
   Number of IDELAYCTRLs:                         3 out of      22   13%
   Number of BUFIOs:                              8 out of      80   10%
   Number of PLL_ADVs:                            1 out of       6   16%
 
-Average Fanout of Non-Clock Nets:                3.53
+Average Fanout of Non-Clock Nets:                3.61
 
-Peak Memory Usage:  1172 MB
-Total REAL time to MAP completion:  8 mins 21 secs 
-Total CPU time to MAP completion:   8 mins 20 secs 
+Peak Memory Usage:  1194 MB
+Total REAL time to MAP completion:  9 mins 49 secs 
+Total CPU time to MAP completion:   9 mins 46 secs 
 
 Table of Contents
 -----------------
@@ -104,6 +104,102 @@ WARNING:Security:42 - Your software subscription period has lapsed. Your current
 version of Xilinx tools will continue to function, but you no longer qualify for
 Xilinx software updates or new releases.
 WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
    CPU/the_datapath/the_bios/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.
    r/v5_init.ram/TRUE_DP.SINGLE_PRIM36.TDP
    of frag REGCLKAU connected to power/ground net
@@ -199,6 +295,134 @@ WARNING:Pack:2874 - Trimming timing constraints from pin
    of frag REGCLKBL connected to power/ground net
    CPU/the_datapath/the_bios/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.
    r/v5_init.ram/TRUE_DP.SINGLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[4].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[5].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[6].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKAL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKAL_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBU connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBU_tiesig
+WARNING:Pack:2874 - Trimming timing constraints from pin
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP
+   of frag REGCLKBL connected to power/ground net
+   mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.
+   ngecc.bmg/blk_mem_generator/valid.cstr/ramloop[7].ram.r/v5_noinit.ram/SDP.SIN
+   GLE_PRIM36.TDP_REGCLKBL_tiesig
 WARNING:Pack:2874 - Trimming timing constraints from pin
    mem_arch/dcache/cache_data/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram
    .r/v5_noinit.ram/SDP.WIDE_PRIM36.noeccerr.SDP
@@ -324,13 +548,13 @@ WARNING:Place:838 - An IO Bus with more than one IO standard is found.
 
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/JRselreg_or0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 
 Section 3 - Informational
@@ -339,14 +563,14 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 '2100@license-srv.eecs.berkeley.edu'.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:56 - Part 'xc5vlx110t' is not a WebPack part.
-INFO:LIT:243 - Logical network N1884 has no load.
-INFO:LIT:395 - The above info message is repeated 19 more times for the
+INFO:LIT:243 - Logical network N1670 has no load.
+INFO:LIT:395 - The above info message is repeated 63 more times for the
    following (max. 5 shown):
-   N1885,
-   N1886,
-   N1887,
-   N1888,
-   N1889
+   N1671,
+   N1672,
+   N1673,
+   N1674,
+   N1675
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:950 - SAVE has been detected on block
@@ -373,9 +597,9 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
- 146 block(s) removed
-  15 block(s) optimized away
- 131 signal(s) removed
+ 186 block(s) removed
+  17 block(s) optimized away
+ 211 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -434,6 +658,73 @@ Loadless block
  The signal
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_srl
 _out<7>" is loadless and has been removed.
+The signal "CPU/the_datapath/the_isr/doutb[31]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[30]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[29]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[28]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[27]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[26]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[25]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[24]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[23]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[22]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[21]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[20]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[19]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[18]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[17]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[16]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[15]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[14]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[13]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[12]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[11]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[10]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[9]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[8]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[7]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[6]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[5]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[4]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[3]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[2]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[1]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/doutb[0]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/BU2/douta[0]" is sourceless and has been
+removed.
+The signal "CPU/the_datapath/the_isr/BU2/N1" is sourceless and has been removed.
 The signal "mem_arch/icache/cache_tag/doutb<23>" is sourceless and has been
 removed.
 The signal "mem_arch/icache/cache_tag/doutb<22>" is sourceless and has been
@@ -450,6 +741,207 @@ The signal "mem_arch/dcache/cache_tag/doutb<21>" is sourceless and has been
 removed.
 The signal "mem_arch/dcache/cache_tag/doutb<20>" is sourceless and has been
 removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/full" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/empty" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[31]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[30]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[29]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[28]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[27]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[26]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[25]" is sourceless and has been
+removed.
+The signal "mem_arch/pixelfeed/feeder_fifo/dout[24]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc[1
+]" is sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_a
+sreg_1" (FF) removed.
+  The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_a
+sreg[1]" is sourceless and has been removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc[0
+]" is sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_a
+sreg_0" (FF) removed.
+  The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_a
+sreg[0]" is sourceless and has been removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_x
+or0010" is sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_1
+" (FF) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_x
+or0011" is sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/rd_pntr_gc_0
+" (FF) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.rd/gr1.rfwft/empt
+y_fwft_i_mux0000" is sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.rd/gr1.rfwft/empt
+y_fwft_fb" (FF) removed.
+  The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.rd/gr1.rfwft/empt
+y_fwft_fb" is sourceless and has been removed.
+   Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.rd/gr1.rfwft/empt
+y_fwft_i_mux00001" (ROM) removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.rd/gr1.rfwft/empt
+y_fwft_i" (FF) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[31]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_31" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[30]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_30" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[29]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_29" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[28]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_28" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[27]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_27" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[26]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_26" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[25]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_25" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_mem[24]" is
+sourceless and has been removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/dout_i_24" (SFF)
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[7]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[30]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[7]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[5]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[28]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[5]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[3]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[26]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[3]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[1]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[24]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[1]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[8]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[31]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[8]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[6]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[29]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[6]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[4]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[27]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[4]" is sourceless and has been
+removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb5[2]" is sourceless and has been
+removed.
+ Sourceless block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/has_mux_b.B/dout_mux[25]1" (ROM) removed.
+The signal
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/mem/gbm.gbmg.gbmga.ng
+ecc.bmg/blk_mem_generator/valid.cstr/ram_doutb6[2]" is sourceless and has been
+removed.
 The signal "mem_arch/ddr2_read_fifo/full" is sourceless and has been removed.
 The signal "mem_arch/ddr2_read_fifo/empty" is sourceless and has been removed.
 The signal "mem_arch/ddr2_write_fifo/empty" is sourceless and has been removed.
@@ -459,27 +951,31 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
-The signal "N1668" is unused and has been removed.
+The signal "CPU/ISRByteSel" is unused and has been removed.
+ Unused block "CPU/the_controller/ISRByteSel<0>" (ROM) removed.
+  The signal "N245" is unused and has been removed.
+   Unused block "CPU/the_controller/ISRByteSel<0>_SW0" (ROM) removed.
+The signal "N128" is unused and has been removed.
+ Unused block
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_9_mux0000_SW0_f7" (MUX) removed.
+  The signal
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_9_mux0000_SW0" is unused and has been removed.
+   Unused block
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_9_mux0000_SW01" (ROM) removed.
+The signal "N1468" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_F" (ROM) removed.
-The signal "N1669" is unused and has been removed.
+The signal "N1469" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 _12_mux000011_G" (ROM) removed.
-The signal "N181" is unused and has been removed.
- Unused block
-"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
-_35_mux0000_SW0" (ROM) removed.
-  The signal
-"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
-<35>" is unused and has been removed.
-   Unused block
-"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
-_35" (SFF) removed.
-    The signal "mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_11_3" is unused
+The signal "mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_11_3" is unused
 and has been removed.
-     Unused block "mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_11_3" (FF)
+ Unused block "mem_arch/ddr2/u_ddr2_infrastructure/rstdiv0_sync_r_11_3" (FF)
 removed.
 The signal
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/N109" is
@@ -804,7 +1300,19 @@ _34" (SFF) removed.
 _34_mux0000" is unused and has been removed.
    Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
-_34_mux000069" (ROM) removed.
+_34_mux000071" (ROM) removed.
+The signal
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+<35>" is unused and has been removed.
+ Unused block
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_35" (SFF) removed.
+  The signal
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_35_mux0000" is unused and has been removed.
+   Unused block
+"mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
+_35_mux00001" (ROM) removed.
 The signal
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/rden_dly
 <36>" is unused and has been removed.
@@ -1123,8 +1631,24 @@ _r<9>" is unused and has been removed.
  Unused block
 "mem_arch/ddr2/u_ddr2_top_0/u_mem_if_top/u_phy_top/u_phy_io/u_phy_calib/gen_rden
 _dly[9].u_ff_rden_dly" (SFF) removed.
+Unused block
+"CPU/the_datapath/the_isr/BU2/U0/blk_mem_generator/valid.cstr/ramloop[0].ram.r/v
+5_init.ram/SDP.SINGLE_PRIM36.TDP" (RAMB36_EXP) removed.
+Unused block
+"CPU/the_datapath/the_isr/BU2/U0/blk_mem_generator/valid.cstr/ramloop[1].ram.r/v
+5_init.ram/SDP.SINGLE_PRIM36.TDP" (RAMB36_EXP) removed.
+Unused block
+"CPU/the_datapath/the_isr/BU2/U0/blk_mem_generator/valid.cstr/ramloop[2].ram.r/v
+5_init.ram/SDP.SINGLE_PRIM36.TDP" (RAMB36_EXP) removed.
+Unused block
+"CPU/the_datapath/the_isr/BU2/U0/blk_mem_generator/valid.cstr/ramloop[3].ram.r/v
+5_init.ram/SDP.SINGLE_PRIM36.TDP" (RAMB36_EXP) removed.
 Unused block "CPU/the_datapath/the_bios/GND" (ZERO) removed.
 Unused block "CPU/the_datapath/the_bios/VCC" (ONE) removed.
+Unused block "CPU/the_datapath/the_isr/BU2/XST_GND" (ZERO) removed.
+Unused block "CPU/the_datapath/the_isr/BU2/XST_VCC" (ONE) removed.
+Unused block "CPU/the_datapath/the_isr/GND" (ZERO) removed.
+Unused block "CPU/the_datapath/the_isr/VCC" (ONE) removed.
 Unused block "mem_arch/dcache/cache_data/GND" (ZERO) removed.
 Unused block "mem_arch/dcache/cache_data/VCC" (ONE) removed.
 Unused block "mem_arch/dcache/cache_tag/GND" (ZERO) removed.
@@ -1166,6 +1690,17 @@ Unused block "mem_arch/icache/cache_data/GND" (ZERO) removed.
 Unused block "mem_arch/icache/cache_data/VCC" (ONE) removed.
 Unused block "mem_arch/icache/cache_tag/GND" (ZERO) removed.
 Unused block "mem_arch/icache/cache_tag/VCC" (ONE) removed.
+Unused block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/Mxor_rd_pntr
+_gc_xor0010_Result1" (ROM) removed.
+Unused block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gcx.clkx/Mxor_rd_pntr
+_gc_xor0011_Result1" (ROM) removed.
+Unused block
+"mem_arch/pixelfeed/feeder_fifo/BU2/U0/gconvfifo.rf/grf.rf/gl0.wr/gwas.wsts/ram_
+full_i" (FF) removed.
+Unused block "mem_arch/pixelfeed/feeder_fifo/GND" (ZERO) removed.
+Unused block "mem_arch/pixelfeed/feeder_fifo/VCC" (ONE) removed.
 
 Optimized Block(s):
 TYPE 		BLOCK
@@ -1184,6 +1719,8 @@ VCC 		mem_arch/ddr2_write_fifo/BU2/XST_VCC
 GND 		mem_arch/icache/cache_data/BU2/XST_GND
 VCC 		mem_arch/icache/cache_data/BU2/XST_VCC
 GND 		mem_arch/icache/cache_tag/BU2/XST_GND
+GND 		mem_arch/pixelfeed/feeder_fifo/BU2/XST_GND
+VCC 		mem_arch/pixelfeed/feeder_fifo/BU2/XST_VCC
 
 To enable printing of redundant blocks removed and signals merged, set the
 detailed map report option and rerun map.
@@ -1202,8 +1739,8 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |   -11.801ns|    43.602ns|     651|     3972867
-  USER_CLK / 0.5 HIGH 50%                   | HOLD        |    -0.036ns|            |      24|         684
+* TS_cpu_clk = PERIOD TIMEGRP "cpu_clk" TS_ | SETUP       |   -11.962ns|    43.924ns|     651|     4019150
+  USER_CLK / 0.5 HIGH 50%                   | HOLD        |    -0.026ns|            |      18|         468
 ----------------------------------------------------------------------------------------------------------
 * TS_clk90 = PERIOD TIMEGRP "clk90" TS_USER | SETUP       |    -0.100ns|     5.400ns|     144|       14400
   _CLK / 2 PHASE 1.25 ns HIGH 50%           | HOLD        |     0.019ns|            |       0|           0
@@ -1307,12 +1844,12 @@ Derived Constraints for TS_USER_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_USER_CLK                    |     10.000ns|      4.000ns|     21.801ns|            0|         1047|            0|7893859595677703168|
-| TS_cpu_clk                    |     20.000ns|     43.602ns|          N/A|          675|            0|7893859595677686784|            0|
+|TS_USER_CLK                    |     10.000ns|      4.000ns|     21.962ns|            0|         1041|            0|10304999652580894720|
+| TS_cpu_clk                    |     20.000ns|     43.924ns|          N/A|          669|            0|10304999652580880384|            0|
 | TS_clk200                     |      5.000ns|      1.666ns|          N/A|            0|            0|           24|            0|
-| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4062|            0|
+| TS_clk0                       |      5.000ns|      2.550ns|          N/A|          193|            0|         4064|            0|
 | TS_clk90                      |      5.000ns|      5.400ns|          N/A|          144|            0|          926|            0|
-| TS_clkdiv0                    |     10.000ns|      3.999ns|          N/A|           35|            0|        11123|            0|
+| TS_clkdiv0                    |     10.000ns|      3.999ns|          N/A|           35|            0|        11184|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 4 constraints not met.
@@ -1583,6 +2120,24 @@ Section 6 - IOB Properties
 | DDR2_ODT                           | IOB              | OUTPUT    | SSTL18_II            |       |          |      | OFF          |          |          |
 | DDR2_RAS_B                         | IOB              | OUTPUT    | SSTL18_II            |       |          |      | OFF          |          |          |
 | DDR2_WE_B                          | IOB              | OUTPUT    | SSTL18_II            |       |          |      | OFF          |          |          |
+| DVI_D<0>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<1>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<2>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<3>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<4>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<5>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<6>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<7>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<8>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<9>                           | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<10>                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_D<11>                          | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_DE                             | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| DVI_H                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| DVI_RESET_B                        | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| DVI_V                              | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
+| DVI_XCLK_N                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
+| DVI_XCLK_P                         | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW | ODDR         |          |          |
 | FPGA_SERIAL_RX                     | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 | FPGA_SERIAL_TX                     | IOB              | OUTPUT    | LVCMOS33             |       | 12       | SLOW |              |          |          |
 | GPIO_LED<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -1594,6 +2149,8 @@ Section 6 - IOB Properties
 | GPIO_LED<6>                        | IOB              | OUTPUT    | SSTL18_II_DCI        |       |          |      |              |          |          |
 | GPIO_LED<7>                        | IOB              | OUTPUT    | SSTL18_II_DCI        |       |          |      |              |          |          |
 | GPIO_SW_C                          | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
+| IIC_SCL_VIDEO                      | IOB              | OUTPUT    | LVCMOS18             |       | 12       | SLOW |              | PULLUP   |          |
+| IIC_SDA_VIDEO                      | IOB              | BIDIR     | LVCMOS18             |       | 12       | SLOW |              | PULLUP   |          |
 | USER_CLK                           | IOB              | INPUT     | LVCMOS33             |       |          |      |              |          |          |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 

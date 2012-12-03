@@ -1,7 +1,7 @@
 Release 14.1 - par P.15xf (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-Sun Dec  2 16:39:59 2012
+Mon Dec  3 14:14:34 2012
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -56,9 +56,9 @@ Pinout by Pin Number:
 |AA5       |              |IOBM     |IO_L2P_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AA6       |              |IOBM     |IO_L6P_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AA7       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
-|AA8       |              |IOBM     |IO_L3P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AA9       |              |IOBS     |IO_L3N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AA10      |              |IOBS     |IO_L1N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AA8       |DVI_D<5>      |IOB      |IO_L3P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|AA9       |DVI_D<4>      |IOB      |IO_L3N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|AA10      |DVI_D<8>      |IOB      |IO_L1N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AA11      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AA12      |              |         |VCCINT                  |                    |                  |              |          |         |           |         |1.0      |          |           |                |
 |AA13      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
@@ -90,9 +90,9 @@ Pinout by Pin Number:
 |AB5       |              |IOBS     |IO_L2N_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AB6       |              |IOBM     |IO_L1P_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AB7       |              |IOBS     |IO_L1N_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
-|AB8       |              |IOBS     |IO_L5N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AB8       |DVI_D<0>      |IOB      |IO_L5N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AB9       |              |         |VCCO_18                 |                    |                  |18            |          |         |           |         |3.30     |          |           |                |
-|AB10      |              |IOBM     |IO_L1P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AB10      |DVI_D<9>      |IOB      |IO_L1P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AB11      |              |         |VCCAUX                  |                    |                  |              |          |         |           |         |2.5      |          |           |                |
 |AB12      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AB13      |              |         |VCCINT                  |                    |                  |              |          |         |           |         |1.0      |          |           |                |
@@ -123,7 +123,7 @@ Pinout by Pin Number:
 |AC5       |              |IOBS     |IO_L0N_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AC6       |              |         |VCCO_18                 |                    |                  |18            |          |         |           |         |3.30     |          |           |                |
 |AC7       |              |IOBM     |IO_L3P_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
-|AC8       |              |IOBM     |IO_L5P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AC8       |DVI_D<1>      |IOB      |IO_L5P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AC9       |              |IOBS     |IO_L7N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AC10      |              |IOBM     |IO_L7P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AC11      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
@@ -190,7 +190,7 @@ Pinout by Pin Number:
 |AE5       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AE6       |              |IOBS     |IO_L7N_18               |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AE7       |              |IOBM     |IO_L9P_CC_18            |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
-|AE8       |              |IOBM     |IO_L9P_CC_22            |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AE8       |DVI_DE        |IOB      |IO_L9P_CC_22            |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |AE9       |              |IOBS     |IO_L12N_VRP_22          |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AE10      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AE11      |              |IOBS     |IO_L16N_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
@@ -223,7 +223,7 @@ Pinout by Pin Number:
 |AF4       |              |IPAD     |MGTREFCLKP_118          |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AF5       |              |IOBS     |IO_L10N_CC_18           |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AF6       |              |IOBS     |IO_L9N_CC_18            |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
-|AF7       |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |any******|          |           |                |
+|AF7       |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |3.30     |          |           |                |
 |AF8       |              |IOBM     |IO_L12P_VRN_22          |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AF9       |              |IOBM     |IO_L14P_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AF10      |              |IOBS     |IO_L14N_VREF_22         |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
@@ -295,7 +295,7 @@ Pinout by Pin Number:
 |AH8       |              |IOBS     |IO_L18N_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AH9       |              |IOBM     |IO_L17P_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AH10      |              |IOBS     |IO_L17N_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AH11      |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |any******|          |           |                |
+|AH11      |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |3.30     |          |           |                |
 |AH12      |              |IOBM     |IO_L1P_GC_D13_4         |UNUSED              |                  |4             |          |         |           |         |         |          |           |                |
 |AH13      |              |IOBS     |IO_L3N_GC_D8_4          |UNUSED              |                  |4             |          |         |           |         |         |          |           |                |
 |AH14      |              |IOBM     |IO_L3P_GC_D9_4          |UNUSED              |                  |4             |          |         |           |         |         |          |           |                |
@@ -325,7 +325,7 @@ Pinout by Pin Number:
 |AJ5       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AJ6       |GPIO_SW_C     |IOB      |IO_L16N_18              |INPUT               |LVCMOS33          |18            |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |AJ7       |              |IOBM     |IO_L16P_18              |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
-|AJ8       |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |any******|          |           |                |
+|AJ8       |              |         |VCCO_22                 |                    |                  |22            |          |         |           |         |3.30     |          |           |                |
 |AJ9       |              |IOBM     |IO_L15P_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AJ10      |              |IOBS     |IO_L15N_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AJ11      |              |IOBS     |IO_L11N_CC_22           |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
@@ -356,7 +356,7 @@ Pinout by Pin Number:
 |AK3       |              |         |MGTAVTTTX_122           |                    |                  |              |          |         |           |         |         |          |           |                |
 |AK4       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AK5       |              |         |MGTAVCC_122             |                    |                  |              |          |         |           |         |         |          |           |                |
-|AK6       |              |IOBS     |IO_L18N_18              |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
+|AK6       |DVI_RESET_B   |IOB      |IO_L18N_18              |OUTPUT              |LVCMOS33          |18            |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |AK7       |              |IOBM     |IO_L18P_18              |UNUSED              |                  |18            |          |         |           |         |         |          |           |                |
 |AK8       |              |IOBM     |IO_L13P_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
 |AK9       |              |IOBS     |IO_L13N_22              |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
@@ -394,8 +394,8 @@ Pinout by Pin Number:
 |AL7       |              |IPAD     |MGTREFCLKP_126          |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AL8       |              |         |MGTAVCC_126             |                    |                  |              |          |         |           |         |         |          |           |                |
 |AL9       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
-|AL10      |              |IOBS     |IO_L8N_CC_22            |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AL11      |              |IOBM     |IO_L8P_CC_22            |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AL10      |DVI_XCLK_N    |IOB      |IO_L8N_CC_22            |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|AL11      |DVI_XCLK_P    |IOB      |IO_L8P_CC_22            |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AL12      |              |         |VCCO_4                  |                    |                  |4             |          |         |           |         |3.30     |          |           |                |
 |AL13      |              |IOBM     |IO_L3P_6                |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
 |AL14      |              |IOBS     |IO_L7N_6                |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
@@ -429,9 +429,9 @@ Pinout by Pin Number:
 |AM8       |              |         |MGTAVCC_126             |                    |                  |              |          |         |           |         |         |          |           |                |
 |AM9       |              |         |MGTAVCCPLL_126          |                    |                  |              |          |         |           |         |         |          |           |                |
 |AM10      |              |         |MGTAVTTTX_126           |                    |                  |              |          |         |           |         |         |          |           |                |
-|AM11      |              |IOBS     |IO_L6N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AM12      |              |IOBM     |IO_L6P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AM13      |              |IOBS     |IO_L2N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AM11      |DVI_V         |IOB      |IO_L6N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
+|AM12      |DVI_H         |IOB      |IO_L6P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
+|AM13      |DVI_D<6>      |IOB      |IO_L2N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AM14      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |AM15      |              |IOBM     |IO_L16P_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
 |AM16      |              |IOBS     |IO_L16N_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
@@ -464,9 +464,9 @@ Pinout by Pin Number:
 |AN9       |              |OPAD     |MGTTXN1_126             |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AN10      |              |OPAD     |MGTTXP1_126             |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AN11      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
-|AN12      |              |IOBS     |IO_L4N_VREF_22          |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AN13      |              |IOBM     |IO_L2P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
-|AN14      |              |IOBM     |IO_L0P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AN12      |DVI_D<2>      |IOB      |IO_L4N_VREF_22          |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|AN13      |DVI_D<7>      |IOB      |IO_L2P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
+|AN14      |DVI_D<11>     |IOB      |IO_L0P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AN15      |              |IOBM     |IO_L18P_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
 |AN16      |              |         |VCCO_6                  |                    |                  |6             |          |         |           |         |any******|          |           |                |
 |AN17      |              |IOBS     |IO_L19N_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
@@ -494,9 +494,9 @@ Pinout by Pin Number:
 |AP8       |              |IPAD     |MGTRXN1_126             |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AP9       |              |IPAD     |MGTRXP1_126             |UNUSED              |                  |              |          |         |           |         |         |          |           |                |
 |AP11      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
-|AP12      |              |IOBM     |IO_L4P_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AP12      |DVI_D<3>      |IOB      |IO_L4P_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AP13      |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
-|AP14      |              |IOBS     |IO_L0N_22               |UNUSED              |                  |22            |          |         |           |         |         |          |           |                |
+|AP14      |DVI_D<10>     |IOB      |IO_L0N_22               |OUTPUT              |LVCMOS33          |22            |12        |SLOW     |           |         |         |LOCATED   |YES        |NONE            |
 |AP15      |              |IOBS     |IO_L18N_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
 |AP16      |              |IOBM     |IO_L17P_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
 |AP17      |              |IOBS     |IO_L17N_6               |UNUSED              |                  |6             |          |         |           |         |         |          |           |                |
@@ -1016,7 +1016,7 @@ Pinout by Pin Number:
 |T26       |              |IOBS     |IO_L18N_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
 |T27       |              |         |VCCO_11                 |                    |                  |11            |          |         |           |         |any******|          |           |                |
 |T28       |DDR2_CKE      |IOB      |IO_L15P_15              |OUTPUT              |SSTL18_II         |15            |          |         |           |         |         |LOCATED   |YES        |NONE            |
-|T29       |              |IOBS     |IO_L15N_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
+|T29       |IIC_SDA_VIDEO |IOB      |IO_L15N_15              |BIDIR               |LVCMOS18          |15            |12        |SLOW     |PULLUP     |NONE     |         |LOCATED   |NO         |NONE            |
 |T30       |              |IOBS     |IO_L14N_VREF_15         |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
 |T31       |DDR2_A<12>    |IOB      |IO_L13P_15              |OUTPUT              |SSTL18_II         |15            |          |         |           |         |         |LOCATED   |YES        |NONE            |
 |T32       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
@@ -1047,7 +1047,7 @@ Pinout by Pin Number:
 |U24       |              |         |VCCAUX                  |                    |                  |              |          |         |           |         |2.5      |          |           |                |
 |U25       |              |IOBM     |IO_L19P_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
 |U26       |              |IOBM     |IO_L18P_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
-|U27       |              |IOBM     |IO_L16P_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
+|U27       |IIC_SCL_VIDEO |IOB      |IO_L16P_15              |TRISTATE            |LVCMOS18          |15            |12        |SLOW     |PULLUP     |         |         |LOCATED   |NO         |NONE            |
 |U28       |              |IOBS     |IO_L16N_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |
 |U29       |              |         |GND                     |                    |                  |              |          |         |           |         |         |          |           |                |
 |U30       |              |IOBM     |IO_L14P_15              |UNUSED              |                  |15            |          |         |           |         |         |          |           |                |

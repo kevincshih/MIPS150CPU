@@ -8,11 +8,6 @@
 # //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
 # //
 # OpenFile results/echocaches.wlf 
-add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/CLK
-add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_controller/Instruction
+add wave -position insertpoint echocaches:/EchoTestbenchCaches/DUT/the_datapath/the_COP0150/*
 add wave -position insertpoint  \
 echocaches:/EchoTestbenchCaches/DUT/the_controller/PC
-add wave -position insertpoint  \
-echocaches:/EchoTestbenchCaches/DUT/the_datapath/irq

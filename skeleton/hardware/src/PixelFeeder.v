@@ -28,7 +28,50 @@ module PixelFeeder( //System:
     * YOUR CODE HERE: Write logic to keep the FIFO as full as possible.
     **************************************************************************/
 
-
+	reg CurrentState, NextState;
+	
+	reg [9:0] x,y;
+	
+	reg FrameReg, FrameInterruptReg;
+	
+	always @(posedge cpu_clk_g) begin
+       if(rst)
+            CurrentState <= IDLE;
+       else
+            CurrentState <= NextState;
+    end
+	
+	assign frame = FrameReg;
+	assign frame_interrupt = FrameInterruptReg;
+	assign rdf_rd_en = 1'b1;
+    assign af_wr_en = (CurrentState == FETCH);
+	assign frame_address = (frame) ? 10'b0001000010 : 10'b0001000010;
+    assign af_addr_din = {frame_address, y, x, 2'b0};
+	
+	always @(posedge cpu_clk_g) begin
+       if(rst) begin
+            x <= 10'b0;
+			y <= 10'b0;
+			FrameInterruptReg <= 1'b0;
+			FrameReg <= 1'b0;
+			end
+       else if (~af_full && CurrentState == FETCH) begin
+            if(y == 10'd599 && x == 10'd799) begin
+				x <= 10'b0;
+				y <= 10'b0;
+				FrameInterruptReg <= 1'b1;
+				FrameReg <= ~FrameReg;
+			end
+			else if (x == 10'd799) begin
+				x <= 10'b0;
+				y <= y+1;
+			end
+			else begin
+				x <= x+1;
+			end
+    end
+	end
+	
     /* We drop the first frame to allow the buffer to fill with data from
     * DDR2. This gives alignment of the frame. */
     always @(posedge cpu_clk_g) begin

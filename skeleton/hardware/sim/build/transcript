@@ -1,7 +1,7 @@
 proc start {m} {vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl $m}
 start EchoTestbenchCaches
 # vsim -L unisims_ver -L unimacro_ver -L xilinxcorelib_ver -L secureip work.glbl EchoTestbenchCaches 
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vsim-3812) Design is being optimized...
 # ** Warning: ../../src/Memory150.v(301): (vopt-2241) Connection width does not match width of port 'bypass_addr_din'. The port definition is at: ../../src/RequestController.v(68).
 # ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'dina'. The port definition is at: ../../src/cache_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.v(68).
 # ** Warning: ../../src/Cache.v(137): (vopt-2241) Connection width does not match width of port 'doutb'. The port definition is at: ../../src/cache_tag_blk_ram/tmp/_cg/cache_tag_blk_ram.v(73).
@@ -13,8 +13,10 @@ start EchoTestbenchCaches
 # ** Warning: ../../src/Memory150.v(439): (vopt-2241) Connection width does not match width of port 'LE_color'. The port definition is at: ../../src/GraphicsProcessor.v(20).
 # ** Warning: ../../src/Memory150.v(439): (vopt-2241) Connection width does not match width of port 'LE_point'. The port definition is at: ../../src/GraphicsProcessor.v(21).
 # ** Warning: ../../src/Memory150.v(439): (vopt-2241) Connection width does not match width of port 'FF_color'. The port definition is at: ../../src/GraphicsProcessor.v(34).
+# ** Warning: ../../src/Memory150.v(439): (vopt-2241) Connection width does not match width of port 'af_addr_din'. The port definition is at: ../../src/GraphicsProcessor.v(43).
 # ** Warning: ../../src/MIPS150.v(65): (vopt-2241) Connection width does not match width of port 'ISRByteSel'. The port definition is at: ../../src/Control.v(9).
 # ** Warning: ../../src/MIPS150.v(103): (vopt-2241) Connection width does not match width of port 'ISRByteSel'. The port definition is at: ../../src/Datapath.v(2).
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_phy_init(fast)".
 ###### ../../src/Memory150.v(324):     );
 # ** Warning: ../../src/Memory150.v(324): (vopt-2685) [TFMPC] - Too few port connections for 'icache'.  Expected 22, found 19.
 # ** Warning: ../../src/Memory150.v(324): (vopt-2718) [TFMPC] - Missing connection for port 'state'.
@@ -26,6 +28,19 @@ start EchoTestbenchCaches
 # ** Warning: ../../src/Memory150.v(347): (vopt-2718) [TFMPC] - Missing connection for port 'tag_valid'.
 # ** Warning: ../../src/Memory150.v(347): (vopt-2718) [TFMPC] - Missing connection for port 'tag_hit'.
 # ** Note: (vopt-143) Recognized 1 FSM in module "Cache(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "GraphicsProcessor(fast)".
+###### ../../src/EchoTestbenchCaches.v(177):     );
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2685) [TFMPC] - Too few port connections for 'mem_arch'.  Expected 41, found 33.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'frame_interrupt'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'cpu_gp_valid'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'cpu_gp_frame'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'cpu_gp_code'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'video_ready'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'video_valid'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'video'.
+# ** Warning: ../../src/EchoTestbenchCaches.v(177): (vopt-2718) [TFMPC] - Missing connection for port 'clk50_g'.
+# ** Note: (vopt-143) Recognized 4 FSMs in module "ddr2_phy_calib(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "ddr2_ctrl(fast)".
 # //  ModelSim SE-64 10.1b_2 Jul  3 2012 Linux 2.6.32-279.5.1.el6.centos.plus.x86_64
 # //
 # //  Copyright 1991-2012 Mentor Graphics Corporation
@@ -143,6 +158,8 @@ start EchoTestbenchCaches
 #         Region: /EchoTestbenchCaches/mem_arch/graphicsprocessor
 # ** Warning: (vsim-3015) ../../src/Memory150.v(439): [PCDPC] - Port size (24 or 24) does not match connection size (1) for port 'FF_color'. The port definition is at: ../../src/GraphicsProcessor.v(34).
 #         Region: /EchoTestbenchCaches/mem_arch/graphicsprocessor
+# ** Warning: (vsim-3015) ../../src/Memory150.v(439): [PCDPC] - Port size (32 or 32) does not match connection size (31) for port 'af_addr_din'. The port definition is at: ../../src/GraphicsProcessor.v(43).
+#         Region: /EchoTestbenchCaches/mem_arch/graphicsprocessor
 # ** Warning: (vsim-3015) ../../src/MIPS150.v(65): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'ISRByteSel'. The port definition is at: ../../src/Control.v(9).
 #         Region: /EchoTestbenchCaches/DUT/the_controller
 # ** Warning: (vsim-3015) ../../src/MIPS150.v(103): [PCDPC] - Port size (4 or 4) does not match connection size (1) for port 'ISRByteSel'. The port definition is at: ../../src/Datapath.v(2).
@@ -160,6 +177,7 @@ add wave EchoTestbenchCaches/DUT/the_datapath/the_PC/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/*
 add wave EchoTestbenchCaches/DUT/the_datapath/the_regfile/the_registers
 add wave EchoTestbenchCaches/DUT/the_datapath/the_IF_Control/*
+add wave EchoTestbenchCaches/DUT/the_datapath/the_COP0150/*
 run 500us
 # Block Memory Generator CORE Generator module EchoTestbenchCaches.mem_arch.icache.cache_data.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
 # Block Memory Generator CORE Generator module EchoTestbenchCaches.mem_arch.icache.cache_tag.inst.blk_mem_gen_v4_3_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
@@ -201,5 +219,11 @@ run 500us
 # Third Stage Calibration completed at time 55805000.0 ps
 # Fourth Stage Calibration completed at time 74725000.0 ps
 # Calibration completed at time 74725000.0 ps
+# Got 7a
+# blk_mem_gen_v4_3 collision detected at time: 337945000, A write address: ff, B read address: ff
+# blk_mem_gen_v4_3 collision detected at time: 337945000, A write address: ff, B read address: ff
+# blk_mem_gen_v4_3 collision detected at time: 337965000, A write address: ff, B read address: 0
+# blk_mem_gen_v4_3 collision detected at time: 337965000, A write address: ff, B read address: 0
+# Got 80
 # 
 # <EOF> 

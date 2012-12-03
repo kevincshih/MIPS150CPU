@@ -151,7 +151,7 @@ module Datapath(
    	COP0150 the_COP0150(
 	.Clock(CLK), //Done
     .Enable(1'b1), //Done
-    .Reset(rst), //Done
+    .Reset(reset), //Done
 
     .DataAddress(rd), //Done
     .DataOut(cop_dout), //connect to ALU, Done

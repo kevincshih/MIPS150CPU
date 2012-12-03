@@ -1,3 +1,4 @@
 TARGET := app
 
 include ../Makefile.llvm.in
+#include ../Makefile.gcc.in

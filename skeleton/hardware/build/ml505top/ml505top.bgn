@@ -6,7 +6,7 @@ Loading device for application Rf_Device from file '5vlx110t.nph' in environment
 -1
 Opened constraints file ml505top.pcf.
 
-Sun Dec  2 16:40:26 2012
+Mon Dec  3 14:15:01 2012
 
 /opt/Xilinx/14.1/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -w ml505top.ncd ml505top.bit ml505top.pcf 
 
@@ -128,21 +128,21 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    not good design practice. Use the CE pin to control the loading of data into
    the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
+   CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/DinSelReg_not0002 is sourced by a combinatorial pin. This
+   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   CPU/the_controller/RDselreg_not0001 is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data
    into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    CPU/the_controller/CTselreg_or0000 is sourced by a combinatorial pin. This is
    not good design practice. Use the CE pin to control the loading of data into
    the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   CPU/the_controller/UARTselreg_not0001 is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data
-   into the flip-flop.
 DRC detected 0 errors and 5 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
