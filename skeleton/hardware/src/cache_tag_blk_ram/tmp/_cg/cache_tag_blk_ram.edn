@@ -1,0 +1,602 @@
+(edif test (edifVersion 2 0 0) (edifLevel 0) (keywordMap (keywordLevel 0))
+(status (written (timeStamp 2012 12 2 17 48 10)
+   (author "Xilinx, Inc.")
+   (program "Xilinx CORE Generator" (version "Xilinx CORE Generator 14.1"))))
+   (comment "                                                                                
+      (c) Copyright 1995 - 2010 Xilinx, Inc. All rights reserved.               
+                                                                                
+      This file contains confidential and proprietary information               
+      of Xilinx, Inc. and is protected under U.S. and                           
+      international copyright and other intellectual property                   
+      laws.                                                                     
+                                                                                
+      DISCLAIMER                                                                
+      This disclaimer is not a license and does not grant any                   
+      rights to the materials distributed herewith. Except as                   
+      otherwise provided in a valid license issued to you by                    
+      Xilinx, and to the maximum extent permitted by applicable                 
+      law: (1) THESE MATERIALS ARE MADE AVAILABLE 'AS IS' AND                   
+      WITH ALL FAULTS, AND XILINX HEREBY DISCLAIMS ALL WARRANTIES               
+      AND CONDITIONS, EXPRESS, IMPLIED, OR STATUTORY, INCLUDING                 
+      BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, NON-                    
+      INFRINGEMENT, OR FITNESS FOR ANY PARTICULAR PURPOSE; and                  
+      (2) Xilinx shall not be liable (whether in contract or tort,              
+      including negligence, or under any other theory of                        
+      liability) for any loss or damage of any kind or nature                   
+      related to, arising under or in connection with these                     
+      materials, including for any direct, or any indirect,                     
+      special, incidental, or consequential loss or damage                      
+      (including loss of data, profits, goodwill, or any type of                
+      loss or damage suffered as a result of any action brought                 
+      by a third party) even if such damage or loss was                         
+      reasonably foreseeable or Xilinx had been advised of the                  
+      possibility of the same.                                                  
+                                                                                
+      CRITICAL APPLICATIONS                                                     
+      Xilinx products are not designed or intended to be fail-                  
+      safe, or for use in any application requiring fail-safe                   
+      performance, such as life-support or safety devices or                    
+      systems, Class III medical devices, nuclear facilities,                   
+      applications related to the deployment of airbags, or any                 
+      other applications that could lead to death, personal                     
+      injury, or severe property or environmental damage                        
+      (individually and collectively, 'Critical                                 
+      Applications'). Customer assumes the sole risk and                        
+      liability of any use of Xilinx products in Critical                       
+      Applications, subject only to applicable laws and                         
+      regulations governing limitations on product liability.                   
+                                                                                
+      THIS COPYRIGHT NOTICE AND DISCLAIMER MUST BE RETAINED AS                  
+      PART OF THIS FILE AT ALL TIMES.                                           
+                                                                                
+   ")
+   (comment "Core parameters: ")
+       (comment "c_has_regceb = 0 ")
+       (comment "c_has_regcea = 0 ")
+       (comment "c_mem_type = 1 ")
+       (comment "c_rstram_b = 0 ")
+       (comment "c_rstram_a = 0 ")
+       (comment "c_has_injecterr = 0 ")
+       (comment "c_rst_type = SYNC ")
+       (comment "c_prim_type = 1 ")
+       (comment "InstanceName = cache_tag_blk_ram ")
+       (comment "c_read_width_b = 24 ")
+       (comment "c_initb_val = 0 ")
+       (comment "c_family = virtex5 ")
+       (comment "c_read_width_a = 24 ")
+       (comment "c_disable_warn_bhv_coll = 0 ")
+       (comment "c_use_softecc = 0 ")
+       (comment "c_write_mode_b = WRITE_FIRST ")
+       (comment "c_init_file_name = no_coe_file_loaded ")
+       (comment "c_write_mode_a = WRITE_FIRST ")
+       (comment "c_mux_pipeline_stages = 0 ")
+       (comment "c_has_softecc_output_regs_b = 0 ")
+       (comment "c_has_mem_output_regs_b = 0 ")
+       (comment "c_has_mem_output_regs_a = 0 ")
+       (comment "c_load_init_file = 0 ")
+       (comment "c_xdevicefamily = virtex5 ")
+       (comment "c_write_depth_b = 256 ")
+       (comment "c_write_depth_a = 256 ")
+       (comment "c_has_rstb = 1 ")
+       (comment "c_has_rsta = 0 ")
+       (comment "c_has_mux_output_regs_b = 0 ")
+       (comment "c_inita_val = 0 ")
+       (comment "c_has_mux_output_regs_a = 0 ")
+       (comment "c_addra_width = 8 ")
+       (comment "c_has_softecc_input_regs_a = 0 ")
+       (comment "c_addrb_width = 8 ")
+       (comment "c_default_data = 0 ")
+       (comment "c_use_ecc = 0 ")
+       (comment "c_elaboration_dir = /home/cc/cs150/fa12/class/cs150-cw/Desktop/CS150cp4v3/skeleton/h... ")
+       (comment "                 ...ardware/src/cache_tag_blk_ram/./tmp/_cg/ ")
+       (comment "c_algorithm = 1 ")
+       (comment "c_disable_warn_bhv_range = 0 ")
+       (comment "c_write_width_b = 24 ")
+       (comment "c_write_width_a = 24 ")
+       (comment "c_read_depth_b = 256 ")
+       (comment "c_read_depth_a = 256 ")
+       (comment "c_byte_size = 9 ")
+       (comment "c_sim_collision_check = ALL ")
+       (comment "c_common_clk = 1 ")
+       (comment "c_wea_width = 1 ")
+       (comment "c_has_enb = 1 ")
+       (comment "c_web_width = 1 ")
+       (comment "c_has_ena = 1 ")
+       (comment "c_use_byte_web = 0 ")
+       (comment "c_use_byte_wea = 0 ")
+       (comment "c_rst_priority_b = CE ")
+       (comment "c_rst_priority_a = CE ")
+       (comment "c_use_default_data = 0 ")
+   (external xilinxun (edifLevel 0)
+      (technology (numberDefinition))
+       (cell VCC (cellType GENERIC)
+           (view view_1 (viewType NETLIST)
+               (interface
+                   (port P (direction OUTPUT))
+               )
+           )
+       )
+       (cell GND (cellType GENERIC)
+           (view view_1 (viewType NETLIST)
+               (interface
+                   (port G (direction OUTPUT))
+               )
+           )
+       )
+   )
+   (external cache_tag_blk_ram_blk_mem_gen_v4_3_xst_1_lib (edifLevel 0)
+       (technology (numberDefinition))
+       (cell cache_tag_blk_ram_blk_mem_gen_v4_3_xst_1 (cellType GENERIC)
+           (view view_1 (viewType NETLIST)
+               (interface
+                   (port clka (direction INPUT))
+                   (port rsta (direction INPUT))
+                   (port ena (direction INPUT))
+                   (port regcea (direction INPUT))
+                   (port ( array ( rename wea "wea<0:0>") 1 ) (direction INPUT))
+                   (port ( array ( rename addra "addra<7:0>") 8 ) (direction INPUT))
+                   (port ( array ( rename dina "dina<23:0>") 24 ) (direction INPUT))
+                   (port ( array ( rename douta "douta<23:0>") 24 ) (direction OUTPUT))
+                   (port clkb (direction INPUT))
+                   (port rstb (direction INPUT))
+                   (port enb (direction INPUT))
+                   (port regceb (direction INPUT))
+                   (port ( array ( rename web "web<0:0>") 1 ) (direction INPUT))
+                   (port ( array ( rename addrb "addrb<7:0>") 8 ) (direction INPUT))
+                   (port ( array ( rename dinb "dinb<23:0>") 24 ) (direction INPUT))
+                   (port ( array ( rename doutb "doutb<23:0>") 24 ) (direction OUTPUT))
+                   (port injectsbiterr (direction INPUT))
+                   (port injectdbiterr (direction INPUT))
+                   (port sbiterr (direction OUTPUT))
+                   (port dbiterr (direction OUTPUT))
+                   (port ( array ( rename rdaddrecc "rdaddrecc<7:0>") 8 ) (direction OUTPUT))
+               )
+           )
+       )
+   )
+(library test_lib (edifLevel 0) (technology (numberDefinition (scale 1 (E 1 -12) (unit Time))))
+(cell cache_tag_blk_ram
+ (cellType GENERIC) (view view_1 (viewType NETLIST)
+  (interface
+   (port ( rename clka "clka") (direction INPUT))
+   (port ( rename ena "ena") (direction INPUT))
+   (port ( array ( rename wea "wea<0:0>") 1 ) (direction INPUT))
+   (port ( array ( rename addra "addra<7:0>") 8 ) (direction INPUT))
+   (port ( array ( rename dina "dina<23:0>") 24 ) (direction INPUT))
+   (port ( rename clkb "clkb") (direction INPUT))
+   (port ( rename rstb "rstb") (direction INPUT))
+   (port ( rename enb "enb") (direction INPUT))
+   (port ( array ( rename addrb "addrb<7:0>") 8 ) (direction INPUT))
+   (port ( array ( rename doutb "doutb<23:0>") 24 ) (direction OUTPUT))
+   )
+  (contents
+   (instance VCC (viewRef view_1 (cellRef VCC  (libraryRef xilinxun))))
+   (instance GND (viewRef view_1 (cellRef GND  (libraryRef xilinxun))))
+   (instance BU2
+      (viewRef view_1 (cellRef cache_tag_blk_ram_blk_mem_gen_v4_3_xst_1 (libraryRef cache_tag_blk_ram_blk_mem_gen_v4_3_xst_1_lib)))
+   )
+   (net (rename N2 "clka")
+    (joined
+      (portRef clka)
+      (portRef clka (instanceRef BU2))
+    )
+   )
+   (net (rename N4 "ena")
+    (joined
+      (portRef ena)
+      (portRef ena (instanceRef BU2))
+    )
+   )
+   (net (rename N6 "wea<0>")
+    (joined
+      (portRef (member wea 0))
+      (portRef (member wea 0) (instanceRef BU2))
+    )
+   )
+   (net (rename N7 "addra<7>")
+    (joined
+      (portRef (member addra 0))
+      (portRef (member addra 0) (instanceRef BU2))
+    )
+   )
+   (net (rename N8 "addra<6>")
+    (joined
+      (portRef (member addra 1))
+      (portRef (member addra 1) (instanceRef BU2))
+    )
+   )
+   (net (rename N9 "addra<5>")
+    (joined
+      (portRef (member addra 2))
+      (portRef (member addra 2) (instanceRef BU2))
+    )
+   )
+   (net (rename N10 "addra<4>")
+    (joined
+      (portRef (member addra 3))
+      (portRef (member addra 3) (instanceRef BU2))
+    )
+   )
+   (net (rename N11 "addra<3>")
+    (joined
+      (portRef (member addra 4))
+      (portRef (member addra 4) (instanceRef BU2))
+    )
+   )
+   (net (rename N12 "addra<2>")
+    (joined
+      (portRef (member addra 5))
+      (portRef (member addra 5) (instanceRef BU2))
+    )
+   )
+   (net (rename N13 "addra<1>")
+    (joined
+      (portRef (member addra 6))
+      (portRef (member addra 6) (instanceRef BU2))
+    )
+   )
+   (net (rename N14 "addra<0>")
+    (joined
+      (portRef (member addra 7))
+      (portRef (member addra 7) (instanceRef BU2))
+    )
+   )
+   (net (rename N15 "dina<23>")
+    (joined
+      (portRef (member dina 0))
+      (portRef (member dina 0) (instanceRef BU2))
+    )
+   )
+   (net (rename N16 "dina<22>")
+    (joined
+      (portRef (member dina 1))
+      (portRef (member dina 1) (instanceRef BU2))
+    )
+   )
+   (net (rename N17 "dina<21>")
+    (joined
+      (portRef (member dina 2))
+      (portRef (member dina 2) (instanceRef BU2))
+    )
+   )
+   (net (rename N18 "dina<20>")
+    (joined
+      (portRef (member dina 3))
+      (portRef (member dina 3) (instanceRef BU2))
+    )
+   )
+   (net (rename N19 "dina<19>")
+    (joined
+      (portRef (member dina 4))
+      (portRef (member dina 4) (instanceRef BU2))
+    )
+   )
+   (net (rename N20 "dina<18>")
+    (joined
+      (portRef (member dina 5))
+      (portRef (member dina 5) (instanceRef BU2))
+    )
+   )
+   (net (rename N21 "dina<17>")
+    (joined
+      (portRef (member dina 6))
+      (portRef (member dina 6) (instanceRef BU2))
+    )
+   )
+   (net (rename N22 "dina<16>")
+    (joined
+      (portRef (member dina 7))
+      (portRef (member dina 7) (instanceRef BU2))
+    )
+   )
+   (net (rename N23 "dina<15>")
+    (joined
+      (portRef (member dina 8))
+      (portRef (member dina 8) (instanceRef BU2))
+    )
+   )
+   (net (rename N24 "dina<14>")
+    (joined
+      (portRef (member dina 9))
+      (portRef (member dina 9) (instanceRef BU2))
+    )
+   )
+   (net (rename N25 "dina<13>")
+    (joined
+      (portRef (member dina 10))
+      (portRef (member dina 10) (instanceRef BU2))
+    )
+   )
+   (net (rename N26 "dina<12>")
+    (joined
+      (portRef (member dina 11))
+      (portRef (member dina 11) (instanceRef BU2))
+    )
+   )
+   (net (rename N27 "dina<11>")
+    (joined
+      (portRef (member dina 12))
+      (portRef (member dina 12) (instanceRef BU2))
+    )
+   )
+   (net (rename N28 "dina<10>")
+    (joined
+      (portRef (member dina 13))
+      (portRef (member dina 13) (instanceRef BU2))
+    )
+   )
+   (net (rename N29 "dina<9>")
+    (joined
+      (portRef (member dina 14))
+      (portRef (member dina 14) (instanceRef BU2))
+    )
+   )
+   (net (rename N30 "dina<8>")
+    (joined
+      (portRef (member dina 15))
+      (portRef (member dina 15) (instanceRef BU2))
+    )
+   )
+   (net (rename N31 "dina<7>")
+    (joined
+      (portRef (member dina 16))
+      (portRef (member dina 16) (instanceRef BU2))
+    )
+   )
+   (net (rename N32 "dina<6>")
+    (joined
+      (portRef (member dina 17))
+      (portRef (member dina 17) (instanceRef BU2))
+    )
+   )
+   (net (rename N33 "dina<5>")
+    (joined
+      (portRef (member dina 18))
+      (portRef (member dina 18) (instanceRef BU2))
+    )
+   )
+   (net (rename N34 "dina<4>")
+    (joined
+      (portRef (member dina 19))
+      (portRef (member dina 19) (instanceRef BU2))
+    )
+   )
+   (net (rename N35 "dina<3>")
+    (joined
+      (portRef (member dina 20))
+      (portRef (member dina 20) (instanceRef BU2))
+    )
+   )
+   (net (rename N36 "dina<2>")
+    (joined
+      (portRef (member dina 21))
+      (portRef (member dina 21) (instanceRef BU2))
+    )
+   )
+   (net (rename N37 "dina<1>")
+    (joined
+      (portRef (member dina 22))
+      (portRef (member dina 22) (instanceRef BU2))
+    )
+   )
+   (net (rename N38 "dina<0>")
+    (joined
+      (portRef (member dina 23))
+      (portRef (member dina 23) (instanceRef BU2))
+    )
+   )
+   (net (rename N63 "clkb")
+    (joined
+      (portRef clkb)
+      (portRef clkb (instanceRef BU2))
+    )
+   )
+   (net (rename N64 "rstb")
+    (joined
+      (portRef rstb)
+      (portRef rstb (instanceRef BU2))
+    )
+   )
+   (net (rename N65 "enb")
+    (joined
+      (portRef enb)
+      (portRef enb (instanceRef BU2))
+    )
+   )
+   (net (rename N68 "addrb<7>")
+    (joined
+      (portRef (member addrb 0))
+      (portRef (member addrb 0) (instanceRef BU2))
+    )
+   )
+   (net (rename N69 "addrb<6>")
+    (joined
+      (portRef (member addrb 1))
+      (portRef (member addrb 1) (instanceRef BU2))
+    )
+   )
+   (net (rename N70 "addrb<5>")
+    (joined
+      (portRef (member addrb 2))
+      (portRef (member addrb 2) (instanceRef BU2))
+    )
+   )
+   (net (rename N71 "addrb<4>")
+    (joined
+      (portRef (member addrb 3))
+      (portRef (member addrb 3) (instanceRef BU2))
+    )
+   )
+   (net (rename N72 "addrb<3>")
+    (joined
+      (portRef (member addrb 4))
+      (portRef (member addrb 4) (instanceRef BU2))
+    )
+   )
+   (net (rename N73 "addrb<2>")
+    (joined
+      (portRef (member addrb 5))
+      (portRef (member addrb 5) (instanceRef BU2))
+    )
+   )
+   (net (rename N74 "addrb<1>")
+    (joined
+      (portRef (member addrb 6))
+      (portRef (member addrb 6) (instanceRef BU2))
+    )
+   )
+   (net (rename N75 "addrb<0>")
+    (joined
+      (portRef (member addrb 7))
+      (portRef (member addrb 7) (instanceRef BU2))
+    )
+   )
+   (net (rename N100 "doutb<23>")
+    (joined
+      (portRef (member doutb 0))
+      (portRef (member doutb 0) (instanceRef BU2))
+    )
+   )
+   (net (rename N101 "doutb<22>")
+    (joined
+      (portRef (member doutb 1))
+      (portRef (member doutb 1) (instanceRef BU2))
+    )
+   )
+   (net (rename N102 "doutb<21>")
+    (joined
+      (portRef (member doutb 2))
+      (portRef (member doutb 2) (instanceRef BU2))
+    )
+   )
+   (net (rename N103 "doutb<20>")
+    (joined
+      (portRef (member doutb 3))
+      (portRef (member doutb 3) (instanceRef BU2))
+    )
+   )
+   (net (rename N104 "doutb<19>")
+    (joined
+      (portRef (member doutb 4))
+      (portRef (member doutb 4) (instanceRef BU2))
+    )
+   )
+   (net (rename N105 "doutb<18>")
+    (joined
+      (portRef (member doutb 5))
+      (portRef (member doutb 5) (instanceRef BU2))
+    )
+   )
+   (net (rename N106 "doutb<17>")
+    (joined
+      (portRef (member doutb 6))
+      (portRef (member doutb 6) (instanceRef BU2))
+    )
+   )
+   (net (rename N107 "doutb<16>")
+    (joined
+      (portRef (member doutb 7))
+      (portRef (member doutb 7) (instanceRef BU2))
+    )
+   )
+   (net (rename N108 "doutb<15>")
+    (joined
+      (portRef (member doutb 8))
+      (portRef (member doutb 8) (instanceRef BU2))
+    )
+   )
+   (net (rename N109 "doutb<14>")
+    (joined
+      (portRef (member doutb 9))
+      (portRef (member doutb 9) (instanceRef BU2))
+    )
+   )
+   (net (rename N110 "doutb<13>")
+    (joined
+      (portRef (member doutb 10))
+      (portRef (member doutb 10) (instanceRef BU2))
+    )
+   )
+   (net (rename N111 "doutb<12>")
+    (joined
+      (portRef (member doutb 11))
+      (portRef (member doutb 11) (instanceRef BU2))
+    )
+   )
+   (net (rename N112 "doutb<11>")
+    (joined
+      (portRef (member doutb 12))
+      (portRef (member doutb 12) (instanceRef BU2))
+    )
+   )
+   (net (rename N113 "doutb<10>")
+    (joined
+      (portRef (member doutb 13))
+      (portRef (member doutb 13) (instanceRef BU2))
+    )
+   )
+   (net (rename N114 "doutb<9>")
+    (joined
+      (portRef (member doutb 14))
+      (portRef (member doutb 14) (instanceRef BU2))
+    )
+   )
+   (net (rename N115 "doutb<8>")
+    (joined
+      (portRef (member doutb 15))
+      (portRef (member doutb 15) (instanceRef BU2))
+    )
+   )
+   (net (rename N116 "doutb<7>")
+    (joined
+      (portRef (member doutb 16))
+      (portRef (member doutb 16) (instanceRef BU2))
+    )
+   )
+   (net (rename N117 "doutb<6>")
+    (joined
+      (portRef (member doutb 17))
+      (portRef (member doutb 17) (instanceRef BU2))
+    )
+   )
+   (net (rename N118 "doutb<5>")
+    (joined
+      (portRef (member doutb 18))
+      (portRef (member doutb 18) (instanceRef BU2))
+    )
+   )
+   (net (rename N119 "doutb<4>")
+    (joined
+      (portRef (member doutb 19))
+      (portRef (member doutb 19) (instanceRef BU2))
+    )
+   )
+   (net (rename N120 "doutb<3>")
+    (joined
+      (portRef (member doutb 20))
+      (portRef (member doutb 20) (instanceRef BU2))
+    )
+   )
+   (net (rename N121 "doutb<2>")
+    (joined
+      (portRef (member doutb 21))
+      (portRef (member doutb 21) (instanceRef BU2))
+    )
+   )
+   (net (rename N122 "doutb<1>")
+    (joined
+      (portRef (member doutb 22))
+      (portRef (member doutb 22) (instanceRef BU2))
+    )
+   )
+   (net (rename N123 "doutb<0>")
+    (joined
+      (portRef (member doutb 23))
+      (portRef (member doutb 23) (instanceRef BU2))
+    )
+   )
+))))
+(design cache_tag_blk_ram (cellRef cache_tag_blk_ram (libraryRef test_lib))
+  (property X_CORE_INFO (string "blk_mem_gen_v4_3, Xilinx CORE Generator 14.1"))
+  (property PART (string "xc5vlx110t-ff1136-3") (owner "Xilinx"))
+))

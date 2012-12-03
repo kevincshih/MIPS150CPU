@@ -1,0 +1,11 @@
+CC=gcc
+
+CFLAGS=-lm
+
+le: le.o
+
+
+
+clean:
+
+	rm -f le le.o
